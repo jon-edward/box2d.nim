@@ -1,4 +1,5 @@
 {.passC: "-I ../box2c/include"}
+{.passC: "-I ../box2c/src"}
 
 {.passC: "-I ../box2c/extern/glad/include"}
 {.passC: "-I ../box2c/extern/jsmn"}
@@ -26,3 +27,5 @@ macro compileCFiles(sourceDir: static[string]): untyped =
 
 
 compileCFiles("../box2c/src")
+
+include box2d/wrapper
