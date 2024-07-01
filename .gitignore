@@ -2,3 +2,5 @@ nimcache/
 nimblecache/
 htmldocs/
 tmp/
+
+generated_*.nim
