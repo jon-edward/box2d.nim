@@ -7,7 +7,7 @@
 
 import unittest
 
-import box2d
+import box2d/wrapper
 
 
 test "hello_world":
