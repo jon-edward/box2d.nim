@@ -1,10 +1,3 @@
-# This is just an example to get you started. You may wish to put all of your
-# tests into a single file, or separate them into multiple `test1`, `test2`
-# etc. files (better names are recommended, just make sure the name starts with
-# the letter 't').
-#
-# To run these tests, simply execute `nimble test`.
-
 import unittest
 
 import box2d/wrapper
@@ -59,3 +52,89 @@ test "hello_world":
   check position.x.abs < 0.01f
   check (position.y - 1.0f).abs < 0.01f
   check angle.abs < 0.01f
+
+
+test "empty_world":
+  let worldDef = b2DefaultWorldDef()
+  let worldId = b2CreateWorld(worldDef.addr)
+
+  check b2World_IsValid(worldId)
+
+  let timeStep = 1.0f / 60.0f
+  let subStepCount: int32 = 1
+
+  for i in 0..<60:
+    b2World_Step(worldId, timeStep, subStepCount)
+  
+  b2DestroyWorld(worldId)
+
+  check not b2World_IsValid(worldId)
+
+
+const bodyCount = 10
+
+
+test "destroy_all_bodies_world":
+  let worldDef = b2DefaultWorldDef()
+  let worldId = b2CreateWorld(worldDef.addr)
+
+  check b2World_IsValid(worldId)
+
+  var count = 0
+  var creating = true
+
+  var bodyIds: array[bodyCount, b2BodyId]
+  var bodyDef = b2DefaultBodyDef()
+  bodyDef.`type` = b2_dynamicBody
+  let square = b2MakeSquare(0.5f)
+
+  for i in 0..<(2*bodyCount + 10):
+    if creating:
+      if count < bodyCount:
+        bodyIds[count] = b2CreateBody(worldId, bodyDef.addr)
+        let shapeDef = b2DefaultShapeDef()
+        discard b2CreatePolygonShape(bodyIds[count], shapeDef.addr, square.addr)
+        count += 1
+      else:
+        creating = false
+    
+    elif count > 0:
+      b2DestroyBody(bodyIds[count - 1])
+      bodyIds[count - 1] = b2_nullBodyId
+      count -= 1
+    
+    b2World_Step(worldId, 1.0f / 60.0f, 3)
+  
+  let counters = b2World_GetCounters(worldId)
+
+  check counters.bodyCount == 0
+
+  b2DestroyWorld(worldId)
+
+  check not b2World_IsValid(worldId)
+
+
+test "test_is_valid":
+  let worldDef = b2DefaultWorldDef()
+  let worldId = b2CreateWorld(worldDef.addr)
+  check b2World_IsValid(worldId)
+
+  let bodyDef = b2DefaultBodyDef()
+
+  let bodyId1 = b2CreateBody(worldId, bodyDef.addr)
+  check b2Body_IsValid(bodyId1)
+
+  let bodyId2 = b2CreateBody(worldId, bodyDef.addr)
+  check b2Body_IsValid(bodyId2)
+
+  b2DestroyBody(bodyId1)
+  check not b2Body_IsValid(bodyId1)
+
+  b2DestroyBody(bodyId2)
+  check not b2Body_IsValid(bodyId2)
+
+  b2DestroyWorld(worldId)
+
+  check not b2World_IsValid(worldId)
+  check not b2Body_IsValid(bodyId1)
+  check not b2Body_IsValid(bodyId2)
