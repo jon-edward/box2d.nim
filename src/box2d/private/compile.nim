@@ -1,3 +1,8 @@
+## This links and compiles the box2c source files.
+## 
+## ensureCompiled is provided as a noop to prevent unused import warnings 
+## in files that depend on this compilation step.
+
 import os, macros, strutils
 
 const box2cRoot = currentSourcePath.parentDir / "box2c"
