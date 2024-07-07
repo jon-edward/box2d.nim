@@ -11,6 +11,7 @@ const box2cRoot = currentSourcePath.parentDir / "box2c"
 {.passC: "-I " & (box2cRoot / "extern" / "jsmn")}
 
 
+## List {.compile: "<C>".} for every C source file in sourceDir. 
 macro compileCFiles(sourceDir: static[string]): untyped = 
   result = newStmtList()
 

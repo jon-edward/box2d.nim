@@ -1,7 +1,9 @@
-## These are contants defined within Box2D.
+## These are all declared constants from box2c/include/box2d header files.
 
-import types
+import box2d
 
+import ../compile
+ensureCompiled()
 
 const b2_pi* = 3.14159265359
 const b2_maxPolygonVertices* = 8
