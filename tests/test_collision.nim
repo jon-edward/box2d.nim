@@ -1,6 +1,7 @@
 import unittest
 
 import box2d/wrapper
+import box2d/private/wrapper/internal
 
 
 test "aabb_test":

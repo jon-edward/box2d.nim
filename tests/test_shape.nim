@@ -2,6 +2,7 @@ import math
 import unittest
 
 import box2d/wrapper
+import box2d/private/wrapper/internal
 
 
 var FLT_EPSILON {. importc: "FLT_EPSILON" header: "float.h" .} : cfloat
