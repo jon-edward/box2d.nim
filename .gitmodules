@@ -1,6 +1,3 @@
 [submodule "src/box2d/private/box2c"]
 	path = src/box2d/private/box2c
 	url = https://github.com/erincatto/box2c.git
-[submodule "src/box2d/private/enkiTS"]
-	path = src/box2d/private/enkiTS
-	url = https://github.com/dougbinks/enkiTS.git
