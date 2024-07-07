@@ -1,2 +1,1 @@
-import box2d/private/compile
-ensureCompiled()
+## This is the Box2D.nim API.
