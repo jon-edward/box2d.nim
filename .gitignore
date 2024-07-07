@@ -4,3 +4,4 @@ htmldocs/
 tmp/
 
 generated_*.nim
+create_wrapper.nims
