@@ -22,10 +22,7 @@ test "table_test":
     for i in 0..<n:
         for j in (i+1)..<n:
             let key = b2shapePairKey(i.uint64, j.uint64)
-            echo key, " ", i, " ", j
             discard b2AddKey(tSet.addr, key)
-    
-    echo tSet
     
     check tSet.count == itemCount
 
