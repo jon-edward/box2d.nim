@@ -1,6 +1,6 @@
 ## This is a helper script to generate bindings for Box2D
 
-import os, macros, strutils, sequtils
+import os, macros
 
 import futhark
 
@@ -14,14 +14,13 @@ const box2cRoot* = (
 
 const outputDir = currentSourcePath.parentDir
 
-const futharkSysPath {.define: "futharkSysPath".} = getClangIncludePath()
-const compilerArg = futharkSysPath.split(":").map(proc (s: string): string = "-I" & s).join(" ")
+const futharkCompilerArg {.define: "futharkCompilerArg".} = getClangIncludePath()
 
 
 when defined(createBox2dApiWrapper) or not (defined(createBox2dSrcWrapper) or defined(createBox2dInlineWrapper)):
     # Box2D API
     importc:
-        compilerArg compilerArg
+        compilerArg futharkCompilerArg
         path box2cRoot / "include" / "box2d"
         outputPath outputDir / "generated_include.nim"
         "base.h"
@@ -35,7 +34,7 @@ when defined(createBox2dApiWrapper) or not (defined(createBox2dSrcWrapper) or de
 when defined(createBox2dSrcWrapper):
     # Included in tests
     importc:
-        compilerArg compilerArg
+        compilerArg futharkCompilerArg
         path box2cRoot / "src"
         sysPath box2cRoot / "jsmn"
         sysPath box2cRoot / "include"
@@ -51,7 +50,7 @@ when defined(createBox2dSrcWrapper):
 when defined(createBox2dInlineWrapper):
     # Inline functions
     importc:
-        compilerArg compilerArg
+        compilerArg futharkCompilerArg
         path box2cRoot.parentDir / "inline"
         outputPath outputDir / "generated_inline.nim"
         "math_functions.h"
