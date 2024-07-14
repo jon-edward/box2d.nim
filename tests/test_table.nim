@@ -1,6 +1,6 @@
 import unittest
 
-import box2d/private/wrapper/internal
+import box2d/private/internal
 
 
 const setSpan = 317

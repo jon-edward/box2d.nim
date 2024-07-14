@@ -22,7 +22,7 @@ test "hello_world":
   discard b2createpolygonshape(groundId, groundShapeDef.addr, groundBox.addr)
 
   var bodyDef = b2defaultbodydef()
-  bodyDef.`type` = b2dynamicbody
+  bodyDef.bodyType = b2dynamicbody
   bodyDef.position = b2vec2(x: 0.0f, y: 4.0f)
 
   let bodyId = b2createbody(worldId, bodyDef.addr)
@@ -85,7 +85,7 @@ test "destroy_all_bodies_world":
 
   var bodyIds: array[bodyCount, b2BodyId]
   var bodyDef = b2DefaultBodyDef()
-  bodyDef.`type` = b2_dynamicBody
+  bodyDef.bodyType = b2_dynamicBody
   let square = b2MakeSquare(0.5f)
 
   for i in 0..<(2*bodyCount + 10):
