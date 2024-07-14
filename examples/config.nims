@@ -32,4 +32,4 @@ if defined(emscripten):
     --define:noSignalHandler # Emscripten doesn't support signal handlers.
 
     # Pass this to Emscripten linker to generate html file scaffold for us.
-    switch("passL", "-o boxes.html --shell-file shell_minimal.html -sTOTAL_STACK=128MB -sTOTAL_MEMORY=256MB")
+    switch("passL", "-o boxes.html --shell-file ./static/shell_minimal.html -sTOTAL_STACK=128MB -sTOTAL_MEMORY=256MB")
