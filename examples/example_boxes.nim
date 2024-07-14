@@ -3,7 +3,7 @@ import strutils
 import std/strformat
 
 import raylib
-import box2d/wrapper
+import box2d
 
 const subStepCount = 2
 
@@ -25,7 +25,7 @@ proc spawn(_: typedesc[Box], worldId: b2WorldId, position: Vector2, dimensions: 
     var bodyDef = b2DefaultBodyDef()
 
     if dynamic:
-        bodyDef.`type` = b2_dynamicBody
+        bodyDef.bodyType = b2_dynamicBody
     
     bodyDef.position = b2Vec2(x: position.x / spaceScaling, y: position.y / spaceScaling)
     
