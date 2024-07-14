@@ -46,7 +46,7 @@ when not defined(b2JointType):
     type b2JointType* {.size: sizeof(cuint).} = enum
         ## Joint type enumeration
         ##
-        ## This is useful because all joint types use b2JointId and sometimes you
+        ## This is useful because all joint types use `b2JointId`_ and sometimes you
         ## want to get the type of a joint.
         
         b2_distanceJoint = 0, 
@@ -248,7 +248,7 @@ when not defined(b2Capsule):
 
 when not defined(b2DistanceCache):
     type b2DistanceCache* {.pure, inheritable, bycopy.} = object
-        ## Used to warm start b2Distance. Set count to zero on first call or
+        ## Used to warm start `b2ShapeDistance`_. Set count to zero on first call or
         ## use zero initialization.
         
         metric*: cfloat                 
@@ -269,13 +269,13 @@ when not defined(b2Polygon):
         ## A solid convex polygon. It is assumed that the interior of the polygon is to
         ## the left of each edge.
         ## 
-        ## Polygons have a maximum number of vertices equal to b2_maxPolygonVertices.
+        ## Polygons have a maximum number of vertices equal to `b2_maxPolygonVertices`_.
         ## 
         ## In most cases you should not need many vertices for a convex polygon.
         ## 
         ## .. warning:: 
         ##  DO NOT fill this out manually, instead use a helper function like 
-        ##  b2MakePolygon or b2MakeBox.
+        ##  `b2MakePolygon`_ or `b2MakeBox`_.
         
         vertices*: array[8'i64, b2Vec2]     
         ## The polygon vertices
@@ -443,7 +443,7 @@ when not defined(b2DistanceProxy):
 
 when not defined(b2DistanceInput):
     type b2DistanceInput* {.pure, inheritable, bycopy.} = object
-        ## Input for b2Distance
+        ## Input for `b2ShapeDistance`_
         
         proxyA*: b2DistanceProxy    
         ## The proxy for shape A
@@ -463,7 +463,7 @@ when not defined(b2DistanceInput):
 
 when not defined(b2DistanceOutput):
     type b2DistanceOutput* {.pure, inheritable, bycopy.} = object
-        ## Output for b2Distance
+        ## Output for `b2ShapeDistance`_
         
         pointA*: b2Vec2     
         ## Closest point on shape A
@@ -480,7 +480,7 @@ when not defined(b2DistanceOutput):
 
 when not defined(b2ShapeCastPairInput):
     type b2ShapeCastPairInput* {.pure, inheritable, bycopy.} = object
-        ## Input parameters for b2ShapeCast
+        ## Input parameters for `b2ShapeCast`_
         
         proxyA*: b2DistanceProxy    
         ## The proxy for shape A
@@ -525,7 +525,7 @@ when not defined(b2Sweep):
 
 when not defined(b2TOIInput):
     type b2TOIInput* {.pure, inheritable, bycopy.} = object
-        ## Input parameters for b2TimeOfImpact
+        ## Input parameters for `b2TimeOfImpact`_
         
         proxyA*: b2DistanceProxy    
         ## The proxy for shape A
@@ -545,7 +545,7 @@ when not defined(b2TOIInput):
 
 when not defined(b2TOIOutput):
     type b2TOIOutput* {.pure, inheritable, bycopy.} = object
-        ## Output parameters for b2TimeOfImpact.
+        ## Output parameters for `b2TimeOfImpact`_.
         
         state*: b2TOIState  
         ## The type of result
@@ -662,7 +662,7 @@ when not defined(b2TaskCallback):
         ## 
         ## The task context is the context pointer sent from Box2D when it is enqueued.
         ## 
-        ## The startIndex and endIndex are expected in the range [0, itemCount) where itemCount is the argument to b2EnqueueTaskCallback
+        ## The startIndex and endIndex are expected in the range [0, itemCount) where itemCount is the argument to `b2EnqueueTaskCallback`_
         ## below. Box2D expects startIndex < endIndex and will execute a loop like this:
         ## 
         ## ```
@@ -677,14 +677,14 @@ when not defined(b2EnqueueTaskCallback):
         ## These functions can be provided to Box2D to invoke a task system. These are designed to work well with enkiTS.
         ## 
         ## Returns a pointer to the user's task object. May be nullptr. A nullptr indicates to Box2D that the work was executed
-        ## serially within the callback and there is no need to call b2FinishTaskCallback.
+        ## serially within the callback and there is no need to call `b2FinishTaskCallback`_.
         ## 
         ## The itemCount is the number of Box2D work items that are to be partitioned among workers by the user's task system.
         ## 
         ## This is essentially a parallel-for. The minRange parameter is a suggestion of the minimum number of items to assign
         ## per worker to reduce overhead. For example, suppose the task is small and that itemCount is 16. A minRange of 8 suggests
         ## that your task system should split the work items among just two workers, even if you have more available.
-        ## In general the range [startIndex, endIndex) send to b2TaskCallback should obey:
+        ## In general the range [startIndex, endIndex) send to `b2TaskCallback`_ should obey:
         ## 
         ## ``endIndex - startIndex >= minRange``
         ## 
@@ -698,7 +698,7 @@ when not defined(b2FinishTaskCallback):
 
 when not defined(b2RayResult):
     type b2RayResult* {.pure, inheritable, bycopy.} = object
-        ## Result from b2World_RayCastClosest
+        ## Result from `b2World_CastRayClosest`_
         
         shapeId*: b2ShapeId 
         point*: b2Vec2
@@ -932,7 +932,7 @@ when not defined(b2ChainDef):
         ## - chains have a counter-clockwise winding order
         ## - chains are either a loop or open
         ## - a chain must have at least 4 points
-        ## - the distance between any two points must be greater than b2_linearSlop
+        ## - the distance between any two points must be greater than ``b2_linearSlop``
         ## - a chain shape should not self intersect (this is not validated)
         ## - an open chain shape has NO COLLISION on the first and final edge
         ## - you may overlap two open chains on their first three and/or last three points to get smooth collision
@@ -1980,7 +1980,7 @@ when not defined(b2ComputeHull):
         ## - all points very close together
         ## - all points on a line
         ## - less than 3 points
-        ## - more than b2_maxPolygonVertices points
+        ## - more than `b2_maxPolygonVertices`_ points
         ## 
         ## This welds close points and removes collinear points.
         ## 
@@ -2002,9 +2002,9 @@ when not defined(b2SegmentDistance):
 when not defined(b2ShapeDistance):
     proc b2ShapeDistance*(cache: ptr b2DistanceCache; input: ptr b2DistanceInput): b2DistanceOutput {.cdecl, importc: "b2ShapeDistance".}
         ## Compute the closest points between two shapes. Supports any combination of:
-        ## b2Circle, b2Polygon, b2EdgeShape. The simplex cache is input/output. 
+        ## `b2Circle`_, `b2Polygon`_, ``b2EdgeShape``. The simplex cache is input/output. 
         ## 
-        ## On the first call set b2SimplexCache.count to zero.
+        ## On the first call set ``b2SimplexCache.count`` to zero.
 
 
 when not defined(b2ShapeCast):
@@ -2336,7 +2336,7 @@ when not defined(b2World_SetRestitutionThreshold):
 
 when not defined(b2World_SetHitEventThreshold):
     proc b2World_SetHitEventThreshold*(worldId: b2WorldId; value: cfloat): void {.cdecl, importc: "b2World_SetHitEventThreshold".}
-        ## Adjust the hit event threshold. This controls the collision velocity needed to generate a b2ContactHitEvent.
+        ## Adjust the hit event threshold. This controls the collision velocity needed to generate a `b2ContactHitEvent`_.
         ## 
         ## Typically in meters per second.
         ## 
@@ -3068,8 +3068,8 @@ when not defined(b2Shape_SetPolygon):
 
 when not defined(b2Shape_GetParentChain):
     proc b2Shape_GetParentChain*(shapeId: b2ShapeId): b2ChainId {.cdecl, importc: "b2Shape_GetParentChain".}
-        ## Get the parent chain id if the shape type is b2_smoothSegmentShape, otherwise
-        ## returns b2_nullChainId.
+        ## Get the parent chain id if the shape type is `b2ShapeType`_.b2_smoothSegmentShape, otherwise
+        ## returns `b2_nullChainId`_.
 
 
 when not defined(b2Shape_GetContactCapacity):
