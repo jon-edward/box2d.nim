@@ -1,7 +1,4 @@
 ## This links and compiles the box2c source files.
-## 
-## ensureCompiled is provided as a noop to prevent unused import warnings 
-## in files that depend on this compilation step.
 
 import os, macros, strutils
 
@@ -20,8 +17,8 @@ when defined(emscripten):
   {.passC: "-D NDEBUG"}
 
 
-## List {.compile: "<C>".} for every C source file in sourceDir. 
 macro compileCFiles(sourceDir: static[string]): untyped = 
+  ## List {.compile: "<C>".} for every C source file in sourceDir. 
   result = newStmtList()
 
   for file in walkDir(sourceDir):
@@ -42,4 +39,6 @@ macro compileCFiles(sourceDir: static[string]): untyped =
 compileCFiles(box2cRoot / "src")
 
 template ensureCompiled*() = 
-    discard
+  ## a noop to prevent unused import warnings 
+  ## in files that depend on this compilation step.
+  discard
