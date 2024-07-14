@@ -1,0 +1,25 @@
+on:
+    push:
+        tags:
+            - 'v*'
+    workflow_dispatch:
+
+
+jobs:
+    build_docs:
+        runs-on: ubuntu-latest
+        
+        steps:
+            - uses: actions/checkout@v4
+            
+            - name: Init and update submodules 
+              run: |
+                git submodule init
+                git submodule update
+            
+            - uses: jiro4989/setup-nim-action@v2
+              name: Set up Nim
+            
+            - name: Build docs
+              run: |
+                nim doc --project ./src/box2d.nim
