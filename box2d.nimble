@@ -1,6 +1,6 @@
 # Package
 
-version       = "0.0.1"
+version       = "0.0.2"
 author        = "jon-edward"
 description   = "Nim bindings for Erin Catto's Box2D physics engine."
 license       = "MIT"
