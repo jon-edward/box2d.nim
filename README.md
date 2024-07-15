@@ -23,6 +23,8 @@ There are most of Box2D's unit tests translated to Nim in the
 using [naylib](https://github.com/planetis-m/naylib) for rendering in the [examples](https://github.com/jon-edward/box2d.nim/tree/main/examples) 
 directory.
 
+Building and testing is done for `ubuntu-latest`, `windows-latest`, and `macos-latest` GitHub runners per release.
+
 ## Simple example
 
 Box2D passes the user IDs for creating, manipulating, and reading world members such as shapes and bodies. The properties 
