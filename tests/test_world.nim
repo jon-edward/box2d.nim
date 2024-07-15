@@ -4,50 +4,50 @@ import box2d/wrapper
 
 
 test "hello_world":
-  var worldDef = b2defaultworlddef()
-  worldDef.gravity = b2vec2(x: 0.0f, y: -10.0f)
+  var worldDef = b2DefaultWorldDef()
+  worldDef.gravity = b2Vec2(x: 0.0f, y: -10.0f)
 
-  let worldId = b2createworld(worldDef.addr)
-  check b2worldisvalid(worldId)
+  let worldId = b2CreateWorld(worldDef.addr)
+  check b2World_IsValid(worldId)
 
-  var groundBodyDef = b2defaultbodydef()
-  groundBodyDef.position = b2vec2(x: 0.0f, y: -10f)
+  var groundBodyDef = b2DefaultBodyDef()
+  groundBodyDef.position = b2Vec2(x: 0.0f, y: -10f)
 
-  let groundId = b2createbody(worldId, groundBodyDef.addr)
-  check b2bodyisvalid(groundId)
+  let groundId = b2CreateBody(worldId, groundBodyDef.addr)
+  check b2Body_IsValid(groundId)
 
-  let groundBox = b2makebox(50.0f, 10.0f)
+  let groundBox = b2MakeBox(50.0f, 10.0f)
 
-  let groundShapeDef = b2defaultshapedef()
-  discard b2createpolygonshape(groundId, groundShapeDef.addr, groundBox.addr)
+  let groundShapeDef = b2DefaultShapeDef()
+  discard b2CreatePolygonShape(groundId, groundShapeDef.addr, groundBox.addr)
 
-  var bodyDef = b2defaultbodydef()
-  bodyDef.bodyType = b2dynamicbody
-  bodyDef.position = b2vec2(x: 0.0f, y: 4.0f)
+  var bodyDef = b2DefaultBodyDef()
+  bodyDef.bodyType = b2_dynamicBody
+  bodyDef.position = b2Vec2(x: 0.0f, y: 4.0f)
 
-  let bodyId = b2createbody(worldId, bodyDef.addr)
+  let bodyId = b2CreateBody(worldId, bodyDef.addr)
 
-  let dynamicBox = b2makebox(1.0f, 1.0f)
+  let dynamicBox = b2MakeBox(1.0f, 1.0f)
 
-  var shapeDef = b2defaultshapedef()
+  var shapeDef = b2DefaultShapeDef()
   shapeDef.density = 1.0f
   shapeDef.friction = 0.3f
 
-  discard b2createpolygonshape(bodyId, shapeDef.addr, dynamicBox.addr)
+  discard b2CreatePolygonShape(bodyId, shapeDef.addr, dynamicBox.addr)
 
   let timeStep: cfloat = 1.0f / 60.0f
   let subStepCount: cint = 4
 
-  var position = b2bodygetposition(bodyId)
-  var angle = b2bodygetangle(bodyId)
+  var position = b2Body_GetPosition(bodyId)
+  var angle = b2Body_GetAngle(bodyId)
 
   for i in 0..<90:
-    b2worldstep(worldId, timeStep, subStepCount)
+    b2World_Step(worldId, timeStep, subStepCount)
 
-    position = b2bodygetposition(bodyId)
-    angle = b2bodygetangle(bodyId)
+    position = b2Body_GetPosition(bodyId)
+    angle = b2Body_GetAngle(bodyId)
   
-  b2destroyworld(worldId)
+  b2DestroyWorld(worldId)
 
   check position.x.abs < 0.01f
   check (position.y - 1.0f).abs < 0.01f
