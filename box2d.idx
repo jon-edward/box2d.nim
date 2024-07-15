@@ -1,0 +1,479 @@
+nimTitle	box2d	box2d.html	module src/box2d		0
+nim	b2TOIState	box2d.html#b2TOIState	enum b2TOIState		7
+nim	b2BodyType	box2d.html#b2BodyType	enum b2BodyType		18
+nim	b2ShapeType	box2d.html#b2ShapeType	enum b2ShapeType		30
+nim	b2JointType	box2d.html#b2JointType	enum b2JointType		42
+nim	b2HexColor	box2d.html#b2HexColor	enum b2HexColor		58
+nim	b2AllocFcn	box2d.html#b2AllocFcn	type b2AllocFcn		137
+nim	b2FreeFcn	box2d.html#b2FreeFcn	type b2FreeFcn		142
+nim	b2AssertFcn	box2d.html#b2AssertFcn	type b2AssertFcn		147
+nim	b2Version	box2d.html#b2Version	object b2Version		152
+nim	b2Timer	box2d.html#b2Timer	object b2Timer		168
+nim	b2Vec2	box2d.html#b2Vec2	object b2Vec2		176
+nim	b2Rot	box2d.html#b2Rot	object b2Rot		186
+nim	b2Transform	box2d.html#b2Transform	object b2Transform		196
+nim	b2Mat22	box2d.html#b2Mat22	object b2Mat22		204
+nim	b2AABB	box2d.html#b2AABB	object b2AABB		212
+nim	b2Circle	box2d.html#b2Circle	object b2Circle		220
+nim	b2Capsule	box2d.html#b2Capsule	object b2Capsule		231
+nim	b2DistanceCache	box2d.html#b2DistanceCache	object b2DistanceCache		246
+nim	b2Polygon	box2d.html#b2Polygon	object b2Polygon		264
+nim	b2Segment	box2d.html#b2Segment	object b2Segment		293
+nim	b2SmoothSegment	box2d.html#b2SmoothSegment	object b2SmoothSegment		304
+nim	b2Hull	box2d.html#b2Hull	object b2Hull		325
+nim	b2RayCastInput	box2d.html#b2RayCastInput	object b2RayCastInput		336
+nim	b2ShapeCastInput	box2d.html#b2ShapeCastInput	object b2ShapeCastInput		350
+nim	b2CastOutput	box2d.html#b2CastOutput	object b2CastOutput		373
+nim	b2MassData	box2d.html#b2MassData	object b2MassData		393
+nim	b2SegmentDistanceResult	box2d.html#b2SegmentDistanceResult	object b2SegmentDistanceResult		407
+nim	b2DistanceProxy	box2d.html#b2DistanceProxy	object b2DistanceProxy		427
+nim	b2DistanceInput	box2d.html#b2DistanceInput	object b2DistanceInput		441
+nim	b2DistanceOutput	box2d.html#b2DistanceOutput	object b2DistanceOutput		461
+nim	b2ShapeCastPairInput	box2d.html#b2ShapeCastPairInput	object b2ShapeCastPairInput		478
+nim	b2Sweep	box2d.html#b2Sweep	object b2Sweep		501
+nim	b2TOIInput	box2d.html#b2TOIInput	object b2TOIInput		523
+nim	b2TOIOutput	box2d.html#b2TOIOutput	object b2TOIOutput		543
+nim	b2ManifoldPoint	box2d.html#b2ManifoldPoint	object b2ManifoldPoint		554
+nim	b2Manifold	box2d.html#b2Manifold	object b2Manifold		592
+nim	b2WorldId	box2d.html#b2WorldId	object b2WorldId		606
+nim	b2BodyId	box2d.html#b2BodyId	object b2BodyId		614
+nim	b2ShapeId	box2d.html#b2ShapeId	object b2ShapeId		623
+nim	b2JointId	box2d.html#b2JointId	object b2JointId		632
+nim	b2ChainId	box2d.html#b2ChainId	object b2ChainId		641
+nim	b2TaskCallback	box2d.html#b2TaskCallback	type b2TaskCallback		650
+nim	b2EnqueueTaskCallback	box2d.html#b2EnqueueTaskCallback	type b2EnqueueTaskCallback		671
+nim	b2FinishTaskCallback	box2d.html#b2FinishTaskCallback	type b2FinishTaskCallback		691
+nim	b2RayResult	box2d.html#b2RayResult	object b2RayResult		696
+nim	b2WorldDef	box2d.html#b2WorldDef	object b2WorldDef		707
+nim	b2BodyDef	box2d.html#b2BodyDef	object b2BodyDef		761
+nim	b2Filter	box2d.html#b2Filter	object b2Filter		836
+nim	b2QueryFilter	box2d.html#b2QueryFilter	object b2QueryFilter		862
+nim	b2ShapeDef	box2d.html#b2ShapeDef	object b2ShapeDef		876
+nim	b2ChainDef	box2d.html#b2ChainDef	object b2ChainDef		924
+nim	b2Profile	box2d.html#b2Profile	object b2Profile		968
+nim	b2Counters	box2d.html#b2Counters	object b2Counters		996
+nim	b2DistanceJointDef	box2d.html#b2DistanceJointDef	object b2DistanceJointDef		1014
+nim	b2MotorJointDef	box2d.html#b2MotorJointDef	object b2MotorJointDef		1075
+nim	b2MouseJointDef	box2d.html#b2MouseJointDef	object b2MouseJointDef		1111
+nim	b2PrismaticJointDef	box2d.html#b2PrismaticJointDef	object b2PrismaticJointDef		1145
+nim	b2RevoluteJointDef	box2d.html#b2RevoluteJointDef	object b2RevoluteJointDef		1209
+nim	b2WeldJointDef	box2d.html#b2WeldJointDef	object b2WeldJointDef		1281
+nim	b2WheelJointDef	box2d.html#b2WheelJointDef	object b2WheelJointDef		1326
+nim	b2SensorBeginTouchEvent	box2d.html#b2SensorBeginTouchEvent	object b2SensorBeginTouchEvent		1387
+nim	b2SensorEndTouchEvent	box2d.html#b2SensorEndTouchEvent	object b2SensorEndTouchEvent		1398
+nim	b2SensorEvents	box2d.html#b2SensorEvents	object b2SensorEvents		1409
+nim	b2ContactBeginTouchEvent	box2d.html#b2ContactBeginTouchEvent	object b2ContactBeginTouchEvent		1429
+nim	b2ContactEndTouchEvent	box2d.html#b2ContactEndTouchEvent	object b2ContactEndTouchEvent		1440
+nim	b2ContactHitEvent	box2d.html#b2ContactHitEvent	object b2ContactHitEvent		1451
+nim	b2ContactEvents	box2d.html#b2ContactEvents	object b2ContactEvents		1471
+nim	b2BodyMoveEvent	box2d.html#b2BodyMoveEvent	object b2BodyMoveEvent		1497
+nim	b2BodyEvents	box2d.html#b2BodyEvents	object b2BodyEvents		1521
+nim	b2ContactData	box2d.html#b2ContactData	object b2ContactData		1532
+nim	b2CustomFilterFcn	box2d.html#b2CustomFilterFcn	type b2CustomFilterFcn		1544
+nim	b2PreSolveFcn	box2d.html#b2PreSolveFcn	type b2PreSolveFcn		1562
+nim	b2OverlapResultFcn	box2d.html#b2OverlapResultFcn	type b2OverlapResultFcn		1581
+nim	b2CastResultFcn	box2d.html#b2CastResultFcn	type b2CastResultFcn		1590
+nim	b2DebugDraw	box2d.html#b2DebugDraw	object b2DebugDraw		1613
+nim	b2_pi	box2d.html#b2_pi	const b2_pi		1691
+nim	b2_maxPolygonVertices	box2d.html#b2_maxPolygonVertices	const b2_maxPolygonVertices		1694
+nim	b2_defaultCategoryBits	box2d.html#b2_defaultCategoryBits	const b2_defaultCategoryBits		1697
+nim	b2_defaultMaskBits	box2d.html#b2_defaultMaskBits	const b2_defaultMaskBits		1700
+nim	b2_nullWorldId	box2d.html#b2_nullWorldId	const b2_nullWorldId		1704
+nim	b2_nullBodyId	box2d.html#b2_nullBodyId	const b2_nullBodyId		1707
+nim	b2_nullShapeId	box2d.html#b2_nullShapeId	const b2_nullShapeId		1710
+nim	b2_nullJointId	box2d.html#b2_nullJointId	const b2_nullJointId		1713
+nim	b2_nullChainId	box2d.html#b2_nullChainId	const b2_nullChainId		1716
+nim	b2Vec2_zero	box2d.html#b2Vec2_zero	const b2Vec2_zero		1720
+nim	b2Rot_identity	box2d.html#b2Rot_identity	const b2Rot_identity		1723
+nim	b2Transform_identity	box2d.html#b2Transform_identity	const b2Transform_identity		1726
+nim	b2Mat22_zero	box2d.html#b2Mat22_zero	const b2Mat22_zero		1729
+nim	b2_emptyDistanceCache	box2d.html#b2_emptyDistanceCache	const b2_emptyDistanceCache		1732
+nim	b2SetAllocator	box2d.html#b2SetAllocator,b2AllocFcn,b2FreeFcn	proc b2SetAllocator(allocFcn: b2AllocFcn; freeFcn: b2FreeFcn): void		1741
+nim	b2GetByteCount	box2d.html#b2GetByteCount	proc b2GetByteCount(): cint		1748
+nim	b2SetAssertFcn	box2d.html#b2SetAssertFcn,b2AssertFcn	proc b2SetAssertFcn(assertFcn: b2AssertFcn): void		1753
+nim	b2GetVersion	box2d.html#b2GetVersion	proc b2GetVersion(): b2Version		1761
+nim	b2CreateTimer	box2d.html#b2CreateTimer	proc b2CreateTimer(): b2Timer		1766
+nim	b2GetTicks	box2d.html#b2GetTicks,ptr.b2Timer	proc b2GetTicks(timer: ptr b2Timer): int64		1770
+nim	b2GetMilliseconds	box2d.html#b2GetMilliseconds,ptr.b2Timer	proc b2GetMilliseconds(timer: ptr b2Timer): cfloat		1774
+nim	b2GetMillisecondsAndReset	box2d.html#b2GetMillisecondsAndReset,ptr.b2Timer	proc b2GetMillisecondsAndReset(timer: ptr b2Timer): cfloat		1778
+nim	b2SleepMilliseconds	box2d.html#b2SleepMilliseconds,cint	proc b2SleepMilliseconds(milliseconds: cint): void		1782
+nim	b2Yield	box2d.html#b2Yield	proc b2Yield(): void		1786
+nim	b2IsValid	box2d.html#b2IsValid,cfloat	proc b2IsValid(a: cfloat): bool		1790
+nim	b2Vec2_IsValid	box2d.html#b2Vec2_IsValid,b2Vec2	proc b2Vec2_IsValid(v: b2Vec2): bool		1795
+nim	b2Rot_IsValid	box2d.html#b2Rot_IsValid,b2Rot	proc b2Rot_IsValid(q: b2Rot): bool		1800
+nim	b2AABB_IsValid	box2d.html#b2AABB_IsValid,b2AABB	proc b2AABB_IsValid(aabb: b2AABB): bool		1805
+nim	b2Normalize	box2d.html#b2Normalize,b2Vec2	proc b2Normalize(v: b2Vec2): b2Vec2		1810
+nim	b2NormalizeChecked	box2d.html#b2NormalizeChecked,b2Vec2	proc b2NormalizeChecked(v: b2Vec2): b2Vec2		1815
+nim	b2GetLengthAndNormalize	box2d.html#b2GetLengthAndNormalize,ptr.cfloat,b2Vec2	proc b2GetLengthAndNormalize(length: ptr cfloat; v: b2Vec2): b2Vec2		1820
+nim	b2SetLengthUnitsPerMeter	box2d.html#b2SetLengthUnitsPerMeter,cfloat	proc b2SetLengthUnitsPerMeter(lengthUnits: cfloat): void		1826
+nim	b2GetLengthUnitsPerMeter	box2d.html#b2GetLengthUnitsPerMeter	proc b2GetLengthUnitsPerMeter(): cfloat		1836
+nim	b2IsValidRay	box2d.html#b2IsValidRay,ptr.b2RayCastInput	proc b2IsValidRay(input: ptr b2RayCastInput): bool		1841
+nim	b2MakePolygon	box2d.html#b2MakePolygon,ptr.b2Hull,cfloat	proc b2MakePolygon(hull: ptr b2Hull; radius: cfloat): b2Polygon		1846
+nim	b2MakeOffsetPolygon	box2d.html#b2MakeOffsetPolygon,ptr.b2Hull,cfloat,b2Transform	proc b2MakeOffsetPolygon(hull: ptr b2Hull; radius: cfloat; transform: b2Transform): b2Polygon		1851
+nim	b2MakeSquare	box2d.html#b2MakeSquare,cfloat	proc b2MakeSquare(h: cfloat): b2Polygon		1856
+nim	b2MakeBox	box2d.html#b2MakeBox,cfloat,cfloat	proc b2MakeBox(hx: cfloat; hy: cfloat): b2Polygon		1861
+nim	b2MakeRoundedBox	box2d.html#b2MakeRoundedBox,cfloat,cfloat,cfloat	proc b2MakeRoundedBox(hx: cfloat; hy: cfloat; radius: cfloat): b2Polygon		1866
+nim	b2MakeOffsetBox	box2d.html#b2MakeOffsetBox,cfloat,cfloat,b2Vec2,cfloat	proc b2MakeOffsetBox(hx: cfloat; hy: cfloat; center: b2Vec2; angle: cfloat): b2Polygon		1871
+nim	b2TransformPolygon	box2d.html#b2TransformPolygon,b2Transform,ptr.b2Polygon	proc b2TransformPolygon(transform: b2Transform; polygon: ptr b2Polygon): b2Polygon		1876
+nim	b2ComputeCircleMass	box2d.html#b2ComputeCircleMass,ptr.b2Circle,cfloat	proc b2ComputeCircleMass(shape: ptr b2Circle; density: cfloat): b2MassData		1881
+nim	b2ComputeCapsuleMass	box2d.html#b2ComputeCapsuleMass,ptr.b2Capsule,cfloat	proc b2ComputeCapsuleMass(shape: ptr b2Capsule; density: cfloat): b2MassData		1886
+nim	b2ComputePolygonMass	box2d.html#b2ComputePolygonMass,ptr.b2Polygon,cfloat	proc b2ComputePolygonMass(shape: ptr b2Polygon; density: cfloat): b2MassData		1891
+nim	b2ComputeCircleAABB	box2d.html#b2ComputeCircleAABB,ptr.b2Circle,b2Transform	proc b2ComputeCircleAABB(shape: ptr b2Circle; transform: b2Transform): b2AABB		1896
+nim	b2ComputeCapsuleAABB	box2d.html#b2ComputeCapsuleAABB,ptr.b2Capsule,b2Transform	proc b2ComputeCapsuleAABB(shape: ptr b2Capsule; transform: b2Transform): b2AABB		1901
+nim	b2ComputePolygonAABB	box2d.html#b2ComputePolygonAABB,ptr.b2Polygon,b2Transform	proc b2ComputePolygonAABB(shape: ptr b2Polygon; transform: b2Transform): b2AABB		1906
+nim	b2ComputeSegmentAABB	box2d.html#b2ComputeSegmentAABB,ptr.b2Segment,b2Transform	proc b2ComputeSegmentAABB(shape: ptr b2Segment; transform: b2Transform): b2AABB		1911
+nim	b2PointInCircle	box2d.html#b2PointInCircle,b2Vec2,ptr.b2Circle	proc b2PointInCircle(point: b2Vec2; shape: ptr b2Circle): bool		1916
+nim	b2PointInCapsule	box2d.html#b2PointInCapsule,b2Vec2,ptr.b2Capsule	proc b2PointInCapsule(point: b2Vec2; shape: ptr b2Capsule): bool		1921
+nim	b2PointInPolygon	box2d.html#b2PointInPolygon,b2Vec2,ptr.b2Polygon	proc b2PointInPolygon(point: b2Vec2; shape: ptr b2Polygon): bool		1926
+nim	b2RayCastCircle	box2d.html#b2RayCastCircle,ptr.b2RayCastInput,ptr.b2Circle	proc b2RayCastCircle(input: ptr b2RayCastInput; shape: ptr b2Circle): b2CastOutput		1931
+nim	b2RayCastCapsule	box2d.html#b2RayCastCapsule,ptr.b2RayCastInput,ptr.b2Capsule	proc b2RayCastCapsule(input: ptr b2RayCastInput; shape: ptr b2Capsule): b2CastOutput		1936
+nim	b2RayCastSegment	box2d.html#b2RayCastSegment,ptr.b2RayCastInput,ptr.b2Segment,bool	proc b2RayCastSegment(input: ptr b2RayCastInput; shape: ptr b2Segment; oneSided: bool): b2CastOutput		1941
+nim	b2RayCastPolygon	box2d.html#b2RayCastPolygon,ptr.b2RayCastInput,ptr.b2Polygon	proc b2RayCastPolygon(input: ptr b2RayCastInput; shape: ptr b2Polygon): b2CastOutput		1947
+nim	b2ShapeCastCircle	box2d.html#b2ShapeCastCircle,ptr.b2ShapeCastInput,ptr.b2Circle	proc b2ShapeCastCircle(input: ptr b2ShapeCastInput; shape: ptr b2Circle): b2CastOutput		1952
+nim	b2ShapeCastCapsule	box2d.html#b2ShapeCastCapsule,ptr.b2ShapeCastInput,ptr.b2Capsule	proc b2ShapeCastCapsule(input: ptr b2ShapeCastInput; shape: ptr b2Capsule): b2CastOutput		1957
+nim	b2ShapeCastSegment	box2d.html#b2ShapeCastSegment,ptr.b2ShapeCastInput,ptr.b2Segment	proc b2ShapeCastSegment(input: ptr b2ShapeCastInput; shape: ptr b2Segment): b2CastOutput		1962
+nim	b2ShapeCastPolygon	box2d.html#b2ShapeCastPolygon,ptr.b2ShapeCastInput,ptr.b2Polygon	proc b2ShapeCastPolygon(input: ptr b2ShapeCastInput; shape: ptr b2Polygon): b2CastOutput		1967
+nim	b2ComputeHull	box2d.html#b2ComputeHull,ptr.b2Vec2,int32	proc b2ComputeHull(points: ptr b2Vec2; count: int32): b2Hull		1972
+nim	b2ValidateHull	box2d.html#b2ValidateHull,ptr.b2Hull	proc b2ValidateHull(hull: ptr b2Hull): bool		1985
+nim	b2SegmentDistance	box2d.html#b2SegmentDistance,b2Vec2,b2Vec2,b2Vec2,b2Vec2	proc b2SegmentDistance(p1: b2Vec2; q1: b2Vec2; p2: b2Vec2; q2: b2Vec2): b2SegmentDistanceResult		1994
+nim	b2ShapeDistance	box2d.html#b2ShapeDistance,ptr.b2DistanceCache,ptr.b2DistanceInput	proc b2ShapeDistance(cache: ptr b2DistanceCache; input: ptr b2DistanceInput): b2DistanceOutput		1999
+nim	b2ShapeCast	box2d.html#b2ShapeCast,ptr.b2ShapeCastPairInput	proc b2ShapeCast(input: ptr b2ShapeCastPairInput): b2CastOutput		2007
+nim	b2MakeProxy	box2d.html#b2MakeProxy,ptr.b2Vec2,int32,cfloat	proc b2MakeProxy(vertices: ptr b2Vec2; count: int32; radius: cfloat): b2DistanceProxy		2012
+nim	b2GetSweepTransform	box2d.html#b2GetSweepTransform,ptr.b2Sweep,cfloat	proc b2GetSweepTransform(sweep: ptr b2Sweep; time: cfloat): b2Transform		2017
+nim	b2TimeOfImpact	box2d.html#b2TimeOfImpact,ptr.b2TOIInput	proc b2TimeOfImpact(input: ptr b2TOIInput): b2TOIOutput		2022
+nim	b2CollideCircles	box2d.html#b2CollideCircles,ptr.b2Circle,b2Transform,ptr.b2Circle,b2Transform	proc b2CollideCircles(circleA: ptr b2Circle; xfA: b2Transform; circleB: ptr b2Circle;\n                 xfB: b2Transform): b2Manifold		2030
+nim	b2CollideCapsuleAndCircle	box2d.html#b2CollideCapsuleAndCircle,ptr.b2Capsule,b2Transform,ptr.b2Circle,b2Transform	proc b2CollideCapsuleAndCircle(capsuleA: ptr b2Capsule; xfA: b2Transform;\n                          circleB: ptr b2Circle; xfB: b2Transform): b2Manifold		2035
+nim	b2CollideSegmentAndCircle	box2d.html#b2CollideSegmentAndCircle,ptr.b2Segment,b2Transform,ptr.b2Circle,b2Transform	proc b2CollideSegmentAndCircle(segmentA: ptr b2Segment; xfA: b2Transform;\n                          circleB: ptr b2Circle; xfB: b2Transform): b2Manifold		2040
+nim	b2CollidePolygonAndCircle	box2d.html#b2CollidePolygonAndCircle,ptr.b2Polygon,b2Transform,ptr.b2Circle,b2Transform	proc b2CollidePolygonAndCircle(polygonA: ptr b2Polygon; xfA: b2Transform;\n                          circleB: ptr b2Circle; xfB: b2Transform): b2Manifold		2045
+nim	b2CollideCapsules	box2d.html#b2CollideCapsules,ptr.b2Capsule,b2Transform,ptr.b2Capsule,b2Transform,ptr.b2DistanceCache	proc b2CollideCapsules(capsuleA: ptr b2Capsule; xfA: b2Transform;\n                  capsuleB: ptr b2Capsule; xfB: b2Transform;\n                  cache: ptr b2DistanceCache): b2Manifold		2050
+nim	b2CollideSegmentAndCapsule	box2d.html#b2CollideSegmentAndCapsule,ptr.b2Segment,b2Transform,ptr.b2Capsule,b2Transform,ptr.b2DistanceCache	proc b2CollideSegmentAndCapsule(segmentA: ptr b2Segment; xfA: b2Transform;\n                           capsuleB: ptr b2Capsule; xfB: b2Transform;\n                           cache: ptr b2DistanceCache): b2Manifold		2057
+nim	b2CollidePolygonAndCapsule	box2d.html#b2CollidePolygonAndCapsule,ptr.b2Polygon,b2Transform,ptr.b2Capsule,b2Transform,ptr.b2DistanceCache	proc b2CollidePolygonAndCapsule(polygonA: ptr b2Polygon; xfA: b2Transform;\n                           capsuleB: ptr b2Capsule; xfB: b2Transform;\n                           cache: ptr b2DistanceCache): b2Manifold		2064
+nim	b2CollidePolygons	box2d.html#b2CollidePolygons,ptr.b2Polygon,b2Transform,ptr.b2Polygon,b2Transform,ptr.b2DistanceCache	proc b2CollidePolygons(polyA: ptr b2Polygon; xfA: b2Transform; polyB: ptr b2Polygon;\n                  xfB: b2Transform; cache: ptr b2DistanceCache): b2Manifold		2071
+nim	b2CollideSegmentAndPolygon	box2d.html#b2CollideSegmentAndPolygon,ptr.b2Segment,b2Transform,ptr.b2Polygon,b2Transform,ptr.b2DistanceCache	proc b2CollideSegmentAndPolygon(segmentA: ptr b2Segment; xfA: b2Transform;\n                           polygonB: ptr b2Polygon; xfB: b2Transform;\n                           cache: ptr b2DistanceCache): b2Manifold		2078
+nim	b2CollideSmoothSegmentAndCircle	box2d.html#b2CollideSmoothSegmentAndCircle,ptr.b2SmoothSegment,b2Transform,ptr.b2Circle,b2Transform	proc b2CollideSmoothSegmentAndCircle(smoothSegmentA: ptr b2SmoothSegment;\n                                xfA: b2Transform; circleB: ptr b2Circle;\n                                xfB: b2Transform): b2Manifold		2085
+nim	b2CollideSmoothSegmentAndCapsule	box2d.html#b2CollideSmoothSegmentAndCapsule,ptr.b2SmoothSegment,b2Transform,ptr.b2Capsule,b2Transform,ptr.b2DistanceCache	proc b2CollideSmoothSegmentAndCapsule(smoothSegmentA: ptr b2SmoothSegment;\n                                 xfA: b2Transform; capsuleB: ptr b2Capsule;\n                                 xfB: b2Transform; cache: ptr b2DistanceCache): b2Manifold		2092
+nim	b2CollideSmoothSegmentAndPolygon	box2d.html#b2CollideSmoothSegmentAndPolygon,ptr.b2SmoothSegment,b2Transform,ptr.b2Polygon,b2Transform,ptr.b2DistanceCache	proc b2CollideSmoothSegmentAndPolygon(smoothSegmentA: ptr b2SmoothSegment;\n                                 xfA: b2Transform; polygonB: ptr b2Polygon;\n                                 xfB: b2Transform; cache: ptr b2DistanceCache): b2Manifold		2101
+nim	b2DefaultWorldDef	box2d.html#b2DefaultWorldDef	proc b2DefaultWorldDef(): b2WorldDef		2110
+nim	b2DefaultBodyDef	box2d.html#b2DefaultBodyDef	proc b2DefaultBodyDef(): b2BodyDef		2115
+nim	b2DefaultFilter	box2d.html#b2DefaultFilter	proc b2DefaultFilter(): b2Filter		2120
+nim	b2DefaultQueryFilter	box2d.html#b2DefaultQueryFilter	proc b2DefaultQueryFilter(): b2QueryFilter		2125
+nim	b2DefaultShapeDef	box2d.html#b2DefaultShapeDef	proc b2DefaultShapeDef(): b2ShapeDef		2130
+nim	b2DefaultChainDef	box2d.html#b2DefaultChainDef	proc b2DefaultChainDef(): b2ChainDef		2135
+nim	b2DefaultDistanceJointDef	box2d.html#b2DefaultDistanceJointDef	proc b2DefaultDistanceJointDef(): b2DistanceJointDef		2140
+nim	b2DefaultMotorJointDef	box2d.html#b2DefaultMotorJointDef	proc b2DefaultMotorJointDef(): b2MotorJointDef		2145
+nim	b2DefaultMouseJointDef	box2d.html#b2DefaultMouseJointDef	proc b2DefaultMouseJointDef(): b2MouseJointDef		2150
+nim	b2DefaultPrismaticJointDef	box2d.html#b2DefaultPrismaticJointDef	proc b2DefaultPrismaticJointDef(): b2PrismaticJointDef		2155
+nim	b2DefaultRevoluteJointDef	box2d.html#b2DefaultRevoluteJointDef	proc b2DefaultRevoluteJointDef(): b2RevoluteJointDef		2160
+nim	b2DefaultWeldJointDef	box2d.html#b2DefaultWeldJointDef	proc b2DefaultWeldJointDef(): b2WeldJointDef		2165
+nim	b2DefaultWheelJointDef	box2d.html#b2DefaultWheelJointDef	proc b2DefaultWheelJointDef(): b2WheelJointDef		2170
+nim	b2CreateWorld	box2d.html#b2CreateWorld,ptr.b2WorldDef	proc b2CreateWorld(def: ptr b2WorldDef): b2WorldId		2175
+nim	b2DestroyWorld	box2d.html#b2DestroyWorld,b2WorldId	proc b2DestroyWorld(worldId: b2WorldId): void		2183
+nim	b2World_IsValid	box2d.html#b2World_IsValid,b2WorldId	proc b2World_IsValid(id: b2WorldId): bool		2188
+nim	b2World_Step	box2d.html#b2World_Step,b2WorldId,cfloat,cint	proc b2World_Step(worldId: b2WorldId; timeStep: cfloat; subStepCount: cint): void		2193
+nim	b2World_Draw	box2d.html#b2World_Draw,b2WorldId,ptr.b2DebugDraw	proc b2World_Draw(worldId: b2WorldId; draw: ptr b2DebugDraw): void		2204
+nim	b2World_GetBodyEvents	box2d.html#b2World_GetBodyEvents,b2WorldId	proc b2World_GetBodyEvents(worldId: b2WorldId): b2BodyEvents		2209
+nim	b2World_GetSensorEvents	box2d.html#b2World_GetSensorEvents,b2WorldId	proc b2World_GetSensorEvents(worldId: b2WorldId): b2SensorEvents		2214
+nim	b2World_GetContactEvents	box2d.html#b2World_GetContactEvents,b2WorldId	proc b2World_GetContactEvents(worldId: b2WorldId): b2ContactEvents		2219
+nim	b2World_OverlapAABB	box2d.html#b2World_OverlapAABB,b2WorldId,b2AABB,b2QueryFilter,b2OverlapResultFcn,pointer	proc b2World_OverlapAABB(worldId: b2WorldId; aabb: b2AABB; filter: b2QueryFilter;\n                    fcn: b2OverlapResultFcn; context: pointer): void		2224
+nim	b2World_OverlapCircle	box2d.html#b2World_OverlapCircle,b2WorldId,ptr.b2Circle,b2Transform,b2QueryFilter,b2OverlapResultFcn,pointer	proc b2World_OverlapCircle(worldId: b2WorldId; circle: ptr b2Circle;\n                      transform: b2Transform; filter: b2QueryFilter;\n                      fcn: b2OverlapResultFcn; context: pointer): void		2231
+nim	b2World_OverlapCapsule	box2d.html#b2World_OverlapCapsule,b2WorldId,ptr.b2Capsule,b2Transform,b2QueryFilter,b2OverlapResultFcn,pointer	proc b2World_OverlapCapsule(worldId: b2WorldId; capsule: ptr b2Capsule;\n                       transform: b2Transform; filter: b2QueryFilter;\n                       fcn: b2OverlapResultFcn; context: pointer): void		2238
+nim	b2World_OverlapPolygon	box2d.html#b2World_OverlapPolygon,b2WorldId,ptr.b2Polygon,b2Transform,b2QueryFilter,b2OverlapResultFcn,pointer	proc b2World_OverlapPolygon(worldId: b2WorldId; polygon: ptr b2Polygon;\n                       transform: b2Transform; filter: b2QueryFilter;\n                       fcn: b2OverlapResultFcn; context: pointer): void		2245
+nim	b2World_CastRay	box2d.html#b2World_CastRay,b2WorldId,b2Vec2,b2Vec2,b2QueryFilter,b2CastResultFcn,pointer	proc b2World_CastRay(worldId: b2WorldId; origin: b2Vec2; translation: b2Vec2;\n                filter: b2QueryFilter; fcn: b2CastResultFcn; context: pointer): void		2252
+nim	b2World_CastRayClosest	box2d.html#b2World_CastRayClosest,b2WorldId,b2Vec2,b2Vec2,b2QueryFilter	proc b2World_CastRayClosest(worldId: b2WorldId; origin: b2Vec2; translation: b2Vec2;\n                       filter: b2QueryFilter): b2RayResult		2277
+nim	b2World_CastCircle	box2d.html#b2World_CastCircle,b2WorldId,ptr.b2Circle,b2Transform,b2Vec2,b2QueryFilter,b2CastResultFcn,pointer	proc b2World_CastCircle(worldId: b2WorldId; circle: ptr b2Circle;\n                   originTransform: b2Transform; translation: b2Vec2;\n                   filter: b2QueryFilter; fcn: b2CastResultFcn; context: pointer): void		2285
+nim	b2World_CastCapsule	box2d.html#b2World_CastCapsule,b2WorldId,ptr.b2Capsule,b2Transform,b2Vec2,b2QueryFilter,b2CastResultFcn,pointer	proc b2World_CastCapsule(worldId: b2WorldId; capsule: ptr b2Capsule;\n                    originTransform: b2Transform; translation: b2Vec2;\n                    filter: b2QueryFilter; fcn: b2CastResultFcn;\n                    context: pointer): void		2293
+nim	b2World_CastPolygon	box2d.html#b2World_CastPolygon,b2WorldId,ptr.b2Polygon,b2Transform,b2Vec2,b2QueryFilter,b2CastResultFcn,pointer	proc b2World_CastPolygon(worldId: b2WorldId; polygon: ptr b2Polygon;\n                    originTransform: b2Transform; translation: b2Vec2;\n                    filter: b2QueryFilter; fcn: b2CastResultFcn;\n                    context: pointer): void		2301
+nim	b2World_EnableSleeping	box2d.html#b2World_EnableSleeping,b2WorldId,bool	proc b2World_EnableSleeping(worldId: b2WorldId; flag: bool): void		2309
+nim	b2World_EnableContinuous	box2d.html#b2World_EnableContinuous,b2WorldId,bool	proc b2World_EnableContinuous(worldId: b2WorldId; flag: bool): void		2317
+nim	b2World_SetRestitutionThreshold	box2d.html#b2World_SetRestitutionThreshold,b2WorldId,cfloat	proc b2World_SetRestitutionThreshold(worldId: b2WorldId; value: cfloat): void		2326
+nim	b2World_SetHitEventThreshold	box2d.html#b2World_SetHitEventThreshold,b2WorldId,cfloat	proc b2World_SetHitEventThreshold(worldId: b2WorldId; value: cfloat): void		2334
+nim	b2World_SetCustomFilterCallback	box2d.html#b2World_SetCustomFilterCallback,b2WorldId,b2CustomFilterFcn,pointer	proc b2World_SetCustomFilterCallback(worldId: b2WorldId; fcn: b2CustomFilterFcn;\n                                context: pointer): void		2343
+nim	b2World_SetPreSolveCallback	box2d.html#b2World_SetPreSolveCallback,b2WorldId,b2PreSolveFcn,pointer	proc b2World_SetPreSolveCallback(worldId: b2WorldId; fcn: b2PreSolveFcn;\n                            context: pointer): void		2349
+nim	b2World_SetGravity	box2d.html#b2World_SetGravity,b2WorldId,b2Vec2	proc b2World_SetGravity(worldId: b2WorldId; gravity: b2Vec2): void		2355
+nim	b2World_GetGravity	box2d.html#b2World_GetGravity,b2WorldId	proc b2World_GetGravity(worldId: b2WorldId): b2Vec2		2361
+nim	b2World_Explode	box2d.html#b2World_Explode,b2WorldId,b2Vec2,cfloat,cfloat	proc b2World_Explode(worldId: b2WorldId; position: b2Vec2; radius: cfloat;\n                impulse: cfloat): void		2366
+nim	b2World_SetContactTuning	box2d.html#b2World_SetContactTuning,b2WorldId,cfloat,cfloat,cfloat	proc b2World_SetContactTuning(worldId: b2WorldId; hertz: cfloat;\n                         dampingRatio: cfloat; pushVelocity: cfloat): void		2380
+nim	b2World_EnableWarmStarting	box2d.html#b2World_EnableWarmStarting,b2WorldId,bool	proc b2World_EnableWarmStarting(worldId: b2WorldId; flag: bool): void		2396
+nim	b2World_GetProfile	box2d.html#b2World_GetProfile,b2WorldId	proc b2World_GetProfile(worldId: b2WorldId): b2Profile		2402
+nim	b2World_GetCounters	box2d.html#b2World_GetCounters,b2WorldId	proc b2World_GetCounters(worldId: b2WorldId): b2Counters		2407
+nim	b2World_DumpMemoryStats	box2d.html#b2World_DumpMemoryStats,b2WorldId	proc b2World_DumpMemoryStats(worldId: b2WorldId): void		2412
+nim	b2CreateBody	box2d.html#b2CreateBody,b2WorldId,ptr.b2BodyDef	proc b2CreateBody(worldId: b2WorldId; def: ptr b2BodyDef): b2BodyId		2417
+nim	b2DestroyBody	box2d.html#b2DestroyBody,b2BodyId	proc b2DestroyBody(bodyId: b2BodyId): void		2430
+nim	b2Body_IsValid	box2d.html#b2Body_IsValid,b2BodyId	proc b2Body_IsValid(id: b2BodyId): bool		2437
+nim	b2Body_GetType	box2d.html#b2Body_GetType,b2BodyId	proc b2Body_GetType(bodyId: b2BodyId): b2BodyType		2442
+nim	b2Body_SetType	box2d.html#b2Body_SetType,b2BodyId,b2BodyType	proc b2Body_SetType(bodyId: b2BodyId; bodyType: b2BodyType): void		2447
+nim	b2Body_SetUserData	box2d.html#b2Body_SetUserData,b2BodyId,pointer	proc b2Body_SetUserData(bodyId: b2BodyId; userData: pointer): void		2453
+nim	b2Body_GetUserData	box2d.html#b2Body_GetUserData,b2BodyId	proc b2Body_GetUserData(bodyId: b2BodyId): pointer		2458
+nim	b2Body_GetPosition	box2d.html#b2Body_GetPosition,b2BodyId	proc b2Body_GetPosition(bodyId: b2BodyId): b2Vec2		2463
+nim	b2Body_GetRotation	box2d.html#b2Body_GetRotation,b2BodyId	proc b2Body_GetRotation(bodyId: b2BodyId): b2Rot		2468
+nim	b2Body_GetAngle	box2d.html#b2Body_GetAngle,b2BodyId	proc b2Body_GetAngle(bodyId: b2BodyId): cfloat		2473
+nim	b2Body_GetTransform	box2d.html#b2Body_GetTransform,b2BodyId	proc b2Body_GetTransform(bodyId: b2BodyId): b2Transform		2478
+nim	b2Body_SetTransform	box2d.html#b2Body_SetTransform,b2BodyId,b2Vec2,cfloat	proc b2Body_SetTransform(bodyId: b2BodyId; position: b2Vec2; angle: cfloat): void		2483
+nim	b2Body_GetLocalPoint	box2d.html#b2Body_GetLocalPoint,b2BodyId,b2Vec2	proc b2Body_GetLocalPoint(bodyId: b2BodyId; worldPoint: b2Vec2): b2Vec2		2492
+nim	b2Body_GetWorldPoint	box2d.html#b2Body_GetWorldPoint,b2BodyId,b2Vec2	proc b2Body_GetWorldPoint(bodyId: b2BodyId; localPoint: b2Vec2): b2Vec2		2497
+nim	b2Body_GetLocalVector	box2d.html#b2Body_GetLocalVector,b2BodyId,b2Vec2	proc b2Body_GetLocalVector(bodyId: b2BodyId; worldVector: b2Vec2): b2Vec2		2502
+nim	b2Body_GetWorldVector	box2d.html#b2Body_GetWorldVector,b2BodyId,b2Vec2	proc b2Body_GetWorldVector(bodyId: b2BodyId; localVector: b2Vec2): b2Vec2		2507
+nim	b2Body_GetLinearVelocity	box2d.html#b2Body_GetLinearVelocity,b2BodyId	proc b2Body_GetLinearVelocity(bodyId: b2BodyId): b2Vec2		2512
+nim	b2Body_GetAngularVelocity	box2d.html#b2Body_GetAngularVelocity,b2BodyId	proc b2Body_GetAngularVelocity(bodyId: b2BodyId): cfloat		2517
+nim	b2Body_SetLinearVelocity	box2d.html#b2Body_SetLinearVelocity,b2BodyId,b2Vec2	proc b2Body_SetLinearVelocity(bodyId: b2BodyId; linearVelocity: b2Vec2): void		2522
+nim	b2Body_SetAngularVelocity	box2d.html#b2Body_SetAngularVelocity,b2BodyId,cfloat	proc b2Body_SetAngularVelocity(bodyId: b2BodyId; angularVelocity: cfloat): void		2527
+nim	b2Body_ApplyForce	box2d.html#b2Body_ApplyForce,b2BodyId,b2Vec2,b2Vec2,bool	proc b2Body_ApplyForce(bodyId: b2BodyId; force: b2Vec2; point: b2Vec2; wake: bool): void		2532
+nim	b2Body_ApplyForceToCenter	box2d.html#b2Body_ApplyForceToCenter,b2BodyId,b2Vec2,bool	proc b2Body_ApplyForceToCenter(bodyId: b2BodyId; force: b2Vec2; wake: bool): void		2548
+nim	b2Body_ApplyTorque	box2d.html#b2Body_ApplyTorque,b2BodyId,cfloat,bool	proc b2Body_ApplyTorque(bodyId: b2BodyId; torque: cfloat; wake: bool): void		2561
+nim	b2Body_ApplyLinearImpulse	box2d.html#b2Body_ApplyLinearImpulse,b2BodyId,b2Vec2,b2Vec2,bool	proc b2Body_ApplyLinearImpulse(bodyId: b2BodyId; impulse: b2Vec2; point: b2Vec2;\n                          wake: bool): void		2574
+nim	b2Body_ApplyLinearImpulseToCenter	box2d.html#b2Body_ApplyLinearImpulseToCenter,b2BodyId,b2Vec2,bool	proc b2Body_ApplyLinearImpulseToCenter(bodyId: b2BodyId; impulse: b2Vec2; wake: bool): void		2597
+nim	b2Body_ApplyAngularImpulse	box2d.html#b2Body_ApplyAngularImpulse,b2BodyId,cfloat,bool	proc b2Body_ApplyAngularImpulse(bodyId: b2BodyId; impulse: cfloat; wake: bool): void		2615
+nim	b2Body_GetMass	box2d.html#b2Body_GetMass,b2BodyId	proc b2Body_GetMass(bodyId: b2BodyId): cfloat		2632
+nim	b2Body_GetInertiaTensor	box2d.html#b2Body_GetInertiaTensor,b2BodyId	proc b2Body_GetInertiaTensor(bodyId: b2BodyId): cfloat		2637
+nim	b2Body_GetLocalCenterOfMass	box2d.html#b2Body_GetLocalCenterOfMass,b2BodyId	proc b2Body_GetLocalCenterOfMass(bodyId: b2BodyId): b2Vec2		2642
+nim	b2Body_GetWorldCenterOfMass	box2d.html#b2Body_GetWorldCenterOfMass,b2BodyId	proc b2Body_GetWorldCenterOfMass(bodyId: b2BodyId): b2Vec2		2647
+nim	b2Body_SetMassData	box2d.html#b2Body_SetMassData,b2BodyId,b2MassData	proc b2Body_SetMassData(bodyId: b2BodyId; massData: b2MassData): void		2652
+nim	b2Body_GetMassData	box2d.html#b2Body_GetMassData,b2BodyId	proc b2Body_GetMassData(bodyId: b2BodyId): b2MassData		2659
+nim	b2Body_ApplyMassFromShapes	box2d.html#b2Body_ApplyMassFromShapes,b2BodyId	proc b2Body_ApplyMassFromShapes(bodyId: b2BodyId): void		2664
+nim	b2Body_SetAutomaticMass	box2d.html#b2Body_SetAutomaticMass,b2BodyId,bool	proc b2Body_SetAutomaticMass(bodyId: b2BodyId; automaticMass: bool): void		2676
+nim	b2Body_GetAutomaticMass	box2d.html#b2Body_GetAutomaticMass,b2BodyId	proc b2Body_GetAutomaticMass(bodyId: b2BodyId): bool		2681
+nim	b2Body_SetLinearDamping	box2d.html#b2Body_SetLinearDamping,b2BodyId,cfloat	proc b2Body_SetLinearDamping(bodyId: b2BodyId; linearDamping: cfloat): void		2686
+nim	b2Body_GetLinearDamping	box2d.html#b2Body_GetLinearDamping,b2BodyId	proc b2Body_GetLinearDamping(bodyId: b2BodyId): cfloat		2691
+nim	b2Body_SetAngularDamping	box2d.html#b2Body_SetAngularDamping,b2BodyId,cfloat	proc b2Body_SetAngularDamping(bodyId: b2BodyId; angularDamping: cfloat): void		2696
+nim	b2Body_GetAngularDamping	box2d.html#b2Body_GetAngularDamping,b2BodyId	proc b2Body_GetAngularDamping(bodyId: b2BodyId): cfloat		2701
+nim	b2Body_SetGravityScale	box2d.html#b2Body_SetGravityScale,b2BodyId,cfloat	proc b2Body_SetGravityScale(bodyId: b2BodyId; gravityScale: cfloat): void		2706
+nim	b2Body_GetGravityScale	box2d.html#b2Body_GetGravityScale,b2BodyId	proc b2Body_GetGravityScale(bodyId: b2BodyId): cfloat		2711
+nim	b2Body_IsAwake	box2d.html#b2Body_IsAwake,b2BodyId	proc b2Body_IsAwake(bodyId: b2BodyId): bool		2716
+nim	b2Body_SetAwake	box2d.html#b2Body_SetAwake,b2BodyId,bool	proc b2Body_SetAwake(bodyId: b2BodyId; awake: bool): void		2721
+nim	b2Body_EnableSleep	box2d.html#b2Body_EnableSleep,b2BodyId,bool	proc b2Body_EnableSleep(bodyId: b2BodyId; enableSleep: bool): void		2730
+nim	b2Body_IsSleepEnabled	box2d.html#b2Body_IsSleepEnabled,b2BodyId	proc b2Body_IsSleepEnabled(bodyId: b2BodyId): bool		2735
+nim	b2Body_SetSleepThreshold	box2d.html#b2Body_SetSleepThreshold,b2BodyId,cfloat	proc b2Body_SetSleepThreshold(bodyId: b2BodyId; sleepVelocity: cfloat): void		2740
+nim	b2Body_GetSleepThreshold	box2d.html#b2Body_GetSleepThreshold,b2BodyId	proc b2Body_GetSleepThreshold(bodyId: b2BodyId): cfloat		2745
+nim	b2Body_IsEnabled	box2d.html#b2Body_IsEnabled,b2BodyId	proc b2Body_IsEnabled(bodyId: b2BodyId): bool		2750
+nim	b2Body_Disable	box2d.html#b2Body_Disable,b2BodyId	proc b2Body_Disable(bodyId: b2BodyId): void		2755
+nim	b2Body_Enable	box2d.html#b2Body_Enable,b2BodyId	proc b2Body_Enable(bodyId: b2BodyId): void		2760
+nim	b2Body_SetFixedRotation	box2d.html#b2Body_SetFixedRotation,b2BodyId,bool	proc b2Body_SetFixedRotation(bodyId: b2BodyId; flag: bool): void		2765
+nim	b2Body_IsFixedRotation	box2d.html#b2Body_IsFixedRotation,b2BodyId	proc b2Body_IsFixedRotation(bodyId: b2BodyId): bool		2770
+nim	b2Body_SetBullet	box2d.html#b2Body_SetBullet,b2BodyId,bool	proc b2Body_SetBullet(bodyId: b2BodyId; flag: bool): void		2775
+nim	b2Body_IsBullet	box2d.html#b2Body_IsBullet,b2BodyId	proc b2Body_IsBullet(bodyId: b2BodyId): bool		2781
+nim	b2Body_EnableHitEvents	box2d.html#b2Body_EnableHitEvents,b2BodyId,bool	proc b2Body_EnableHitEvents(bodyId: b2BodyId; enableHitEvents: bool): void		2786
+nim	b2Body_GetShapeCount	box2d.html#b2Body_GetShapeCount,b2BodyId	proc b2Body_GetShapeCount(bodyId: b2BodyId): cint		2792
+nim	b2Body_GetShapes	box2d.html#b2Body_GetShapes,b2BodyId,ptr.b2ShapeId,cint	proc b2Body_GetShapes(bodyId: b2BodyId; shapeArray: ptr b2ShapeId; capacity: cint): cint		2797
+nim	b2Body_GetJointCount	box2d.html#b2Body_GetJointCount,b2BodyId	proc b2Body_GetJointCount(bodyId: b2BodyId): cint		2805
+nim	b2Body_GetJoints	box2d.html#b2Body_GetJoints,b2BodyId,ptr.b2JointId,cint	proc b2Body_GetJoints(bodyId: b2BodyId; jointArray: ptr b2JointId; capacity: cint): cint		2810
+nim	b2Body_GetContactCapacity	box2d.html#b2Body_GetContactCapacity,b2BodyId	proc b2Body_GetContactCapacity(bodyId: b2BodyId): cint		2818
+nim	b2Body_GetContactData	box2d.html#b2Body_GetContactData,b2BodyId,ptr.b2ContactData,cint	proc b2Body_GetContactData(bodyId: b2BodyId; contactData: ptr b2ContactData;\n                      capacity: cint): cint		2823
+nim	b2Body_ComputeAABB	box2d.html#b2Body_ComputeAABB,b2BodyId	proc b2Body_ComputeAABB(bodyId: b2BodyId): b2AABB		2829
+nim	b2CreateCircleShape	box2d.html#b2CreateCircleShape,b2BodyId,ptr.b2ShapeDef,ptr.b2Circle	proc b2CreateCircleShape(bodyId: b2BodyId; def: ptr b2ShapeDef; circle: ptr b2Circle): b2ShapeId		2836
+nim	b2CreateSegmentShape	box2d.html#b2CreateSegmentShape,b2BodyId,ptr.b2ShapeDef,ptr.b2Segment	proc b2CreateSegmentShape(bodyId: b2BodyId; def: ptr b2ShapeDef;\n                     segment: ptr b2Segment): b2ShapeId		2846
+nim	b2CreateCapsuleShape	box2d.html#b2CreateCapsuleShape,b2BodyId,ptr.b2ShapeDef,ptr.b2Capsule	proc b2CreateCapsuleShape(bodyId: b2BodyId; def: ptr b2ShapeDef;\n                     capsule: ptr b2Capsule): b2ShapeId		2856
+nim	b2CreatePolygonShape	box2d.html#b2CreatePolygonShape,b2BodyId,ptr.b2ShapeDef,ptr.b2Polygon	proc b2CreatePolygonShape(bodyId: b2BodyId; def: ptr b2ShapeDef;\n                     polygon: ptr b2Polygon): b2ShapeId		2866
+nim	b2DestroyShape	box2d.html#b2DestroyShape,b2ShapeId	proc b2DestroyShape(shapeId: b2ShapeId): void		2876
+nim	b2Shape_IsValid	box2d.html#b2Shape_IsValid,b2ShapeId	proc b2Shape_IsValid(id: b2ShapeId): bool		2881
+nim	b2Shape_GetType	box2d.html#b2Shape_GetType,b2ShapeId	proc b2Shape_GetType(shapeId: b2ShapeId): b2ShapeType		2886
+nim	b2Shape_GetBody	box2d.html#b2Shape_GetBody,b2ShapeId	proc b2Shape_GetBody(shapeId: b2ShapeId): b2BodyId		2891
+nim	b2Shape_IsSensor	box2d.html#b2Shape_IsSensor,b2ShapeId	proc b2Shape_IsSensor(shapeId: b2ShapeId): bool		2896
+nim	b2Shape_SetUserData	box2d.html#b2Shape_SetUserData,b2ShapeId,pointer	proc b2Shape_SetUserData(shapeId: b2ShapeId; userData: pointer): void		2901
+nim	b2Shape_GetUserData	box2d.html#b2Shape_GetUserData,b2ShapeId	proc b2Shape_GetUserData(shapeId: b2ShapeId): pointer		2906
+nim	b2Shape_SetDensity	box2d.html#b2Shape_SetDensity,b2ShapeId,cfloat	proc b2Shape_SetDensity(shapeId: b2ShapeId; density: cfloat): void		2912
+nim	b2Shape_GetDensity	box2d.html#b2Shape_GetDensity,b2ShapeId	proc b2Shape_GetDensity(shapeId: b2ShapeId): cfloat		2921
+nim	b2Shape_SetFriction	box2d.html#b2Shape_SetFriction,b2ShapeId,cfloat	proc b2Shape_SetFriction(shapeId: b2ShapeId; friction: cfloat): void		2926
+nim	b2Shape_GetFriction	box2d.html#b2Shape_GetFriction,b2ShapeId	proc b2Shape_GetFriction(shapeId: b2ShapeId): cfloat		2931
+nim	b2Shape_SetRestitution	box2d.html#b2Shape_SetRestitution,b2ShapeId,cfloat	proc b2Shape_SetRestitution(shapeId: b2ShapeId; restitution: cfloat): void		2936
+nim	b2Shape_GetRestitution	box2d.html#b2Shape_GetRestitution,b2ShapeId	proc b2Shape_GetRestitution(shapeId: b2ShapeId): cfloat		2941
+nim	b2Shape_GetFilter	box2d.html#b2Shape_GetFilter,b2ShapeId	proc b2Shape_GetFilter(shapeId: b2ShapeId): b2Filter		2946
+nim	b2Shape_SetFilter	box2d.html#b2Shape_SetFilter,b2ShapeId,b2Filter	proc b2Shape_SetFilter(shapeId: b2ShapeId; filter: b2Filter): void		2951
+nim	b2Shape_EnableSensorEvents	box2d.html#b2Shape_EnableSensorEvents,b2ShapeId,bool	proc b2Shape_EnableSensorEvents(shapeId: b2ShapeId; flag: bool): void		2956
+nim	b2Shape_AreSensorEventsEnabled	box2d.html#b2Shape_AreSensorEventsEnabled,b2ShapeId	proc b2Shape_AreSensorEventsEnabled(shapeId: b2ShapeId): bool		2961
+nim	b2Shape_EnableContactEvents	box2d.html#b2Shape_EnableContactEvents,b2ShapeId,bool	proc b2Shape_EnableContactEvents(shapeId: b2ShapeId; flag: bool): void		2966
+nim	b2Shape_AreContactEventsEnabled	box2d.html#b2Shape_AreContactEventsEnabled,b2ShapeId	proc b2Shape_AreContactEventsEnabled(shapeId: b2ShapeId): bool		2971
+nim	b2Shape_EnablePreSolveEvents	box2d.html#b2Shape_EnablePreSolveEvents,b2ShapeId,bool	proc b2Shape_EnablePreSolveEvents(shapeId: b2ShapeId; flag: bool): void		2976
+nim	b2Shape_ArePreSolveEventsEnabled	box2d.html#b2Shape_ArePreSolveEventsEnabled,b2ShapeId	proc b2Shape_ArePreSolveEventsEnabled(shapeId: b2ShapeId): bool		2982
+nim	b2Shape_EnableHitEvents	box2d.html#b2Shape_EnableHitEvents,b2ShapeId,bool	proc b2Shape_EnableHitEvents(shapeId: b2ShapeId; flag: bool): void		2987
+nim	b2Shape_AreHitEventsEnabled	box2d.html#b2Shape_AreHitEventsEnabled,b2ShapeId	proc b2Shape_AreHitEventsEnabled(shapeId: b2ShapeId): bool		2992
+nim	b2Shape_TestPoint	box2d.html#b2Shape_TestPoint,b2ShapeId,b2Vec2	proc b2Shape_TestPoint(shapeId: b2ShapeId; point: b2Vec2): bool		2997
+nim	b2Shape_RayCast	box2d.html#b2Shape_RayCast,b2ShapeId,b2Vec2,b2Vec2	proc b2Shape_RayCast(shapeId: b2ShapeId; origin: b2Vec2; translation: b2Vec2): b2CastOutput		3002
+nim	b2Shape_GetCircle	box2d.html#b2Shape_GetCircle,b2ShapeId	proc b2Shape_GetCircle(shapeId: b2ShapeId): b2Circle		3007
+nim	b2Shape_GetSegment	box2d.html#b2Shape_GetSegment,b2ShapeId	proc b2Shape_GetSegment(shapeId: b2ShapeId): b2Segment		3012
+nim	b2Shape_GetSmoothSegment	box2d.html#b2Shape_GetSmoothSegment,b2ShapeId	proc b2Shape_GetSmoothSegment(shapeId: b2ShapeId): b2SmoothSegment		3017
+nim	b2Shape_GetCapsule	box2d.html#b2Shape_GetCapsule,b2ShapeId	proc b2Shape_GetCapsule(shapeId: b2ShapeId): b2Capsule		3024
+nim	b2Shape_GetPolygon	box2d.html#b2Shape_GetPolygon,b2ShapeId	proc b2Shape_GetPolygon(shapeId: b2ShapeId): b2Polygon		3029
+nim	b2Shape_SetCircle	box2d.html#b2Shape_SetCircle,b2ShapeId,ptr.b2Circle	proc b2Shape_SetCircle(shapeId: b2ShapeId; circle: ptr b2Circle): void		3034
+nim	b2Shape_SetCapsule	box2d.html#b2Shape_SetCapsule,b2ShapeId,ptr.b2Capsule	proc b2Shape_SetCapsule(shapeId: b2ShapeId; capsule: ptr b2Capsule): void		3043
+nim	b2Shape_SetSegment	box2d.html#b2Shape_SetSegment,b2ShapeId,ptr.b2Segment	proc b2Shape_SetSegment(shapeId: b2ShapeId; segment: ptr b2Segment): void		3052
+nim	b2Shape_SetPolygon	box2d.html#b2Shape_SetPolygon,b2ShapeId,ptr.b2Polygon	proc b2Shape_SetPolygon(shapeId: b2ShapeId; polygon: ptr b2Polygon): void		3057
+nim	b2Shape_GetParentChain	box2d.html#b2Shape_GetParentChain,b2ShapeId	proc b2Shape_GetParentChain(shapeId: b2ShapeId): b2ChainId		3066
+nim	b2Shape_GetContactCapacity	box2d.html#b2Shape_GetContactCapacity,b2ShapeId	proc b2Shape_GetContactCapacity(shapeId: b2ShapeId): cint		3072
+nim	b2Shape_GetContactData	box2d.html#b2Shape_GetContactData,b2ShapeId,ptr.b2ContactData,cint	proc b2Shape_GetContactData(shapeId: b2ShapeId; contactData: ptr b2ContactData;\n                       capacity: cint): cint		3077
+nim	b2Shape_GetAABB	box2d.html#b2Shape_GetAABB,b2ShapeId	proc b2Shape_GetAABB(shapeId: b2ShapeId): b2AABB		3083
+nim	b2Shape_GetClosestPoint	box2d.html#b2Shape_GetClosestPoint,b2ShapeId,b2Vec2	proc b2Shape_GetClosestPoint(shapeId: b2ShapeId; target: b2Vec2): b2Vec2		3088
+nim	b2CreateChain	box2d.html#b2CreateChain,b2BodyId,ptr.b2ChainDef	proc b2CreateChain(bodyId: b2BodyId; def: ptr b2ChainDef): b2ChainId		3093
+nim	b2DestroyChain	box2d.html#b2DestroyChain,b2ChainId	proc b2DestroyChain(chainId: b2ChainId): void		3100
+nim	b2Chain_SetFriction	box2d.html#b2Chain_SetFriction,b2ChainId,cfloat	proc b2Chain_SetFriction(chainId: b2ChainId; friction: cfloat): void		3105
+nim	b2Chain_SetRestitution	box2d.html#b2Chain_SetRestitution,b2ChainId,cfloat	proc b2Chain_SetRestitution(chainId: b2ChainId; restitution: cfloat): void		3110
+nim	b2Chain_IsValid	box2d.html#b2Chain_IsValid,b2ChainId	proc b2Chain_IsValid(id: b2ChainId): bool		3115
+nim	b2DestroyJoint	box2d.html#b2DestroyJoint,b2JointId	proc b2DestroyJoint(jointId: b2JointId): void		3120
+nim	b2Joint_IsValid	box2d.html#b2Joint_IsValid,b2JointId	proc b2Joint_IsValid(id: b2JointId): bool		3125
+nim	b2Joint_GetType	box2d.html#b2Joint_GetType,b2JointId	proc b2Joint_GetType(jointId: b2JointId): b2JointType		3130
+nim	b2Joint_GetBodyA	box2d.html#b2Joint_GetBodyA,b2JointId	proc b2Joint_GetBodyA(jointId: b2JointId): b2BodyId		3135
+nim	b2Joint_GetBodyB	box2d.html#b2Joint_GetBodyB,b2JointId	proc b2Joint_GetBodyB(jointId: b2JointId): b2BodyId		3140
+nim	b2Joint_GetLocalAnchorA	box2d.html#b2Joint_GetLocalAnchorA,b2JointId	proc b2Joint_GetLocalAnchorA(jointId: b2JointId): b2Vec2		3145
+nim	b2Joint_GetLocalAnchorB	box2d.html#b2Joint_GetLocalAnchorB,b2JointId	proc b2Joint_GetLocalAnchorB(jointId: b2JointId): b2Vec2		3150
+nim	b2Joint_SetCollideConnected	box2d.html#b2Joint_SetCollideConnected,b2JointId,bool	proc b2Joint_SetCollideConnected(jointId: b2JointId; shouldCollide: bool): void		3154
+nim	b2Joint_GetCollideConnected	box2d.html#b2Joint_GetCollideConnected,b2JointId	proc b2Joint_GetCollideConnected(jointId: b2JointId): bool		3159
+nim	b2Joint_SetUserData	box2d.html#b2Joint_SetUserData,b2JointId,pointer	proc b2Joint_SetUserData(jointId: b2JointId; userData: pointer): void		3164
+nim	b2Joint_GetUserData	box2d.html#b2Joint_GetUserData,b2JointId	proc b2Joint_GetUserData(jointId: b2JointId): pointer		3169
+nim	b2Joint_WakeBodies	box2d.html#b2Joint_WakeBodies,b2JointId	proc b2Joint_WakeBodies(jointId: b2JointId): void		3174
+nim	b2Joint_GetConstraintForce	box2d.html#b2Joint_GetConstraintForce,b2JointId	proc b2Joint_GetConstraintForce(jointId: b2JointId): b2Vec2		3179
+nim	b2Joint_GetConstraintTorque	box2d.html#b2Joint_GetConstraintTorque,b2JointId	proc b2Joint_GetConstraintTorque(jointId: b2JointId): cfloat		3184
+nim	b2CreateDistanceJoint	box2d.html#b2CreateDistanceJoint,b2WorldId,ptr.b2DistanceJointDef	proc b2CreateDistanceJoint(worldId: b2WorldId; def: ptr b2DistanceJointDef): b2JointId		3189
+nim	b2DistanceJoint_SetLength	box2d.html#b2DistanceJoint_SetLength,b2JointId,cfloat	proc b2DistanceJoint_SetLength(jointId: b2JointId; length: cfloat): void		3196
+nim	b2DistanceJoint_GetLength	box2d.html#b2DistanceJoint_GetLength,b2JointId	proc b2DistanceJoint_GetLength(jointId: b2JointId): cfloat		3205
+nim	b2DistanceJoint_EnableSpring	box2d.html#b2DistanceJoint_EnableSpring,b2JointId,bool	proc b2DistanceJoint_EnableSpring(jointId: b2JointId; enableSpring: bool): void		3210
+nim	b2DistanceJoint_IsSpringEnabled	box2d.html#b2DistanceJoint_IsSpringEnabled,b2JointId	proc b2DistanceJoint_IsSpringEnabled(jointId: b2JointId): bool		3215
+nim	b2DistanceJoint_SetSpringHertz	box2d.html#b2DistanceJoint_SetSpringHertz,b2JointId,cfloat	proc b2DistanceJoint_SetSpringHertz(jointId: b2JointId; hertz: cfloat): void		3220
+nim	b2DistanceJoint_SetSpringDampingRatio	box2d.html#b2DistanceJoint_SetSpringDampingRatio,b2JointId,cfloat	proc b2DistanceJoint_SetSpringDampingRatio(jointId: b2JointId; dampingRatio: cfloat): void		3225
+nim	b2DistanceJoint_GetHertz	box2d.html#b2DistanceJoint_GetHertz,b2JointId	proc b2DistanceJoint_GetHertz(jointId: b2JointId): cfloat		3230
+nim	b2DistanceJoint_GetDampingRatio	box2d.html#b2DistanceJoint_GetDampingRatio,b2JointId	proc b2DistanceJoint_GetDampingRatio(jointId: b2JointId): cfloat		3235
+nim	b2DistanceJoint_EnableLimit	box2d.html#b2DistanceJoint_EnableLimit,b2JointId,bool	proc b2DistanceJoint_EnableLimit(jointId: b2JointId; enableLimit: bool): void		3240
+nim	b2DistanceJoint_IsLimitEnabled	box2d.html#b2DistanceJoint_IsLimitEnabled,b2JointId	proc b2DistanceJoint_IsLimitEnabled(jointId: b2JointId): bool		3246
+nim	b2DistanceJoint_SetLengthRange	box2d.html#b2DistanceJoint_SetLengthRange,b2JointId,cfloat,cfloat	proc b2DistanceJoint_SetLengthRange(jointId: b2JointId; minLength: cfloat;\n                               maxLength: cfloat): void		3251
+nim	b2DistanceJoint_GetMinLength	box2d.html#b2DistanceJoint_GetMinLength,b2JointId	proc b2DistanceJoint_GetMinLength(jointId: b2JointId): cfloat		3257
+nim	b2DistanceJoint_GetMaxLength	box2d.html#b2DistanceJoint_GetMaxLength,b2JointId	proc b2DistanceJoint_GetMaxLength(jointId: b2JointId): cfloat		3262
+nim	b2DistanceJoint_GetCurrentLength	box2d.html#b2DistanceJoint_GetCurrentLength,b2JointId	proc b2DistanceJoint_GetCurrentLength(jointId: b2JointId): cfloat		3267
+nim	b2DistanceJoint_EnableMotor	box2d.html#b2DistanceJoint_EnableMotor,b2JointId,bool	proc b2DistanceJoint_EnableMotor(jointId: b2JointId; enableMotor: bool): void		3272
+nim	b2DistanceJoint_IsMotorEnabled	box2d.html#b2DistanceJoint_IsMotorEnabled,b2JointId	proc b2DistanceJoint_IsMotorEnabled(jointId: b2JointId): bool		3277
+nim	b2DistanceJoint_SetMotorSpeed	box2d.html#b2DistanceJoint_SetMotorSpeed,b2JointId,cfloat	proc b2DistanceJoint_SetMotorSpeed(jointId: b2JointId; motorSpeed: cfloat): void		3282
+nim	b2DistanceJoint_GetMotorSpeed	box2d.html#b2DistanceJoint_GetMotorSpeed,b2JointId	proc b2DistanceJoint_GetMotorSpeed(jointId: b2JointId): cfloat		3287
+nim	b2DistanceJoint_SetMaxMotorForce	box2d.html#b2DistanceJoint_SetMaxMotorForce,b2JointId,cfloat	proc b2DistanceJoint_SetMaxMotorForce(jointId: b2JointId; force: cfloat): void		3292
+nim	b2DistanceJoint_GetMaxMotorForce	box2d.html#b2DistanceJoint_GetMaxMotorForce,b2JointId	proc b2DistanceJoint_GetMaxMotorForce(jointId: b2JointId): cfloat		3297
+nim	b2DistanceJoint_GetMotorForce	box2d.html#b2DistanceJoint_GetMotorForce,b2JointId	proc b2DistanceJoint_GetMotorForce(jointId: b2JointId): cfloat		3302
+nim	b2CreateMotorJoint	box2d.html#b2CreateMotorJoint,b2WorldId,ptr.b2MotorJointDef	proc b2CreateMotorJoint(worldId: b2WorldId; def: ptr b2MotorJointDef): b2JointId		3307
+nim	b2MotorJoint_SetLinearOffset	box2d.html#b2MotorJoint_SetLinearOffset,b2JointId,b2Vec2	proc b2MotorJoint_SetLinearOffset(jointId: b2JointId; linearOffset: b2Vec2): void		3314
+nim	b2MotorJoint_GetLinearOffset	box2d.html#b2MotorJoint_GetLinearOffset,b2JointId	proc b2MotorJoint_GetLinearOffset(jointId: b2JointId): b2Vec2		3319
+nim	b2MotorJoint_SetAngularOffset	box2d.html#b2MotorJoint_SetAngularOffset,b2JointId,cfloat	proc b2MotorJoint_SetAngularOffset(jointId: b2JointId; angularOffset: cfloat): void		3324
+nim	b2MotorJoint_GetAngularOffset	box2d.html#b2MotorJoint_GetAngularOffset,b2JointId	proc b2MotorJoint_GetAngularOffset(jointId: b2JointId): cfloat		3329
+nim	b2MotorJoint_SetMaxForce	box2d.html#b2MotorJoint_SetMaxForce,b2JointId,cfloat	proc b2MotorJoint_SetMaxForce(jointId: b2JointId; maxForce: cfloat): void		3334
+nim	b2MotorJoint_GetMaxForce	box2d.html#b2MotorJoint_GetMaxForce,b2JointId	proc b2MotorJoint_GetMaxForce(jointId: b2JointId): cfloat		3339
+nim	b2MotorJoint_SetMaxTorque	box2d.html#b2MotorJoint_SetMaxTorque,b2JointId,cfloat	proc b2MotorJoint_SetMaxTorque(jointId: b2JointId; maxTorque: cfloat): void		3344
+nim	b2MotorJoint_GetMaxTorque	box2d.html#b2MotorJoint_GetMaxTorque,b2JointId	proc b2MotorJoint_GetMaxTorque(jointId: b2JointId): cfloat		3349
+nim	b2MotorJoint_SetCorrectionFactor	box2d.html#b2MotorJoint_SetCorrectionFactor,b2JointId,cfloat	proc b2MotorJoint_SetCorrectionFactor(jointId: b2JointId; correctionFactor: cfloat): void		3354
+nim	b2MotorJoint_GetCorrectionFactor	box2d.html#b2MotorJoint_GetCorrectionFactor,b2JointId	proc b2MotorJoint_GetCorrectionFactor(jointId: b2JointId): cfloat		3360
+nim	b2CreateMouseJoint	box2d.html#b2CreateMouseJoint,b2WorldId,ptr.b2MouseJointDef	proc b2CreateMouseJoint(worldId: b2WorldId; def: ptr b2MouseJointDef): b2JointId		3365
+nim	b2MouseJoint_SetTarget	box2d.html#b2MouseJoint_SetTarget,b2JointId,b2Vec2	proc b2MouseJoint_SetTarget(jointId: b2JointId; target: b2Vec2): void		3372
+nim	b2MouseJoint_GetTarget	box2d.html#b2MouseJoint_GetTarget,b2JointId	proc b2MouseJoint_GetTarget(jointId: b2JointId): b2Vec2		3377
+nim	b2MouseJoint_SetSpringHertz	box2d.html#b2MouseJoint_SetSpringHertz,b2JointId,cfloat	proc b2MouseJoint_SetSpringHertz(jointId: b2JointId; hertz: cfloat): void		3382
+nim	b2MouseJoint_GetSpringHertz	box2d.html#b2MouseJoint_GetSpringHertz,b2JointId	proc b2MouseJoint_GetSpringHertz(jointId: b2JointId): cfloat		3387
+nim	b2MouseJoint_SetSpringDampingRatio	box2d.html#b2MouseJoint_SetSpringDampingRatio,b2JointId,cfloat	proc b2MouseJoint_SetSpringDampingRatio(jointId: b2JointId; dampingRatio: cfloat): void		3392
+nim	b2MouseJoint_GetSpringDampingRatio	box2d.html#b2MouseJoint_GetSpringDampingRatio,b2JointId	proc b2MouseJoint_GetSpringDampingRatio(jointId: b2JointId): cfloat		3398
+nim	b2MouseJoint_SetMaxForce	box2d.html#b2MouseJoint_SetMaxForce,b2JointId,cfloat	proc b2MouseJoint_SetMaxForce(jointId: b2JointId; maxForce: cfloat): void		3403
+nim	b2MouseJoint_GetMaxForce	box2d.html#b2MouseJoint_GetMaxForce,b2JointId	proc b2MouseJoint_GetMaxForce(jointId: b2JointId): cfloat		3408
+nim	b2CreatePrismaticJoint	box2d.html#b2CreatePrismaticJoint,b2WorldId,ptr.b2PrismaticJointDef	proc b2CreatePrismaticJoint(worldId: b2WorldId; def: ptr b2PrismaticJointDef): b2JointId		3413
+nim	b2PrismaticJoint_EnableSpring	box2d.html#b2PrismaticJoint_EnableSpring,b2JointId,bool	proc b2PrismaticJoint_EnableSpring(jointId: b2JointId; enableSpring: bool): void		3420
+nim	b2PrismaticJoint_IsSpringEnabled	box2d.html#b2PrismaticJoint_IsSpringEnabled,b2JointId	proc b2PrismaticJoint_IsSpringEnabled(jointId: b2JointId): bool		3425
+nim	b2PrismaticJoint_SetSpringHertz	box2d.html#b2PrismaticJoint_SetSpringHertz,b2JointId,cfloat	proc b2PrismaticJoint_SetSpringHertz(jointId: b2JointId; hertz: cfloat): void		3430
+nim	b2PrismaticJoint_GetSpringHertz	box2d.html#b2PrismaticJoint_GetSpringHertz,b2JointId	proc b2PrismaticJoint_GetSpringHertz(jointId: b2JointId): cfloat		3438
+nim	b2PrismaticJoint_SetSpringDampingRatio	box2d.html#b2PrismaticJoint_SetSpringDampingRatio,b2JointId,cfloat	proc b2PrismaticJoint_SetSpringDampingRatio(jointId: b2JointId; dampingRatio: cfloat): void		3443
+nim	b2PrismaticJoint_GetSpringDampingRatio	box2d.html#b2PrismaticJoint_GetSpringDampingRatio,b2JointId	proc b2PrismaticJoint_GetSpringDampingRatio(jointId: b2JointId): cfloat		3449
+nim	b2PrismaticJoint_EnableLimit	box2d.html#b2PrismaticJoint_EnableLimit,b2JointId,bool	proc b2PrismaticJoint_EnableLimit(jointId: b2JointId; enableLimit: bool): void		3454
+nim	b2PrismaticJoint_IsLimitEnabled	box2d.html#b2PrismaticJoint_IsLimitEnabled,b2JointId	proc b2PrismaticJoint_IsLimitEnabled(jointId: b2JointId): bool		3459
+nim	b2PrismaticJoint_GetLowerLimit	box2d.html#b2PrismaticJoint_GetLowerLimit,b2JointId	proc b2PrismaticJoint_GetLowerLimit(jointId: b2JointId): cfloat		3464
+nim	b2PrismaticJoint_GetUpperLimit	box2d.html#b2PrismaticJoint_GetUpperLimit,b2JointId	proc b2PrismaticJoint_GetUpperLimit(jointId: b2JointId): cfloat		3469
+nim	b2PrismaticJoint_SetLimits	box2d.html#b2PrismaticJoint_SetLimits,b2JointId,cfloat,cfloat	proc b2PrismaticJoint_SetLimits(jointId: b2JointId; lower: cfloat; upper: cfloat): void		3474
+nim	b2PrismaticJoint_EnableMotor	box2d.html#b2PrismaticJoint_EnableMotor,b2JointId,bool	proc b2PrismaticJoint_EnableMotor(jointId: b2JointId; enableMotor: bool): void		3480
+nim	b2PrismaticJoint_IsMotorEnabled	box2d.html#b2PrismaticJoint_IsMotorEnabled,b2JointId	proc b2PrismaticJoint_IsMotorEnabled(jointId: b2JointId): bool		3485
+nim	b2PrismaticJoint_SetMotorSpeed	box2d.html#b2PrismaticJoint_SetMotorSpeed,b2JointId,cfloat	proc b2PrismaticJoint_SetMotorSpeed(jointId: b2JointId; motorSpeed: cfloat): void		3490
+nim	b2PrismaticJoint_GetMotorSpeed	box2d.html#b2PrismaticJoint_GetMotorSpeed,b2JointId	proc b2PrismaticJoint_GetMotorSpeed(jointId: b2JointId): cfloat		3495
+nim	b2PrismaticJoint_SetMaxMotorForce	box2d.html#b2PrismaticJoint_SetMaxMotorForce,b2JointId,cfloat	proc b2PrismaticJoint_SetMaxMotorForce(jointId: b2JointId; force: cfloat): void		3500
+nim	b2PrismaticJoint_GetMaxMotorForce	box2d.html#b2PrismaticJoint_GetMaxMotorForce,b2JointId	proc b2PrismaticJoint_GetMaxMotorForce(jointId: b2JointId): cfloat		3505
+nim	b2PrismaticJoint_GetMotorForce	box2d.html#b2PrismaticJoint_GetMotorForce,b2JointId	proc b2PrismaticJoint_GetMotorForce(jointId: b2JointId): cfloat		3510
+nim	b2CreateRevoluteJoint	box2d.html#b2CreateRevoluteJoint,b2WorldId,ptr.b2RevoluteJointDef	proc b2CreateRevoluteJoint(worldId: b2WorldId; def: ptr b2RevoluteJointDef): b2JointId		3515
+nim	b2RevoluteJoint_EnableSpring	box2d.html#b2RevoluteJoint_EnableSpring,b2JointId,bool	proc b2RevoluteJoint_EnableSpring(jointId: b2JointId; enableSpring: bool): void		3522
+nim	b2RevoluteJoint_IsLimitEnabled	box2d.html#b2RevoluteJoint_IsLimitEnabled,b2JointId	proc b2RevoluteJoint_IsLimitEnabled(jointId: b2JointId): bool		3527
+nim	b2RevoluteJoint_SetSpringHertz	box2d.html#b2RevoluteJoint_SetSpringHertz,b2JointId,cfloat	proc b2RevoluteJoint_SetSpringHertz(jointId: b2JointId; hertz: cfloat): void		3532
+nim	b2RevoluteJoint_GetSpringHertz	box2d.html#b2RevoluteJoint_GetSpringHertz,b2JointId	proc b2RevoluteJoint_GetSpringHertz(jointId: b2JointId): cfloat		3537
+nim	b2RevoluteJoint_SetSpringDampingRatio	box2d.html#b2RevoluteJoint_SetSpringDampingRatio,b2JointId,cfloat	proc b2RevoluteJoint_SetSpringDampingRatio(jointId: b2JointId; dampingRatio: cfloat): void		3542
+nim	b2RevoluteJoint_GetSpringDampingRatio	box2d.html#b2RevoluteJoint_GetSpringDampingRatio,b2JointId	proc b2RevoluteJoint_GetSpringDampingRatio(jointId: b2JointId): cfloat		3548
+nim	b2RevoluteJoint_GetAngle	box2d.html#b2RevoluteJoint_GetAngle,b2JointId	proc b2RevoluteJoint_GetAngle(jointId: b2JointId): cfloat		3553
+nim	b2RevoluteJoint_EnableLimit	box2d.html#b2RevoluteJoint_EnableLimit,b2JointId,bool	proc b2RevoluteJoint_EnableLimit(jointId: b2JointId; enableLimit: bool): void		3560
+nim	b2RevoluteJoint_GetLowerLimit	box2d.html#b2RevoluteJoint_GetLowerLimit,b2JointId	proc b2RevoluteJoint_GetLowerLimit(jointId: b2JointId): cfloat		3565
+nim	b2RevoluteJoint_GetUpperLimit	box2d.html#b2RevoluteJoint_GetUpperLimit,b2JointId	proc b2RevoluteJoint_GetUpperLimit(jointId: b2JointId): cfloat		3570
+nim	b2RevoluteJoint_SetLimits	box2d.html#b2RevoluteJoint_SetLimits,b2JointId,cfloat,cfloat	proc b2RevoluteJoint_SetLimits(jointId: b2JointId; lower: cfloat; upper: cfloat): void		3575
+nim	b2RevoluteJoint_EnableMotor	box2d.html#b2RevoluteJoint_EnableMotor,b2JointId,bool	proc b2RevoluteJoint_EnableMotor(jointId: b2JointId; enableMotor: bool): void		3580
+nim	b2RevoluteJoint_IsMotorEnabled	box2d.html#b2RevoluteJoint_IsMotorEnabled,b2JointId	proc b2RevoluteJoint_IsMotorEnabled(jointId: b2JointId): bool		3585
+nim	b2RevoluteJoint_SetMotorSpeed	box2d.html#b2RevoluteJoint_SetMotorSpeed,b2JointId,cfloat	proc b2RevoluteJoint_SetMotorSpeed(jointId: b2JointId; motorSpeed: cfloat): void		3590
+nim	b2RevoluteJoint_GetMotorSpeed	box2d.html#b2RevoluteJoint_GetMotorSpeed,b2JointId	proc b2RevoluteJoint_GetMotorSpeed(jointId: b2JointId): cfloat		3595
+nim	b2RevoluteJoint_GetMotorTorque	box2d.html#b2RevoluteJoint_GetMotorTorque,b2JointId	proc b2RevoluteJoint_GetMotorTorque(jointId: b2JointId): cfloat		3600
+nim	b2RevoluteJoint_SetMaxMotorTorque	box2d.html#b2RevoluteJoint_SetMaxMotorTorque,b2JointId,cfloat	proc b2RevoluteJoint_SetMaxMotorTorque(jointId: b2JointId; torque: cfloat): void		3605
+nim	b2RevoluteJoint_GetMaxMotorTorque	box2d.html#b2RevoluteJoint_GetMaxMotorTorque,b2JointId	proc b2RevoluteJoint_GetMaxMotorTorque(jointId: b2JointId): cfloat		3610
+nim	b2CreateWeldJoint	box2d.html#b2CreateWeldJoint,b2WorldId,ptr.b2WeldJointDef	proc b2CreateWeldJoint(worldId: b2WorldId; def: ptr b2WeldJointDef): b2JointId		3615
+nim	b2WeldJoint_SetLinearHertz	box2d.html#b2WeldJoint_SetLinearHertz,b2JointId,cfloat	proc b2WeldJoint_SetLinearHertz(jointId: b2JointId; hertz: cfloat): void		3622
+nim	b2WeldJoint_GetLinearHertz	box2d.html#b2WeldJoint_GetLinearHertz,b2JointId	proc b2WeldJoint_GetLinearHertz(jointId: b2JointId): cfloat		3627
+nim	b2WeldJoint_SetLinearDampingRatio	box2d.html#b2WeldJoint_SetLinearDampingRatio,b2JointId,cfloat	proc b2WeldJoint_SetLinearDampingRatio(jointId: b2JointId; dampingRatio: cfloat): void		3632
+nim	b2WeldJoint_GetLinearDampingRatio	box2d.html#b2WeldJoint_GetLinearDampingRatio,b2JointId	proc b2WeldJoint_GetLinearDampingRatio(jointId: b2JointId): cfloat		3637
+nim	b2WeldJoint_SetAngularHertz	box2d.html#b2WeldJoint_SetAngularHertz,b2JointId,cfloat	proc b2WeldJoint_SetAngularHertz(jointId: b2JointId; hertz: cfloat): void		3642
+nim	b2WeldJoint_GetAngularHertz	box2d.html#b2WeldJoint_GetAngularHertz,b2JointId	proc b2WeldJoint_GetAngularHertz(jointId: b2JointId): cfloat		3647
+nim	b2WeldJoint_SetAngularDampingRatio	box2d.html#b2WeldJoint_SetAngularDampingRatio,b2JointId,cfloat	proc b2WeldJoint_SetAngularDampingRatio(jointId: b2JointId; dampingRatio: cfloat): void		3652
+nim	b2WeldJoint_GetAngularDampingRatio	box2d.html#b2WeldJoint_GetAngularDampingRatio,b2JointId	proc b2WeldJoint_GetAngularDampingRatio(jointId: b2JointId): cfloat		3658
+nim	b2CreateWheelJoint	box2d.html#b2CreateWheelJoint,b2WorldId,ptr.b2WheelJointDef	proc b2CreateWheelJoint(worldId: b2WorldId; def: ptr b2WheelJointDef): b2JointId		3663
+nim	b2WheelJoint_EnableSpring	box2d.html#b2WheelJoint_EnableSpring,b2JointId,bool	proc b2WheelJoint_EnableSpring(jointId: b2JointId; enableSpring: bool): void		3670
+nim	b2WheelJoint_IsSpringEnabled	box2d.html#b2WheelJoint_IsSpringEnabled,b2JointId	proc b2WheelJoint_IsSpringEnabled(jointId: b2JointId): bool		3675
+nim	b2WheelJoint_SetSpringHertz	box2d.html#b2WheelJoint_SetSpringHertz,b2JointId,cfloat	proc b2WheelJoint_SetSpringHertz(jointId: b2JointId; hertz: cfloat): void		3680
+nim	b2WheelJoint_GetSpringHertz	box2d.html#b2WheelJoint_GetSpringHertz,b2JointId	proc b2WheelJoint_GetSpringHertz(jointId: b2JointId): cfloat		3685
+nim	b2WheelJoint_SetSpringDampingRatio	box2d.html#b2WheelJoint_SetSpringDampingRatio,b2JointId,cfloat	proc b2WheelJoint_SetSpringDampingRatio(jointId: b2JointId; dampingRatio: cfloat): void		3690
+nim	b2WheelJoint_GetSpringDampingRatio	box2d.html#b2WheelJoint_GetSpringDampingRatio,b2JointId	proc b2WheelJoint_GetSpringDampingRatio(jointId: b2JointId): cfloat		3696
+nim	b2WheelJoint_EnableLimit	box2d.html#b2WheelJoint_EnableLimit,b2JointId,bool	proc b2WheelJoint_EnableLimit(jointId: b2JointId; enableLimit: bool): void		3701
+nim	b2WheelJoint_IsLimitEnabled	box2d.html#b2WheelJoint_IsLimitEnabled,b2JointId	proc b2WheelJoint_IsLimitEnabled(jointId: b2JointId): bool		3706
+nim	b2WheelJoint_GetLowerLimit	box2d.html#b2WheelJoint_GetLowerLimit,b2JointId	proc b2WheelJoint_GetLowerLimit(jointId: b2JointId): cfloat		3711
+nim	b2WheelJoint_GetUpperLimit	box2d.html#b2WheelJoint_GetUpperLimit,b2JointId	proc b2WheelJoint_GetUpperLimit(jointId: b2JointId): cfloat		3716
+nim	b2WheelJoint_SetLimits	box2d.html#b2WheelJoint_SetLimits,b2JointId,cfloat,cfloat	proc b2WheelJoint_SetLimits(jointId: b2JointId; lower: cfloat; upper: cfloat): void		3721
+nim	b2WheelJoint_EnableMotor	box2d.html#b2WheelJoint_EnableMotor,b2JointId,bool	proc b2WheelJoint_EnableMotor(jointId: b2JointId; enableMotor: bool): void		3726
+nim	b2WheelJoint_IsMotorEnabled	box2d.html#b2WheelJoint_IsMotorEnabled,b2JointId	proc b2WheelJoint_IsMotorEnabled(jointId: b2JointId): bool		3731
+nim	b2WheelJoint_SetMotorSpeed	box2d.html#b2WheelJoint_SetMotorSpeed,b2JointId,cfloat	proc b2WheelJoint_SetMotorSpeed(jointId: b2JointId; motorSpeed: cfloat): void		3736
+nim	b2WheelJoint_GetMotorSpeed	box2d.html#b2WheelJoint_GetMotorSpeed,b2JointId	proc b2WheelJoint_GetMotorSpeed(jointId: b2JointId): cfloat		3741
+nim	b2WheelJoint_SetMaxMotorTorque	box2d.html#b2WheelJoint_SetMaxMotorTorque,b2JointId,cfloat	proc b2WheelJoint_SetMaxMotorTorque(jointId: b2JointId; torque: cfloat): void		3746
+nim	b2WheelJoint_GetMaxMotorTorque	box2d.html#b2WheelJoint_GetMaxMotorTorque,b2JointId	proc b2WheelJoint_GetMaxMotorTorque(jointId: b2JointId): cfloat		3751
+nim	b2WheelJoint_GetMotorTorque	box2d.html#b2WheelJoint_GetMotorTorque,b2JointId	proc b2WheelJoint_GetMotorTorque(jointId: b2JointId): cfloat		3756
+nim	b2Dot	box2d.html#b2Dot,b2Vec2,b2Vec2	proc b2Dot(a: b2Vec2; b: b2Vec2): cfloat		3767
+nim	b2Cross	box2d.html#b2Cross,b2Vec2,b2Vec2	proc b2Cross(a: b2Vec2; b: b2Vec2): cfloat		3773
+nim	b2CrossVS	box2d.html#b2CrossVS,b2Vec2,cfloat	proc b2CrossVS(v: b2Vec2; s: cfloat): b2Vec2		3779
+nim	b2CrossSV	box2d.html#b2CrossSV,cfloat,b2Vec2	proc b2CrossSV(s: cfloat; v: b2Vec2): b2Vec2		3785
+nim	b2LeftPerp	box2d.html#b2LeftPerp,b2Vec2	proc b2LeftPerp(v: b2Vec2): b2Vec2		3791
+nim	b2RightPerp	box2d.html#b2RightPerp,b2Vec2	proc b2RightPerp(v: b2Vec2): b2Vec2		3797
+nim	b2Add	box2d.html#b2Add,b2Vec2,b2Vec2	proc b2Add(a: b2Vec2; b: b2Vec2): b2Vec2		3803
+nim	b2Sub	box2d.html#b2Sub,b2Vec2,b2Vec2	proc b2Sub(a: b2Vec2; b: b2Vec2): b2Vec2		3809
+nim	b2Neg	box2d.html#b2Neg,b2Vec2	proc b2Neg(a: b2Vec2): b2Vec2		3815
+nim	b2Lerp	box2d.html#b2Lerp,b2Vec2,b2Vec2,cfloat	proc b2Lerp(a: b2Vec2; b: b2Vec2; t: cfloat): b2Vec2		3821
+nim	b2Mul	box2d.html#b2Mul,b2Vec2,b2Vec2	proc b2Mul(a: b2Vec2; b: b2Vec2): b2Vec2		3827
+nim	b2MulSV	box2d.html#b2MulSV,cfloat,b2Vec2	proc b2MulSV(s: cfloat; v: b2Vec2): b2Vec2		3833
+nim	b2MulAdd	box2d.html#b2MulAdd,b2Vec2,cfloat,b2Vec2	proc b2MulAdd(a: b2Vec2; s: cfloat; b: b2Vec2): b2Vec2		3839
+nim	b2MulSub	box2d.html#b2MulSub,b2Vec2,cfloat,b2Vec2	proc b2MulSub(a: b2Vec2; s: cfloat; b: b2Vec2): b2Vec2		3845
+nim	b2Abs	box2d.html#b2Abs,b2Vec2	proc b2Abs(a: b2Vec2): b2Vec2		3851
+nim	b2Min	box2d.html#b2Min,b2Vec2,b2Vec2	proc b2Min(a: b2Vec2; b: b2Vec2): b2Vec2		3857
+nim	b2Max	box2d.html#b2Max,b2Vec2,b2Vec2	proc b2Max(a: b2Vec2; b: b2Vec2): b2Vec2		3863
+nim	b2Clamp	box2d.html#b2Clamp,b2Vec2,b2Vec2,b2Vec2	proc b2Clamp(v: b2Vec2; a: b2Vec2; b: b2Vec2): b2Vec2		3869
+nim	b2Length	box2d.html#b2Length,b2Vec2	proc b2Length(v: b2Vec2): cfloat		3875
+nim	b2LengthSquared	box2d.html#b2LengthSquared,b2Vec2	proc b2LengthSquared(v: b2Vec2): cfloat		3881
+nim	b2Distance	box2d.html#b2Distance,b2Vec2,b2Vec2	proc b2Distance(a: b2Vec2; b: b2Vec2): cfloat		3887
+nim	b2DistanceSquared	box2d.html#b2DistanceSquared,b2Vec2,b2Vec2	proc b2DistanceSquared(a: b2Vec2; b: b2Vec2): cfloat		3895
+nim	b2MakeRot	box2d.html#b2MakeRot,cfloat	proc b2MakeRot(angle: cfloat): b2Rot		3903
+nim	b2NormalizeRot	box2d.html#b2NormalizeRot,b2Rot	proc b2NormalizeRot(q: b2Rot): b2Rot		3909
+nim	b2IsNormalized	box2d.html#b2IsNormalized,b2Rot	proc b2IsNormalized(q: b2Rot): bool		3924
+nim	b2NLerp	box2d.html#b2NLerp,b2Rot,b2Rot,cfloat	proc b2NLerp(q1: b2Rot; q2: b2Rot; t: cfloat): b2Rot		3931
+nim	b2IntegrateRotation	box2d.html#b2IntegrateRotation,b2Rot,cfloat	proc b2IntegrateRotation(q1: b2Rot; deltaAngle: cfloat): b2Rot		3943
+nim	b2ComputeAngularVelocity	box2d.html#b2ComputeAngularVelocity,b2Rot,b2Rot,cfloat	proc b2ComputeAngularVelocity(q1: b2Rot; q2: b2Rot; inv_h: cfloat): cfloat		3957
+nim	b2Rot_GetAngle	box2d.html#b2Rot_GetAngle,b2Rot	proc b2Rot_GetAngle(q: b2Rot): cfloat		3963
+nim	b2Rot_GetXAxis	box2d.html#b2Rot_GetXAxis,b2Rot	proc b2Rot_GetXAxis(q: b2Rot): b2Vec2		3969
+nim	b2Rot_GetYAxis	box2d.html#b2Rot_GetYAxis,b2Rot	proc b2Rot_GetYAxis(q: b2Rot): b2Vec2		3975
+nim	b2MulRot	box2d.html#b2MulRot,b2Rot,b2Rot	proc b2MulRot(q: b2Rot; r: b2Rot): b2Rot		3981
+nim	b2InvMulRot	box2d.html#b2InvMulRot,b2Rot,b2Rot	proc b2InvMulRot(q: b2Rot; r: b2Rot): b2Rot		3987
+nim	b2RelativeAngle	box2d.html#b2RelativeAngle,b2Rot,b2Rot	proc b2RelativeAngle(a: b2Rot; b: b2Rot): cfloat		3993
+nim	b2UnwindAngle	box2d.html#b2UnwindAngle,cfloat	proc b2UnwindAngle(angle: cfloat): cfloat		4001
+nim	b2RotateVector	box2d.html#b2RotateVector,b2Rot,b2Vec2	proc b2RotateVector(q: b2Rot; v: b2Vec2): b2Vec2		4012
+nim	b2InvRotateVector	box2d.html#b2InvRotateVector,b2Rot,b2Vec2	proc b2InvRotateVector(q: b2Rot; v: b2Vec2): b2Vec2		4018
+nim	b2TransformPoint	box2d.html#b2TransformPoint,b2Transform,b2Vec2	proc b2TransformPoint(t: b2Transform; p: b2Vec2): b2Vec2		4024
+nim	b2InvTransformPoint	box2d.html#b2InvTransformPoint,b2Transform,b2Vec2	proc b2InvTransformPoint(t: b2Transform; p: b2Vec2): b2Vec2		4033
+nim	b2MulTransforms	box2d.html#b2MulTransforms,b2Transform,b2Transform	proc b2MulTransforms(A: b2Transform; B: b2Transform): b2Transform		4045
+nim	b2InvMulTransforms	box2d.html#b2InvMulTransforms,b2Transform,b2Transform	proc b2InvMulTransforms(A: b2Transform; B: b2Transform): b2Transform		4053
+nim	b2MulMV	box2d.html#b2MulMV,b2Mat22,b2Vec2	proc b2MulMV(A: b2Mat22; v: b2Vec2): b2Vec2		4061
+nim	b2GetInverse22	box2d.html#b2GetInverse22,b2Mat22	proc b2GetInverse22(A: b2Mat22): b2Mat22		4070
+nim	b2Solve22	box2d.html#b2Solve22,b2Mat22,b2Vec2	proc b2Solve22(A: b2Mat22; b: b2Vec2): b2Vec2		4090
+nim	b2AABB_Contains	box2d.html#b2AABB_Contains,b2AABB,b2AABB	proc b2AABB_Contains(a: b2AABB; b: b2AABB): bool		4107
+nim	b2AABB_Center	box2d.html#b2AABB_Center,b2AABB	proc b2AABB_Center(a: b2AABB): b2Vec2		4118
+nim	b2AABB_Extents	box2d.html#b2AABB_Extents,b2AABB	proc b2AABB_Extents(a: b2AABB): b2Vec2		4127
+nim	b2AABB_Union	box2d.html#b2AABB_Union,b2AABB,b2AABB	proc b2AABB_Union(a: b2AABB; b: b2AABB): b2AABB		4136
