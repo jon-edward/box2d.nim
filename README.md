@@ -31,8 +31,8 @@ of these members are stored in various -`Def` types, such as [`b2BodyDef`](https
 Making a dynamic body with a box shape is as simple as defining a world with a given gravity vector, creating a dynamic body in that world, 
 attaching it to a shape, and stepping the simulation forward. 
 
-Notice that -`Def` types are used only for passing to `Create` functions, 
-and opaque `Id` objects (`worldId`, `bodyId`) are retained.
+Notice that -`Def` types are used only for passing to `b2Create`- functions, 
+and opaque -`Id` objects (`worldId`, `bodyId`) are retained.
 
 ```nim
 import box2d
