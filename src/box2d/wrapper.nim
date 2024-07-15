@@ -1,7 +1,3 @@
-## All declared members from box2c/include/box2d header files.
-## 
-
-
 when not defined(nimdoc):
     import private/compile
     ensureCompiled()

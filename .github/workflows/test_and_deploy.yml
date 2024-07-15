@@ -1,8 +1,14 @@
+name: Run tests and deploy docs
+
+
 on:
     push:
         tags:
             - 'v*'
+        branches:
+            - main
     workflow_dispatch:
+
 
 jobs:
     run_tests:
@@ -26,5 +32,19 @@ jobs:
             - name: Build and run tests
               run: |
                 nimble test -Y
+    
+    deploy_docs:
+        runs-on: ubuntu-latest
 
-  
+        steps:
+            - uses: jiro4989/setup-nim-action@v2
+              name: Set up Nim
+            
+            - name: Build docs
+              run: |
+                sh ./build_docs.sh
+            
+            - uses: JamesIves/github-pages-deploy-action@v4
+              name: Deploy docs to Pages
+              with:
+                folder: docs/htmldocs
