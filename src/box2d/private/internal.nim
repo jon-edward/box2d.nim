@@ -10,25 +10,25 @@ ensureCompiled()
 
 type  
   b2BitSet* {.pure, inheritable, bycopy.} = object
-    bits*: ptr uint64        ## Generated based on /home/jont/jon-edward/box2d.nim/src/box2d/private/box2c/src/bitset.h:12:16
+    bits*: ptr uint64        ## Generated based on box2c/src/bitset.h:12:16
     blockCapacity*: uint32
     blockCount*: uint32
 
   b2SetItem* {.pure, inheritable, bycopy.} = object
-    key*: uint64             ## Generated based on /home/jont/jon-edward/box2d.nim/src/box2d/private/box2c/src/table.h:11:16
+    key*: uint64             ## Generated based on box2c/src/table.h:11:16
     hash*: uint32
 
   b2HashSet* {.pure, inheritable, bycopy.} = object
-    items*: ptr b2SetItem    ## Generated based on /home/jont/jon-edward/box2d.nim/src/box2d/private/box2c/src/table.h:17:16
+    items*: ptr b2SetItem    ## Generated based on box2c/src/table.h:17:16
     capacity*: uint32
     count*: uint32
 
-const B2_NULL_INDEX* = -1    ## Generated based on /home/jont/jon-edward/box2d.nim/src/box2d/private/box2c/src/core.h:8:9
-const b2_maxWorkers* = 64    ## Generated based on /home/jont/jon-edward/box2d.nim/src/box2d/private/box2c/src/core.h:117:9
-const b2_graphColorCount* = 12 ## Generated based on /home/jont/jon-edward/box2d.nim/src/box2d/private/box2c/src/core.h:121:9
-const b2_maxWorlds* = 128    ## Generated based on /home/jont/jon-edward/box2d.nim/src/box2d/private/box2c/src/core.h:129:9
-const b2_timeToSleep* = 0.5  ## Generated based on /home/jont/jon-edward/box2d.nim/src/box2d/private/box2c/src/core.h:151:9
-const B2_SECRET_COOKIE* = 1152023 ## Generated based on /home/jont/jon-edward/box2d.nim/src/box2d/private/box2c/src/core.h:160:9
+const B2_NULL_INDEX* = -1    ## Generated based on box2c/src/core.h:8:9
+const b2_maxWorkers* = 64    ## Generated based on box2c/src/core.h:117:9
+const b2_graphColorCount* = 12 ## Generated based on box2c/src/core.h:121:9
+const b2_maxWorlds* = 128    ## Generated based on box2c/src/core.h:129:9
+const b2_timeToSleep* = 0.5  ## Generated based on box2c/src/core.h:151:9
+const B2_SECRET_COOKIE* = 1152023 ## Generated based on box2c/src/core.h:160:9
 
 proc b2AABB_RayCast*(a: b2AABB; p1: b2Vec2; p2: b2Vec2): b2CastOutput {.cdecl, importc: "b2AABB_RayCast".}
 
