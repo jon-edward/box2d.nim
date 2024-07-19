@@ -1593,6 +1593,7 @@ when not defined(b2PreSolveFcn):
         ## This is called after a contact is updated. This allows you to inspect a
         ## contact before it goes to the solver. If you are careful, you can modify the
         ## contact manifold (e.g. modify the normal).
+        ## 
         ## .. note:: 
         ##      - this function must be thread-safe
         ##      - this is only called if the shape has enabled presolve events
@@ -1623,17 +1624,15 @@ when not defined(b2CastResultFcn):
         ## 
         ## Return -1 to filter, 0 to terminate, fraction to clip the ray for closest hit, 1 to continue
         ## 
-        ## ``shapeId`` - the shape hit by the ray
-        ## 
-        ## ``point`` - the point of initial intersection
-        ## 
-        ## ``normal`` - the normal vector at the point of intersection
-        ## 
-        ## ``fraction`` - the fraction along the ray at the point of intersection
-        ## 
-        ## ``context`` - the user context
-        ## 
         ## See `b2World_CastRay`_.
+        ## 
+        ## **Params:**
+        ## 
+        ## * ``shapeId`` - the shape hit by the ray
+        ## * ``point`` - the point of initial intersection
+        ## * ``normal`` - the normal vector at the point of intersection
+        ## * ``fraction`` - the fraction along the ray at the point of intersection
+        ## * ``context`` - the user context
   
 
 when not defined(b2DebugDraw):
@@ -1781,7 +1780,9 @@ when not defined(b2SetAssertFcn):
         importc: "b2SetAssertFcn".}
         ## Override the default assert callback
         ## 
-        ## ``assertFcn`` - a non-null assert callback
+        ## **Params:**
+        ## 
+        ## * ``assertFcn`` - a non-null assert callback
 
 
 when not defined(b2GetVersion):
@@ -2220,11 +2221,11 @@ when not defined(b2World_Step):
     proc b2World_Step*(worldId: b2WorldId; timeStep: cfloat; subStepCount: cint): void {.cdecl, importc: "b2World_Step".}
         ## Simulate a world for one time step. This performs collision detection, integration, and constraint solution.
         ## 
-        ## ``worldId`` - The world to simulate
+        ## **Params:**
         ## 
-        ## ``timeStep`` - The amount of time to simulate, this should be a fixed number. Typically 1/60.
-        ## 
-        ## ``subStepCount`` - The number of sub-steps, increasing the sub-step count can increase accuracy. Typically 4.
+        ## * ``worldId`` - The world to simulate
+        ## * ``timeStep`` - The amount of time to simulate, this should be a fixed number. Typically 1/60.
+        ## * ``subStepCount`` - The number of sub-steps, increasing the sub-step count can increase accuracy. Typically 4.
 
 
 when not defined(b2World_Draw):
@@ -2285,19 +2286,17 @@ when not defined(b2World_CastRay):
         ## 
         ## The ray-cast ignores shapes that contain the starting point.
         ## 
-        ## ``worldId`` - The world to cast the ray against
+        ## .. note:: 
+        ##      The callback function may receive shapes in any order
         ## 
-        ## ``origin`` - The start point of the ray
+        ## **Params:**
         ## 
-        ## ``translation`` - The translation of the ray from the start point to the end point
-        ## 
-        ## ``filter`` - Contains bit flags to filter unwanted shapes from the results
-        ## 
-        ## ``fcn`` - A user implemented callback function
-        ## 
-        ## ``context`` - A user context that is passed along to the callback function
-        ##
-        ## .. note:: The callback function may receive shapes in any order
+        ## * ``worldId`` - The world to cast the ray against
+        ## * ``origin`` - The start point of the ray
+        ## * ``translation`` - The translation of the ray from the start point to the end point
+        ## * ``filter`` - Contains bit flags to filter unwanted shapes from the results
+        ## * ``fcn`` - A user implemented callback function
+        ## * ``context`` - A user context that is passed along to the callback function
 
 
 when not defined(b2World_CastRayClosest):
@@ -2394,13 +2393,12 @@ when not defined(b2World_Explode):
                 impulse: cfloat): void {.cdecl, importc: "b2World_Explode".}
         ## Apply a radial explosion
         ## 
-        ## ``worldId`` - The world id
+        ## **Params:**
         ## 
-        ## ``position`` - The center of the explosion
-        ## 
-        ## ``radius`` - The radius of the explosion
-        ## 
-        ## ``impulse`` - The impulse of the explosion, typically in kg * m / s or N * s.
+        ## * ``worldId`` - The world id
+        ## * ``position`` - The center of the explosion
+        ## * ``radius`` - The radius of the explosion
+        ## * ``impulse`` - The impulse of the explosion, typically in kg * m / s or N * s.
 
 
 when not defined(b2World_SetContactTuning):
@@ -2408,16 +2406,14 @@ when not defined(b2World_SetContactTuning):
                     dampingRatio: cfloat; pushVelocity: cfloat): void {.cdecl, importc: "b2World_SetContactTuning".}
         ## Adjust contact tuning parameters
         ## 
-        ## ``worldId`` - The world id
-        ## 
-        ## ``hertz`` - The contact stiffness (cycles per second)
-        ## 
-        ## ``dampingRatio`` - The contact bounciness with 1 being critical damping (non-dimensional)
-        ## 
-        ## ``pushVelocity`` - The maximum contact constraint push out velocity (meters per second)
-        ## 
         ## .. note:: Advanced feature
-
+        ## 
+        ## **Params:**
+        ## 
+        ## * ``worldId`` - The world id
+        ## * ``hertz`` - The contact stiffness (cycles per second)
+        ## * ``dampingRatio`` - The contact bounciness with 1 being critical damping (non-dimensional)
+        ## * ``pushVelocity`` - The maximum contact constraint push out velocity (meters per second)
 
 when not defined(b2World_EnableWarmStarting):
     proc b2World_EnableWarmStarting*(worldId: b2WorldId; flag: bool): void {.cdecl, importc: "b2World_EnableWarmStarting".}
@@ -2562,13 +2558,12 @@ when not defined(b2Body_ApplyForce):
         ## 
         ## The force is ignored if the body is not awake.
         ## 
-        ## ``bodyId`` - The body id
+        ## **Params:**
         ## 
-        ## ``force`` - The world force vector, typically in newtons (N)
-        ## 
-        ## ``point`` - The world position of the point of application
-        ## 
-        ## ``wake`` - Option to wake up the body
+        ## * ``bodyId`` - The body id
+        ## * ``force`` - The world force vector, typically in newtons (N)
+        ## * ``point`` - The world position of the point of application
+        ## * ``wake`` - Option to wake up the body
 
 
 when not defined(b2Body_ApplyForceToCenter):
@@ -2577,11 +2572,11 @@ when not defined(b2Body_ApplyForceToCenter):
         ## 
         ## The force is ignored if the body is not awake.
         ## 
-        ## ``bodyId`` - The body id
+        ## **Params:**
         ## 
-        ## ``force`` - the world force vector, usually in newtons (N).
-        ## 
-        ## ``wake`` - also wake up the body
+        ## * ``bodyId`` - The body id
+        ## * ``force`` - the world force vector, usually in newtons (N).
+        ## * ``wake`` - also wake up the body
 
 
 when not defined(b2Body_ApplyTorque):
@@ -2590,11 +2585,11 @@ when not defined(b2Body_ApplyTorque):
         ## 
         ## This optionally wakes the body. The torque is ignored if the body is not awake.
         ## 
-        ## ``bodyId`` - The body id
+        ## **Params:**
         ## 
-        ## ``torque`` - about the z-axis (out of the screen), typically in N\*m.
-        ## 
-        ## ``wake`` - also wake up the body
+        ## * ``bodyId`` - The body id
+        ## * ``torque`` - about the z-axis (out of the screen), typically in N\*m.
+        ## * ``wake`` - also wake up the body
 
 
 when not defined(b2Body_ApplyLinearImpulse):
@@ -2607,17 +2602,16 @@ when not defined(b2Body_ApplyLinearImpulse):
         ## 
         ## The impulse is ignored if the body is not awake.
         ## 
-        ## ``bodyId`` - The body id
-        ## 
-        ## ``impulse`` - the world impulse vector, typically in N*s or kg*m/s.
-        ## 
-        ## ``point`` - the world position of the point of application.
-        ## 
-        ## ``wake`` - also wake up the body
-        ## 
         ## .. warning:: 
         ##      This should be used for one-shot impulses. If you need a steady force,
         ##      use a force instead, which will work better with the sub-stepping solver.
+        ## 
+        ## **Params:**
+        ## 
+        ## * ``bodyId`` - The body id
+        ## * ``impulse`` - the world impulse vector, typically in N*s or kg*m/s.
+        ## * ``point`` - the world position of the point of application.
+        ## * ``wake`` - also wake up the body
 
 
 when not defined(b2Body_ApplyLinearImpulseToCenter):
@@ -2627,15 +2621,15 @@ when not defined(b2Body_ApplyLinearImpulseToCenter):
         ## 
         ## The impulse is ignored if the body is not awake. This optionally wakes the body.
         ## 
-        ## ``bodyId`` - The body id
-        ## 
-        ## ``impulse`` - the world impulse vector, typically in N*s or kg*m/s.
-        ## 
-        ## ``wake`` - also wake up the body
-        ## 
         ## .. warning:: 
         ##      This should be used for one-shot impulses. If you need a steady force,
         ##      use a force instead, which will work better with the sub-stepping solver.
+        ## 
+        ## **Params:**
+        ## 
+        ## * ``bodyId`` - The body id
+        ## * ``impulse`` - the world impulse vector, typically in N*s or kg*m/s.
+        ## * ``wake`` - also wake up the body
 
 
 when not defined(b2Body_ApplyAngularImpulse):
@@ -2644,15 +2638,15 @@ when not defined(b2Body_ApplyAngularImpulse):
         ## 
         ## This optionally wakes the body.
         ## 
-        ## ``bodyId`` - The body id
-        ## 
-        ## ``impulse`` - the angular impulse, typically in units of kg*m*m/s
-        ## 
-        ## ``wake`` - also wake up the body
-        ## 
         ## .. warning:: 
         ##      This should be used for one-shot impulses. If you need a steady force,
         ##      use a force instead, which will work better with the sub-stepping solver.
+        ## 
+        ## **Params:**
+        ## 
+        ## * ``bodyId`` - The body id
+        ## * ``impulse`` - the angular impulse, typically in units of kg*m*m/s
+        ## * ``wake`` - also wake up the body
 
 
 when not defined(b2Body_GetMass):
@@ -3223,9 +3217,10 @@ when not defined(b2DistanceJoint_SetLength):
     proc b2DistanceJoint_SetLength*(jointId: b2JointId; length: cfloat): void {.cdecl, importc: "b2DistanceJoint_SetLength".}
         ## Set the rest length of a distance joint
         ## 
-        ## ``jointId`` - The id for a distance joint
+        ## **Params:**
         ## 
-        ## ``length`` - The new distance joint length
+        ## * ``jointId`` - The id for a distance joint
+        ## * ``length`` - The new distance joint length
 
 
 when not defined(b2DistanceJoint_GetLength):
