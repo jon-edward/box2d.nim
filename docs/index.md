@@ -3,7 +3,7 @@
 ===================================
 
 .. contents::
-.. importdoc:: wrapper.nim
+.. importdoc:: box2d/wrapper
 
 # Welcome
 
