@@ -3,7 +3,7 @@
 ===================================
 
 .. contents::
-.. importdoc:: box2d.nim
+.. importdoc:: wrapper.nim
 
 # Welcome
 
@@ -21,4 +21,4 @@ projects to tinker with using [naylib](https://github.com/planetis-m/naylib) for
 
 # Reference
 
-For a complete library reference, check out `src/box2d`_.
+For a complete library reference, check out `src/box2d/wrapper`_.
