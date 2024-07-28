@@ -66,7 +66,7 @@ var shapeDef = b2DefaultShapeDef()
 shapeDef.density = 1.0f
 shapeDef.friction = 0.3f
 
-# Create polygon from body, shape definition, and polygon
+# Add polygon to simulation using body, shape definition, and box 
 discard b2CreatePolygonShape(bodyId, shapeDef.addr, dynamicBox.addr)
 
 # shapeDef and dynamicBox no longer needed
