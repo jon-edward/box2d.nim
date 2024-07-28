@@ -7,7 +7,7 @@ if defined(emscripten):
 
     --os:linux # Emscripten pretends to be linux.
     --cpu:wasm32 # Emscripten is 32bits.
-    --cc:clang # Emscripten is very close to clang, so we ill replace it.
+    --cc:clang # Emscripten is very close to clang, so we'll replace it.
     
     when defined(windows):
         --clang.exe:emcc.bat  # Replace C
@@ -32,4 +32,4 @@ if defined(emscripten):
     --define:noSignalHandler # Emscripten doesn't support signal handlers.
 
     # Pass this to Emscripten linker to generate html file scaffold for us.
-    switch("passL", "-o boxes.html --shell-file ./static/shell_minimal.html -sTOTAL_STACK=128MB -sTOTAL_MEMORY=256MB")
+    switch("passL", "-o ./dist/index.html --shell-file ./static/shell_minimal.html -sTOTAL_STACK=128MB -sTOTAL_MEMORY=256MB")

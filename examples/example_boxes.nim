@@ -1,183 +1,176 @@
-import math
-import strutils
+## This example demonstrates creating and deleting a large number of physics bodies in an
+## unbounded area. Because of how box2d performs spatial queries to optimize collision checks,
+## this will have significantly better performance than the bounded `example_circles`.
+
 import std/strformat
+import strutils
 
+import box2d/wrapper
 import raylib
-import box2d
 
+import util/[conversions, debug, window, sized_stack]
+
+
+# Physics simulation substeps
 const subStepCount = 2
 
-const windowHeight = 900
-const windowWidth = (windowHeight * (16 / 9)).int32
+# Define initial window dimensions
+const initialHeight = 800
+const initialWidth = (initialHeight * (16 / 9)).int32
 
-const center = Vector2(x: windowWidth / 2, y: windowHeight / 2)
+# Physics shape properties. Can be reused
+const density = 1.0f
+const friction = 0.2f
+const restitution = 0.1f
 
-
-const spaceScaling = 10.0f
-
-
-type Box = object 
-    bodyId*: b2BodyId
-    dimensions*: Vector2
-
-
-proc spawn(_: typedesc[Box], worldId: b2WorldId, position: Vector2, dimensions: Vector2, dynamic: bool = true): Box = 
-    var bodyDef = b2DefaultBodyDef()
-
-    if dynamic:
-        bodyDef.bodyType = b2_dynamicBody
-    
-    bodyDef.position = b2Vec2(x: position.x / spaceScaling, y: position.y / spaceScaling)
-    
-    let bodyId = b2CreateBody(worldId, bodyDef.addr)
-
-    let box = b2MakeBox((dimensions.x / 2) / spaceScaling, (dimensions.y / 2) / spaceScaling)
-
-    var shapeDef = b2DefaultShapeDef()
-    shapeDef.density = 1.0f
-    shapeDef.friction = 0.3f
-
-    discard b2CreatePolygonShape(bodyId, shapeDef.addr, box.addr)
-
-    Box(bodyId: bodyId, dimensions: dimensions)
+var physicsShapeDef = b2DefaultShapeDef()
+physicsShapeDef.density = density
+physicsShapeDef.friction = friction
+physicsShapeDef.restitution = restitution
 
 
-proc velocityColor(linearVelocityMagnitude, angularVelocityMagnitude: float32): Color = 
-    let normalizedAngular = clamp(angularVelocityMagnitude / 5.0f, 0.0f, 1.0f)
-    let normalizedLinear = clamp(linearVelocityMagnitude / 5.0f, 0.0f, 1.0f)
-
-    let r = (normalizedLinear * 255.0f).uint8
-    let g = (normalizedAngular * 255.0f).uint8
-
-    Color(r: r, g: g, b: 0, a: 255)
-
-
-const deadGrey = Color(r: 80, g: 80, b: 80, a: 255)
-
-
-proc draw(box: Box) = 
-    let position = b2Body_GetPosition(box.bodyId)
-    let angle = b2Body_GetAngle(box.bodyId).radToDeg
-    
-    let isAwake = b2Body_IsAwake(box.bodyId)
-
-    let color = if isAwake:
-        let linearVelocity = b2Body_GetLinearVelocity(box.bodyId)
-        let linearVelocityMagnitude = sqrt(linearVelocity.x.pow(2.0f) + linearVelocity.y.pow(2.0f))
-        let angularVelocityMagnitude = b2Body_GetAngularVelocity(box.bodyId).abs
-
-        velocityColor(linearVelocityMagnitude, angularVelocityMagnitude)
-    else:
-        deadGrey
-
-    let rect = Rectangle(x: position.x * spaceScaling, y: position.y * spaceScaling, width: box.dimensions.x, height: box.dimensions.y)
-
-    drawRectangle(rect, Vector2(x: box.dimensions.x / 2, y: box.dimensions.y / 2), angle, color)
-
-
+## Initialize physics with a gravity vector
 proc initPhysics(): b2WorldId = 
     var worldDef = b2DefaultWorldDef()
-    worldDef.gravity = b2vec2(x: 0.0f, y: 10.0f)
-
+    worldDef.gravity = b2Vec2(x: 0.0f, y: 10.0f)
     b2CreateWorld(worldDef.addr)
 
 
-const nullBox = Box(bodyId: b2_nullBodyId, dimensions: Vector2(x: 0, y: 0))
+## Create a debugDraw object with drawing callbacks
+var debugDraw: b2DebugDraw = defaultDebugDraw()
+debugDraw.drawShapes = true
+
+let worldId = initPhysics()
+
+const circlesPerFrameHeld = 4
 
 
-type WorldBoxes[N : static[int]] = object
-    boxes*: array[N, Box]
-    insertionPoint: int32
-    count: int32
+## Make box body
+proc makeBox(worldId: b2WorldId, position: b2Vec2): b2BodyId = 
+    var bodyDef = b2DefaultBodyDef()
+
+    bodyDef.bodyType = b2_dynamicBody
+    bodyDef.position = position
+    
+    let bodyId = b2CreateBody(worldId, bodyDef.addr)
+    let box = b2MakeBox(0.2f, 0.2f)
+
+    discard b2CreatePolygonShape(bodyId, physicsShapeDef.addr, box.addr)
+    bodyId
 
 
-proc create[N : static[int]](_: typedesc[WorldBoxes[N]]): WorldBoxes[N] = 
-    var worldBoxes: WorldBoxes[N]
-    for i in 0..<N:
-        worldBoxes.boxes[i] = nullBox
-    worldBoxes
+## Holds bodyIds for all spawned boxes
+var boxStack: SizedStack[16384, b2BodyId]
+boxStack.clear(b2_nullBodyId)
 
 
-proc destroyAll[N : static[int]](worldBoxes: var WorldBoxes[N]) = 
-    let initialCount = worldBoxes.count
-    for i in 1..initialCount:
-        let idx = floorMod((worldBoxes.insertionPoint - i), N)
-        b2DestroyBody(worldBoxes.boxes[idx].bodyId)
-        worldBoxes.boxes[idx] = nullBox
-    worldBoxes.count = 0
+## Destroy a box in the stack with null body check
+proc destroyBoxSafe(bodyId: b2BodyId) = 
+    if bodyId != b2_nullBodyId:
+        b2DestroyBody(bodyId)
 
 
-proc insertBox[N : static[int]](worldBoxes: var WorldBoxes[N], box: Box) = 
-    if worldBoxes.count < N:
-        worldBoxes.boxes[worldBoxes.insertionPoint] = box
-        worldBoxes.count += 1
-        worldBoxes.insertionPoint = floorMod((worldBoxes.insertionPoint + 1), N)
+## Destroy a box in the stack, no null body check
+proc destroyBoxUnsafe(bodyId: b2BodyId) = 
+    b2DestroyBody(bodyId)
+
+
+## Create circle under mouse position, and delete old circles if stack is full.
+proc mouseDown(worldId: b2WorldId, mousePosB2: b2Vec2) = 
+    for _ in 0..<circlesPerFrameHeld:
+        boxStack.insert(worldId.makeBox(mousePosB2), destroyBoxUnsafe)
+
+
+var currentWidth: float32
+var currentHeight: float32
+var boundShapeDown: b2ShapeId
+
+
+## Create world bounds
+proc makeBounds*(worldId: b2WorldId, density: float32, friction: float32, restitution: float32) = 
+    var bodyDef = b2DefaultBodyDef()
+
+    currentWidth = getScreenWidth().float32.toB2
+    currentHeight = getScreenHeight().float32.toB2
+
+    var segmentDown: b2Segment
+    segmentDown.point1 = b2Vec2(x: 0, y: currentHeight)
+    segmentDown.point2 = b2Vec2(x: currentWidth, y: currentHeight)
+    let boundBodyDown = b2CreateBody(worldId, bodyDef.addr)
+    boundShapeDown = b2CreateSegmentShape(boundBodyDown, physicsShapeDef.addr, segmentDown.addr)
+
+
+## Update world bounds to current window size. 
+## 
+## This is not graceful, and will throw bodies outside world bounds
+proc setBounds*(worldId: b2WorldId) = 
+    let width = getScreenWidth().float32.toB2
+    let height = getScreenHeight().float32.toB2
+
+    # If no window size change has been made, return early.
+    # All objects on the ground will be kept awake if 
+    # shapes are updated every frame.
+    if currentHeight == height and currentWidth == width:
         return
-    
-    let toDestroy = worldBoxes.boxes[worldBoxes.insertionPoint]
-    
-    b2DestroyBody(toDestroy.bodyId)
 
-    worldBoxes.boxes[worldBoxes.insertionPoint] = box
-    worldBoxes.insertionPoint = floorMod((worldBoxes.insertionPoint + 1), N)
+    currentHeight = height
+    currentWidth = width
 
-
-iterator iterBoxes[N : static[int]](worldBoxes: WorldBoxes[N]): Box = 
-    for i in 1..worldBoxes.count:
-        yield worldBoxes.boxes[floorMod((worldBoxes.insertionPoint - i), N)]
+    var segmentDown: b2Segment
+    segmentDown.point1 = b2Vec2(x: 0, y: height)
+    segmentDown.point2 = b2Vec2(x: width, y: height)
+    b2Shape_SetSegment(boundShapeDown, segmentDown.addr)
 
 
+## Top-level function that initializes window and performs game loops
 proc main() = 
-    initWindow(windowWidth, windowHeight, "example")
-    setTargetFPS(60)
-
-    defer: closeWindow()
-
-    let worldId = initPhysics()
-    var worldBoxes = WorldBoxes[10000].create()
-
-    let boxDimensions = Vector2(x: 20.0f, y: 10.0f)
-
-    let ground1 = Box.spawn(worldId, Vector2(x: center.x, y: center.y + 300.0f), Vector2(x: 600.0f, y: 20.0f), dynamic=false)
-    let ground2 = Box.spawn(worldId, Vector2(x: center.x + 300, y: center.y + 260.0f), Vector2(x: 20.0f, y: 100.0f), dynamic=false)
-    let ground3 = Box.spawn(worldId, Vector2(x: center.x - 300, y: center.y + 260.0f), Vector2(x: 20.0f, y: 100.0f), dynamic=false)
-
-    const spawnsPerHeldFrame = 6
-
+    
+    # Prevents sudden physics simulation jumps (usually occurs when the window is minimized) 
     const maxDeltaPerFrame: float32 = 1/30
 
-    while not windowShouldClose():
+    setConfigFlags(flags(WindowResizable))
+
+    # Called after window initialization but before first draw
+    proc postInit() {.cdecl.} = 
+        worldId.makeBounds(density, friction, restitution)
+
+    # Performs physics step and window update
+    proc mainLoop() {.cdecl.} = 
+        worldId.setBounds()
+
         let deltaTime = min(getFrameTime(), maxDeltaPerFrame)
-        
+
         b2World_Step(worldId, deltaTime, subStepCount)
 
         beginDrawing()
-        clearBackground(White)
+        clearBackground(Color(r: 30, g: 30, b: 30, a: 255))
 
-        if isKeyPressed(R):
-            worldBoxes.destroyAll()
-
-        if isMouseButtonDown(MouseButton.Left):
-            var mousePos = getMousePosition()
-
-            for _ in 0..<spawnsPerHeldFrame:
-                worldBoxes.insertBox(Box.spawn(worldId, mousePos, boxDimensions))
-
-        for b in worldBoxes.iterBoxes():
-            b.draw()
+        let mousePosB2 = getMousePosition().toB2
         
-        ground1.draw()
-        ground2.draw()
-        ground3.draw()
+        if isMouseButtonDown(MouseButton.Left):
+            mouseDown(worldId, mousePosB2)
+        
+        if isKeyPressed(R):
+            boxStack.clear(b2_nullBodyId, destroyBoxSafe)
+        
+        b2World_Draw(worldId, debugDraw.addr)
+        
+        let counters = b2World_GetCounters(worldId)
 
         let debugText = fmt"""
-            Box count: {worldBoxes.count}
+            Body count: {counters.bodyCount}
             FPS: {getFPS()}
+            Mouse X: {mousePosB2.x:0.2f}
+            Mouse Y: {mousePosB2.y:0.2f}
+            Press 'R' to clear bodies
         """.dedent.strip
 
-        drawText(debugText.cstring, 10, 10, 18, deadGrey)
-        
+        drawText(debugText.cstring, 10, 10, 18, LightGray)
+
         endDrawing()
+    
+    windowMain(initialWidth, initialHeight, "boxes example", mainLoop, postInit)
 
 
-main()
+if isMainModule:
+    main()

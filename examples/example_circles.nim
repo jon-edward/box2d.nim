@@ -1,151 +1,132 @@
+## This example demonstrates creating and deleting a large number of physics bodies in a 
+## small area.
+
 import std/strformat
 import strutils
-import random
-import math
 
-import raylib
 import box2d/wrapper
+import raylib
 
-import util
+import util/[conversions, debug, window, bounds, sized_stack]
 
 
+# Physics simulation substeps
 const subStepCount = 2
 
-const windowHeight = 400
-const windowWidth = (windowHeight * (16 / 9)).int32
+# Define initial window dimensions
+const initialHeight = 800
+const initialWidth = (initialHeight * (16 / 9)).int32
 
-const center = Vector2(x: windowWidth / 2, y: windowHeight / 2)
+# Physics shape properties. Can be reused
+const density = 0.1f
+const friction = 0.01f
+const restitution = 0.1f
 
-const circleRadiusRaylib = 4.2f
-
-const gravity = b2Vec2(x: 0.0f, y: 10.0f)
-
-
-proc makeCircle(worldId: b2WorldId, position: Vector2): b2BodyId = 
-    var bodyDef = b2DefaultBodyDef()
-    bodyDef.bodyType = b2_dynamicBody
-    bodyDef.position = position.toB2
-
-    let bodyId = b2CreateBody(worldId, bodyDef.addr)
-    let circle = b2Circle(center: b2Vec2_zero, radius: circleRadiusRaylib.toB2)
-
-    var shapeDef = b2DefaultShapeDef()
-    shapeDef.density = 1.0f
-    shapeDef.friction = 0.01f
-    shapeDef.restitution = 0.1f
-    discard b2CreateCircleShape(bodyId, shapeDef.addr, circle.addr)
-    
-    bodyId
+var physicsShapeDef = b2DefaultShapeDef()
+physicsShapeDef.density = density
+physicsShapeDef.friction = friction
+physicsShapeDef.restitution = restitution
 
 
-proc drawAsCircle(bodyId: b2BodyId) = 
-    let position = b2Body_GetPosition(bodyId).toRaylib
-    drawCircle(position, circleRadiusRaylib, Black)
-
-
+## Initialize physics with a gravity vector
 proc initPhysics(): b2WorldId = 
     var worldDef = b2DefaultWorldDef()
-    worldDef.gravity = gravity
+    worldDef.gravity = b2Vec2(x: 0.0f, y: 10.0f)
     b2CreateWorld(worldDef.addr)
 
 
-type Directional = enum up, down, left, right
+## Create a debugDraw object with drawing callbacks
+var debugDraw: b2DebugDraw = defaultDebugDraw()
+debugDraw.drawShapes = true
+
+let worldId = initPhysics()
+
+const circlesPerFrameHeld = 4
 
 
-proc makeBounds(worldId: b2WorldId, side: Directional): b2BodyId = 
-    let halfThickness = 5.0f.toB2
-
+## Make circle body
+proc makeCircle(worldId: b2WorldId, position: b2Vec2): b2BodyId = 
     var bodyDef = b2DefaultBodyDef()
+    bodyDef.bodyType = b2_dynamicBody
+    bodyDef.position = position
 
-    var halfDimensions: b2Vec2
+    let radius = 0.3f
 
-    case side
-    of up:
-        bodyDef.position = Vector2(x: center.x, y: -halfThickness).toB2
-        halfDimensions = Vector2(x: windowWidth / 2, y: halfThickness).toB2
-    of down:
-        bodyDef.position = Vector2(x: center.x, y: windowHeight + halfThickness).toB2
-        halfDimensions = Vector2(x: windowWidth / 2, y: halfThickness).toB2
-    of left:
-        bodyDef.position = Vector2(x: -halfThickness, y: center.y).toB2
-        halfDimensions = Vector2(x: halfThickness, y: windowHeight / 2).toB2
-    of right:
-        bodyDef.position = Vector2(x: windowWidth.float32 + halfThickness, y: center.y).toB2
-        halfDimensions = Vector2(x: halfThickness, y: windowHeight / 2).toB2
-    
     let bodyId = b2CreateBody(worldId, bodyDef.addr)
+    let circle = b2Circle(center: b2Vec2_zero, radius: radius)
 
-    let box = b2MakeBox(halfDimensions.x, halfDimensions.y)
-
-    var shapeDef = b2DefaultShapeDef()
-    shapeDef.density = 1.0f
-    shapeDef.friction = 0.3f
-
-    discard b2CreatePolygonShape(bodyId, shapeDef.addr, box.addr)
+    discard b2CreateCircleShape(bodyId, physicsShapeDef.addr, circle.addr)
     bodyId
 
 
+var circleStack: SizedStack[2048, b2BodyId]
+circleStack.clear(b2_nullBodyId)
+
+
+proc destroyCircleSafe(bodyId: b2BodyId) = 
+    if bodyId != b2_nullBodyId:
+        b2DestroyBody(bodyId)
+
+
+proc destroyCircleUnsafe(bodyId: b2BodyId) = 
+    b2DestroyBody(bodyId)
+
+
+## Create circle under mouse position, and delete old circles if stack is full.
+proc mouseDown(worldId: b2WorldId, mousePosB2: b2Vec2) = 
+    for _ in 0..<circlesPerFrameHeld:
+        circleStack.insert(worldId.makeCircle(mousePosB2), destroyCircleUnsafe)
+
+
+## Top-level function that initializes window and performs game loops
 proc main() = 
-    initWindow(windowWidth, windowHeight, "circles")
-
-    defer: closeWindow()
-
-    let worldId = initPhysics()
-
-    var circles: SizedStack[5000, b2BodyId]
-    circles.clear(b2_nullBodyId)
-
-    const spawnsPerHeldFrame = 10
-
+    
+    # Prevents sudden physics simulation jumps (usually occurs when the window is minimized) 
     const maxDeltaPerFrame: float32 = 1/30
 
-    discard worldId.makeBounds(up)
-    discard worldId.makeBounds(down)
-    discard worldId.makeBounds(left)
-    discard worldId.makeBounds(right)
+    setConfigFlags(flags(WindowResizable))
 
-    proc destroyBodySafe(id: b2BodyId) = 
-        if id != b2_nullBodyId:
-            b2DestroyBody(id)
+    # Called after window initialization but before first draw
+    proc postInit() {.cdecl.} = 
+        worldId.makeBounds(density, friction, restitution)
 
-    proc destroyBodyUnsafe(id: b2BodyId) = 
-        b2DestroyBody(id)
+    # Performs physics step and window update
+    proc mainLoop() {.cdecl.} = 
+        worldId.setBounds()
 
-    while not windowShouldClose():
         let deltaTime = min(getFrameTime(), maxDeltaPerFrame)
 
         b2World_Step(worldId, deltaTime, subStepCount)
 
         beginDrawing()
-        clearBackground(White)
+        clearBackground(Color(r: 30, g: 30, b: 30, a: 255))
+
+        let mousePosB2 = getMousePosition().toB2
         
         if isMouseButtonDown(MouseButton.Left):
-            var mousePos = getMousePosition()
-
-            for _ in 0..<spawnsPerHeldFrame:
-                let circleId = worldId.makeCircle(mousePos)
-                let randomAngle = rand(b2_pi*2)
-                let randomMagnitude = rand(circleRadiusRaylib.toB2)
-
-                b2Body_ApplyLinearImpulseToCenter(circleId, b2Vec2(x: cos(randomAngle) * randomMagnitude, y: sin(randomAngle) * randomMagnitude), true)
-                circles.insert(circleId, destroyBodyUnsafe)
-        
-        for circleBodyId in circles.iter:
-            circleBodyId.drawAsCircle()
+            mouseDown(worldId, mousePosB2)
         
         if isKeyPressed(R):
-            circles.clear(b2_nullBodyId, destroyBodySafe)
+            circleStack.clear(b2_nullBodyId, destroyCircleSafe)        
+
+        b2World_Draw(worldId, debugDraw.addr)
         
         let counters = b2World_GetCounters(worldId)
-        
+
         let debugText = fmt"""
             Body count: {counters.bodyCount}
             FPS: {getFPS()}
+            Mouse X: {mousePosB2.x:0.2f}
+            Mouse Y: {mousePosB2.y:0.2f}
+            Press 'R' to clear bodies
         """.dedent.strip
 
-        drawText(debugText.cstring, 10, 10, 18, Maroon)
-        
+        drawText(debugText.cstring, 10, 10, 18, LightGray)
+
         endDrawing()
+    
+    windowMain(initialWidth, initialHeight, "circles example", mainLoop, postInit)
 
 
-main()
+if isMainModule:
+    main()
