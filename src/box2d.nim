@@ -1,1 +1,2 @@
-include box2d/wrapper
+import box2d/wrapper
+export wrapper
