@@ -11,7 +11,7 @@ nimble install box2d
 
 See library documentation [here](https://jon-edward.github.io/box2d.nim/). Also, 
 because the library's naming is largely consistent with that of Box2D, you can use the 
-[Box2D v3 documentation](https://box2d.org/documentation_v3/) directly.
+[Box2D v3 documentation](https://box2d.org/documentation/) directly.
 
 The only exception to the naming consistency is `b2BodyDef.type` being translated to `b2BodyDef.bodyType`
 because of the reserved `type` keyword in Nim.
