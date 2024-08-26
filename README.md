@@ -28,7 +28,7 @@ Building and testing is done for `ubuntu-latest`, `windows-latest`, and `macos-l
 ## Simple example
 
 Box2D passes the user IDs for creating, manipulating, and reading world members such as shapes and bodies. The properties 
-of these members are stored in various -`Def` types, such as [`b2BodyDef`](https://jon-edward.github.io/box2d.nim/box2d.html#b2BodyDef). 
+of these members are stored in various -`Def` types, such as [`b2BodyDef`](https://jon-edward.github.io/box2d.nim/box2d/wrapper.html#b2BodyDef).
 
 Making a dynamic body with a box shape is as simple as defining a world with a given gravity vector, creating a dynamic body in that world, 
 attaching it to a shape, and stepping the simulation forward. 
