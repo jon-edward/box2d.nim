@@ -1,6 +1,6 @@
 import unittest
 
-import box2d/wrapper
+import box2d
 
 
 test "hello_world":
@@ -39,19 +39,19 @@ test "hello_world":
   let subStepCount: cint = 4
 
   var position = b2Body_GetPosition(bodyId)
-  var angle = b2Body_GetAngle(bodyId)
+  var rotation = b2Body_GetRotation(bodyId)
 
   for i in 0..<90:
     b2World_Step(worldId, timeStep, subStepCount)
 
     position = b2Body_GetPosition(bodyId)
-    angle = b2Body_GetAngle(bodyId)
+    rotation = b2Body_GetRotation(bodyId)
   
   b2DestroyWorld(worldId)
 
   check position.x.abs < 0.01f
   check (position.y - 1.0f).abs < 0.01f
-  check angle.abs < 0.01f
+  check b2Rot_GetAngle(rotation).abs < 0.01f
 
 
 test "empty_world":

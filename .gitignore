@@ -3,6 +3,5 @@ nimblecache/
 htmldocs/
 tmp/
 
-generated_*.nim
-create_wrapper.nims
+scripts/config.nims
 dist/

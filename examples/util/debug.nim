@@ -2,7 +2,7 @@
 
 import math
 
-import box2d/wrapper
+import box2d
 import raylib
 
 import conversions

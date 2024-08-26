@@ -3,12 +3,12 @@
 ===================================
 
 .. contents::
-.. importdoc:: box2d/wrapper
+.. importdoc:: box2d/api
 
 # Welcome
 
 This is the documentation for [Box2D.nim](https://github.com/jon-edward/box2d.nim), 
-a Nim wrapper for Erin Catto's popular physics engine [Box2D](https://github.com/erincatto/box2c).
+a Nim wrapper for Erin Catto's popular physics engine [Box2D](https://github.com/erincatto/box2d).
 
 # Getting started
 
@@ -21,4 +21,4 @@ projects to tinker with using [naylib](https://github.com/planetis-m/naylib) for
 
 # Reference
 
-For a complete library reference, check out `src/box2d/wrapper`_.
+For a complete library reference, check out `src/box2d/api`_.

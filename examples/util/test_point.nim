@@ -1,6 +1,6 @@
 ## Get the bodyId of a shape under a position vector, if any.
 
-import box2d/wrapper
+import box2d
 
 
 ## Passed to queryCallback as a pointer

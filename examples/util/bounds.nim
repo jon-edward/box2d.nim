@@ -1,6 +1,6 @@
 ## Creates and updates world bounds based on raylib window dimensions
 
-import box2d/wrapper
+import box2d
 import raylib
 
 import conversions

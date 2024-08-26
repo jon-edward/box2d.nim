@@ -1,6 +1,23 @@
 import unittest
+import bitops
 
-import box2d/private/internal
+import box2d
+
+include box2d/private/internal
+
+
+# Translated from box2d/src/bitset.h
+proc b2SetBit*(bitSet: ptr b2BitSet, bitIndex: uint32) {.inline.} = 
+    let blockIndex = bitIndex div 64
+    assert blockIndex < bitSet.blockCount
+    cast[ptr UncheckedArray[uint64]](bitSet.bits)[blockIndex].setBit(bitIndex mod 64)
+
+# Translated from box2d/src/bitset.h
+proc b2GetBit*(bitSet: b2BitSet, bitIndex: uint32): bool {.inline.} = 
+    let blockIndex = bitIndex div 64
+    if blockIndex >= bitSet.blockCount:
+        return false
+    cast[ptr UncheckedArray[uint64]](bitSet.bits)[blockIndex].testBit(bitIndex mod 64)
 
 
 const count: uint32 = 169

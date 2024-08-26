@@ -1,16 +1,16 @@
-## This links and compiles the box2c source files.
+## This links and compiles the box2d source files.
 
 import os, macros, strutils
 
-const box2cRoot = currentSourcePath.parentDir / "box2c"
+const box2dRoot = currentSourcePath.parentDir / "box2d"
 
 
-{.passC: "-I " & (box2cRoot / "include")}
-{.passC: "-I " & (box2cRoot / "src")}
+{.passC: "-I " & (box2dRoot / "include")}
+{.passC: "-I " & (box2dRoot / "src")}
 
-{.passC: "-I " & (box2cRoot / "extern" / "glad" / "include")}
-{.passC: "-I " & (box2cRoot / "extern" / "simde")}
-{.passC: "-I " & (box2cRoot / "extern" / "jsmn")}
+{.passC: "-I " & (box2dRoot / "extern" / "glad" / "include")}
+{.passC: "-I " & (box2dRoot / "extern" / "simde")}
+{.passC: "-I " & (box2dRoot / "extern" / "jsmn")}
 
 
 when defined(emscripten):
@@ -36,7 +36,7 @@ macro compileCFiles(sourceDir: static[string]): untyped =
     block: `result`
 
 
-compileCFiles(box2cRoot / "src")
+compileCFiles(box2dRoot / "src")
 
 template ensureCompiled*() = 
   ## a noop to prevent unused import warnings 

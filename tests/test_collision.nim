@@ -1,7 +1,8 @@
 import unittest
 
-import box2d/wrapper
-import box2d/private/internal
+import box2d
+
+include box2d/private/internal
 
 
 test "aabb_test":
@@ -19,7 +20,7 @@ test "aabb_test":
         lowerBound: b2Vec2(x: 2.0f, y: 2.0f),
         upperBound: b2Vec2(x: 4.0f, y: 4.0f)
     )
-
+    
     check not b2AABB_Overlaps(a, b)
     check not b2AABB_Overlaps(b, a)
 
@@ -27,6 +28,7 @@ test "aabb_test":
     let p2 = b2Vec2(x: 2.0f, y: 0.0f)
 
     let output = b2AABB_RayCast(a, p1, p2)
+
     check output.hit
     check (0.1f < output.fraction) and (output.fraction < 0.9f)
     
