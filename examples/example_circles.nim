@@ -4,7 +4,7 @@
 import std/strformat
 import strutils
 
-import box2d/wrapper
+import box2d
 import raylib
 
 import util/[conversions, debug, window, bounds, sized_stack]

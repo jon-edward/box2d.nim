@@ -1,7 +1,7 @@
 import math
 import unittest
 
-import box2d/wrapper
+import box2d
 
 
 var FLT_EPSILON {. importc: "FLT_EPSILON" header: "float.h" .} : cfloat
@@ -29,7 +29,7 @@ test "shape_mass_test":
 
     check (md.mass - b2_pi).abs <= FLT_EPSILON
     check (md.center.x == 1.0f) and (md.center.y == 0.0f)
-    check (md.I - 1.5f * b2_pi).abs <= FLT_EPSILON
+    check (md.rotationalInertia - 1.5f * b2_pi).abs <= FLT_EPSILON
 
     let radius = capsule.radius
     let length = b2Distance(capsule.center1, capsule.center2)
@@ -60,13 +60,13 @@ test "shape_mass_test":
     let ma = b2ComputePolygonMass(ac.addr, 1.0f)
 
     check (ma.mass < md.mass) and (md.mass < mdr.mass)
-    check (ma.I < md.I) and (md.I < mdr.I)
+    check (ma.rotationalInertia < md.rotationalInertia) and (md.rotationalInertia < mdr.rotationalInertia)
     
     md = b2ComputePolygonMass(box.addr, 1.0f)
     check (md.mass - 4.0f).abs <= FLT_EPSILON
     check md.center.x.abs <= FLT_EPSILON
     check md.center.y.abs <= FLT_EPSILON
-    check (md.I - 8.0f / 3.0f).abs <= (FLT_EPSILON * 2.0f)
+    check (md.rotationalInertia - 8.0f / 3.0f).abs <= (FLT_EPSILON * 2.0f)
 
 
 test "shape_aabb_test":

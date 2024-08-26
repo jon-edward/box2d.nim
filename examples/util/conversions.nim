@@ -4,7 +4,7 @@
 import bitops
 
 from raylib import Vector2, Color
-from box2d/wrapper import b2Vec2, b2HexColor
+from box2d import b2Vec2, b2HexColor
 
 
 const physicsScaling* = 50.0f

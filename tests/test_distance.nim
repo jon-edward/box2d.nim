@@ -1,6 +1,6 @@
 import unittest
 
-import box2d/wrapper
+import box2d
 
 var FLT_EPSILON {. importc: "FLT_EPSILON" header: "float.h" .} : cfloat
 
@@ -44,7 +44,7 @@ test "shape_distance_test":
 
     let cache = b2_emptyDistanceCache 
 
-    let output = b2ShapeDistance(cache.addr, input.addr)
+    let output = b2ShapeDistance(cache.addr, input.addr, nil, 0)
 
     check (output.distance - 1.0f).abs < FLT_EPSILON
 

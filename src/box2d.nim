@@ -1,2 +1,2 @@
-import box2d/wrapper
-export wrapper
+import box2d/api
+export api
