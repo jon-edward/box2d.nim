@@ -121,7 +121,7 @@ proc main() =
             Press 'R' to clear bodies
         """.dedent.strip
 
-        drawText(debugText.cstring, 10, 10, 18, LightGray)
+        drawText(debugText, 10, 10, 18, LightGray)
 
         endDrawing()
     

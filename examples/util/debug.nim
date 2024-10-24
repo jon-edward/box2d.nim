@@ -93,7 +93,7 @@ proc drawSolidCapsule(p1: b2Vec2, p2: b2Vec2, radius: cfloat, color: b2HexColor,
 
 
 proc drawString(p: b2Vec2, s: cstring, context: pointer): void {.cdecl.} = 
-    drawText(s, p.x.toRaylib.int32, p.y.toRaylib.int32, 12, Red)
+    drawText($s, p.x.toRaylib.int32, p.y.toRaylib.int32, 12, Red)
 
 
 ## Create a debugDraw object with useful default callbacks

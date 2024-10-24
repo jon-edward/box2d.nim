@@ -208,7 +208,7 @@ proc main() =
             Mouse Y: {mousePosB2.y:0.2f}
         """.dedent.strip
 
-        drawText(debugText.cstring, 10, 10, 18, LightGray)
+        drawText(debugText, 10, 10, 18, LightGray)
 
         endDrawing()
     
