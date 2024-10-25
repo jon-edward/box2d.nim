@@ -64,10 +64,6 @@ proc drawSolidPolygon(transform: b2Transform, vertices: ptr b2Vec2, vertexCount:
     drawTriangleFan(vectors, color.toRaylib)
 
 
-proc drawCapsule(p1: b2Vec2, p2: b2Vec2, radius: cfloat, color: b2HexColor, context: pointer) {.cdecl.} = 
-    discard
-
-
 proc drawSolidCapsule(p1: b2Vec2, p2: b2Vec2, radius: cfloat, color: b2HexColor, context: pointer) {.cdecl.} = 
     drawCircle(p1.toRaylib, radius.toRaylib, color.toRaylib)
     drawCircle(p2.toRaylib, radius.toRaylib, color.toRaylib)
@@ -101,7 +97,6 @@ proc defaultDebugDraw*(): b2DebugDraw =
     var debugDraw: b2DebugDraw
 
     debugDraw.DrawCircle = drawCircle
-    debugDraw.DrawCapsule = drawCapsule
     debugDraw.DrawPoint = drawPoint
     debugDraw.DrawPolygon = drawPolygon
     debugDraw.DrawSegment = drawSegment
@@ -122,7 +117,6 @@ proc noopDebugDraw*(): b2DebugDraw =
 
     {.push cdecl.}
     debugDraw.DrawCircle = proc (center: b2Vec2, radius: cfloat, color: b2HexColor, context: pointer) = discard
-    debugDraw.DrawCapsule = proc (p1: b2Vec2, p2: b2Vec2, radius: cfloat, color: b2HexColor, context: pointer) = discard
     debugDraw.DrawPoint = proc (p: b2Vec2, size: cfloat, color: b2HexColor, context: pointer) = discard
     debugDraw.DrawPolygon = proc (vertices: ptr b2Vec2, vertexCount: cint, color: b2HexColor, context: pointer) = discard
     debugDraw.DrawSegment = proc (p1: b2Vec2, p2: b2Vec2, color: b2HexColor, context: pointer) = discard

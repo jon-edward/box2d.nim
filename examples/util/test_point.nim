@@ -45,6 +45,6 @@ proc testPoint*(worldId: b2WorldId, position: b2Vec2): b2BodyId =
 
     let context = QueryContext(point: position, bodyId: b2_nullBodyId)
 
-    b2World_OverlapAABB(worldId, hitBox, b2DefaultQueryFilter(), queryCallback, context.addr)
+    discard b2World_OverlapAABB(worldId, hitBox, b2DefaultQueryFilter(), queryCallback, context.addr)
 
     context.bodyId
