@@ -7,25 +7,29 @@ type
     b2_toiStateUnknown = 0, b2_toiStateFailed = 1, b2_toiStateOverlapped = 2,
     b2_toiStateHit = 3, b2_toiStateSeparated = 4
 type
+  enum_b2MixingRule* {.size: sizeof(cuint).} = enum
+    b2_mixAverage = 0, b2_mixGeometricMean = 1, b2_mixMultiply = 2,
+    b2_mixMinimum = 3, b2_mixMaximum = 4
+type
   enum_b2BodyType* {.size: sizeof(cuint).} = enum
     b2_staticBody = 0, b2_kinematicBody = 1, b2_dynamicBody = 2,
     b2_bodyTypeCount = 3
 type
   enum_b2ShapeType* {.size: sizeof(cuint).} = enum
     b2_circleShape = 0, b2_capsuleShape = 1, b2_segmentShape = 2,
-    b2_polygonShape = 3, b2_smoothSegmentShape = 4, b2_shapeTypeCount = 5
+    b2_polygonShape = 3, b2_chainSegmentShape = 4, b2_shapeTypeCount = 5
 type
   enum_b2JointType* {.size: sizeof(cuint).} = enum
     b2_distanceJoint = 0, b2_motorJoint = 1, b2_mouseJoint = 2,
-    b2_prismaticJoint = 3, b2_revoluteJoint = 4, b2_weldJoint = 5,
-    b2_wheelJoint = 6
+    b2_nullJoint = 3, b2_prismaticJoint = 4, b2_revoluteJoint = 5,
+    b2_weldJoint = 6, b2_wheelJoint = 7
 type
   enum_b2HexColor* {.size: sizeof(cuint).} = enum
-    b2_colorBlack = 0, b2_colorNavy = 128, b2_colorDarkBlue = 139,
+    b2_colorBlack = 0, b2_colorNavyBlue = 128, b2_colorDarkBlue = 139,
     b2_colorMediumBlue = 205, b2_colorBlue = 255, b2_colorDarkGreen = 25600,
     b2_colorTeal = 32896, b2_colorDarkCyan = 35723, b2_colorDeepSkyBlue = 49151,
     b2_colorDarkTurquoise = 52945, b2_colorMediumSpringGreen = 64154,
-    b2_colorGreen = 65280, b2_colorSpringGreen = 65407, b2_colorAqua = 65535,
+    b2_colorGreen = 65280, b2_colorSpringGreen = 65407, b2_colorCyan = 65535,
     b2_colorMidnightBlue = 1644912, b2_colorGray1 = 1710618,
     b2_colorDodgerBlue = 2003199, b2_colorLightSeaGreen = 2142890,
     b2_colorForestGreen = 2263842, b2_colorSeaGreen = 3050327,
@@ -81,7 +85,7 @@ type
     b2_colorSalmon = 16416882, b2_colorAntiqueWhite = 16444375,
     b2_colorLinen = 16445670, b2_colorLightGoldenrodYellow = 16448210,
     b2_colorOldLace = 16643558, b2_colorRed = 16711680,
-    b2_colorFuchsia = 16711935, b2_colorDeepPink = 16716947,
+    b2_colorMagenta = 16711935, b2_colorDeepPink = 16716947,
     b2_colorOrangeRed = 16729344, b2_colorTomato = 16737095,
     b2_colorHotPink = 16738740, b2_colorCoral = 16744272,
     b2_colorDarkOrange = 16747520, b2_colorLightSalmon = 16752762,
@@ -96,16 +100,10 @@ type
     b2_colorFloralWhite = 16775920, b2_colorSnow = 16775930,
     b2_colorYellow = 16776960, b2_colorLightYellow = 16777184,
     b2_colorIvory = 16777200, b2_colorWhite = 16777215
-const
-  b2_colorCyan* = enum_b2HexColor.b2_colorAqua
-const
-  b2_colorLime* = enum_b2HexColor.b2_colorGreen
-const
-  b2_colorMagenta* = enum_b2HexColor.b2_colorFuchsia
-const
-  b2_colorNavyBlue* = enum_b2HexColor.b2_colorNavy
 type
   BOX2D_EXPORT* = object
+type
+  UINT64_MAX* = object
 type
   typedef* = object
 type
@@ -190,6 +188,10 @@ type
     x*: cfloat
     y*: cfloat
   b2Vec2* = struct_b2Vec2
+  struct_b2CosSin* {.pure, inheritable, bycopy.} = object
+    cosine*: cfloat
+    sine*: cfloat
+  b2CosSin* = struct_b2CosSin
   struct_b2Rot* {.pure, inheritable, bycopy.} = object
     c*: cfloat
     s*: cfloat
@@ -231,8 +233,8 @@ type
   struct_b2Segment* {.pure, inheritable, bycopy.} = object
     point1*: b2Vec2
     point2*: b2Vec2
-  b2SmoothSegment* = struct_b2SmoothSegment
-  struct_b2SmoothSegment* {.pure, inheritable, bycopy.} = object
+  b2ChainSegment* = struct_b2ChainSegment
+  struct_b2ChainSegment* {.pure, inheritable, bycopy.} = object
     ghost1*: b2Vec2
     segment*: b2Segment
     ghost2*: b2Vec2
@@ -352,16 +354,17 @@ type
   struct_b2TreeNode_anon0_t* {.union, bycopy.} = object
     parent*: int32
     next*: int32
-  struct_b2TreeNode* {.pure, inheritable, bycopy.} = object
-    aabb*: b2AABB
-    categoryBits*: uint32
-    anon0*: struct_b2TreeNode_anon0_t
-    child1*: int32
+  struct_b2TreeNode_anon1_t* {.union, bycopy.} = object
     child2*: int32
     userData*: int32
-    height*: int16
-    enlarged*: bool
-    pad*: array[9'i64, cschar]
+  struct_b2TreeNode* {.pure, inheritable, bycopy.} = object
+    aabb*: b2AABB
+    categoryBits*: uint64
+    anon0*: struct_b2TreeNode_anon0_t
+    child1*: int32
+    anon1*: struct_b2TreeNode_anon1_t
+    height*: uint16
+    flags*: uint16
   b2TreeNode* = struct_b2TreeNode
   struct_b2DynamicTree* {.pure, inheritable, bycopy.} = object
     nodes*: ptr b2TreeNode
@@ -376,6 +379,10 @@ type
     binIndices*: ptr int32
     rebuildCapacity*: int32
   b2DynamicTree* = struct_b2DynamicTree
+  struct_b2TreeStats* {.pure, inheritable, bycopy.} = object
+    nodeVisits*: int32
+    leafVisits*: int32
+  b2TreeStats* = struct_b2TreeStats
   b2TreeQueryCallbackFcn* = proc (a0: int32; a1: int32; a2: pointer): bool {.
       cdecl.}
   b2TreeRayCastCallbackFcn* = proc (a0: ptr b2RayCastInput; a1: int32;
@@ -396,16 +403,16 @@ type
     world0*: uint16
     revision*: uint16
   b2ShapeId* = struct_b2ShapeId
-  struct_b2JointId* {.pure, inheritable, bycopy.} = object
-    index1*: int32
-    world0*: uint16
-    revision*: uint16
-  b2JointId* = struct_b2JointId
   struct_b2ChainId* {.pure, inheritable, bycopy.} = object
     index1*: int32
     world0*: uint16
     revision*: uint16
   b2ChainId* = struct_b2ChainId
+  struct_b2JointId* {.pure, inheritable, bycopy.} = object
+    index1*: int32
+    world0*: uint16
+    revision*: uint16
+  b2JointId* = struct_b2JointId
   b2TaskCallback* = proc (a0: int32; a1: int32; a2: uint32; a3: pointer): void {.
       cdecl.}
   b2EnqueueTaskCallback* = proc (a0: b2TaskCallback; a1: int32; a2: int32;
@@ -416,8 +423,11 @@ type
     point*: b2Vec2
     normal*: b2Vec2
     fraction*: cfloat
+    nodeVisits*: cint
+    leafVisits*: cint
     hit*: bool
   b2RayResult* = struct_b2RayResult
+  b2MixingRule* = enum_b2MixingRule
   struct_b2WorldDef* {.pure, inheritable, bycopy.} = object
     gravity*: b2Vec2
     restitutionThreshold*: cfloat
@@ -428,12 +438,15 @@ type
     jointHertz*: cfloat
     jointDampingRatio*: cfloat
     maximumLinearVelocity*: cfloat
+    frictionMixingRule*: b2MixingRule
+    restitutionMixingRule*: b2MixingRule
     enableSleep*: bool
-    enableContinous*: bool
+    enableContinuous*: bool
     workerCount*: int32
     enqueueTask*: b2EnqueueTaskCallback
     finishTask*: b2FinishTaskCallback
     userTaskContext*: pointer
+    userData*: pointer
     internalValue*: int32
   b2WorldDef* = struct_b2WorldDef
   b2BodyType* = enum_b2BodyType
@@ -453,18 +466,17 @@ type
     fixedRotation*: bool
     isBullet*: bool
     isEnabled*: bool
-    automaticMass*: bool
     allowFastRotation*: bool
     internalValue*: int32
   b2BodyDef* = struct_b2BodyDef
   struct_b2Filter* {.pure, inheritable, bycopy.} = object
-    categoryBits*: uint32
-    maskBits*: uint32
+    categoryBits*: uint64
+    maskBits*: uint64
     groupIndex*: int32
   b2Filter* = struct_b2Filter
   struct_b2QueryFilter* {.pure, inheritable, bycopy.} = object
-    categoryBits*: uint32
-    maskBits*: uint32
+    categoryBits*: uint64
+    maskBits*: uint64
   b2QueryFilter* = struct_b2QueryFilter
   b2ShapeType* = enum_b2ShapeType
   struct_b2ShapeDef* {.pure, inheritable, bycopy.} = object
@@ -479,7 +491,8 @@ type
     enableContactEvents*: bool
     enableHitEvents*: bool
     enablePreSolveEvents*: bool
-    forceContactCreation*: bool
+    invokeContactCreation*: bool
+    updateBodyMass*: bool
     internalValue*: int32
   b2ShapeDef* = struct_b2ShapeDef
   struct_b2ChainDef* {.pure, inheritable, bycopy.} = object
@@ -489,6 +502,7 @@ type
     friction*: cfloat
     restitution*: cfloat
     filter*: b2Filter
+    customColor*: uint32
     isLoop*: bool
     internalValue*: int32
   b2ChainDef* = struct_b2ChainDef
@@ -517,7 +531,6 @@ type
     continuous*: cfloat
   b2Profile* = struct_b2Profile
   struct_b2Counters* {.pure, inheritable, bycopy.} = object
-    staticBodyCount*: int32
     bodyCount*: int32
     shapeCount*: int32
     contactCount*: int32
@@ -573,6 +586,12 @@ type
     userData*: pointer
     internalValue*: int32
   b2MouseJointDef* = struct_b2MouseJointDef
+  struct_b2NullJointDef* {.pure, inheritable, bycopy.} = object
+    bodyIdA*: b2BodyId
+    bodyIdB*: b2BodyId
+    userData*: pointer
+    internalValue*: int32
+  b2NullJointDef* = struct_b2NullJointDef
   struct_b2PrismaticJointDef* {.pure, inheritable, bycopy.} = object
     bodyIdA*: b2BodyId
     bodyIdB*: b2BodyId
@@ -646,6 +665,13 @@ type
     userData*: pointer
     internalValue*: int32
   b2WheelJointDef* = struct_b2WheelJointDef
+  struct_b2ExplosionDef* {.pure, inheritable, bycopy.} = object
+    maskBits*: uint64
+    position*: b2Vec2
+    radius*: cfloat
+    falloff*: cfloat
+    impulsePerLength*: cfloat
+  b2ExplosionDef* = struct_b2ExplosionDef
   struct_b2SensorBeginTouchEvent* {.pure, inheritable, bycopy.} = object
     sensorShapeId*: b2ShapeId
     visitorShapeId*: b2ShapeId
@@ -663,6 +689,7 @@ type
   struct_b2ContactBeginTouchEvent* {.pure, inheritable, bycopy.} = object
     shapeIdA*: b2ShapeId
     shapeIdB*: b2ShapeId
+    manifold*: b2Manifold
   b2ContactBeginTouchEvent* = struct_b2ContactBeginTouchEvent
   struct_b2ContactEndTouchEvent* {.pure, inheritable, bycopy.} = object
     shapeIdA*: b2ShapeId
@@ -716,8 +743,6 @@ type
         cdecl.}
     DrawSolidCircle*: proc (a0: b2Transform; a1: cfloat; a2: b2HexColor;
                             a3: pointer): void {.cdecl.}
-    DrawCapsule*: proc (a0: b2Vec2; a1: b2Vec2; a2: cfloat; a3: b2HexColor;
-                        a4: pointer): void {.cdecl.}
     DrawSolidCapsule*: proc (a0: b2Vec2; a1: b2Vec2; a2: cfloat; a3: b2HexColor;
                              a4: pointer): void {.cdecl.}
     DrawSegment*: proc (a0: b2Vec2; a1: b2Vec2; a2: b2HexColor; a3: pointer): void {.
@@ -763,6 +788,11 @@ else:
       B2_API* = BOX2D_EXPORT
   else:
     let B2_API* = BOX2D_EXPORT
+when 5381 is static:
+  const
+    B2_HASH_INIT* = 5381
+else:
+  let B2_HASH_INIT* = 5381
 when 3.14159265359 is static:
   const
     b2_pi* = 3.14159265359
@@ -778,11 +808,29 @@ when 1 is static:
     b2_defaultCategoryBits* = 1
 else:
   let b2_defaultCategoryBits* = 1
-when 4294967295 is static:
-  const
-    b2_defaultMaskBits* = 4294967295'i64
+when UINT64_MAX is typedesc:
+  type
+    b2_defaultMaskBits* = UINT64_MAX
 else:
-  let b2_defaultMaskBits* = 4294967295'i64
+  when UINT64_MAX is static:
+    const
+      b2_defaultMaskBits* = UINT64_MAX
+  else:
+    let b2_defaultMaskBits* = UINT64_MAX
+when cast[culonglong](1'i64) is static:
+  const
+    B2_DEFAULT_CATEGORY_BITS* = cast[culonglong](1'i64)
+else:
+  let B2_DEFAULT_CATEGORY_BITS* = cast[culonglong](1'i64)
+when UINT64_MAX is typedesc:
+  type
+    B2_DEFAULT_MASK_BITS* = UINT64_MAX
+else:
+  when UINT64_MAX is static:
+    const
+      B2_DEFAULT_MASK_BITS* = UINT64_MAX
+  else:
+    let B2_DEFAULT_MASK_BITS* = UINT64_MAX
 proc b2SetAllocator*(allocFcn: b2AllocFcn; freeFcn: b2FreeFcn): void {.cdecl,
     importc: "b2SetAllocator".}
 proc b2GetByteCount*(): cint {.cdecl, importc: "b2GetByteCount".}
@@ -798,19 +846,15 @@ proc b2GetMillisecondsAndReset*(timer: ptr b2Timer): cfloat {.cdecl,
 proc b2SleepMilliseconds*(milliseconds: cint): void {.cdecl,
     importc: "b2SleepMilliseconds".}
 proc b2Yield*(): void {.cdecl, importc: "b2Yield".}
-const b2Vec2_zero*: b2Vec2 = b2Vec2(x: 0.0f, y :0.0f)
-const b2Rot_identity*: b2Rot = b2Rot(c: 1.0f, s: 0.0f)
-const b2Transform_identity*: b2Transform = b2Transform(p: b2Vec2_zero, q: b2Rot_identity)
-const b2Mat22_zero*: b2Mat22 = b2Mat22(cx: b2Vec2_zero, cy: b2Vec2_zero)
+proc b2Hash*(hash: uint32; data: ptr uint8; count: cint): uint32 {.cdecl,
+    importc: "b2Hash".}
+proc b2Atan2*(y: cfloat; x: cfloat): cfloat {.cdecl, importc: "b2Atan2".}
+proc b2ComputeCosSin*(angle: cfloat): b2CosSin {.cdecl,
+    importc: "b2ComputeCosSin".}
 proc b2IsValid*(a: cfloat): bool {.cdecl, importc: "b2IsValid".}
 proc b2Vec2_IsValid*(v: b2Vec2): bool {.cdecl, importc: "b2Vec2_IsValid".}
 proc b2Rot_IsValid*(q: b2Rot): bool {.cdecl, importc: "b2Rot_IsValid".}
 proc b2AABB_IsValid*(aabb: b2AABB): bool {.cdecl, importc: "b2AABB_IsValid".}
-proc b2Normalize*(v: b2Vec2): b2Vec2 {.cdecl, importc: "b2Normalize".}
-proc b2NormalizeChecked*(v: b2Vec2): b2Vec2 {.cdecl,
-    importc: "b2NormalizeChecked".}
-proc b2GetLengthAndNormalize*(length: ptr cfloat; v: b2Vec2): b2Vec2 {.cdecl,
-    importc: "b2GetLengthAndNormalize".}
 proc b2SetLengthUnitsPerMeter*(lengthUnits: cfloat): void {.cdecl,
     importc: "b2SetLengthUnitsPerMeter".}
 proc b2GetLengthUnitsPerMeter*(): cfloat {.cdecl,
@@ -819,15 +863,20 @@ proc b2IsValidRay*(input: ptr b2RayCastInput): bool {.cdecl,
     importc: "b2IsValidRay".}
 proc b2MakePolygon*(hull: ptr b2Hull; radius: cfloat): b2Polygon {.cdecl,
     importc: "b2MakePolygon".}
-proc b2MakeOffsetPolygon*(hull: ptr b2Hull; radius: cfloat;
-                          transform: b2Transform): b2Polygon {.cdecl,
-    importc: "b2MakeOffsetPolygon".}
+proc b2MakeOffsetPolygon*(hull: ptr b2Hull; position: b2Vec2; rotation: b2Rot): b2Polygon {.
+    cdecl, importc: "b2MakeOffsetPolygon".}
+proc b2MakeOffsetRoundedPolygon*(hull: ptr b2Hull; position: b2Vec2;
+                                 rotation: b2Rot; radius: cfloat): b2Polygon {.
+    cdecl, importc: "b2MakeOffsetRoundedPolygon".}
 proc b2MakeSquare*(h: cfloat): b2Polygon {.cdecl, importc: "b2MakeSquare".}
 proc b2MakeBox*(hx: cfloat; hy: cfloat): b2Polygon {.cdecl, importc: "b2MakeBox".}
 proc b2MakeRoundedBox*(hx: cfloat; hy: cfloat; radius: cfloat): b2Polygon {.
     cdecl, importc: "b2MakeRoundedBox".}
-proc b2MakeOffsetBox*(hx: cfloat; hy: cfloat; center: b2Vec2; angle: cfloat): b2Polygon {.
+proc b2MakeOffsetBox*(hx: cfloat; hy: cfloat; center: b2Vec2; rotation: b2Rot): b2Polygon {.
     cdecl, importc: "b2MakeOffsetBox".}
+proc b2MakeOffsetRoundedBox*(hx: cfloat; hy: cfloat; center: b2Vec2;
+                             rotation: b2Rot; radius: cfloat): b2Polygon {.
+    cdecl, importc: "b2MakeOffsetRoundedBox".}
 proc b2TransformPolygon*(transform: b2Transform; polygon: ptr b2Polygon): b2Polygon {.
     cdecl, importc: "b2TransformPolygon".}
 proc b2ComputeCircleMass*(shape: ptr b2Circle; density: cfloat): b2MassData {.
@@ -911,28 +960,26 @@ proc b2CollidePolygons*(polygonA: ptr b2Polygon; xfA: b2Transform;
 proc b2CollideSegmentAndPolygon*(segmentA: ptr b2Segment; xfA: b2Transform;
                                  polygonB: ptr b2Polygon; xfB: b2Transform): b2Manifold {.
     cdecl, importc: "b2CollideSegmentAndPolygon".}
-proc b2CollideSmoothSegmentAndCircle*(smoothSegmentA: ptr b2SmoothSegment;
-                                      xfA: b2Transform; circleB: ptr b2Circle;
-                                      xfB: b2Transform): b2Manifold {.cdecl,
-    importc: "b2CollideSmoothSegmentAndCircle".}
-proc b2CollideSmoothSegmentAndCapsule*(smoothSegmentA: ptr b2SmoothSegment;
-                                       xfA: b2Transform;
-                                       capsuleB: ptr b2Capsule;
-                                       xfB: b2Transform;
-                                       cache: ptr b2DistanceCache): b2Manifold {.
-    cdecl, importc: "b2CollideSmoothSegmentAndCapsule".}
-proc b2CollideSmoothSegmentAndPolygon*(smoothSegmentA: ptr b2SmoothSegment;
-                                       xfA: b2Transform;
-                                       polygonB: ptr b2Polygon;
-                                       xfB: b2Transform;
-                                       cache: ptr b2DistanceCache): b2Manifold {.
-    cdecl, importc: "b2CollideSmoothSegmentAndPolygon".}
+proc b2CollideChainSegmentAndCircle*(segmentA: ptr b2ChainSegment;
+                                     xfA: b2Transform; circleB: ptr b2Circle;
+                                     xfB: b2Transform): b2Manifold {.cdecl,
+    importc: "b2CollideChainSegmentAndCircle".}
+proc b2CollideChainSegmentAndCapsule*(segmentA: ptr b2ChainSegment;
+                                      xfA: b2Transform; capsuleB: ptr b2Capsule;
+                                      xfB: b2Transform;
+                                      cache: ptr b2DistanceCache): b2Manifold {.
+    cdecl, importc: "b2CollideChainSegmentAndCapsule".}
+proc b2CollideChainSegmentAndPolygon*(segmentA: ptr b2ChainSegment;
+                                      xfA: b2Transform; polygonB: ptr b2Polygon;
+                                      xfB: b2Transform;
+                                      cache: ptr b2DistanceCache): b2Manifold {.
+    cdecl, importc: "b2CollideChainSegmentAndPolygon".}
 proc b2DynamicTree_Create*(): b2DynamicTree {.cdecl,
     importc: "b2DynamicTree_Create".}
 proc b2DynamicTree_Destroy*(tree: ptr b2DynamicTree): void {.cdecl,
     importc: "b2DynamicTree_Destroy".}
 proc b2DynamicTree_CreateProxy*(tree: ptr b2DynamicTree; aabb: b2AABB;
-                                categoryBits: uint32; userData: int32): int32 {.
+                                categoryBits: uint64; userData: int32): int32 {.
     cdecl, importc: "b2DynamicTree_CreateProxy".}
 proc b2DynamicTree_DestroyProxy*(tree: ptr b2DynamicTree; proxyId: int32): void {.
     cdecl, importc: "b2DynamicTree_DestroyProxy".}
@@ -943,17 +990,17 @@ proc b2DynamicTree_EnlargeProxy*(tree: ptr b2DynamicTree; proxyId: int32;
                                  aabb: b2AABB): void {.cdecl,
     importc: "b2DynamicTree_EnlargeProxy".}
 proc b2DynamicTree_Query*(tree: ptr b2DynamicTree; aabb: b2AABB;
-                          maskBits: uint32; callback: b2TreeQueryCallbackFcn;
-                          context: pointer): void {.cdecl,
+                          maskBits: uint64; callback: b2TreeQueryCallbackFcn;
+                          context: pointer): b2TreeStats {.cdecl,
     importc: "b2DynamicTree_Query".}
 proc b2DynamicTree_RayCast*(tree: ptr b2DynamicTree; input: ptr b2RayCastInput;
-                            maskBits: uint32;
-                            callback: b2TreeRayCastCallbackFcn; context: pointer): void {.
+                            maskBits: uint64;
+                            callback: b2TreeRayCastCallbackFcn; context: pointer): b2TreeStats {.
     cdecl, importc: "b2DynamicTree_RayCast".}
 proc b2DynamicTree_ShapeCast*(tree: ptr b2DynamicTree;
-                              input: ptr b2ShapeCastInput; maskBits: uint32;
+                              input: ptr b2ShapeCastInput; maskBits: uint64;
                               callback: b2TreeShapeCastCallbackFcn;
-                              context: pointer): void {.cdecl,
+                              context: pointer): b2TreeStats {.cdecl,
     importc: "b2DynamicTree_ShapeCast".}
 proc b2DynamicTree_Validate*(tree: ptr b2DynamicTree): void {.cdecl,
     importc: "b2DynamicTree_Validate".}
@@ -973,11 +1020,6 @@ proc b2DynamicTree_ShiftOrigin*(tree: ptr b2DynamicTree; newOrigin: b2Vec2): voi
     cdecl, importc: "b2DynamicTree_ShiftOrigin".}
 proc b2DynamicTree_GetByteCount*(tree: ptr b2DynamicTree): cint {.cdecl,
     importc: "b2DynamicTree_GetByteCount".}
-const b2_nullWorldId*: b2WorldId = b2WorldId(index1: 0, revision: 0)
-const b2_nullBodyId*: b2BodyId = b2BodyId(index1: 0, world0: 0, revision: 0)
-const b2_nullShapeId*: b2ShapeId = b2ShapeId(index1: 0, world0: 0, revision: 0)
-const b2_nullJointId*: b2JointId = b2JointId(index1: 0, world0: 0, revision: 0)
-const b2_nullChainId*: b2ChainId = b2ChainId(index1: 0, world0: 0, revision: 0)
 proc b2DefaultWorldDef*(): b2WorldDef {.cdecl, importc: "b2DefaultWorldDef".}
 proc b2DefaultBodyDef*(): b2BodyDef {.cdecl, importc: "b2DefaultBodyDef".}
 proc b2DefaultFilter*(): b2Filter {.cdecl, importc: "b2DefaultFilter".}
@@ -991,6 +1033,8 @@ proc b2DefaultMotorJointDef*(): b2MotorJointDef {.cdecl,
     importc: "b2DefaultMotorJointDef".}
 proc b2DefaultMouseJointDef*(): b2MouseJointDef {.cdecl,
     importc: "b2DefaultMouseJointDef".}
+proc b2DefaultNullJointDef*(): b2NullJointDef {.cdecl,
+    importc: "b2DefaultNullJointDef".}
 proc b2DefaultPrismaticJointDef*(): b2PrismaticJointDef {.cdecl,
     importc: "b2DefaultPrismaticJointDef".}
 proc b2DefaultRevoluteJointDef*(): b2RevoluteJointDef {.cdecl,
@@ -999,6 +1043,9 @@ proc b2DefaultWeldJointDef*(): b2WeldJointDef {.cdecl,
     importc: "b2DefaultWeldJointDef".}
 proc b2DefaultWheelJointDef*(): b2WheelJointDef {.cdecl,
     importc: "b2DefaultWheelJointDef".}
+proc b2DefaultExplosionDef*(): b2ExplosionDef {.cdecl,
+    importc: "b2DefaultExplosionDef".}
+proc b2DefaultDebugDraw*(): b2DebugDraw {.cdecl, importc: "b2DefaultDebugDraw".}
 proc b2CreateWorld*(def: ptr b2WorldDef): b2WorldId {.cdecl,
     importc: "b2CreateWorld".}
 proc b2DestroyWorld*(worldId: b2WorldId): void {.cdecl,
@@ -1016,23 +1063,27 @@ proc b2World_GetContactEvents*(worldId: b2WorldId): b2ContactEvents {.cdecl,
     importc: "b2World_GetContactEvents".}
 proc b2World_OverlapAABB*(worldId: b2WorldId; aabb: b2AABB;
                           filter: b2QueryFilter; fcn: b2OverlapResultFcn;
-                          context: pointer): void {.cdecl,
+                          context: pointer): b2TreeStats {.cdecl,
     importc: "b2World_OverlapAABB".}
+proc b2World_OverlapPoint*(worldId: b2WorldId; point: b2Vec2;
+                           transform: b2Transform; filter: b2QueryFilter;
+                           fcn: b2OverlapResultFcn; context: pointer): b2TreeStats {.
+    cdecl, importc: "b2World_OverlapPoint".}
 proc b2World_OverlapCircle*(worldId: b2WorldId; circle: ptr b2Circle;
                             transform: b2Transform; filter: b2QueryFilter;
-                            fcn: b2OverlapResultFcn; context: pointer): void {.
+                            fcn: b2OverlapResultFcn; context: pointer): b2TreeStats {.
     cdecl, importc: "b2World_OverlapCircle".}
 proc b2World_OverlapCapsule*(worldId: b2WorldId; capsule: ptr b2Capsule;
                              transform: b2Transform; filter: b2QueryFilter;
-                             fcn: b2OverlapResultFcn; context: pointer): void {.
+                             fcn: b2OverlapResultFcn; context: pointer): b2TreeStats {.
     cdecl, importc: "b2World_OverlapCapsule".}
 proc b2World_OverlapPolygon*(worldId: b2WorldId; polygon: ptr b2Polygon;
                              transform: b2Transform; filter: b2QueryFilter;
-                             fcn: b2OverlapResultFcn; context: pointer): void {.
+                             fcn: b2OverlapResultFcn; context: pointer): b2TreeStats {.
     cdecl, importc: "b2World_OverlapPolygon".}
 proc b2World_CastRay*(worldId: b2WorldId; origin: b2Vec2; translation: b2Vec2;
                       filter: b2QueryFilter; fcn: b2CastResultFcn;
-                      context: pointer): void {.cdecl,
+                      context: pointer): b2TreeStats {.cdecl,
     importc: "b2World_CastRay".}
 proc b2World_CastRayClosest*(worldId: b2WorldId; origin: b2Vec2;
                              translation: b2Vec2; filter: b2QueryFilter): b2RayResult {.
@@ -1040,26 +1091,34 @@ proc b2World_CastRayClosest*(worldId: b2WorldId; origin: b2Vec2;
 proc b2World_CastCircle*(worldId: b2WorldId; circle: ptr b2Circle;
                          originTransform: b2Transform; translation: b2Vec2;
                          filter: b2QueryFilter; fcn: b2CastResultFcn;
-                         context: pointer): void {.cdecl,
+                         context: pointer): b2TreeStats {.cdecl,
     importc: "b2World_CastCircle".}
 proc b2World_CastCapsule*(worldId: b2WorldId; capsule: ptr b2Capsule;
                           originTransform: b2Transform; translation: b2Vec2;
                           filter: b2QueryFilter; fcn: b2CastResultFcn;
-                          context: pointer): void {.cdecl,
+                          context: pointer): b2TreeStats {.cdecl,
     importc: "b2World_CastCapsule".}
 proc b2World_CastPolygon*(worldId: b2WorldId; polygon: ptr b2Polygon;
                           originTransform: b2Transform; translation: b2Vec2;
                           filter: b2QueryFilter; fcn: b2CastResultFcn;
-                          context: pointer): void {.cdecl,
+                          context: pointer): b2TreeStats {.cdecl,
     importc: "b2World_CastPolygon".}
 proc b2World_EnableSleeping*(worldId: b2WorldId; flag: bool): void {.cdecl,
     importc: "b2World_EnableSleeping".}
+proc b2World_IsSleepingEnabled*(worldId: b2WorldId): bool {.cdecl,
+    importc: "b2World_IsSleepingEnabled".}
 proc b2World_EnableContinuous*(worldId: b2WorldId; flag: bool): void {.cdecl,
     importc: "b2World_EnableContinuous".}
+proc b2World_IsContinuousEnabled*(worldId: b2WorldId): bool {.cdecl,
+    importc: "b2World_IsContinuousEnabled".}
 proc b2World_SetRestitutionThreshold*(worldId: b2WorldId; value: cfloat): void {.
     cdecl, importc: "b2World_SetRestitutionThreshold".}
+proc b2World_GetRestitutionThreshold*(worldId: b2WorldId): cfloat {.cdecl,
+    importc: "b2World_GetRestitutionThreshold".}
 proc b2World_SetHitEventThreshold*(worldId: b2WorldId; value: cfloat): void {.
     cdecl, importc: "b2World_SetHitEventThreshold".}
+proc b2World_GetHitEventThreshold*(worldId: b2WorldId): cfloat {.cdecl,
+    importc: "b2World_GetHitEventThreshold".}
 proc b2World_SetCustomFilterCallback*(worldId: b2WorldId;
                                       fcn: b2CustomFilterFcn; context: pointer): void {.
     cdecl, importc: "b2World_SetCustomFilterCallback".}
@@ -1070,19 +1129,35 @@ proc b2World_SetGravity*(worldId: b2WorldId; gravity: b2Vec2): void {.cdecl,
     importc: "b2World_SetGravity".}
 proc b2World_GetGravity*(worldId: b2WorldId): b2Vec2 {.cdecl,
     importc: "b2World_GetGravity".}
-proc b2World_Explode*(worldId: b2WorldId; position: b2Vec2; radius: cfloat;
-                      impulse: cfloat): void {.cdecl, importc: "b2World_Explode".}
+proc b2World_Explode*(worldId: b2WorldId; explosionDef: ptr b2ExplosionDef): void {.
+    cdecl, importc: "b2World_Explode".}
 proc b2World_SetContactTuning*(worldId: b2WorldId; hertz: cfloat;
                                dampingRatio: cfloat; pushVelocity: cfloat): void {.
     cdecl, importc: "b2World_SetContactTuning".}
+proc b2World_SetJointTuning*(worldId: b2WorldId; hertz: cfloat;
+                             dampingRatio: cfloat): void {.cdecl,
+    importc: "b2World_SetJointTuning".}
+proc b2World_SetMaximumLinearVelocity*(worldId: b2WorldId;
+                                       maximumLinearVelocity: cfloat): void {.
+    cdecl, importc: "b2World_SetMaximumLinearVelocity".}
+proc b2World_GetMaximumLinearVelocity*(worldId: b2WorldId): cfloat {.cdecl,
+    importc: "b2World_GetMaximumLinearVelocity".}
 proc b2World_EnableWarmStarting*(worldId: b2WorldId; flag: bool): void {.cdecl,
     importc: "b2World_EnableWarmStarting".}
+proc b2World_IsWarmStartingEnabled*(worldId: b2WorldId): bool {.cdecl,
+    importc: "b2World_IsWarmStartingEnabled".}
 proc b2World_GetProfile*(worldId: b2WorldId): b2Profile {.cdecl,
     importc: "b2World_GetProfile".}
 proc b2World_GetCounters*(worldId: b2WorldId): b2Counters {.cdecl,
     importc: "b2World_GetCounters".}
+proc b2World_SetUserData*(worldId: b2WorldId; userData: pointer): void {.cdecl,
+    importc: "b2World_SetUserData".}
+proc b2World_GetUserData*(worldId: b2WorldId): pointer {.cdecl,
+    importc: "b2World_GetUserData".}
 proc b2World_DumpMemoryStats*(worldId: b2WorldId): void {.cdecl,
     importc: "b2World_DumpMemoryStats".}
+proc b2World_RebuildStaticTree*(worldId: b2WorldId): void {.cdecl,
+    importc: "b2World_RebuildStaticTree".}
 proc b2CreateBody*(worldId: b2WorldId; def: ptr b2BodyDef): b2BodyId {.cdecl,
     importc: "b2CreateBody".}
 proc b2DestroyBody*(bodyId: b2BodyId): void {.cdecl, importc: "b2DestroyBody".}
@@ -1135,8 +1210,8 @@ proc b2Body_ApplyAngularImpulse*(bodyId: b2BodyId; impulse: cfloat; wake: bool):
     cdecl, importc: "b2Body_ApplyAngularImpulse".}
 proc b2Body_GetMass*(bodyId: b2BodyId): cfloat {.cdecl,
     importc: "b2Body_GetMass".}
-proc b2Body_GetInertiaTensor*(bodyId: b2BodyId): cfloat {.cdecl,
-    importc: "b2Body_GetInertiaTensor".}
+proc b2Body_GetRotationalInertia*(bodyId: b2BodyId): cfloat {.cdecl,
+    importc: "b2Body_GetRotationalInertia".}
 proc b2Body_GetLocalCenterOfMass*(bodyId: b2BodyId): b2Vec2 {.cdecl,
     importc: "b2Body_GetLocalCenterOfMass".}
 proc b2Body_GetWorldCenterOfMass*(bodyId: b2BodyId): b2Vec2 {.cdecl,
@@ -1147,10 +1222,6 @@ proc b2Body_GetMassData*(bodyId: b2BodyId): b2MassData {.cdecl,
     importc: "b2Body_GetMassData".}
 proc b2Body_ApplyMassFromShapes*(bodyId: b2BodyId): void {.cdecl,
     importc: "b2Body_ApplyMassFromShapes".}
-proc b2Body_SetAutomaticMass*(bodyId: b2BodyId; automaticMass: bool): void {.
-    cdecl, importc: "b2Body_SetAutomaticMass".}
-proc b2Body_GetAutomaticMass*(bodyId: b2BodyId): bool {.cdecl,
-    importc: "b2Body_GetAutomaticMass".}
 proc b2Body_SetLinearDamping*(bodyId: b2BodyId; linearDamping: cfloat): void {.
     cdecl, importc: "b2Body_SetLinearDamping".}
 proc b2Body_GetLinearDamping*(bodyId: b2BodyId): cfloat {.cdecl,
@@ -1170,7 +1241,7 @@ proc b2Body_EnableSleep*(bodyId: b2BodyId; enableSleep: bool): void {.cdecl,
     importc: "b2Body_EnableSleep".}
 proc b2Body_IsSleepEnabled*(bodyId: b2BodyId): bool {.cdecl,
     importc: "b2Body_IsSleepEnabled".}
-proc b2Body_SetSleepThreshold*(bodyId: b2BodyId; sleepVelocity: cfloat): void {.
+proc b2Body_SetSleepThreshold*(bodyId: b2BodyId; sleepThreshold: cfloat): void {.
     cdecl, importc: "b2Body_SetSleepThreshold".}
 proc b2Body_GetSleepThreshold*(bodyId: b2BodyId): cfloat {.cdecl,
     importc: "b2Body_GetSleepThreshold".}
@@ -1188,6 +1259,8 @@ proc b2Body_IsBullet*(bodyId: b2BodyId): bool {.cdecl,
     importc: "b2Body_IsBullet".}
 proc b2Body_EnableHitEvents*(bodyId: b2BodyId; enableHitEvents: bool): void {.
     cdecl, importc: "b2Body_EnableHitEvents".}
+proc b2Body_GetWorld*(bodyId: b2BodyId): b2WorldId {.cdecl,
+    importc: "b2Body_GetWorld".}
 proc b2Body_GetShapeCount*(bodyId: b2BodyId): cint {.cdecl,
     importc: "b2Body_GetShapeCount".}
 proc b2Body_GetShapes*(bodyId: b2BodyId; shapeArray: ptr b2ShapeId;
@@ -1217,20 +1290,23 @@ proc b2CreateCapsuleShape*(bodyId: b2BodyId; def: ptr b2ShapeDef;
 proc b2CreatePolygonShape*(bodyId: b2BodyId; def: ptr b2ShapeDef;
                            polygon: ptr b2Polygon): b2ShapeId {.cdecl,
     importc: "b2CreatePolygonShape".}
-proc b2DestroyShape*(shapeId: b2ShapeId): void {.cdecl,
+proc b2DestroyShape*(shapeId: b2ShapeId; updateBodyMass: bool): void {.cdecl,
     importc: "b2DestroyShape".}
 proc b2Shape_IsValid*(id: b2ShapeId): bool {.cdecl, importc: "b2Shape_IsValid".}
 proc b2Shape_GetType*(shapeId: b2ShapeId): b2ShapeType {.cdecl,
     importc: "b2Shape_GetType".}
 proc b2Shape_GetBody*(shapeId: b2ShapeId): b2BodyId {.cdecl,
     importc: "b2Shape_GetBody".}
+proc b2Shape_GetWorld*(shapeId: b2ShapeId): b2WorldId {.cdecl,
+    importc: "b2Shape_GetWorld".}
 proc b2Shape_IsSensor*(shapeId: b2ShapeId): bool {.cdecl,
     importc: "b2Shape_IsSensor".}
 proc b2Shape_SetUserData*(shapeId: b2ShapeId; userData: pointer): void {.cdecl,
     importc: "b2Shape_SetUserData".}
 proc b2Shape_GetUserData*(shapeId: b2ShapeId): pointer {.cdecl,
     importc: "b2Shape_GetUserData".}
-proc b2Shape_SetDensity*(shapeId: b2ShapeId; density: cfloat): void {.cdecl,
+proc b2Shape_SetDensity*(shapeId: b2ShapeId; density: cfloat;
+                         updateBodyMass: bool): void {.cdecl,
     importc: "b2Shape_SetDensity".}
 proc b2Shape_GetDensity*(shapeId: b2ShapeId): cfloat {.cdecl,
     importc: "b2Shape_GetDensity".}
@@ -1264,14 +1340,14 @@ proc b2Shape_AreHitEventsEnabled*(shapeId: b2ShapeId): bool {.cdecl,
     importc: "b2Shape_AreHitEventsEnabled".}
 proc b2Shape_TestPoint*(shapeId: b2ShapeId; point: b2Vec2): bool {.cdecl,
     importc: "b2Shape_TestPoint".}
-proc b2Shape_RayCast*(shapeId: b2ShapeId; origin: b2Vec2; translation: b2Vec2): b2CastOutput {.
+proc b2Shape_RayCast*(shapeId: b2ShapeId; input: ptr b2RayCastInput): b2CastOutput {.
     cdecl, importc: "b2Shape_RayCast".}
 proc b2Shape_GetCircle*(shapeId: b2ShapeId): b2Circle {.cdecl,
     importc: "b2Shape_GetCircle".}
 proc b2Shape_GetSegment*(shapeId: b2ShapeId): b2Segment {.cdecl,
     importc: "b2Shape_GetSegment".}
-proc b2Shape_GetSmoothSegment*(shapeId: b2ShapeId): b2SmoothSegment {.cdecl,
-    importc: "b2Shape_GetSmoothSegment".}
+proc b2Shape_GetChainSegment*(shapeId: b2ShapeId): b2ChainSegment {.cdecl,
+    importc: "b2Shape_GetChainSegment".}
 proc b2Shape_GetCapsule*(shapeId: b2ShapeId): b2Capsule {.cdecl,
     importc: "b2Shape_GetCapsule".}
 proc b2Shape_GetPolygon*(shapeId: b2ShapeId): b2Polygon {.cdecl,
@@ -1299,6 +1375,13 @@ proc b2CreateChain*(bodyId: b2BodyId; def: ptr b2ChainDef): b2ChainId {.cdecl,
     importc: "b2CreateChain".}
 proc b2DestroyChain*(chainId: b2ChainId): void {.cdecl,
     importc: "b2DestroyChain".}
+proc b2Chain_GetWorld*(chainId: b2ChainId): b2WorldId {.cdecl,
+    importc: "b2Chain_GetWorld".}
+proc b2Chain_GetSegmentCount*(chainId: b2ChainId): cint {.cdecl,
+    importc: "b2Chain_GetSegmentCount".}
+proc b2Chain_GetSegments*(chainId: b2ChainId; segmentArray: ptr b2ShapeId;
+                          capacity: cint): cint {.cdecl,
+    importc: "b2Chain_GetSegments".}
 proc b2Chain_SetFriction*(chainId: b2ChainId; friction: cfloat): void {.cdecl,
     importc: "b2Chain_SetFriction".}
 proc b2Chain_SetRestitution*(chainId: b2ChainId; restitution: cfloat): void {.
@@ -1313,6 +1396,8 @@ proc b2Joint_GetBodyA*(jointId: b2JointId): b2BodyId {.cdecl,
     importc: "b2Joint_GetBodyA".}
 proc b2Joint_GetBodyB*(jointId: b2JointId): b2BodyId {.cdecl,
     importc: "b2Joint_GetBodyB".}
+proc b2Joint_GetWorld*(jointId: b2JointId): b2WorldId {.cdecl,
+    importc: "b2Joint_GetWorld".}
 proc b2Joint_GetLocalAnchorA*(jointId: b2JointId): b2Vec2 {.cdecl,
     importc: "b2Joint_GetLocalAnchorA".}
 proc b2Joint_GetLocalAnchorB*(jointId: b2JointId): b2Vec2 {.cdecl,
@@ -1345,10 +1430,10 @@ proc b2DistanceJoint_SetSpringHertz*(jointId: b2JointId; hertz: cfloat): void {.
     cdecl, importc: "b2DistanceJoint_SetSpringHertz".}
 proc b2DistanceJoint_SetSpringDampingRatio*(jointId: b2JointId;
     dampingRatio: cfloat): void {.cdecl, importc: "b2DistanceJoint_SetSpringDampingRatio".}
-proc b2DistanceJoint_GetHertz*(jointId: b2JointId): cfloat {.cdecl,
-    importc: "b2DistanceJoint_GetHertz".}
-proc b2DistanceJoint_GetDampingRatio*(jointId: b2JointId): cfloat {.cdecl,
-    importc: "b2DistanceJoint_GetDampingRatio".}
+proc b2DistanceJoint_GetSpringHertz*(jointId: b2JointId): cfloat {.cdecl,
+    importc: "b2DistanceJoint_GetSpringHertz".}
+proc b2DistanceJoint_GetSpringDampingRatio*(jointId: b2JointId): cfloat {.cdecl,
+    importc: "b2DistanceJoint_GetSpringDampingRatio".}
 proc b2DistanceJoint_EnableLimit*(jointId: b2JointId; enableLimit: bool): void {.
     cdecl, importc: "b2DistanceJoint_EnableLimit".}
 proc b2DistanceJoint_IsLimitEnabled*(jointId: b2JointId): bool {.cdecl,
@@ -1418,6 +1503,8 @@ proc b2MouseJoint_SetMaxForce*(jointId: b2JointId; maxForce: cfloat): void {.
     cdecl, importc: "b2MouseJoint_SetMaxForce".}
 proc b2MouseJoint_GetMaxForce*(jointId: b2JointId): cfloat {.cdecl,
     importc: "b2MouseJoint_GetMaxForce".}
+proc b2CreateNullJoint*(worldId: b2WorldId; def: ptr b2NullJointDef): b2JointId {.
+    cdecl, importc: "b2CreateNullJoint".}
 proc b2CreatePrismaticJoint*(worldId: b2WorldId; def: ptr b2PrismaticJointDef): b2JointId {.
     cdecl, importc: "b2CreatePrismaticJoint".}
 proc b2PrismaticJoint_EnableSpring*(jointId: b2JointId; enableSpring: bool): void {.
@@ -1457,10 +1544,16 @@ proc b2PrismaticJoint_GetMaxMotorForce*(jointId: b2JointId): cfloat {.cdecl,
     importc: "b2PrismaticJoint_GetMaxMotorForce".}
 proc b2PrismaticJoint_GetMotorForce*(jointId: b2JointId): cfloat {.cdecl,
     importc: "b2PrismaticJoint_GetMotorForce".}
+proc b2PrismaticJoint_GetTranslation*(jointId: b2JointId): cfloat {.cdecl,
+    importc: "b2PrismaticJoint_GetTranslation".}
+proc b2PrismaticJoint_GetSpeed*(jointId: b2JointId): cfloat {.cdecl,
+    importc: "b2PrismaticJoint_GetSpeed".}
 proc b2CreateRevoluteJoint*(worldId: b2WorldId; def: ptr b2RevoluteJointDef): b2JointId {.
     cdecl, importc: "b2CreateRevoluteJoint".}
 proc b2RevoluteJoint_EnableSpring*(jointId: b2JointId; enableSpring: bool): void {.
     cdecl, importc: "b2RevoluteJoint_EnableSpring".}
+proc b2RevoluteJoint_IsSpringEnabled*(jointId: b2JointId): bool {.cdecl,
+    importc: "b2RevoluteJoint_IsSpringEnabled".}
 proc b2RevoluteJoint_SetSpringHertz*(jointId: b2JointId; hertz: cfloat): void {.
     cdecl, importc: "b2RevoluteJoint_SetSpringHertz".}
 proc b2RevoluteJoint_GetSpringHertz*(jointId: b2JointId): cfloat {.cdecl,
@@ -1497,6 +1590,10 @@ proc b2RevoluteJoint_GetMaxMotorTorque*(jointId: b2JointId): cfloat {.cdecl,
     importc: "b2RevoluteJoint_GetMaxMotorTorque".}
 proc b2CreateWeldJoint*(worldId: b2WorldId; def: ptr b2WeldJointDef): b2JointId {.
     cdecl, importc: "b2CreateWeldJoint".}
+proc b2WeldJoint_GetReferenceAngle*(jointId: b2JointId): cfloat {.cdecl,
+    importc: "b2WeldJoint_GetReferenceAngle".}
+proc b2WeldJoint_SetReferenceAngle*(jointId: b2JointId; angleInRadians: cfloat): void {.
+    cdecl, importc: "b2WeldJoint_SetReferenceAngle".}
 proc b2WeldJoint_SetLinearHertz*(jointId: b2JointId; hertz: cfloat): void {.
     cdecl, importc: "b2WeldJoint_SetLinearHertz".}
 proc b2WeldJoint_GetLinearHertz*(jointId: b2JointId): cfloat {.cdecl,
@@ -1553,3 +1650,14 @@ proc b2WheelJoint_GetMaxMotorTorque*(jointId: b2JointId): cfloat {.cdecl,
     importc: "b2WheelJoint_GetMaxMotorTorque".}
 proc b2WheelJoint_GetMotorTorque*(jointId: b2JointId): cfloat {.cdecl,
     importc: "b2WheelJoint_GetMotorTorque".}
+
+const b2Vec2_zero*: b2Vec2 = b2Vec2(x: 0.0f, y :0.0f)
+const b2Rot_identity*: b2Rot = b2Rot(c: 1.0f, s: 0.0f)
+const b2Transform_identity*: b2Transform = b2Transform(p: b2Vec2_zero, q: b2Rot_identity)
+const b2Mat22_zero*: b2Mat22 = b2Mat22(cx: b2Vec2_zero, cy: b2Vec2_zero)
+
+const b2_nullWorldId*: b2WorldId = b2WorldId(index1: 0, revision: 0)
+const b2_nullBodyId*: b2BodyId = b2BodyId(index1: 0, world0: 0, revision: 0)
+const b2_nullShapeId*: b2ShapeId = b2ShapeId(index1: 0, world0: 0, revision: 0)
+const b2_nullJointId*: b2JointId = b2JointId(index1: 0, world0: 0, revision: 0)
+const b2_nullChainId*: b2ChainId = b2ChainId(index1: 0, world0: 0, revision: 0)

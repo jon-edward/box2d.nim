@@ -7,73 +7,83 @@ from macros import hint, warning, newLit, getSize
 
 from os import parentDir
 
-macro ownSizeof(x: typed): untyped =
-  newLit(x.getSize)
+when not declared(ownSizeOf):
+  macro ownSizeof(x: typed): untyped =
+    newLit(x.getSize)
 
 type
-  b2CastOutput_536871347 = struct_b2CastOutput_536871369
-  b2AABB_536871350 = struct_b2AABB_536871371
-  b2Vec2_536871352 = struct_b2Vec2_536871373
+  enum_b2TreeNodeFlags_536871356* {.size: sizeof(cuint).} = enum
+    b2_allocatedNode = 1, b2_enlargedNode = 2, b2_leafNode = 4
+when not declared(restrict):
+  type
+    restrict* = object
+else:
+  static :
+    hint("Declaration of " & "restrict" & " already exists, not redeclaring")
+type
+  b2CastOutput_536871348 = struct_b2CastOutput_536871371
+  b2AABB_536871350 = struct_b2AABB_536871373
+  b2Vec2_536871352 = struct_b2Vec2_536871375
   b2AssertFcn_536871354 = proc (a0: cstring; a1: cstring; a2: cint): cint {.
       cdecl.}
-  struct_b2BitSet_536871356 {.pure, inheritable, bycopy.} = object
+  struct_b2BitSet_536871358 {.pure, inheritable, bycopy.} = object
     bits*: ptr uint64
     blockCapacity*: uint32
     blockCount*: uint32
-  b2BitSet_536871358 = struct_b2BitSet_536871357
-  struct_b2SetItem_536871360 {.pure, inheritable, bycopy.} = object
+  b2BitSet_536871360 = struct_b2BitSet_536871359
+  struct_b2SetItem_536871362 {.pure, inheritable, bycopy.} = object
     key*: uint64
     hash*: uint32
-  b2SetItem_536871362 = struct_b2SetItem_536871361
-  struct_b2HashSet_536871364 {.pure, inheritable, bycopy.} = object
-    items*: ptr b2SetItem_536871363
+  b2SetItem_536871364 = struct_b2SetItem_536871363
+  struct_b2HashSet_536871366 {.pure, inheritable, bycopy.} = object
+    items*: ptr b2SetItem_536871365
     capacity*: uint32
     count*: uint32
-  b2HashSet_536871366 = struct_b2HashSet_536871365
-  struct_b2CastOutput_536871368 {.pure, inheritable, bycopy.} = object
+  b2HashSet_536871368 = struct_b2HashSet_536871367
+  struct_b2CastOutput_536871370 {.pure, inheritable, bycopy.} = object
     normal*: b2Vec2_536871353
     point*: b2Vec2_536871353
     fraction*: cfloat
     iterations*: int32
     hit*: bool
-  struct_b2AABB_536871370 {.pure, inheritable, bycopy.} = object
+  struct_b2AABB_536871372 {.pure, inheritable, bycopy.} = object
     lowerBound*: b2Vec2_536871353
     upperBound*: b2Vec2_536871353
-  struct_b2Vec2_536871372 {.pure, inheritable, bycopy.} = object
+  struct_b2Vec2_536871374 {.pure, inheritable, bycopy.} = object
     x*: cfloat
     y*: cfloat
-  b2BitSet_536871359 = (when declared(b2BitSet):
-    when ownSizeof(b2BitSet) != ownSizeof(b2BitSet_536871358):
+  b2BitSet_536871361 = (when declared(b2BitSet):
+    when ownSizeof(b2BitSet) != ownSizeof(b2BitSet_536871360):
       static :
         warning("Declaration of " & "b2BitSet" &
             " exists but with different size")
     b2BitSet
    else:
-    b2BitSet_536871358)
-  struct_b2SetItem_536871361 = (when declared(struct_b2SetItem):
-    when ownSizeof(struct_b2SetItem) != ownSizeof(struct_b2SetItem_536871360):
+    b2BitSet_536871360)
+  struct_b2SetItem_536871363 = (when declared(struct_b2SetItem):
+    when ownSizeof(struct_b2SetItem) != ownSizeof(struct_b2SetItem_536871362):
       static :
         warning("Declaration of " & "struct_b2SetItem" &
             " exists but with different size")
     struct_b2SetItem
    else:
-    struct_b2SetItem_536871360)
-  b2HashSet_536871367 = (when declared(b2HashSet):
-    when ownSizeof(b2HashSet) != ownSizeof(b2HashSet_536871366):
+    struct_b2SetItem_536871362)
+  b2HashSet_536871369 = (when declared(b2HashSet):
+    when ownSizeof(b2HashSet) != ownSizeof(b2HashSet_536871368):
       static :
         warning("Declaration of " & "b2HashSet" &
             " exists but with different size")
     b2HashSet
    else:
-    b2HashSet_536871366)
-  struct_b2CastOutput_536871369 = (when declared(struct_b2CastOutput):
-    when ownSizeof(struct_b2CastOutput) != ownSizeof(struct_b2CastOutput_536871368):
+    b2HashSet_536871368)
+  struct_b2CastOutput_536871371 = (when declared(struct_b2CastOutput):
+    when ownSizeof(struct_b2CastOutput) != ownSizeof(struct_b2CastOutput_536871370):
       static :
         warning("Declaration of " & "struct_b2CastOutput" &
             " exists but with different size")
     struct_b2CastOutput
    else:
-    struct_b2CastOutput_536871368)
+    struct_b2CastOutput_536871370)
   b2Vec2_536871353 = (when declared(b2Vec2):
     when ownSizeof(b2Vec2) != ownSizeof(b2Vec2_536871352):
       static :
@@ -81,38 +91,38 @@ type
     b2Vec2
    else:
     b2Vec2_536871352)
-  struct_b2HashSet_536871365 = (when declared(struct_b2HashSet):
-    when ownSizeof(struct_b2HashSet) != ownSizeof(struct_b2HashSet_536871364):
+  struct_b2HashSet_536871367 = (when declared(struct_b2HashSet):
+    when ownSizeof(struct_b2HashSet) != ownSizeof(struct_b2HashSet_536871366):
       static :
         warning("Declaration of " & "struct_b2HashSet" &
             " exists but with different size")
     struct_b2HashSet
    else:
-    struct_b2HashSet_536871364)
-  struct_b2BitSet_536871357 = (when declared(struct_b2BitSet):
-    when ownSizeof(struct_b2BitSet) != ownSizeof(struct_b2BitSet_536871356):
+    struct_b2HashSet_536871366)
+  struct_b2BitSet_536871359 = (when declared(struct_b2BitSet):
+    when ownSizeof(struct_b2BitSet) != ownSizeof(struct_b2BitSet_536871358):
       static :
         warning("Declaration of " & "struct_b2BitSet" &
             " exists but with different size")
     struct_b2BitSet
    else:
-    struct_b2BitSet_536871356)
+    struct_b2BitSet_536871358)
   b2CastOutput_536871349 = (when declared(b2CastOutput):
-    when ownSizeof(b2CastOutput) != ownSizeof(b2CastOutput_536871347):
+    when ownSizeof(b2CastOutput) != ownSizeof(b2CastOutput_536871348):
       static :
         warning("Declaration of " & "b2CastOutput" &
             " exists but with different size")
     b2CastOutput
    else:
-    b2CastOutput_536871347)
-  struct_b2Vec2_536871373 = (when declared(struct_b2Vec2):
-    when ownSizeof(struct_b2Vec2) != ownSizeof(struct_b2Vec2_536871372):
+    b2CastOutput_536871348)
+  struct_b2Vec2_536871375 = (when declared(struct_b2Vec2):
+    when ownSizeof(struct_b2Vec2) != ownSizeof(struct_b2Vec2_536871374):
       static :
         warning("Declaration of " & "struct_b2Vec2" &
             " exists but with different size")
     struct_b2Vec2
    else:
-    struct_b2Vec2_536871372)
+    struct_b2Vec2_536871374)
   b2AssertFcn_536871355 = (when declared(b2AssertFcn):
     when ownSizeof(b2AssertFcn) != ownSizeof(b2AssertFcn_536871354):
       static :
@@ -121,22 +131,30 @@ type
     b2AssertFcn
    else:
     b2AssertFcn_536871354)
-  struct_b2AABB_536871371 = (when declared(struct_b2AABB):
-    when ownSizeof(struct_b2AABB) != ownSizeof(struct_b2AABB_536871370):
+  struct_b2AABB_536871373 = (when declared(struct_b2AABB):
+    when ownSizeof(struct_b2AABB) != ownSizeof(struct_b2AABB_536871372):
       static :
         warning("Declaration of " & "struct_b2AABB" &
             " exists but with different size")
     struct_b2AABB
    else:
-    struct_b2AABB_536871370)
-  b2SetItem_536871363 = (when declared(b2SetItem):
-    when ownSizeof(b2SetItem) != ownSizeof(b2SetItem_536871362):
+    struct_b2AABB_536871372)
+  b2SetItem_536871365 = (when declared(b2SetItem):
+    when ownSizeof(b2SetItem) != ownSizeof(b2SetItem_536871364):
       static :
         warning("Declaration of " & "b2SetItem" &
             " exists but with different size")
     b2SetItem
    else:
-    b2SetItem_536871362)
+    b2SetItem_536871364)
+  enum_b2TreeNodeFlags_536871357 = (when declared(enum_b2TreeNodeFlags):
+    when ownSizeof(enum_b2TreeNodeFlags) != ownSizeof(enum_b2TreeNodeFlags_536871356):
+      static :
+        warning("Declaration of " & "enum_b2TreeNodeFlags" &
+            " exists but with different size")
+    enum_b2TreeNodeFlags
+   else:
+    enum_b2TreeNodeFlags_536871356)
   b2AABB_536871351 = (when declared(b2AABB):
     when ownSizeof(b2AABB) != ownSizeof(b2AABB_536871350):
       static :
@@ -146,26 +164,26 @@ type
     b2AABB_536871350)
 when not declared(b2BitSet):
   type
-    b2BitSet* = b2BitSet_536871358
+    b2BitSet* = b2BitSet_536871360
 else:
   static :
     hint("Declaration of " & "b2BitSet" & " already exists, not redeclaring")
 when not declared(struct_b2SetItem):
   type
-    struct_b2SetItem* = struct_b2SetItem_536871360
+    struct_b2SetItem* = struct_b2SetItem_536871362
 else:
   static :
     hint("Declaration of " & "struct_b2SetItem" &
         " already exists, not redeclaring")
 when not declared(b2HashSet):
   type
-    b2HashSet* = b2HashSet_536871366
+    b2HashSet* = b2HashSet_536871368
 else:
   static :
     hint("Declaration of " & "b2HashSet" & " already exists, not redeclaring")
 when not declared(struct_b2CastOutput):
   type
-    struct_b2CastOutput* = struct_b2CastOutput_536871368
+    struct_b2CastOutput* = struct_b2CastOutput_536871370
 else:
   static :
     hint("Declaration of " & "struct_b2CastOutput" &
@@ -178,27 +196,27 @@ else:
     hint("Declaration of " & "b2Vec2" & " already exists, not redeclaring")
 when not declared(struct_b2HashSet):
   type
-    struct_b2HashSet* = struct_b2HashSet_536871364
+    struct_b2HashSet* = struct_b2HashSet_536871366
 else:
   static :
     hint("Declaration of " & "struct_b2HashSet" &
         " already exists, not redeclaring")
 when not declared(struct_b2BitSet):
   type
-    struct_b2BitSet* = struct_b2BitSet_536871356
+    struct_b2BitSet* = struct_b2BitSet_536871358
 else:
   static :
     hint("Declaration of " & "struct_b2BitSet" &
         " already exists, not redeclaring")
 when not declared(b2CastOutput):
   type
-    b2CastOutput* = b2CastOutput_536871347
+    b2CastOutput* = b2CastOutput_536871348
 else:
   static :
     hint("Declaration of " & "b2CastOutput" & " already exists, not redeclaring")
 when not declared(struct_b2Vec2):
   type
-    struct_b2Vec2* = struct_b2Vec2_536871372
+    struct_b2Vec2* = struct_b2Vec2_536871374
 else:
   static :
     hint("Declaration of " & "struct_b2Vec2" &
@@ -211,17 +229,24 @@ else:
     hint("Declaration of " & "b2AssertFcn" & " already exists, not redeclaring")
 when not declared(struct_b2AABB):
   type
-    struct_b2AABB* = struct_b2AABB_536871370
+    struct_b2AABB* = struct_b2AABB_536871372
 else:
   static :
     hint("Declaration of " & "struct_b2AABB" &
         " already exists, not redeclaring")
 when not declared(b2SetItem):
   type
-    b2SetItem* = b2SetItem_536871362
+    b2SetItem* = b2SetItem_536871364
 else:
   static :
     hint("Declaration of " & "b2SetItem" & " already exists, not redeclaring")
+when not declared(enum_b2TreeNodeFlags):
+  type
+    enum_b2TreeNodeFlags* = enum_b2TreeNodeFlags_536871356
+else:
+  static :
+    hint("Declaration of " & "enum_b2TreeNodeFlags" &
+        " already exists, not redeclaring")
 when not declared(b2AABB):
   type
     b2AABB* = b2AABB_536871350
@@ -238,6 +263,19 @@ else:
   static :
     hint("Declaration of " & "B2_NULL_INDEX" &
         " already exists, not redeclaring")
+when not declared(B2_RESTRICT):
+  when restrict is typedesc:
+    type
+      B2_RESTRICT* = restrict
+  else:
+    when restrict is static:
+      const
+        B2_RESTRICT* = restrict
+    else:
+      let B2_RESTRICT* = restrict
+else:
+  static :
+    hint("Declaration of " & "B2_RESTRICT" & " already exists, not redeclaring")
 when not declared(B2_DEBUG):
   when 1 is static:
     const
@@ -295,6 +333,16 @@ when not declared(b2_maxWorlds):
 else:
   static :
     hint("Declaration of " & "b2_maxWorlds" & " already exists, not redeclaring")
+when not declared(b2_aabbVelocityScale):
+  when 0.0 is static:
+    const
+      b2_aabbVelocityScale* = 0.0
+  else:
+    let b2_aabbVelocityScale* = 0.0
+else:
+  static :
+    hint("Declaration of " & "b2_aabbVelocityScale" &
+        " already exists, not redeclaring")
 when not declared(b2_timeToSleep):
   when 0.5 is static:
     const
@@ -334,79 +382,95 @@ else:
   static :
     hint("Declaration of " & "b2_lengthUnitsPerMeter" &
         " already exists, not redeclaring")
+when not declared(b2Alloc):
+  proc b2Alloc*(size: cint): pointer {.cdecl, importc: "b2Alloc".}
+else:
+  static :
+    hint("Declaration of " & "b2Alloc" & " already exists, not redeclaring")
+when not declared(b2Free):
+  proc b2Free*(mem: pointer; size: cint): void {.cdecl, importc: "b2Free".}
+else:
+  static :
+    hint("Declaration of " & "b2Free" & " already exists, not redeclaring")
+when not declared(b2GrowAlloc):
+  proc b2GrowAlloc*(oldMem: pointer; oldSize: cint; newSize: cint): pointer {.
+      cdecl, importc: "b2GrowAlloc".}
+else:
+  static :
+    hint("Declaration of " & "b2GrowAlloc" & " already exists, not redeclaring")
 when not declared(b2CreateBitSet):
-  proc b2CreateBitSet*(bitCapacity: uint32): b2BitSet_536871359 {.cdecl,
+  proc b2CreateBitSet*(bitCapacity: uint32): b2BitSet_536871361 {.cdecl,
       importc: "b2CreateBitSet".}
 else:
   static :
     hint("Declaration of " & "b2CreateBitSet" &
         " already exists, not redeclaring")
 when not declared(b2DestroyBitSet):
-  proc b2DestroyBitSet*(bitSet: ptr b2BitSet_536871359): void {.cdecl,
+  proc b2DestroyBitSet*(bitSet: ptr b2BitSet_536871361): void {.cdecl,
       importc: "b2DestroyBitSet".}
 else:
   static :
     hint("Declaration of " & "b2DestroyBitSet" &
         " already exists, not redeclaring")
 when not declared(b2SetBitCountAndClear):
-  proc b2SetBitCountAndClear*(bitSet: ptr b2BitSet_536871359; bitCount: uint32): void {.
+  proc b2SetBitCountAndClear*(bitSet: ptr b2BitSet_536871361; bitCount: uint32): void {.
       cdecl, importc: "b2SetBitCountAndClear".}
 else:
   static :
     hint("Declaration of " & "b2SetBitCountAndClear" &
         " already exists, not redeclaring")
 when not declared(b2InPlaceUnion):
-  proc b2InPlaceUnion*(setA: ptr b2BitSet_536871359; setB: ptr b2BitSet_536871359): void {.
+  proc b2InPlaceUnion*(setA: ptr b2BitSet_536871361; setB: ptr b2BitSet_536871361): void {.
       cdecl, importc: "b2InPlaceUnion".}
 else:
   static :
     hint("Declaration of " & "b2InPlaceUnion" &
         " already exists, not redeclaring")
 when not declared(b2GrowBitSet):
-  proc b2GrowBitSet*(bitSet: ptr b2BitSet_536871359; blockCount: uint32): void {.
+  proc b2GrowBitSet*(bitSet: ptr b2BitSet_536871361; blockCount: uint32): void {.
       cdecl, importc: "b2GrowBitSet".}
 else:
   static :
     hint("Declaration of " & "b2GrowBitSet" & " already exists, not redeclaring")
 when not declared(b2CreateSet):
-  proc b2CreateSet*(capacity: int32): b2HashSet_536871367 {.cdecl,
+  proc b2CreateSet*(capacity: int32): b2HashSet_536871369 {.cdecl,
       importc: "b2CreateSet".}
 else:
   static :
     hint("Declaration of " & "b2CreateSet" & " already exists, not redeclaring")
 when not declared(b2DestroySet):
-  proc b2DestroySet*(set_arg: ptr b2HashSet_536871367): void {.cdecl,
+  proc b2DestroySet*(set_arg: ptr b2HashSet_536871369): void {.cdecl,
       importc: "b2DestroySet".}
 else:
   static :
     hint("Declaration of " & "b2DestroySet" & " already exists, not redeclaring")
 when not declared(b2ClearSet):
-  proc b2ClearSet*(set_arg: ptr b2HashSet_536871367): void {.cdecl,
+  proc b2ClearSet*(set_arg: ptr b2HashSet_536871369): void {.cdecl,
       importc: "b2ClearSet".}
 else:
   static :
     hint("Declaration of " & "b2ClearSet" & " already exists, not redeclaring")
 when not declared(b2AddKey):
-  proc b2AddKey*(set_arg: ptr b2HashSet_536871367; key: uint64): bool {.cdecl,
+  proc b2AddKey*(set_arg: ptr b2HashSet_536871369; key: uint64): bool {.cdecl,
       importc: "b2AddKey".}
 else:
   static :
     hint("Declaration of " & "b2AddKey" & " already exists, not redeclaring")
 when not declared(b2RemoveKey):
-  proc b2RemoveKey*(set_arg: ptr b2HashSet_536871367; key: uint64): bool {.
+  proc b2RemoveKey*(set_arg: ptr b2HashSet_536871369; key: uint64): bool {.
       cdecl, importc: "b2RemoveKey".}
 else:
   static :
     hint("Declaration of " & "b2RemoveKey" & " already exists, not redeclaring")
 when not declared(b2ContainsKey):
-  proc b2ContainsKey*(set_arg: ptr b2HashSet_536871367; key: uint64): bool {.
+  proc b2ContainsKey*(set_arg: ptr b2HashSet_536871369; key: uint64): bool {.
       cdecl, importc: "b2ContainsKey".}
 else:
   static :
     hint("Declaration of " & "b2ContainsKey" &
         " already exists, not redeclaring")
 when not declared(b2GetHashSetBytes):
-  proc b2GetHashSetBytes*(set_arg: ptr b2HashSet_536871367): cint {.cdecl,
+  proc b2GetHashSetBytes*(set_arg: ptr b2HashSet_536871369): cint {.cdecl,
       importc: "b2GetHashSetBytes".}
 else:
   static :
