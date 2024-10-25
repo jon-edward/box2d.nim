@@ -4,4 +4,7 @@ htmldocs/
 tmp/
 
 scripts/config.nims
+scripts/create_wrapper
+scripts/create_internal
+
 dist/
