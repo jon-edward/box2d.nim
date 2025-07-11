@@ -17,7 +17,7 @@
     <link rel="icon" type="image/png" sizes="32x32" href="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAACAAAAAgCAYAAABzenr0AAAABmJLR0QA/wD/AP+gvaeTAAAACXBIWXMAAA3XAAAN1wFCKJt4AAAAB3RJTUUH4QQQEwksSS9ZWwAAAk1JREFUWMPtll2ITVEUx39nn/O7Y5qR8f05wtCUUr6ZIS++8pEnkZInPImneaCQ5METNdOkeFBKUhMPRIkHKfEuUZSUlGlKPN2TrgfncpvmnntnmlEyq1Z7t89/rf9a6+y99oZxGZf/XeIq61EdtgKXgdXA0xrYAvBjOIF1AI9zvjcC74BSpndrJPkBWDScTF8Aa4E3wDlgHbASaANmVqlcCnwHvgDvgVfAJ+AikAAvgfVZwLnSVZHZaOuKoQi3ZOMi4NkYkpe1p4J7A8BpYAD49hfIy/oqG0+hLomiKP2L5L+1ubn5115S+3OAn4EnwBlgMzCjyt6ZAnQCJ4A7wOs88iRJHvw50HoujuPBoCKwHWiosy8MdfZnAdcHk8dxXFJ3VQbQlCTJvRBCGdRbD4M6uc5glpY3eAihpN5S5w12diSEcCCEcKUO4ljdr15T76ur1FDDLIQQ3qv71EdDOe3Kxj3leRXyk+pxdWnFWod6Wt2bY3de3aSuUHcPBVimHs7mK9WrmeOF6lR1o9qnzskh2ar2qm1qizpfXaPeVGdlmGN5pb09qMxz1Xb1kLqgzn1RyH7JUXW52lr5e/Kqi9qpto7V1atuUzfnARrV7jEib1T76gG2qxdGmXyiekkt1GswPTtek0aBfJp6YySGBfWg2tPQ0FAYgf1stUfdmdcjarbYJEniKIq6gY/Aw+zWHAC+p2labGpqiorFYgGYCEzN7oQdQClN07O1/EfDyGgC0ALMBdYAi4FyK+4H3gLPsxfR1zRNi+NP7nH5J+QntnXe5B5mpfQAAAAASUVORK5CYII=">
 
     <!-- CSS -->
-    <link rel="stylesheet" type="text/css" href="nimdoc.out.css?v=2.2.0">
+    <link rel="stylesheet" type="text/css" href="nimdoc.out.css?v=2.2.4">
 
     <!-- Custom Doc Styling -->
     <style>
@@ -39,7 +39,7 @@
     </style>
 
     <!-- JS -->
-    <script type="text/javascript" src="dochack.js?v=2.2.0"></script>
+    <script type="text/javascript" src="dochack.js?v=2.2.4"></script>
     </head>
     <body>
     <div class="document" id="documentId">
@@ -66,10 +66,6 @@
 <li><a class="reference external"
           data-doc-search-tag="api: template b2AABB_Extents(a: b2AABB): b2Vec2" href="box2d/api.html#b2AABB_Extents.t%2Cb2AABB">api: template b2AABB_Extents(a: b2AABB): b2Vec2</a></li>
           </ul></dd>
-<dt><a name="b2AABB_IsValid" href="#b2AABB_IsValid"><span>b2AABB_IsValid:</span></a></dt><dd><ul class="simple">
-<li><a class="reference external"
-          data-doc-search-tag="api: proc b2AABB_IsValid(aabb: b2AABB): bool" href="box2d/api.html#b2AABB_IsValid%2Cb2AABB">api: proc b2AABB_IsValid(aabb: b2AABB): bool</a></li>
-          </ul></dd>
 <dt><a name="b2AABB_Overlaps" href="#b2AABB_Overlaps"><span>b2AABB_Overlaps:</span></a></dt><dd><ul class="simple">
 <li><a class="reference external"
           data-doc-search-tag="api: proc b2AABB_Overlaps(a: b2AABB; b: b2AABB): bool" href="box2d/api.html#b2AABB_Overlaps%2Cb2AABB%2Cb2AABB">api: proc b2AABB_Overlaps(a: b2AABB; b: b2AABB): bool</a></li>
@@ -93,6 +89,10 @@
 <dt><a name="b2AssertFcn" href="#b2AssertFcn"><span>b2AssertFcn:</span></a></dt><dd><ul class="simple">
 <li><a class="reference external"
           data-doc-search-tag="api: type b2AssertFcn" href="box2d/api.html#b2AssertFcn">api: type b2AssertFcn</a></li>
+          </ul></dd>
+<dt><a name="b2Atan2" href="#b2Atan2"><span>b2Atan2:</span></a></dt><dd><ul class="simple">
+<li><a class="reference external"
+          data-doc-search-tag="api: proc b2Atan2(y: cfloat; x: cfloat): cfloat" href="box2d/api.html#b2Atan2%2Ccfloat%2Ccfloat">api: proc b2Atan2(y: cfloat; x: cfloat): cfloat</a></li>
           </ul></dd>
 <dt><a name="b2Body_ApplyAngularImpulse" href="#b2Body_ApplyAngularImpulse"><span>b2Body_ApplyAngularImpulse:</span></a></dt><dd><ul class="simple">
 <li><a class="reference external"
@@ -140,9 +140,13 @@
 <li><a class="reference external"
           data-doc-search-tag="api: proc b2Body_Enable(bodyId: b2BodyId): void" href="box2d/api.html#b2Body_Enable%2Cb2BodyId">api: proc b2Body_Enable(bodyId: b2BodyId): void</a></li>
           </ul></dd>
+<dt><a name="b2Body_EnableContactEvents" href="#b2Body_EnableContactEvents"><span>b2Body_EnableContactEvents:</span></a></dt><dd><ul class="simple">
+<li><a class="reference external"
+          data-doc-search-tag="api: proc b2Body_EnableContactEvents(bodyId: b2BodyId; flag: bool): void" href="box2d/api.html#b2Body_EnableContactEvents%2Cb2BodyId%2Cbool">api: proc b2Body_EnableContactEvents(bodyId: b2BodyId; flag: bool): void</a></li>
+          </ul></dd>
 <dt><a name="b2Body_EnableHitEvents" href="#b2Body_EnableHitEvents"><span>b2Body_EnableHitEvents:</span></a></dt><dd><ul class="simple">
 <li><a class="reference external"
-          data-doc-search-tag="api: proc b2Body_EnableHitEvents(bodyId: b2BodyId; enableHitEvents: bool): void" href="box2d/api.html#b2Body_EnableHitEvents%2Cb2BodyId%2Cbool">api: proc b2Body_EnableHitEvents(bodyId: b2BodyId; enableHitEvents: bool): void</a></li>
+          data-doc-search-tag="api: proc b2Body_EnableHitEvents(bodyId: b2BodyId; flag: bool): void" href="box2d/api.html#b2Body_EnableHitEvents%2Cb2BodyId%2Cbool">api: proc b2Body_EnableHitEvents(bodyId: b2BodyId; flag: bool): void</a></li>
           </ul></dd>
 <dt><a name="b2Body_EnableSleep" href="#b2Body_EnableSleep"><span>b2Body_EnableSleep:</span></a></dt><dd><ul class="simple">
 <li><a class="reference external"
@@ -160,10 +164,6 @@
 <li><a class="reference external"
           data-doc-search-tag="api: proc b2Body_GetAngularVelocity(bodyId: b2BodyId): cfloat" href="box2d/api.html#b2Body_GetAngularVelocity%2Cb2BodyId">api: proc b2Body_GetAngularVelocity(bodyId: b2BodyId): cfloat</a></li>
           </ul></dd>
-<dt><a name="b2Body_GetAutomaticMass" href="#b2Body_GetAutomaticMass"><span>b2Body_GetAutomaticMass:</span></a></dt><dd><ul class="simple">
-<li><a class="reference external"
-          data-doc-search-tag="api: proc b2Body_GetAutomaticMass(bodyId: b2BodyId): bool" href="box2d/api.html#b2Body_GetAutomaticMass%2Cb2BodyId">api: proc b2Body_GetAutomaticMass(bodyId: b2BodyId): bool</a></li>
-          </ul></dd>
 <dt><a name="b2Body_GetContactCapacity" href="#b2Body_GetContactCapacity"><span>b2Body_GetContactCapacity:</span></a></dt><dd><ul class="simple">
 <li><a class="reference external"
           data-doc-search-tag="api: proc b2Body_GetContactCapacity(bodyId: b2BodyId): cint" href="box2d/api.html#b2Body_GetContactCapacity%2Cb2BodyId">api: proc b2Body_GetContactCapacity(bodyId: b2BodyId): cint</a></li>
@@ -177,10 +177,6 @@
 <dt><a name="b2Body_GetGravityScale" href="#b2Body_GetGravityScale"><span>b2Body_GetGravityScale:</span></a></dt><dd><ul class="simple">
 <li><a class="reference external"
           data-doc-search-tag="api: proc b2Body_GetGravityScale(bodyId: b2BodyId): cfloat" href="box2d/api.html#b2Body_GetGravityScale%2Cb2BodyId">api: proc b2Body_GetGravityScale(bodyId: b2BodyId): cfloat</a></li>
-          </ul></dd>
-<dt><a name="b2Body_GetInertiaTensor" href="#b2Body_GetInertiaTensor"><span>b2Body_GetInertiaTensor:</span></a></dt><dd><ul class="simple">
-<li><a class="reference external"
-          data-doc-search-tag="api: proc b2Body_GetInertiaTensor(bodyId: b2BodyId): cfloat" href="box2d/api.html#b2Body_GetInertiaTensor%2Cb2BodyId">api: proc b2Body_GetInertiaTensor(bodyId: b2BodyId): cfloat</a></li>
           </ul></dd>
 <dt><a name="b2Body_GetJointCount" href="#b2Body_GetJointCount"><span>b2Body_GetJointCount:</span></a></dt><dd><ul class="simple">
 <li><a class="reference external"
@@ -206,6 +202,10 @@
 <li><a class="reference external"
           data-doc-search-tag="api: proc b2Body_GetLocalPoint(bodyId: b2BodyId; worldPoint: b2Vec2): b2Vec2" href="box2d/api.html#b2Body_GetLocalPoint%2Cb2BodyId%2Cb2Vec2">api: proc b2Body_GetLocalPoint(bodyId: b2BodyId; worldPoint: b2Vec2): b2Vec2</a></li>
           </ul></dd>
+<dt><a name="b2Body_GetLocalPointVelocity" href="#b2Body_GetLocalPointVelocity"><span>b2Body_GetLocalPointVelocity:</span></a></dt><dd><ul class="simple">
+<li><a class="reference external"
+          data-doc-search-tag="api: proc b2Body_GetLocalPointVelocity(bodyId: b2BodyId; localPoint: b2Vec2): b2Vec2" href="box2d/api.html#b2Body_GetLocalPointVelocity%2Cb2BodyId%2Cb2Vec2">api: proc b2Body_GetLocalPointVelocity(bodyId: b2BodyId; localPoint: b2Vec2): b2Vec2</a></li>
+          </ul></dd>
 <dt><a name="b2Body_GetLocalVector" href="#b2Body_GetLocalVector"><span>b2Body_GetLocalVector:</span></a></dt><dd><ul class="simple">
 <li><a class="reference external"
           data-doc-search-tag="api: proc b2Body_GetLocalVector(bodyId: b2BodyId; worldVector: b2Vec2): b2Vec2" href="box2d/api.html#b2Body_GetLocalVector%2Cb2BodyId%2Cb2Vec2">api: proc b2Body_GetLocalVector(bodyId: b2BodyId; worldVector: b2Vec2): b2Vec2</a></li>
@@ -218,6 +218,14 @@
 <li><a class="reference external"
           data-doc-search-tag="api: proc b2Body_GetMassData(bodyId: b2BodyId): b2MassData" href="box2d/api.html#b2Body_GetMassData%2Cb2BodyId">api: proc b2Body_GetMassData(bodyId: b2BodyId): b2MassData</a></li>
           </ul></dd>
+<dt><a name="b2Body_GetMotionLocks" href="#b2Body_GetMotionLocks"><span>b2Body_GetMotionLocks:</span></a></dt><dd><ul class="simple">
+<li><a class="reference external"
+          data-doc-search-tag="api: proc b2Body_GetMotionLocks(bodyId: b2BodyId): b2MotionLocks" href="box2d/api.html#b2Body_GetMotionLocks%2Cb2BodyId">api: proc b2Body_GetMotionLocks(bodyId: b2BodyId): b2MotionLocks</a></li>
+          </ul></dd>
+<dt><a name="b2Body_GetName" href="#b2Body_GetName"><span>b2Body_GetName:</span></a></dt><dd><ul class="simple">
+<li><a class="reference external"
+          data-doc-search-tag="api: proc b2Body_GetName(bodyId: b2BodyId): cstring" href="box2d/api.html#b2Body_GetName%2Cb2BodyId">api: proc b2Body_GetName(bodyId: b2BodyId): cstring</a></li>
+          </ul></dd>
 <dt><a name="b2Body_GetPosition" href="#b2Body_GetPosition"><span>b2Body_GetPosition:</span></a></dt><dd><ul class="simple">
 <li><a class="reference external"
           data-doc-search-tag="api: proc b2Body_GetPosition(bodyId: b2BodyId): b2Vec2" href="box2d/api.html#b2Body_GetPosition%2Cb2BodyId">api: proc b2Body_GetPosition(bodyId: b2BodyId): b2Vec2</a></li>
@@ -225,6 +233,10 @@
 <dt><a name="b2Body_GetRotation" href="#b2Body_GetRotation"><span>b2Body_GetRotation:</span></a></dt><dd><ul class="simple">
 <li><a class="reference external"
           data-doc-search-tag="api: proc b2Body_GetRotation(bodyId: b2BodyId): b2Rot" href="box2d/api.html#b2Body_GetRotation%2Cb2BodyId">api: proc b2Body_GetRotation(bodyId: b2BodyId): b2Rot</a></li>
+          </ul></dd>
+<dt><a name="b2Body_GetRotationalInertia" href="#b2Body_GetRotationalInertia"><span>b2Body_GetRotationalInertia:</span></a></dt><dd><ul class="simple">
+<li><a class="reference external"
+          data-doc-search-tag="api: proc b2Body_GetRotationalInertia(bodyId: b2BodyId): cfloat" href="box2d/api.html#b2Body_GetRotationalInertia%2Cb2BodyId">api: proc b2Body_GetRotationalInertia(bodyId: b2BodyId): cfloat</a></li>
           </ul></dd>
 <dt><a name="b2Body_GetShapeCount" href="#b2Body_GetShapeCount"><span>b2Body_GetShapeCount:</span></a></dt><dd><ul class="simple">
 <li><a class="reference external"
@@ -250,6 +262,10 @@
 <li><a class="reference external"
           data-doc-search-tag="api: proc b2Body_GetUserData(bodyId: b2BodyId): pointer" href="box2d/api.html#b2Body_GetUserData%2Cb2BodyId">api: proc b2Body_GetUserData(bodyId: b2BodyId): pointer</a></li>
           </ul></dd>
+<dt><a name="b2Body_GetWorld" href="#b2Body_GetWorld"><span>b2Body_GetWorld:</span></a></dt><dd><ul class="simple">
+<li><a class="reference external"
+          data-doc-search-tag="api: proc b2Body_GetWorld(bodyId: b2BodyId): b2WorldId" href="box2d/api.html#b2Body_GetWorld%2Cb2BodyId">api: proc b2Body_GetWorld(bodyId: b2BodyId): b2WorldId</a></li>
+          </ul></dd>
 <dt><a name="b2Body_GetWorldCenterOfMass" href="#b2Body_GetWorldCenterOfMass"><span>b2Body_GetWorldCenterOfMass:</span></a></dt><dd><ul class="simple">
 <li><a class="reference external"
           data-doc-search-tag="api: proc b2Body_GetWorldCenterOfMass(bodyId: b2BodyId): b2Vec2" href="box2d/api.html#b2Body_GetWorldCenterOfMass%2Cb2BodyId">api: proc b2Body_GetWorldCenterOfMass(bodyId: b2BodyId): b2Vec2</a></li>
@@ -257,6 +273,10 @@
 <dt><a name="b2Body_GetWorldPoint" href="#b2Body_GetWorldPoint"><span>b2Body_GetWorldPoint:</span></a></dt><dd><ul class="simple">
 <li><a class="reference external"
           data-doc-search-tag="api: proc b2Body_GetWorldPoint(bodyId: b2BodyId; localPoint: b2Vec2): b2Vec2" href="box2d/api.html#b2Body_GetWorldPoint%2Cb2BodyId%2Cb2Vec2">api: proc b2Body_GetWorldPoint(bodyId: b2BodyId; localPoint: b2Vec2): b2Vec2</a></li>
+          </ul></dd>
+<dt><a name="b2Body_GetWorldPointVelocity" href="#b2Body_GetWorldPointVelocity"><span>b2Body_GetWorldPointVelocity:</span></a></dt><dd><ul class="simple">
+<li><a class="reference external"
+          data-doc-search-tag="api: proc b2Body_GetWorldPointVelocity(bodyId: b2BodyId; worldPoint: b2Vec2): b2Vec2" href="box2d/api.html#b2Body_GetWorldPointVelocity%2Cb2BodyId%2Cb2Vec2">api: proc b2Body_GetWorldPointVelocity(bodyId: b2BodyId; worldPoint: b2Vec2): b2Vec2</a></li>
           </ul></dd>
 <dt><a name="b2Body_GetWorldVector" href="#b2Body_GetWorldVector"><span>b2Body_GetWorldVector:</span></a></dt><dd><ul class="simple">
 <li><a class="reference external"
@@ -278,10 +298,6 @@
 <li><a class="reference external"
           data-doc-search-tag="api: proc b2Body_IsEnabled(bodyId: b2BodyId): bool" href="box2d/api.html#b2Body_IsEnabled%2Cb2BodyId">api: proc b2Body_IsEnabled(bodyId: b2BodyId): bool</a></li>
           </ul></dd>
-<dt><a name="b2Body_IsFixedRotation" href="#b2Body_IsFixedRotation"><span>b2Body_IsFixedRotation:</span></a></dt><dd><ul class="simple">
-<li><a class="reference external"
-          data-doc-search-tag="api: proc b2Body_IsFixedRotation(bodyId: b2BodyId): bool" href="box2d/api.html#b2Body_IsFixedRotation%2Cb2BodyId">api: proc b2Body_IsFixedRotation(bodyId: b2BodyId): bool</a></li>
-          </ul></dd>
 <dt><a name="b2Body_IsSleepEnabled" href="#b2Body_IsSleepEnabled"><span>b2Body_IsSleepEnabled:</span></a></dt><dd><ul class="simple">
 <li><a class="reference external"
           data-doc-search-tag="api: proc b2Body_IsSleepEnabled(bodyId: b2BodyId): bool" href="box2d/api.html#b2Body_IsSleepEnabled%2Cb2BodyId">api: proc b2Body_IsSleepEnabled(bodyId: b2BodyId): bool</a></li>
@@ -302,10 +318,6 @@
 <li><a class="reference external"
           data-doc-search-tag="api: proc b2Body_SetAngularVelocity(bodyId: b2BodyId; angularVelocity: cfloat): void" href="box2d/api.html#b2Body_SetAngularVelocity%2Cb2BodyId%2Ccfloat">api: proc b2Body_SetAngularVelocity(bodyId: b2BodyId; angularVelocity: cfloat): void</a></li>
           </ul></dd>
-<dt><a name="b2Body_SetAutomaticMass" href="#b2Body_SetAutomaticMass"><span>b2Body_SetAutomaticMass:</span></a></dt><dd><ul class="simple">
-<li><a class="reference external"
-          data-doc-search-tag="api: proc b2Body_SetAutomaticMass(bodyId: b2BodyId; automaticMass: bool): void" href="box2d/api.html#b2Body_SetAutomaticMass%2Cb2BodyId%2Cbool">api: proc b2Body_SetAutomaticMass(bodyId: b2BodyId; automaticMass: bool): void</a></li>
-          </ul></dd>
 <dt><a name="b2Body_SetAwake" href="#b2Body_SetAwake"><span>b2Body_SetAwake:</span></a></dt><dd><ul class="simple">
 <li><a class="reference external"
           data-doc-search-tag="api: proc b2Body_SetAwake(bodyId: b2BodyId; awake: bool): void" href="box2d/api.html#b2Body_SetAwake%2Cb2BodyId%2Cbool">api: proc b2Body_SetAwake(bodyId: b2BodyId; awake: bool): void</a></li>
@@ -313,10 +325,6 @@
 <dt><a name="b2Body_SetBullet" href="#b2Body_SetBullet"><span>b2Body_SetBullet:</span></a></dt><dd><ul class="simple">
 <li><a class="reference external"
           data-doc-search-tag="api: proc b2Body_SetBullet(bodyId: b2BodyId; flag: bool): void" href="box2d/api.html#b2Body_SetBullet%2Cb2BodyId%2Cbool">api: proc b2Body_SetBullet(bodyId: b2BodyId; flag: bool): void</a></li>
-          </ul></dd>
-<dt><a name="b2Body_SetFixedRotation" href="#b2Body_SetFixedRotation"><span>b2Body_SetFixedRotation:</span></a></dt><dd><ul class="simple">
-<li><a class="reference external"
-          data-doc-search-tag="api: proc b2Body_SetFixedRotation(bodyId: b2BodyId; flag: bool): void" href="box2d/api.html#b2Body_SetFixedRotation%2Cb2BodyId%2Cbool">api: proc b2Body_SetFixedRotation(bodyId: b2BodyId; flag: bool): void</a></li>
           </ul></dd>
 <dt><a name="b2Body_SetGravityScale" href="#b2Body_SetGravityScale"><span>b2Body_SetGravityScale:</span></a></dt><dd><ul class="simple">
 <li><a class="reference external"
@@ -334,9 +342,23 @@
 <li><a class="reference external"
           data-doc-search-tag="api: proc b2Body_SetMassData(bodyId: b2BodyId; massData: b2MassData): void" href="box2d/api.html#b2Body_SetMassData%2Cb2BodyId%2Cb2MassData">api: proc b2Body_SetMassData(bodyId: b2BodyId; massData: b2MassData): void</a></li>
           </ul></dd>
+<dt><a name="b2Body_SetMotionLocks" href="#b2Body_SetMotionLocks"><span>b2Body_SetMotionLocks:</span></a></dt><dd><ul class="simple">
+<li><a class="reference external"
+          data-doc-search-tag="api: proc b2Body_SetMotionLocks(bodyId: b2BodyId; locks: b2MotionLocks): void" href="box2d/api.html#b2Body_SetMotionLocks%2Cb2BodyId%2Cb2MotionLocks">api: proc b2Body_SetMotionLocks(bodyId: b2BodyId; locks: b2MotionLocks): void</a></li>
+          </ul></dd>
+<dt><a name="b2Body_SetName" href="#b2Body_SetName"><span>b2Body_SetName:</span></a></dt><dd><ul class="simple">
+<li><a class="reference external"
+          data-doc-search-tag="api: proc b2Body_SetName(bodyId: b2BodyId; name: cstring): void" href="box2d/api.html#b2Body_SetName%2Cb2BodyId%2Ccstring">api: proc b2Body_SetName(bodyId: b2BodyId; name: cstring): void</a></li>
+          </ul></dd>
 <dt><a name="b2Body_SetSleepThreshold" href="#b2Body_SetSleepThreshold"><span>b2Body_SetSleepThreshold:</span></a></dt><dd><ul class="simple">
 <li><a class="reference external"
-          data-doc-search-tag="api: proc b2Body_SetSleepThreshold(bodyId: b2BodyId; sleepVelocity: cfloat): void" href="box2d/api.html#b2Body_SetSleepThreshold%2Cb2BodyId%2Ccfloat">api: proc b2Body_SetSleepThreshold(bodyId: b2BodyId; sleepVelocity: cfloat): void</a></li>
+          data-doc-search-tag="api: proc b2Body_SetSleepThreshold(bodyId: b2BodyId; sleepThreshold: cfloat): void" href="box2d/api.html#b2Body_SetSleepThreshold%2Cb2BodyId%2Ccfloat">api: proc b2Body_SetSleepThreshold(bodyId: b2BodyId; sleepThreshold: cfloat): void</a></li>
+          </ul></dd>
+<dt><a name="b2Body_SetTargetTransform" href="#b2Body_SetTargetTransform"><span>b2Body_SetTargetTransform:</span></a></dt><dd><ul class="simple">
+<li><a class="reference external"
+          data-doc-search-tag="api: proc b2Body_SetTargetTransform(bodyId: b2BodyId; target: b2Transform;
+                          timeStep: cfloat): void" href="box2d/api.html#b2Body_SetTargetTransform%2Cb2BodyId%2Cb2Transform%2Ccfloat">api: proc b2Body_SetTargetTransform(bodyId: b2BodyId; target: b2Transform;
+                          timeStep: cfloat): void</a></li>
           </ul></dd>
 <dt><a name="b2Body_SetTransform" href="#b2Body_SetTransform"><span>b2Body_SetTransform:</span></a></dt><dd><ul class="simple">
 <li><a class="reference external"
@@ -374,6 +396,32 @@
 <li><a class="reference external"
           data-doc-search-tag="api: object b2ChainDef" href="box2d/api.html#b2ChainDef">api: object b2ChainDef</a></li>
           </ul></dd>
+<dt><a name="b2Chain_GetFriction" href="#b2Chain_GetFriction"><span>b2Chain_GetFriction:</span></a></dt><dd><ul class="simple">
+<li><a class="reference external"
+          data-doc-search-tag="api: proc b2Chain_GetFriction(chainId: b2ChainId): cfloat" href="box2d/api.html#b2Chain_GetFriction%2Cb2ChainId">api: proc b2Chain_GetFriction(chainId: b2ChainId): cfloat</a></li>
+          </ul></dd>
+<dt><a name="b2Chain_GetMaterial" href="#b2Chain_GetMaterial"><span>b2Chain_GetMaterial:</span></a></dt><dd><ul class="simple">
+<li><a class="reference external"
+          data-doc-search-tag="api: proc b2Chain_GetMaterial(chainId: b2ChainId): cint" href="box2d/api.html#b2Chain_GetMaterial%2Cb2ChainId">api: proc b2Chain_GetMaterial(chainId: b2ChainId): cint</a></li>
+          </ul></dd>
+<dt><a name="b2Chain_GetRestitution" href="#b2Chain_GetRestitution"><span>b2Chain_GetRestitution:</span></a></dt><dd><ul class="simple">
+<li><a class="reference external"
+          data-doc-search-tag="api: proc b2Chain_GetRestitution(chainId: b2ChainId): cfloat" href="box2d/api.html#b2Chain_GetRestitution%2Cb2ChainId">api: proc b2Chain_GetRestitution(chainId: b2ChainId): cfloat</a></li>
+          </ul></dd>
+<dt><a name="b2Chain_GetSegmentCount" href="#b2Chain_GetSegmentCount"><span>b2Chain_GetSegmentCount:</span></a></dt><dd><ul class="simple">
+<li><a class="reference external"
+          data-doc-search-tag="api: proc b2Chain_GetSegmentCount(chainId: b2ChainId): cint" href="box2d/api.html#b2Chain_GetSegmentCount%2Cb2ChainId">api: proc b2Chain_GetSegmentCount(chainId: b2ChainId): cint</a></li>
+          </ul></dd>
+<dt><a name="b2Chain_GetSegments" href="#b2Chain_GetSegments"><span>b2Chain_GetSegments:</span></a></dt><dd><ul class="simple">
+<li><a class="reference external"
+          data-doc-search-tag="api: proc b2Chain_GetSegments(chainId: b2ChainId; segmentArray: ptr b2ShapeId;
+                    capacity: cint): cint" href="box2d/api.html#b2Chain_GetSegments%2Cb2ChainId%2Cptr.b2ShapeId%2Ccint">api: proc b2Chain_GetSegments(chainId: b2ChainId; segmentArray: ptr b2ShapeId;
+                    capacity: cint): cint</a></li>
+          </ul></dd>
+<dt><a name="b2Chain_GetWorld" href="#b2Chain_GetWorld"><span>b2Chain_GetWorld:</span></a></dt><dd><ul class="simple">
+<li><a class="reference external"
+          data-doc-search-tag="api: proc b2Chain_GetWorld(chainId: b2ChainId): b2WorldId" href="box2d/api.html#b2Chain_GetWorld%2Cb2ChainId">api: proc b2Chain_GetWorld(chainId: b2ChainId): b2WorldId</a></li>
+          </ul></dd>
 <dt><a name="b2ChainId" href="#b2ChainId"><span>b2ChainId:</span></a></dt><dd><ul class="simple">
 <li><a class="reference external"
           data-doc-search-tag="api: object b2ChainId" href="box2d/api.html#b2ChainId">api: object b2ChainId</a></li>
@@ -382,9 +430,17 @@
 <li><a class="reference external"
           data-doc-search-tag="api: proc b2Chain_IsValid(id: b2ChainId): bool" href="box2d/api.html#b2Chain_IsValid%2Cb2ChainId">api: proc b2Chain_IsValid(id: b2ChainId): bool</a></li>
           </ul></dd>
+<dt><a name="b2ChainSegment" href="#b2ChainSegment"><span>b2ChainSegment:</span></a></dt><dd><ul class="simple">
+<li><a class="reference external"
+          data-doc-search-tag="api: object b2ChainSegment" href="box2d/api.html#b2ChainSegment">api: object b2ChainSegment</a></li>
+          </ul></dd>
 <dt><a name="b2Chain_SetFriction" href="#b2Chain_SetFriction"><span>b2Chain_SetFriction:</span></a></dt><dd><ul class="simple">
 <li><a class="reference external"
           data-doc-search-tag="api: proc b2Chain_SetFriction(chainId: b2ChainId; friction: cfloat): void" href="box2d/api.html#b2Chain_SetFriction%2Cb2ChainId%2Ccfloat">api: proc b2Chain_SetFriction(chainId: b2ChainId; friction: cfloat): void</a></li>
+          </ul></dd>
+<dt><a name="b2Chain_SetMaterial" href="#b2Chain_SetMaterial"><span>b2Chain_SetMaterial:</span></a></dt><dd><ul class="simple">
+<li><a class="reference external"
+          data-doc-search-tag="api: proc b2Chain_SetMaterial(chainId: b2ChainId; material: cint): void" href="box2d/api.html#b2Chain_SetMaterial%2Cb2ChainId%2Ccint">api: proc b2Chain_SetMaterial(chainId: b2ChainId; material: cint): void</a></li>
           </ul></dd>
 <dt><a name="b2Chain_SetRestitution" href="#b2Chain_SetRestitution"><span>b2Chain_SetRestitution:</span></a></dt><dd><ul class="simple">
 <li><a class="reference external"
@@ -398,6 +454,10 @@
 <li><a class="reference external"
           data-doc-search-tag="api: template b2Clamp(v: b2Vec2; a: b2Vec2; b: b2Vec2): b2Vec2" href="box2d/api.html#b2Clamp.t%2Cb2Vec2%2Cb2Vec2%2Cb2Vec2">api: template b2Clamp(v: b2Vec2; a: b2Vec2; b: b2Vec2): b2Vec2</a></li>
           </ul></dd>
+<dt><a name="b2ClipVector" href="#b2ClipVector"><span>b2ClipVector:</span></a></dt><dd><ul class="simple">
+<li><a class="reference external"
+          data-doc-search-tag="api: proc b2ClipVector(vector: b2Vec2; planes: ptr b2CollisionPlane; count: cint): b2Vec2" href="box2d/api.html#b2ClipVector%2Cb2Vec2%2Cptr.b2CollisionPlane%2Ccint">api: proc b2ClipVector(vector: b2Vec2; planes: ptr b2CollisionPlane; count: cint): b2Vec2</a></li>
+          </ul></dd>
 <dt><a name="b2CollideCapsuleAndCircle" href="#b2CollideCapsuleAndCircle"><span>b2CollideCapsuleAndCircle:</span></a></dt><dd><ul class="simple">
 <li><a class="reference external"
           data-doc-search-tag="api: proc b2CollideCapsuleAndCircle(capsuleA: ptr b2Capsule; xfA: b2Transform;
@@ -409,6 +469,28 @@
           data-doc-search-tag="api: proc b2CollideCapsules(capsuleA: ptr b2Capsule; xfA: b2Transform;
                   capsuleB: ptr b2Capsule; xfB: b2Transform): b2Manifold" href="box2d/api.html#b2CollideCapsules%2Cptr.b2Capsule%2Cb2Transform%2Cptr.b2Capsule%2Cb2Transform">api: proc b2CollideCapsules(capsuleA: ptr b2Capsule; xfA: b2Transform;
                   capsuleB: ptr b2Capsule; xfB: b2Transform): b2Manifold</a></li>
+          </ul></dd>
+<dt><a name="b2CollideChainSegmentAndCapsule" href="#b2CollideChainSegmentAndCapsule"><span>b2CollideChainSegmentAndCapsule:</span></a></dt><dd><ul class="simple">
+<li><a class="reference external"
+          data-doc-search-tag="api: proc b2CollideChainSegmentAndCapsule(segmentA: ptr b2ChainSegment; xfA: b2Transform;
+                                capsuleB: ptr b2Capsule; xfB: b2Transform;
+                                cache: ptr b2SimplexCache): b2Manifold" href="box2d/api.html#b2CollideChainSegmentAndCapsule%2Cptr.b2ChainSegment%2Cb2Transform%2Cptr.b2Capsule%2Cb2Transform%2Cptr.b2SimplexCache">api: proc b2CollideChainSegmentAndCapsule(segmentA: ptr b2ChainSegment; xfA: b2Transform;
+                                capsuleB: ptr b2Capsule; xfB: b2Transform;
+                                cache: ptr b2SimplexCache): b2Manifold</a></li>
+          </ul></dd>
+<dt><a name="b2CollideChainSegmentAndCircle" href="#b2CollideChainSegmentAndCircle"><span>b2CollideChainSegmentAndCircle:</span></a></dt><dd><ul class="simple">
+<li><a class="reference external"
+          data-doc-search-tag="api: proc b2CollideChainSegmentAndCircle(segmentA: ptr b2ChainSegment; xfA: b2Transform;
+                               circleB: ptr b2Circle; xfB: b2Transform): b2Manifold" href="box2d/api.html#b2CollideChainSegmentAndCircle%2Cptr.b2ChainSegment%2Cb2Transform%2Cptr.b2Circle%2Cb2Transform">api: proc b2CollideChainSegmentAndCircle(segmentA: ptr b2ChainSegment; xfA: b2Transform;
+                               circleB: ptr b2Circle; xfB: b2Transform): b2Manifold</a></li>
+          </ul></dd>
+<dt><a name="b2CollideChainSegmentAndPolygon" href="#b2CollideChainSegmentAndPolygon"><span>b2CollideChainSegmentAndPolygon:</span></a></dt><dd><ul class="simple">
+<li><a class="reference external"
+          data-doc-search-tag="api: proc b2CollideChainSegmentAndPolygon(segmentA: ptr b2ChainSegment; xfA: b2Transform;
+                                polygonB: ptr b2Polygon; xfB: b2Transform;
+                                cache: ptr b2SimplexCache): b2Manifold" href="box2d/api.html#b2CollideChainSegmentAndPolygon%2Cptr.b2ChainSegment%2Cb2Transform%2Cptr.b2Polygon%2Cb2Transform%2Cptr.b2SimplexCache">api: proc b2CollideChainSegmentAndPolygon(segmentA: ptr b2ChainSegment; xfA: b2Transform;
+                                polygonB: ptr b2Polygon; xfB: b2Transform;
+                                cache: ptr b2SimplexCache): b2Manifold</a></li>
           </ul></dd>
 <dt><a name="b2CollideCircles" href="#b2CollideCircles"><span>b2CollideCircles:</span></a></dt><dd><ul class="simple">
 <li><a class="reference external"
@@ -452,45 +534,17 @@
                            polygonB: ptr b2Polygon; xfB: b2Transform): b2Manifold" href="box2d/api.html#b2CollideSegmentAndPolygon%2Cptr.b2Segment%2Cb2Transform%2Cptr.b2Polygon%2Cb2Transform">api: proc b2CollideSegmentAndPolygon(segmentA: ptr b2Segment; xfA: b2Transform;
                            polygonB: ptr b2Polygon; xfB: b2Transform): b2Manifold</a></li>
           </ul></dd>
-<dt><a name="b2CollideSmoothSegmentAndCapsule" href="#b2CollideSmoothSegmentAndCapsule"><span>b2CollideSmoothSegmentAndCapsule:</span></a></dt><dd><ul class="simple">
+<dt><a name="b2CollisionPlane" href="#b2CollisionPlane"><span>b2CollisionPlane:</span></a></dt><dd><ul class="simple">
 <li><a class="reference external"
-          data-doc-search-tag="api: proc b2CollideSmoothSegmentAndCapsule(smoothSegmentA: ptr b2SmoothSegment;
-                                 xfA: b2Transform; capsuleB: ptr b2Capsule;
-                                 xfB: b2Transform; cache: ptr b2DistanceCache): b2Manifold" href="box2d/api.html#b2CollideSmoothSegmentAndCapsule%2Cptr.b2SmoothSegment%2Cb2Transform%2Cptr.b2Capsule%2Cb2Transform%2Cptr.b2DistanceCache">api: proc b2CollideSmoothSegmentAndCapsule(smoothSegmentA: ptr b2SmoothSegment;
-                                 xfA: b2Transform; capsuleB: ptr b2Capsule;
-                                 xfB: b2Transform; cache: ptr b2DistanceCache): b2Manifold</a></li>
-          </ul></dd>
-<dt><a name="b2CollideSmoothSegmentAndCircle" href="#b2CollideSmoothSegmentAndCircle"><span>b2CollideSmoothSegmentAndCircle:</span></a></dt><dd><ul class="simple">
-<li><a class="reference external"
-          data-doc-search-tag="api: proc b2CollideSmoothSegmentAndCircle(smoothSegmentA: ptr b2SmoothSegment;
-                                xfA: b2Transform; circleB: ptr b2Circle;
-                                xfB: b2Transform): b2Manifold" href="box2d/api.html#b2CollideSmoothSegmentAndCircle%2Cptr.b2SmoothSegment%2Cb2Transform%2Cptr.b2Circle%2Cb2Transform">api: proc b2CollideSmoothSegmentAndCircle(smoothSegmentA: ptr b2SmoothSegment;
-                                xfA: b2Transform; circleB: ptr b2Circle;
-                                xfB: b2Transform): b2Manifold</a></li>
-          </ul></dd>
-<dt><a name="b2CollideSmoothSegmentAndPolygon" href="#b2CollideSmoothSegmentAndPolygon"><span>b2CollideSmoothSegmentAndPolygon:</span></a></dt><dd><ul class="simple">
-<li><a class="reference external"
-          data-doc-search-tag="api: proc b2CollideSmoothSegmentAndPolygon(smoothSegmentA: ptr b2SmoothSegment;
-                                 xfA: b2Transform; polygonB: ptr b2Polygon;
-                                 xfB: b2Transform; cache: ptr b2DistanceCache): b2Manifold" href="box2d/api.html#b2CollideSmoothSegmentAndPolygon%2Cptr.b2SmoothSegment%2Cb2Transform%2Cptr.b2Polygon%2Cb2Transform%2Cptr.b2DistanceCache">api: proc b2CollideSmoothSegmentAndPolygon(smoothSegmentA: ptr b2SmoothSegment;
-                                 xfA: b2Transform; polygonB: ptr b2Polygon;
-                                 xfB: b2Transform; cache: ptr b2DistanceCache): b2Manifold</a></li>
+          data-doc-search-tag="api: object b2CollisionPlane" href="box2d/api.html#b2CollisionPlane">api: object b2CollisionPlane</a></li>
           </ul></dd>
 <dt><a name="b2_colorCyan" href="#b2_colorCyan"><span>b2_colorCyan:</span></a></dt><dd><ul class="simple">
 <li><a class="reference external"
           data-doc-search-tag="api: const b2_colorCyan" href="box2d/api.html#b2_colorCyan">api: const b2_colorCyan</a></li>
           </ul></dd>
-<dt><a name="b2_colorLime" href="#b2_colorLime"><span>b2_colorLime:</span></a></dt><dd><ul class="simple">
-<li><a class="reference external"
-          data-doc-search-tag="api: const b2_colorLime" href="box2d/api.html#b2_colorLime">api: const b2_colorLime</a></li>
-          </ul></dd>
 <dt><a name="b2_colorMagenta" href="#b2_colorMagenta"><span>b2_colorMagenta:</span></a></dt><dd><ul class="simple">
 <li><a class="reference external"
           data-doc-search-tag="api: const b2_colorMagenta" href="box2d/api.html#b2_colorMagenta">api: const b2_colorMagenta</a></li>
-          </ul></dd>
-<dt><a name="b2_colorNavyBlue" href="#b2_colorNavyBlue"><span>b2_colorNavyBlue:</span></a></dt><dd><ul class="simple">
-<li><a class="reference external"
-          data-doc-search-tag="api: const b2_colorNavyBlue" href="box2d/api.html#b2_colorNavyBlue">api: const b2_colorNavyBlue</a></li>
           </ul></dd>
 <dt><a name="b2ComputeAngularVelocity" href="#b2ComputeAngularVelocity"><span>b2ComputeAngularVelocity:</span></a></dt><dd><ul class="simple">
 <li><a class="reference external"
@@ -512,9 +566,13 @@
 <li><a class="reference external"
           data-doc-search-tag="api: proc b2ComputeCircleMass(shape: ptr b2Circle; density: cfloat): b2MassData" href="box2d/api.html#b2ComputeCircleMass%2Cptr.b2Circle%2Ccfloat">api: proc b2ComputeCircleMass(shape: ptr b2Circle; density: cfloat): b2MassData</a></li>
           </ul></dd>
+<dt><a name="b2ComputeCosSin" href="#b2ComputeCosSin"><span>b2ComputeCosSin:</span></a></dt><dd><ul class="simple">
+<li><a class="reference external"
+          data-doc-search-tag="api: proc b2ComputeCosSin(radians: cfloat): b2CosSin" href="box2d/api.html#b2ComputeCosSin%2Ccfloat">api: proc b2ComputeCosSin(radians: cfloat): b2CosSin</a></li>
+          </ul></dd>
 <dt><a name="b2ComputeHull" href="#b2ComputeHull"><span>b2ComputeHull:</span></a></dt><dd><ul class="simple">
 <li><a class="reference external"
-          data-doc-search-tag="api: proc b2ComputeHull(points: ptr b2Vec2; count: int32): b2Hull" href="box2d/api.html#b2ComputeHull%2Cptr.b2Vec2%2Cint32">api: proc b2ComputeHull(points: ptr b2Vec2; count: int32): b2Hull</a></li>
+          data-doc-search-tag="api: proc b2ComputeHull(points: ptr b2Vec2; count: cint): b2Hull" href="box2d/api.html#b2ComputeHull%2Cptr.b2Vec2%2Ccint">api: proc b2ComputeHull(points: ptr b2Vec2; count: cint): b2Hull</a></li>
           </ul></dd>
 <dt><a name="b2ComputePolygonAABB" href="#b2ComputePolygonAABB"><span>b2ComputePolygonAABB:</span></a></dt><dd><ul class="simple">
 <li><a class="reference external"
@@ -523,6 +581,10 @@
 <dt><a name="b2ComputePolygonMass" href="#b2ComputePolygonMass"><span>b2ComputePolygonMass:</span></a></dt><dd><ul class="simple">
 <li><a class="reference external"
           data-doc-search-tag="api: proc b2ComputePolygonMass(shape: ptr b2Polygon; density: cfloat): b2MassData" href="box2d/api.html#b2ComputePolygonMass%2Cptr.b2Polygon%2Ccfloat">api: proc b2ComputePolygonMass(shape: ptr b2Polygon; density: cfloat): b2MassData</a></li>
+          </ul></dd>
+<dt><a name="b2ComputeRotationBetweenUnitVectors" href="#b2ComputeRotationBetweenUnitVectors"><span>b2ComputeRotationBetweenUnitVectors:</span></a></dt><dd><ul class="simple">
+<li><a class="reference external"
+          data-doc-search-tag="api: proc b2ComputeRotationBetweenUnitVectors(v1: b2Vec2; v2: b2Vec2): b2Rot" href="box2d/api.html#b2ComputeRotationBetweenUnitVectors%2Cb2Vec2%2Cb2Vec2">api: proc b2ComputeRotationBetweenUnitVectors(v1: b2Vec2; v2: b2Vec2): b2Rot</a></li>
           </ul></dd>
 <dt><a name="b2ComputeSegmentAABB" href="#b2ComputeSegmentAABB"><span>b2ComputeSegmentAABB:</span></a></dt><dd><ul class="simple">
 <li><a class="reference external"
@@ -544,9 +606,25 @@
 <li><a class="reference external"
           data-doc-search-tag="api: object b2ContactEvents" href="box2d/api.html#b2ContactEvents">api: object b2ContactEvents</a></li>
           </ul></dd>
+<dt><a name="b2Contact_GetData" href="#b2Contact_GetData"><span>b2Contact_GetData:</span></a></dt><dd><ul class="simple">
+<li><a class="reference external"
+          data-doc-search-tag="api: proc b2Contact_GetData(contactId: b2ContactId): b2ContactData" href="box2d/api.html#b2Contact_GetData%2Cb2ContactId">api: proc b2Contact_GetData(contactId: b2ContactId): b2ContactData</a></li>
+          </ul></dd>
 <dt><a name="b2ContactHitEvent" href="#b2ContactHitEvent"><span>b2ContactHitEvent:</span></a></dt><dd><ul class="simple">
 <li><a class="reference external"
           data-doc-search-tag="api: object b2ContactHitEvent" href="box2d/api.html#b2ContactHitEvent">api: object b2ContactHitEvent</a></li>
+          </ul></dd>
+<dt><a name="b2ContactId" href="#b2ContactId"><span>b2ContactId:</span></a></dt><dd><ul class="simple">
+<li><a class="reference external"
+          data-doc-search-tag="api: object b2ContactId" href="box2d/api.html#b2ContactId">api: object b2ContactId</a></li>
+          </ul></dd>
+<dt><a name="b2Contact_IsValid" href="#b2Contact_IsValid"><span>b2Contact_IsValid:</span></a></dt><dd><ul class="simple">
+<li><a class="reference external"
+          data-doc-search-tag="api: proc b2Contact_IsValid(id: b2ContactId): bool" href="box2d/api.html#b2Contact_IsValid%2Cb2ContactId">api: proc b2Contact_IsValid(id: b2ContactId): bool</a></li>
+          </ul></dd>
+<dt><a name="b2CosSin" href="#b2CosSin"><span>b2CosSin:</span></a></dt><dd><ul class="simple">
+<li><a class="reference external"
+          data-doc-search-tag="api: object b2CosSin" href="box2d/api.html#b2CosSin">api: object b2CosSin</a></li>
           </ul></dd>
 <dt><a name="b2Counters" href="#b2Counters"><span>b2Counters:</span></a></dt><dd><ul class="simple">
 <li><a class="reference external"
@@ -573,6 +651,10 @@
 <dt><a name="b2CreateDistanceJoint" href="#b2CreateDistanceJoint"><span>b2CreateDistanceJoint:</span></a></dt><dd><ul class="simple">
 <li><a class="reference external"
           data-doc-search-tag="api: proc b2CreateDistanceJoint(worldId: b2WorldId; def: ptr b2DistanceJointDef): b2JointId" href="box2d/api.html#b2CreateDistanceJoint%2Cb2WorldId%2Cptr.b2DistanceJointDef">api: proc b2CreateDistanceJoint(worldId: b2WorldId; def: ptr b2DistanceJointDef): b2JointId</a></li>
+          </ul></dd>
+<dt><a name="b2CreateFilterJoint" href="#b2CreateFilterJoint"><span>b2CreateFilterJoint:</span></a></dt><dd><ul class="simple">
+<li><a class="reference external"
+          data-doc-search-tag="api: proc b2CreateFilterJoint(worldId: b2WorldId; def: ptr b2FilterJointDef): b2JointId" href="box2d/api.html#b2CreateFilterJoint%2Cb2WorldId%2Cptr.b2FilterJointDef">api: proc b2CreateFilterJoint(worldId: b2WorldId; def: ptr b2FilterJointDef): b2JointId</a></li>
           </ul></dd>
 <dt><a name="b2CreateMotorJoint" href="#b2CreateMotorJoint"><span>b2CreateMotorJoint:</span></a></dt><dd><ul class="simple">
 <li><a class="reference external"
@@ -601,10 +683,6 @@
           data-doc-search-tag="api: proc b2CreateSegmentShape(bodyId: b2BodyId; def: ptr b2ShapeDef;
                      segment: ptr b2Segment): b2ShapeId" href="box2d/api.html#b2CreateSegmentShape%2Cb2BodyId%2Cptr.b2ShapeDef%2Cptr.b2Segment">api: proc b2CreateSegmentShape(bodyId: b2BodyId; def: ptr b2ShapeDef;
                      segment: ptr b2Segment): b2ShapeId</a></li>
-          </ul></dd>
-<dt><a name="b2CreateTimer" href="#b2CreateTimer"><span>b2CreateTimer:</span></a></dt><dd><ul class="simple">
-<li><a class="reference external"
-          data-doc-search-tag="api: proc b2CreateTimer(): b2Timer" href="box2d/api.html#b2CreateTimer">api: proc b2CreateTimer(): b2Timer</a></li>
           </ul></dd>
 <dt><a name="b2CreateWeldJoint" href="#b2CreateWeldJoint"><span>b2CreateWeldJoint:</span></a></dt><dd><ul class="simple">
 <li><a class="reference external"
@@ -642,25 +720,33 @@
 <li><a class="reference external"
           data-doc-search-tag="api: proc b2DefaultBodyDef(): b2BodyDef" href="box2d/api.html#b2DefaultBodyDef">api: proc b2DefaultBodyDef(): b2BodyDef</a></li>
           </ul></dd>
-<dt><a name="b2_defaultCategoryBits" href="#b2_defaultCategoryBits"><span>b2_defaultCategoryBits:</span></a></dt><dd><ul class="simple">
+<dt><a name="B2_DEFAULT_CATEGORY_BITS" href="#B2_DEFAULT_CATEGORY_BITS"><span>B2_DEFAULT_CATEGORY_BITS:</span></a></dt><dd><ul class="simple">
 <li><a class="reference external"
-          data-doc-search-tag="api: const b2_defaultCategoryBits" href="box2d/api.html#b2_defaultCategoryBits">api: const b2_defaultCategoryBits</a></li>
+          data-doc-search-tag="api: const B2_DEFAULT_CATEGORY_BITS" href="box2d/api.html#B2_DEFAULT_CATEGORY_BITS">api: const B2_DEFAULT_CATEGORY_BITS</a></li>
           </ul></dd>
 <dt><a name="b2DefaultChainDef" href="#b2DefaultChainDef"><span>b2DefaultChainDef:</span></a></dt><dd><ul class="simple">
 <li><a class="reference external"
           data-doc-search-tag="api: proc b2DefaultChainDef(): b2ChainDef" href="box2d/api.html#b2DefaultChainDef">api: proc b2DefaultChainDef(): b2ChainDef</a></li>
           </ul></dd>
+<dt><a name="b2DefaultDebugDraw" href="#b2DefaultDebugDraw"><span>b2DefaultDebugDraw:</span></a></dt><dd><ul class="simple">
+<li><a class="reference external"
+          data-doc-search-tag="api: proc b2DefaultDebugDraw(): b2DebugDraw" href="box2d/api.html#b2DefaultDebugDraw">api: proc b2DefaultDebugDraw(): b2DebugDraw</a></li>
+          </ul></dd>
 <dt><a name="b2DefaultDistanceJointDef" href="#b2DefaultDistanceJointDef"><span>b2DefaultDistanceJointDef:</span></a></dt><dd><ul class="simple">
 <li><a class="reference external"
           data-doc-search-tag="api: proc b2DefaultDistanceJointDef(): b2DistanceJointDef" href="box2d/api.html#b2DefaultDistanceJointDef">api: proc b2DefaultDistanceJointDef(): b2DistanceJointDef</a></li>
+          </ul></dd>
+<dt><a name="b2DefaultExplosionDef" href="#b2DefaultExplosionDef"><span>b2DefaultExplosionDef:</span></a></dt><dd><ul class="simple">
+<li><a class="reference external"
+          data-doc-search-tag="api: proc b2DefaultExplosionDef(): b2ExplosionDef" href="box2d/api.html#b2DefaultExplosionDef">api: proc b2DefaultExplosionDef(): b2ExplosionDef</a></li>
           </ul></dd>
 <dt><a name="b2DefaultFilter" href="#b2DefaultFilter"><span>b2DefaultFilter:</span></a></dt><dd><ul class="simple">
 <li><a class="reference external"
           data-doc-search-tag="api: proc b2DefaultFilter(): b2Filter" href="box2d/api.html#b2DefaultFilter">api: proc b2DefaultFilter(): b2Filter</a></li>
           </ul></dd>
-<dt><a name="b2_defaultMaskBits" href="#b2_defaultMaskBits"><span>b2_defaultMaskBits:</span></a></dt><dd><ul class="simple">
+<dt><a name="b2DefaultFilterJointDef" href="#b2DefaultFilterJointDef"><span>b2DefaultFilterJointDef:</span></a></dt><dd><ul class="simple">
 <li><a class="reference external"
-          data-doc-search-tag="api: const b2_defaultMaskBits" href="box2d/api.html#b2_defaultMaskBits">api: const b2_defaultMaskBits</a></li>
+          data-doc-search-tag="api: proc b2DefaultFilterJointDef(): b2FilterJointDef" href="box2d/api.html#b2DefaultFilterJointDef">api: proc b2DefaultFilterJointDef(): b2FilterJointDef</a></li>
           </ul></dd>
 <dt><a name="b2DefaultMotorJointDef" href="#b2DefaultMotorJointDef"><span>b2DefaultMotorJointDef:</span></a></dt><dd><ul class="simple">
 <li><a class="reference external"
@@ -685,6 +771,10 @@
 <dt><a name="b2DefaultShapeDef" href="#b2DefaultShapeDef"><span>b2DefaultShapeDef:</span></a></dt><dd><ul class="simple">
 <li><a class="reference external"
           data-doc-search-tag="api: proc b2DefaultShapeDef(): b2ShapeDef" href="box2d/api.html#b2DefaultShapeDef">api: proc b2DefaultShapeDef(): b2ShapeDef</a></li>
+          </ul></dd>
+<dt><a name="b2DefaultSurfaceMaterial" href="#b2DefaultSurfaceMaterial"><span>b2DefaultSurfaceMaterial:</span></a></dt><dd><ul class="simple">
+<li><a class="reference external"
+          data-doc-search-tag="api: proc b2DefaultSurfaceMaterial(): b2SurfaceMaterial" href="box2d/api.html#b2DefaultSurfaceMaterial">api: proc b2DefaultSurfaceMaterial(): b2SurfaceMaterial</a></li>
           </ul></dd>
 <dt><a name="b2DefaultWeldJointDef" href="#b2DefaultWeldJointDef"><span>b2DefaultWeldJointDef:</span></a></dt><dd><ul class="simple">
 <li><a class="reference external"
@@ -712,7 +802,7 @@
           </ul></dd>
 <dt><a name="b2DestroyShape" href="#b2DestroyShape"><span>b2DestroyShape:</span></a></dt><dd><ul class="simple">
 <li><a class="reference external"
-          data-doc-search-tag="api: proc b2DestroyShape(shapeId: b2ShapeId): void" href="box2d/api.html#b2DestroyShape%2Cb2ShapeId">api: proc b2DestroyShape(shapeId: b2ShapeId): void</a></li>
+          data-doc-search-tag="api: proc b2DestroyShape(shapeId: b2ShapeId; updateBodyMass: bool): void" href="box2d/api.html#b2DestroyShape%2Cb2ShapeId%2Cbool">api: proc b2DestroyShape(shapeId: b2ShapeId; updateBodyMass: bool): void</a></li>
           </ul></dd>
 <dt><a name="b2DestroyWorld" href="#b2DestroyWorld"><span>b2DestroyWorld:</span></a></dt><dd><ul class="simple">
 <li><a class="reference external"
@@ -721,10 +811,6 @@
 <dt><a name="b2Distance" href="#b2Distance"><span>b2Distance:</span></a></dt><dd><ul class="simple">
 <li><a class="reference external"
           data-doc-search-tag="api: proc b2Distance(a: b2Vec2; b: b2Vec2): cfloat" href="box2d/api.html#b2Distance%2Cb2Vec2%2Cb2Vec2">api: proc b2Distance(a: b2Vec2; b: b2Vec2): cfloat</a></li>
-          </ul></dd>
-<dt><a name="b2DistanceCache" href="#b2DistanceCache"><span>b2DistanceCache:</span></a></dt><dd><ul class="simple">
-<li><a class="reference external"
-          data-doc-search-tag="api: object b2DistanceCache" href="box2d/api.html#b2DistanceCache">api: object b2DistanceCache</a></li>
           </ul></dd>
 <dt><a name="b2DistanceInput" href="#b2DistanceInput"><span>b2DistanceInput:</span></a></dt><dd><ul class="simple">
 <li><a class="reference external"
@@ -750,14 +836,6 @@
 <li><a class="reference external"
           data-doc-search-tag="api: proc b2DistanceJoint_GetCurrentLength(jointId: b2JointId): cfloat" href="box2d/api.html#b2DistanceJoint_GetCurrentLength%2Cb2JointId">api: proc b2DistanceJoint_GetCurrentLength(jointId: b2JointId): cfloat</a></li>
           </ul></dd>
-<dt><a name="b2DistanceJoint_GetDampingRatio" href="#b2DistanceJoint_GetDampingRatio"><span>b2DistanceJoint_GetDampingRatio:</span></a></dt><dd><ul class="simple">
-<li><a class="reference external"
-          data-doc-search-tag="api: proc b2DistanceJoint_GetDampingRatio(jointId: b2JointId): cfloat" href="box2d/api.html#b2DistanceJoint_GetDampingRatio%2Cb2JointId">api: proc b2DistanceJoint_GetDampingRatio(jointId: b2JointId): cfloat</a></li>
-          </ul></dd>
-<dt><a name="b2DistanceJoint_GetHertz" href="#b2DistanceJoint_GetHertz"><span>b2DistanceJoint_GetHertz:</span></a></dt><dd><ul class="simple">
-<li><a class="reference external"
-          data-doc-search-tag="api: proc b2DistanceJoint_GetHertz(jointId: b2JointId): cfloat" href="box2d/api.html#b2DistanceJoint_GetHertz%2Cb2JointId">api: proc b2DistanceJoint_GetHertz(jointId: b2JointId): cfloat</a></li>
-          </ul></dd>
 <dt><a name="b2DistanceJoint_GetLength" href="#b2DistanceJoint_GetLength"><span>b2DistanceJoint_GetLength:</span></a></dt><dd><ul class="simple">
 <li><a class="reference external"
           data-doc-search-tag="api: proc b2DistanceJoint_GetLength(jointId: b2JointId): cfloat" href="box2d/api.html#b2DistanceJoint_GetLength%2Cb2JointId">api: proc b2DistanceJoint_GetLength(jointId: b2JointId): cfloat</a></li>
@@ -781,6 +859,14 @@
 <dt><a name="b2DistanceJoint_GetMotorSpeed" href="#b2DistanceJoint_GetMotorSpeed"><span>b2DistanceJoint_GetMotorSpeed:</span></a></dt><dd><ul class="simple">
 <li><a class="reference external"
           data-doc-search-tag="api: proc b2DistanceJoint_GetMotorSpeed(jointId: b2JointId): cfloat" href="box2d/api.html#b2DistanceJoint_GetMotorSpeed%2Cb2JointId">api: proc b2DistanceJoint_GetMotorSpeed(jointId: b2JointId): cfloat</a></li>
+          </ul></dd>
+<dt><a name="b2DistanceJoint_GetSpringDampingRatio" href="#b2DistanceJoint_GetSpringDampingRatio"><span>b2DistanceJoint_GetSpringDampingRatio:</span></a></dt><dd><ul class="simple">
+<li><a class="reference external"
+          data-doc-search-tag="api: proc b2DistanceJoint_GetSpringDampingRatio(jointId: b2JointId): cfloat" href="box2d/api.html#b2DistanceJoint_GetSpringDampingRatio%2Cb2JointId">api: proc b2DistanceJoint_GetSpringDampingRatio(jointId: b2JointId): cfloat</a></li>
+          </ul></dd>
+<dt><a name="b2DistanceJoint_GetSpringHertz" href="#b2DistanceJoint_GetSpringHertz"><span>b2DistanceJoint_GetSpringHertz:</span></a></dt><dd><ul class="simple">
+<li><a class="reference external"
+          data-doc-search-tag="api: proc b2DistanceJoint_GetSpringHertz(jointId: b2JointId): cfloat" href="box2d/api.html#b2DistanceJoint_GetSpringHertz%2Cb2JointId">api: proc b2DistanceJoint_GetSpringHertz(jointId: b2JointId): cfloat</a></li>
           </ul></dd>
 <dt><a name="b2DistanceJoint_IsLimitEnabled" href="#b2DistanceJoint_IsLimitEnabled"><span>b2DistanceJoint_IsLimitEnabled:</span></a></dt><dd><ul class="simple">
 <li><a class="reference external"
@@ -824,10 +910,6 @@
 <li><a class="reference external"
           data-doc-search-tag="api: object b2DistanceOutput" href="box2d/api.html#b2DistanceOutput">api: object b2DistanceOutput</a></li>
           </ul></dd>
-<dt><a name="b2DistanceProxy" href="#b2DistanceProxy"><span>b2DistanceProxy:</span></a></dt><dd><ul class="simple">
-<li><a class="reference external"
-          data-doc-search-tag="api: object b2DistanceProxy" href="box2d/api.html#b2DistanceProxy">api: object b2DistanceProxy</a></li>
-          </ul></dd>
 <dt><a name="b2DistanceSquared" href="#b2DistanceSquared"><span>b2DistanceSquared:</span></a></dt><dd><ul class="simple">
 <li><a class="reference external"
           data-doc-search-tag="api: proc b2DistanceSquared(a: b2Vec2; b: b2Vec2): cfloat" href="box2d/api.html#b2DistanceSquared%2Cb2Vec2%2Cb2Vec2">api: proc b2DistanceSquared(a: b2Vec2; b: b2Vec2): cfloat</a></li>
@@ -836,97 +918,9 @@
 <li><a class="reference external"
           data-doc-search-tag="api: template b2Dot(a: b2Vec2; b: b2Vec2): cfloat" href="box2d/api.html#b2Dot.t%2Cb2Vec2%2Cb2Vec2">api: template b2Dot(a: b2Vec2; b: b2Vec2): cfloat</a></li>
           </ul></dd>
-<dt><a name="b2DynamicTree" href="#b2DynamicTree"><span>b2DynamicTree:</span></a></dt><dd><ul class="simple">
+<dt><a name="b2_emptySimplexCache" href="#b2_emptySimplexCache"><span>b2_emptySimplexCache:</span></a></dt><dd><ul class="simple">
 <li><a class="reference external"
-          data-doc-search-tag="api: object b2DynamicTree" href="box2d/api.html#b2DynamicTree">api: object b2DynamicTree</a></li>
-          </ul></dd>
-<dt><a name="b2DynamicTree_Create" href="#b2DynamicTree_Create"><span>b2DynamicTree_Create:</span></a></dt><dd><ul class="simple">
-<li><a class="reference external"
-          data-doc-search-tag="api: proc b2DynamicTree_Create(): b2DynamicTree" href="box2d/api.html#b2DynamicTree_Create">api: proc b2DynamicTree_Create(): b2DynamicTree</a></li>
-          </ul></dd>
-<dt><a name="b2DynamicTree_CreateProxy" href="#b2DynamicTree_CreateProxy"><span>b2DynamicTree_CreateProxy:</span></a></dt><dd><ul class="simple">
-<li><a class="reference external"
-          data-doc-search-tag="api: proc b2DynamicTree_CreateProxy(tree: ptr b2DynamicTree; aabb: b2AABB;
-                          categoryBits: uint32; userData: int32): int32" href="box2d/api.html#b2DynamicTree_CreateProxy%2Cptr.b2DynamicTree%2Cb2AABB%2Cuint32%2Cint32">api: proc b2DynamicTree_CreateProxy(tree: ptr b2DynamicTree; aabb: b2AABB;
-                          categoryBits: uint32; userData: int32): int32</a></li>
-          </ul></dd>
-<dt><a name="b2DynamicTree_Destroy" href="#b2DynamicTree_Destroy"><span>b2DynamicTree_Destroy:</span></a></dt><dd><ul class="simple">
-<li><a class="reference external"
-          data-doc-search-tag="api: proc b2DynamicTree_Destroy(tree: ptr b2DynamicTree): void" href="box2d/api.html#b2DynamicTree_Destroy%2Cptr.b2DynamicTree">api: proc b2DynamicTree_Destroy(tree: ptr b2DynamicTree): void</a></li>
-          </ul></dd>
-<dt><a name="b2DynamicTree_DestroyProxy" href="#b2DynamicTree_DestroyProxy"><span>b2DynamicTree_DestroyProxy:</span></a></dt><dd><ul class="simple">
-<li><a class="reference external"
-          data-doc-search-tag="api: proc b2DynamicTree_DestroyProxy(tree: ptr b2DynamicTree; proxyId: int32): void" href="box2d/api.html#b2DynamicTree_DestroyProxy%2Cptr.b2DynamicTree%2Cint32">api: proc b2DynamicTree_DestroyProxy(tree: ptr b2DynamicTree; proxyId: int32): void</a></li>
-          </ul></dd>
-<dt><a name="b2DynamicTree_EnlargeProxy" href="#b2DynamicTree_EnlargeProxy"><span>b2DynamicTree_EnlargeProxy:</span></a></dt><dd><ul class="simple">
-<li><a class="reference external"
-          data-doc-search-tag="api: proc b2DynamicTree_EnlargeProxy(tree: ptr b2DynamicTree; proxyId: int32; aabb: b2AABB): void" href="box2d/api.html#b2DynamicTree_EnlargeProxy%2Cptr.b2DynamicTree%2Cint32%2Cb2AABB">api: proc b2DynamicTree_EnlargeProxy(tree: ptr b2DynamicTree; proxyId: int32; aabb: b2AABB): void</a></li>
-          </ul></dd>
-<dt><a name="b2DynamicTree_GetAreaRatio" href="#b2DynamicTree_GetAreaRatio"><span>b2DynamicTree_GetAreaRatio:</span></a></dt><dd><ul class="simple">
-<li><a class="reference external"
-          data-doc-search-tag="api: proc b2DynamicTree_GetAreaRatio(tree: ptr b2DynamicTree): cfloat" href="box2d/api.html#b2DynamicTree_GetAreaRatio%2Cptr.b2DynamicTree">api: proc b2DynamicTree_GetAreaRatio(tree: ptr b2DynamicTree): cfloat</a></li>
-          </ul></dd>
-<dt><a name="b2DynamicTree_GetByteCount" href="#b2DynamicTree_GetByteCount"><span>b2DynamicTree_GetByteCount:</span></a></dt><dd><ul class="simple">
-<li><a class="reference external"
-          data-doc-search-tag="api: proc b2DynamicTree_GetByteCount(tree: ptr b2DynamicTree): cint" href="box2d/api.html#b2DynamicTree_GetByteCount%2Cptr.b2DynamicTree">api: proc b2DynamicTree_GetByteCount(tree: ptr b2DynamicTree): cint</a></li>
-          </ul></dd>
-<dt><a name="b2DynamicTree_GetHeight" href="#b2DynamicTree_GetHeight"><span>b2DynamicTree_GetHeight:</span></a></dt><dd><ul class="simple">
-<li><a class="reference external"
-          data-doc-search-tag="api: proc b2DynamicTree_GetHeight(tree: ptr b2DynamicTree): cint" href="box2d/api.html#b2DynamicTree_GetHeight%2Cptr.b2DynamicTree">api: proc b2DynamicTree_GetHeight(tree: ptr b2DynamicTree): cint</a></li>
-          </ul></dd>
-<dt><a name="b2DynamicTree_GetMaxBalance" href="#b2DynamicTree_GetMaxBalance"><span>b2DynamicTree_GetMaxBalance:</span></a></dt><dd><ul class="simple">
-<li><a class="reference external"
-          data-doc-search-tag="api: proc b2DynamicTree_GetMaxBalance(tree: ptr b2DynamicTree): cint" href="box2d/api.html#b2DynamicTree_GetMaxBalance%2Cptr.b2DynamicTree">api: proc b2DynamicTree_GetMaxBalance(tree: ptr b2DynamicTree): cint</a></li>
-          </ul></dd>
-<dt><a name="b2DynamicTree_GetProxyCount" href="#b2DynamicTree_GetProxyCount"><span>b2DynamicTree_GetProxyCount:</span></a></dt><dd><ul class="simple">
-<li><a class="reference external"
-          data-doc-search-tag="api: proc b2DynamicTree_GetProxyCount(tree: ptr b2DynamicTree): cint" href="box2d/api.html#b2DynamicTree_GetProxyCount%2Cptr.b2DynamicTree">api: proc b2DynamicTree_GetProxyCount(tree: ptr b2DynamicTree): cint</a></li>
-          </ul></dd>
-<dt><a name="b2DynamicTree_MoveProxy" href="#b2DynamicTree_MoveProxy"><span>b2DynamicTree_MoveProxy:</span></a></dt><dd><ul class="simple">
-<li><a class="reference external"
-          data-doc-search-tag="api: proc b2DynamicTree_MoveProxy(tree: ptr b2DynamicTree; proxyId: int32; aabb: b2AABB): void" href="box2d/api.html#b2DynamicTree_MoveProxy%2Cptr.b2DynamicTree%2Cint32%2Cb2AABB">api: proc b2DynamicTree_MoveProxy(tree: ptr b2DynamicTree; proxyId: int32; aabb: b2AABB): void</a></li>
-          </ul></dd>
-<dt><a name="b2DynamicTree_Query" href="#b2DynamicTree_Query"><span>b2DynamicTree_Query:</span></a></dt><dd><ul class="simple">
-<li><a class="reference external"
-          data-doc-search-tag="api: proc b2DynamicTree_Query(tree: ptr b2DynamicTree; aabb: b2AABB; maskBits: uint32;
-                    callback: b2TreeQueryCallbackFcn; context: pointer): void" href="box2d/api.html#b2DynamicTree_Query%2Cptr.b2DynamicTree%2Cb2AABB%2Cuint32%2Cb2TreeQueryCallbackFcn%2Cpointer">api: proc b2DynamicTree_Query(tree: ptr b2DynamicTree; aabb: b2AABB; maskBits: uint32;
-                    callback: b2TreeQueryCallbackFcn; context: pointer): void</a></li>
-          </ul></dd>
-<dt><a name="b2DynamicTree_RayCast" href="#b2DynamicTree_RayCast"><span>b2DynamicTree_RayCast:</span></a></dt><dd><ul class="simple">
-<li><a class="reference external"
-          data-doc-search-tag="api: proc b2DynamicTree_RayCast(tree: ptr b2DynamicTree; input: ptr b2RayCastInput;
-                      maskBits: uint32; callback: b2TreeRayCastCallbackFcn;
-                      context: pointer): void" href="box2d/api.html#b2DynamicTree_RayCast%2Cptr.b2DynamicTree%2Cptr.b2RayCastInput%2Cuint32%2Cb2TreeRayCastCallbackFcn%2Cpointer">api: proc b2DynamicTree_RayCast(tree: ptr b2DynamicTree; input: ptr b2RayCastInput;
-                      maskBits: uint32; callback: b2TreeRayCastCallbackFcn;
-                      context: pointer): void</a></li>
-          </ul></dd>
-<dt><a name="b2DynamicTree_Rebuild" href="#b2DynamicTree_Rebuild"><span>b2DynamicTree_Rebuild:</span></a></dt><dd><ul class="simple">
-<li><a class="reference external"
-          data-doc-search-tag="api: proc b2DynamicTree_Rebuild(tree: ptr b2DynamicTree; fullBuild: bool): cint" href="box2d/api.html#b2DynamicTree_Rebuild%2Cptr.b2DynamicTree%2Cbool">api: proc b2DynamicTree_Rebuild(tree: ptr b2DynamicTree; fullBuild: bool): cint</a></li>
-          </ul></dd>
-<dt><a name="b2DynamicTree_RebuildBottomUp" href="#b2DynamicTree_RebuildBottomUp"><span>b2DynamicTree_RebuildBottomUp:</span></a></dt><dd><ul class="simple">
-<li><a class="reference external"
-          data-doc-search-tag="api: proc b2DynamicTree_RebuildBottomUp(tree: ptr b2DynamicTree): void" href="box2d/api.html#b2DynamicTree_RebuildBottomUp%2Cptr.b2DynamicTree">api: proc b2DynamicTree_RebuildBottomUp(tree: ptr b2DynamicTree): void</a></li>
-          </ul></dd>
-<dt><a name="b2DynamicTree_ShapeCast" href="#b2DynamicTree_ShapeCast"><span>b2DynamicTree_ShapeCast:</span></a></dt><dd><ul class="simple">
-<li><a class="reference external"
-          data-doc-search-tag="api: proc b2DynamicTree_ShapeCast(tree: ptr b2DynamicTree; input: ptr b2ShapeCastInput;
-                        maskBits: uint32; callback: b2TreeShapeCastCallbackFcn;
-                        context: pointer): void" href="box2d/api.html#b2DynamicTree_ShapeCast%2Cptr.b2DynamicTree%2Cptr.b2ShapeCastInput%2Cuint32%2Cb2TreeShapeCastCallbackFcn%2Cpointer">api: proc b2DynamicTree_ShapeCast(tree: ptr b2DynamicTree; input: ptr b2ShapeCastInput;
-                        maskBits: uint32; callback: b2TreeShapeCastCallbackFcn;
-                        context: pointer): void</a></li>
-          </ul></dd>
-<dt><a name="b2DynamicTree_ShiftOrigin" href="#b2DynamicTree_ShiftOrigin"><span>b2DynamicTree_ShiftOrigin:</span></a></dt><dd><ul class="simple">
-<li><a class="reference external"
-          data-doc-search-tag="api: proc b2DynamicTree_ShiftOrigin(tree: ptr b2DynamicTree; newOrigin: b2Vec2): void" href="box2d/api.html#b2DynamicTree_ShiftOrigin%2Cptr.b2DynamicTree%2Cb2Vec2">api: proc b2DynamicTree_ShiftOrigin(tree: ptr b2DynamicTree; newOrigin: b2Vec2): void</a></li>
-          </ul></dd>
-<dt><a name="b2DynamicTree_Validate" href="#b2DynamicTree_Validate"><span>b2DynamicTree_Validate:</span></a></dt><dd><ul class="simple">
-<li><a class="reference external"
-          data-doc-search-tag="api: proc b2DynamicTree_Validate(tree: ptr b2DynamicTree): void" href="box2d/api.html#b2DynamicTree_Validate%2Cptr.b2DynamicTree">api: proc b2DynamicTree_Validate(tree: ptr b2DynamicTree): void</a></li>
-          </ul></dd>
-<dt><a name="b2_emptyDistanceCache" href="#b2_emptyDistanceCache"><span>b2_emptyDistanceCache:</span></a></dt><dd><ul class="simple">
-<li><a class="reference external"
-          data-doc-search-tag="api: var b2_emptyDistanceCache" href="box2d/api.html#b2_emptyDistanceCache">api: var b2_emptyDistanceCache</a></li>
+          data-doc-search-tag="api: var b2_emptySimplexCache" href="box2d/api.html#b2_emptySimplexCache">api: var b2_emptySimplexCache</a></li>
           </ul></dd>
 <dt><a name="b2EnlargeAABB" href="#b2EnlargeAABB"><span>b2EnlargeAABB:</span></a></dt><dd><ul class="simple">
 <li><a class="reference external"
@@ -936,9 +930,17 @@
 <li><a class="reference external"
           data-doc-search-tag="api: type b2EnqueueTaskCallback" href="box2d/api.html#b2EnqueueTaskCallback">api: type b2EnqueueTaskCallback</a></li>
           </ul></dd>
+<dt><a name="b2ExplosionDef" href="#b2ExplosionDef"><span>b2ExplosionDef:</span></a></dt><dd><ul class="simple">
+<li><a class="reference external"
+          data-doc-search-tag="api: object b2ExplosionDef" href="box2d/api.html#b2ExplosionDef">api: object b2ExplosionDef</a></li>
+          </ul></dd>
 <dt><a name="b2Filter" href="#b2Filter"><span>b2Filter:</span></a></dt><dd><ul class="simple">
 <li><a class="reference external"
           data-doc-search-tag="api: object b2Filter" href="box2d/api.html#b2Filter">api: object b2Filter</a></li>
+          </ul></dd>
+<dt><a name="b2FilterJointDef" href="#b2FilterJointDef"><span>b2FilterJointDef:</span></a></dt><dd><ul class="simple">
+<li><a class="reference external"
+          data-doc-search-tag="api: object b2FilterJointDef" href="box2d/api.html#b2FilterJointDef">api: object b2FilterJointDef</a></li>
           </ul></dd>
 <dt><a name="b2FinishTaskCallback" href="#b2FinishTaskCallback"><span>b2FinishTaskCallback:</span></a></dt><dd><ul class="simple">
 <li><a class="reference external"
@@ -948,6 +950,10 @@
 <li><a class="reference external"
           data-doc-search-tag="api: type b2FreeFcn" href="box2d/api.html#b2FreeFcn">api: type b2FreeFcn</a></li>
           </ul></dd>
+<dt><a name="b2FrictionCallback" href="#b2FrictionCallback"><span>b2FrictionCallback:</span></a></dt><dd><ul class="simple">
+<li><a class="reference external"
+          data-doc-search-tag="api: type b2FrictionCallback" href="box2d/api.html#b2FrictionCallback">api: type b2FrictionCallback</a></li>
+          </ul></dd>
 <dt><a name="b2GetByteCount" href="#b2GetByteCount"><span>b2GetByteCount:</span></a></dt><dd><ul class="simple">
 <li><a class="reference external"
           data-doc-search-tag="api: proc b2GetByteCount(): cint" href="box2d/api.html#b2GetByteCount">api: proc b2GetByteCount(): cint</a></li>
@@ -956,21 +962,17 @@
 <li><a class="reference external"
           data-doc-search-tag="api: proc b2GetInverse22(A: b2Mat22): b2Mat22" href="box2d/api.html#b2GetInverse22%2Cb2Mat22">api: proc b2GetInverse22(A: b2Mat22): b2Mat22</a></li>
           </ul></dd>
-<dt><a name="b2GetLengthAndNormalize" href="#b2GetLengthAndNormalize"><span>b2GetLengthAndNormalize:</span></a></dt><dd><ul class="simple">
-<li><a class="reference external"
-          data-doc-search-tag="api: proc b2GetLengthAndNormalize(length: ptr cfloat; v: b2Vec2): b2Vec2" href="box2d/api.html#b2GetLengthAndNormalize%2Cptr.cfloat%2Cb2Vec2">api: proc b2GetLengthAndNormalize(length: ptr cfloat; v: b2Vec2): b2Vec2</a></li>
-          </ul></dd>
 <dt><a name="b2GetLengthUnitsPerMeter" href="#b2GetLengthUnitsPerMeter"><span>b2GetLengthUnitsPerMeter:</span></a></dt><dd><ul class="simple">
 <li><a class="reference external"
           data-doc-search-tag="api: proc b2GetLengthUnitsPerMeter(): cfloat" href="box2d/api.html#b2GetLengthUnitsPerMeter">api: proc b2GetLengthUnitsPerMeter(): cfloat</a></li>
           </ul></dd>
 <dt><a name="b2GetMilliseconds" href="#b2GetMilliseconds"><span>b2GetMilliseconds:</span></a></dt><dd><ul class="simple">
 <li><a class="reference external"
-          data-doc-search-tag="api: proc b2GetMilliseconds(timer: ptr b2Timer): cfloat" href="box2d/api.html#b2GetMilliseconds%2Cptr.b2Timer">api: proc b2GetMilliseconds(timer: ptr b2Timer): cfloat</a></li>
+          data-doc-search-tag="api: proc b2GetMilliseconds(ticks: uint64): cfloat" href="box2d/api.html#b2GetMilliseconds%2Cuint64">api: proc b2GetMilliseconds(ticks: uint64): cfloat</a></li>
           </ul></dd>
 <dt><a name="b2GetMillisecondsAndReset" href="#b2GetMillisecondsAndReset"><span>b2GetMillisecondsAndReset:</span></a></dt><dd><ul class="simple">
 <li><a class="reference external"
-          data-doc-search-tag="api: proc b2GetMillisecondsAndReset(timer: ptr b2Timer): cfloat" href="box2d/api.html#b2GetMillisecondsAndReset%2Cptr.b2Timer">api: proc b2GetMillisecondsAndReset(timer: ptr b2Timer): cfloat</a></li>
+          data-doc-search-tag="api: proc b2GetMillisecondsAndReset(ticks: ptr uint64): cfloat" href="box2d/api.html#b2GetMillisecondsAndReset%2Cptr.uint64">api: proc b2GetMillisecondsAndReset(ticks: ptr uint64): cfloat</a></li>
           </ul></dd>
 <dt><a name="b2GetSweepTransform" href="#b2GetSweepTransform"><span>b2GetSweepTransform:</span></a></dt><dd><ul class="simple">
 <li><a class="reference external"
@@ -978,11 +980,15 @@
           </ul></dd>
 <dt><a name="b2GetTicks" href="#b2GetTicks"><span>b2GetTicks:</span></a></dt><dd><ul class="simple">
 <li><a class="reference external"
-          data-doc-search-tag="api: proc b2GetTicks(timer: ptr b2Timer): int64" href="box2d/api.html#b2GetTicks%2Cptr.b2Timer">api: proc b2GetTicks(timer: ptr b2Timer): int64</a></li>
+          data-doc-search-tag="api: proc b2GetTicks(): uint64" href="box2d/api.html#b2GetTicks">api: proc b2GetTicks(): uint64</a></li>
           </ul></dd>
 <dt><a name="b2GetVersion" href="#b2GetVersion"><span>b2GetVersion:</span></a></dt><dd><ul class="simple">
 <li><a class="reference external"
           data-doc-search-tag="api: proc b2GetVersion(): b2Version" href="box2d/api.html#b2GetVersion">api: proc b2GetVersion(): b2Version</a></li>
+          </ul></dd>
+<dt><a name="b2Hash" href="#b2Hash"><span>b2Hash:</span></a></dt><dd><ul class="simple">
+<li><a class="reference external"
+          data-doc-search-tag="api: proc b2Hash(hash: uint32; data: ptr uint8; count: cint): uint32" href="box2d/api.html#b2Hash%2Cuint32%2Cptr.uint8%2Ccint">api: proc b2Hash(hash: uint32; data: ptr uint8; count: cint): uint32</a></li>
           </ul></dd>
 <dt><a name="b2HexColor" href="#b2HexColor"><span>b2HexColor:</span></a></dt><dd><ul class="simple">
 <li><a class="reference external"
@@ -995,6 +1001,10 @@
 <dt><a name="b2IntegrateRotation" href="#b2IntegrateRotation"><span>b2IntegrateRotation:</span></a></dt><dd><ul class="simple">
 <li><a class="reference external"
           data-doc-search-tag="api: proc b2IntegrateRotation(q1: b2Rot; deltaAngle: cfloat): b2Rot" href="box2d/api.html#b2IntegrateRotation%2Cb2Rot%2Ccfloat">api: proc b2IntegrateRotation(q1: b2Rot; deltaAngle: cfloat): b2Rot</a></li>
+          </ul></dd>
+<dt><a name="b2InternalAssertFcn" href="#b2InternalAssertFcn"><span>b2InternalAssertFcn:</span></a></dt><dd><ul class="simple">
+<li><a class="reference external"
+          data-doc-search-tag="api: proc b2InternalAssertFcn(condition: cstring; fileName: cstring; lineNumber: cint): cint" href="box2d/api.html#b2InternalAssertFcn%2Ccstring%2Ccstring%2Ccint">api: proc b2InternalAssertFcn(condition: cstring; fileName: cstring; lineNumber: cint): cint</a></li>
           </ul></dd>
 <dt><a name="b2InvMulRot" href="#b2InvMulRot"><span>b2InvMulRot:</span></a></dt><dd><ul class="simple">
 <li><a class="reference external"
@@ -1020,13 +1030,49 @@
 <li><a class="reference external"
           data-doc-search-tag="api: template b2IsPowerOf2(x: cint): bool" href="box2d/api.html#b2IsPowerOf2.t%2Ccint">api: template b2IsPowerOf2(x: cint): bool</a></li>
           </ul></dd>
-<dt><a name="b2IsValid" href="#b2IsValid"><span>b2IsValid:</span></a></dt><dd><ul class="simple">
+<dt><a name="b2IsValidAABB" href="#b2IsValidAABB"><span>b2IsValidAABB:</span></a></dt><dd><ul class="simple">
 <li><a class="reference external"
-          data-doc-search-tag="api: proc b2IsValid(a: cfloat): bool" href="box2d/api.html#b2IsValid%2Ccfloat">api: proc b2IsValid(a: cfloat): bool</a></li>
+          data-doc-search-tag="api: proc b2IsValidAABB(aabb: b2AABB): bool" href="box2d/api.html#b2IsValidAABB%2Cb2AABB">api: proc b2IsValidAABB(aabb: b2AABB): bool</a></li>
+          </ul></dd>
+<dt><a name="b2IsValidFloat" href="#b2IsValidFloat"><span>b2IsValidFloat:</span></a></dt><dd><ul class="simple">
+<li><a class="reference external"
+          data-doc-search-tag="api: proc b2IsValidFloat(a: cfloat): bool" href="box2d/api.html#b2IsValidFloat%2Ccfloat">api: proc b2IsValidFloat(a: cfloat): bool</a></li>
+          </ul></dd>
+<dt><a name="b2IsValidPlane" href="#b2IsValidPlane"><span>b2IsValidPlane:</span></a></dt><dd><ul class="simple">
+<li><a class="reference external"
+          data-doc-search-tag="api: proc b2IsValidPlane(a: b2Plane): bool" href="box2d/api.html#b2IsValidPlane%2Cb2Plane">api: proc b2IsValidPlane(a: b2Plane): bool</a></li>
           </ul></dd>
 <dt><a name="b2IsValidRay" href="#b2IsValidRay"><span>b2IsValidRay:</span></a></dt><dd><ul class="simple">
 <li><a class="reference external"
           data-doc-search-tag="api: proc b2IsValidRay(input: ptr b2RayCastInput): bool" href="box2d/api.html#b2IsValidRay%2Cptr.b2RayCastInput">api: proc b2IsValidRay(input: ptr b2RayCastInput): bool</a></li>
+          </ul></dd>
+<dt><a name="b2IsValidRotation" href="#b2IsValidRotation"><span>b2IsValidRotation:</span></a></dt><dd><ul class="simple">
+<li><a class="reference external"
+          data-doc-search-tag="api: proc b2IsValidRotation(q: b2Rot): bool" href="box2d/api.html#b2IsValidRotation%2Cb2Rot">api: proc b2IsValidRotation(q: b2Rot): bool</a></li>
+          </ul></dd>
+<dt><a name="b2IsValidTransform" href="#b2IsValidTransform"><span>b2IsValidTransform:</span></a></dt><dd><ul class="simple">
+<li><a class="reference external"
+          data-doc-search-tag="api: proc b2IsValidTransform(t: b2Transform): bool" href="box2d/api.html#b2IsValidTransform%2Cb2Transform">api: proc b2IsValidTransform(t: b2Transform): bool</a></li>
+          </ul></dd>
+<dt><a name="b2IsValidVec2" href="#b2IsValidVec2"><span>b2IsValidVec2:</span></a></dt><dd><ul class="simple">
+<li><a class="reference external"
+          data-doc-search-tag="api: proc b2IsValidVec2(v: b2Vec2): bool" href="box2d/api.html#b2IsValidVec2%2Cb2Vec2">api: proc b2IsValidVec2(v: b2Vec2): bool</a></li>
+          </ul></dd>
+<dt><a name="b2JointDef" href="#b2JointDef"><span>b2JointDef:</span></a></dt><dd><ul class="simple">
+<li><a class="reference external"
+          data-doc-search-tag="api: object b2JointDef" href="box2d/api.html#b2JointDef">api: object b2JointDef</a></li>
+          </ul></dd>
+<dt><a name="b2JointEvent" href="#b2JointEvent"><span>b2JointEvent:</span></a></dt><dd><ul class="simple">
+<li><a class="reference external"
+          data-doc-search-tag="api: object b2JointEvent" href="box2d/api.html#b2JointEvent">api: object b2JointEvent</a></li>
+          </ul></dd>
+<dt><a name="b2JointEvents" href="#b2JointEvents"><span>b2JointEvents:</span></a></dt><dd><ul class="simple">
+<li><a class="reference external"
+          data-doc-search-tag="api: object b2JointEvents" href="box2d/api.html#b2JointEvents">api: object b2JointEvents</a></li>
+          </ul></dd>
+<dt><a name="b2Joint_GetAngularSeparation" href="#b2Joint_GetAngularSeparation"><span>b2Joint_GetAngularSeparation:</span></a></dt><dd><ul class="simple">
+<li><a class="reference external"
+          data-doc-search-tag="api: proc b2Joint_GetAngularSeparation(jointId: b2JointId): cfloat" href="box2d/api.html#b2Joint_GetAngularSeparation%2Cb2JointId">api: proc b2Joint_GetAngularSeparation(jointId: b2JointId): cfloat</a></li>
           </ul></dd>
 <dt><a name="b2Joint_GetBodyA" href="#b2Joint_GetBodyA"><span>b2Joint_GetBodyA:</span></a></dt><dd><ul class="simple">
 <li><a class="reference external"
@@ -1048,13 +1094,31 @@
 <li><a class="reference external"
           data-doc-search-tag="api: proc b2Joint_GetConstraintTorque(jointId: b2JointId): cfloat" href="box2d/api.html#b2Joint_GetConstraintTorque%2Cb2JointId">api: proc b2Joint_GetConstraintTorque(jointId: b2JointId): cfloat</a></li>
           </ul></dd>
-<dt><a name="b2Joint_GetLocalAnchorA" href="#b2Joint_GetLocalAnchorA"><span>b2Joint_GetLocalAnchorA:</span></a></dt><dd><ul class="simple">
+<dt><a name="b2Joint_GetConstraintTuning" href="#b2Joint_GetConstraintTuning"><span>b2Joint_GetConstraintTuning:</span></a></dt><dd><ul class="simple">
 <li><a class="reference external"
-          data-doc-search-tag="api: proc b2Joint_GetLocalAnchorA(jointId: b2JointId): b2Vec2" href="box2d/api.html#b2Joint_GetLocalAnchorA%2Cb2JointId">api: proc b2Joint_GetLocalAnchorA(jointId: b2JointId): b2Vec2</a></li>
+          data-doc-search-tag="api: proc b2Joint_GetConstraintTuning(jointId: b2JointId; hertz: ptr cfloat;
+                            dampingRatio: ptr cfloat): void" href="box2d/api.html#b2Joint_GetConstraintTuning%2Cb2JointId%2Cptr.cfloat%2Cptr.cfloat">api: proc b2Joint_GetConstraintTuning(jointId: b2JointId; hertz: ptr cfloat;
+                            dampingRatio: ptr cfloat): void</a></li>
           </ul></dd>
-<dt><a name="b2Joint_GetLocalAnchorB" href="#b2Joint_GetLocalAnchorB"><span>b2Joint_GetLocalAnchorB:</span></a></dt><dd><ul class="simple">
+<dt><a name="b2Joint_GetForceThreshold" href="#b2Joint_GetForceThreshold"><span>b2Joint_GetForceThreshold:</span></a></dt><dd><ul class="simple">
 <li><a class="reference external"
-          data-doc-search-tag="api: proc b2Joint_GetLocalAnchorB(jointId: b2JointId): b2Vec2" href="box2d/api.html#b2Joint_GetLocalAnchorB%2Cb2JointId">api: proc b2Joint_GetLocalAnchorB(jointId: b2JointId): b2Vec2</a></li>
+          data-doc-search-tag="api: proc b2Joint_GetForceThreshold(jointId: b2JointId): cfloat" href="box2d/api.html#b2Joint_GetForceThreshold%2Cb2JointId">api: proc b2Joint_GetForceThreshold(jointId: b2JointId): cfloat</a></li>
+          </ul></dd>
+<dt><a name="b2Joint_GetLinearSeparation" href="#b2Joint_GetLinearSeparation"><span>b2Joint_GetLinearSeparation:</span></a></dt><dd><ul class="simple">
+<li><a class="reference external"
+          data-doc-search-tag="api: proc b2Joint_GetLinearSeparation(jointId: b2JointId): cfloat" href="box2d/api.html#b2Joint_GetLinearSeparation%2Cb2JointId">api: proc b2Joint_GetLinearSeparation(jointId: b2JointId): cfloat</a></li>
+          </ul></dd>
+<dt><a name="b2Joint_GetLocalFrameA" href="#b2Joint_GetLocalFrameA"><span>b2Joint_GetLocalFrameA:</span></a></dt><dd><ul class="simple">
+<li><a class="reference external"
+          data-doc-search-tag="api: proc b2Joint_GetLocalFrameA(jointId: b2JointId): b2Transform" href="box2d/api.html#b2Joint_GetLocalFrameA%2Cb2JointId">api: proc b2Joint_GetLocalFrameA(jointId: b2JointId): b2Transform</a></li>
+          </ul></dd>
+<dt><a name="b2Joint_GetLocalFrameB" href="#b2Joint_GetLocalFrameB"><span>b2Joint_GetLocalFrameB:</span></a></dt><dd><ul class="simple">
+<li><a class="reference external"
+          data-doc-search-tag="api: proc b2Joint_GetLocalFrameB(jointId: b2JointId): b2Transform" href="box2d/api.html#b2Joint_GetLocalFrameB%2Cb2JointId">api: proc b2Joint_GetLocalFrameB(jointId: b2JointId): b2Transform</a></li>
+          </ul></dd>
+<dt><a name="b2Joint_GetTorqueThreshold" href="#b2Joint_GetTorqueThreshold"><span>b2Joint_GetTorqueThreshold:</span></a></dt><dd><ul class="simple">
+<li><a class="reference external"
+          data-doc-search-tag="api: proc b2Joint_GetTorqueThreshold(jointId: b2JointId): cfloat" href="box2d/api.html#b2Joint_GetTorqueThreshold%2Cb2JointId">api: proc b2Joint_GetTorqueThreshold(jointId: b2JointId): cfloat</a></li>
           </ul></dd>
 <dt><a name="b2Joint_GetType" href="#b2Joint_GetType"><span>b2Joint_GetType:</span></a></dt><dd><ul class="simple">
 <li><a class="reference external"
@@ -1063,6 +1127,10 @@
 <dt><a name="b2Joint_GetUserData" href="#b2Joint_GetUserData"><span>b2Joint_GetUserData:</span></a></dt><dd><ul class="simple">
 <li><a class="reference external"
           data-doc-search-tag="api: proc b2Joint_GetUserData(jointId: b2JointId): pointer" href="box2d/api.html#b2Joint_GetUserData%2Cb2JointId">api: proc b2Joint_GetUserData(jointId: b2JointId): pointer</a></li>
+          </ul></dd>
+<dt><a name="b2Joint_GetWorld" href="#b2Joint_GetWorld"><span>b2Joint_GetWorld:</span></a></dt><dd><ul class="simple">
+<li><a class="reference external"
+          data-doc-search-tag="api: proc b2Joint_GetWorld(jointId: b2JointId): b2WorldId" href="box2d/api.html#b2Joint_GetWorld%2Cb2JointId">api: proc b2Joint_GetWorld(jointId: b2JointId): b2WorldId</a></li>
           </ul></dd>
 <dt><a name="b2JointId" href="#b2JointId"><span>b2JointId:</span></a></dt><dd><ul class="simple">
 <li><a class="reference external"
@@ -1075,6 +1143,28 @@
 <dt><a name="b2Joint_SetCollideConnected" href="#b2Joint_SetCollideConnected"><span>b2Joint_SetCollideConnected:</span></a></dt><dd><ul class="simple">
 <li><a class="reference external"
           data-doc-search-tag="api: proc b2Joint_SetCollideConnected(jointId: b2JointId; shouldCollide: bool): void" href="box2d/api.html#b2Joint_SetCollideConnected%2Cb2JointId%2Cbool">api: proc b2Joint_SetCollideConnected(jointId: b2JointId; shouldCollide: bool): void</a></li>
+          </ul></dd>
+<dt><a name="b2Joint_SetConstraintTuning" href="#b2Joint_SetConstraintTuning"><span>b2Joint_SetConstraintTuning:</span></a></dt><dd><ul class="simple">
+<li><a class="reference external"
+          data-doc-search-tag="api: proc b2Joint_SetConstraintTuning(jointId: b2JointId; hertz: cfloat;
+                            dampingRatio: cfloat): void" href="box2d/api.html#b2Joint_SetConstraintTuning%2Cb2JointId%2Ccfloat%2Ccfloat">api: proc b2Joint_SetConstraintTuning(jointId: b2JointId; hertz: cfloat;
+                            dampingRatio: cfloat): void</a></li>
+          </ul></dd>
+<dt><a name="b2Joint_SetForceThreshold" href="#b2Joint_SetForceThreshold"><span>b2Joint_SetForceThreshold:</span></a></dt><dd><ul class="simple">
+<li><a class="reference external"
+          data-doc-search-tag="api: proc b2Joint_SetForceThreshold(jointId: b2JointId; threshold: cfloat): void" href="box2d/api.html#b2Joint_SetForceThreshold%2Cb2JointId%2Ccfloat">api: proc b2Joint_SetForceThreshold(jointId: b2JointId; threshold: cfloat): void</a></li>
+          </ul></dd>
+<dt><a name="b2Joint_SetLocalFrameA" href="#b2Joint_SetLocalFrameA"><span>b2Joint_SetLocalFrameA:</span></a></dt><dd><ul class="simple">
+<li><a class="reference external"
+          data-doc-search-tag="api: proc b2Joint_SetLocalFrameA(jointId: b2JointId; localFrame: b2Transform): void" href="box2d/api.html#b2Joint_SetLocalFrameA%2Cb2JointId%2Cb2Transform">api: proc b2Joint_SetLocalFrameA(jointId: b2JointId; localFrame: b2Transform): void</a></li>
+          </ul></dd>
+<dt><a name="b2Joint_SetLocalFrameB" href="#b2Joint_SetLocalFrameB"><span>b2Joint_SetLocalFrameB:</span></a></dt><dd><ul class="simple">
+<li><a class="reference external"
+          data-doc-search-tag="api: proc b2Joint_SetLocalFrameB(jointId: b2JointId; localFrame: b2Transform): void" href="box2d/api.html#b2Joint_SetLocalFrameB%2Cb2JointId%2Cb2Transform">api: proc b2Joint_SetLocalFrameB(jointId: b2JointId; localFrame: b2Transform): void</a></li>
+          </ul></dd>
+<dt><a name="b2Joint_SetTorqueThreshold" href="#b2Joint_SetTorqueThreshold"><span>b2Joint_SetTorqueThreshold:</span></a></dt><dd><ul class="simple">
+<li><a class="reference external"
+          data-doc-search-tag="api: proc b2Joint_SetTorqueThreshold(jointId: b2JointId; threshold: cfloat): void" href="box2d/api.html#b2Joint_SetTorqueThreshold%2Cb2JointId%2Ccfloat">api: proc b2Joint_SetTorqueThreshold(jointId: b2JointId; threshold: cfloat): void</a></li>
           </ul></dd>
 <dt><a name="b2Joint_SetUserData" href="#b2Joint_SetUserData"><span>b2Joint_SetUserData:</span></a></dt><dd><ul class="simple">
 <li><a class="reference external"
@@ -1106,15 +1196,35 @@
           </ul></dd>
 <dt><a name="b2MakeBox" href="#b2MakeBox"><span>b2MakeBox:</span></a></dt><dd><ul class="simple">
 <li><a class="reference external"
-          data-doc-search-tag="api: proc b2MakeBox(hx: cfloat; hy: cfloat): b2Polygon" href="box2d/api.html#b2MakeBox%2Ccfloat%2Ccfloat">api: proc b2MakeBox(hx: cfloat; hy: cfloat): b2Polygon</a></li>
+          data-doc-search-tag="api: proc b2MakeBox(halfWidth: cfloat; halfHeight: cfloat): b2Polygon" href="box2d/api.html#b2MakeBox%2Ccfloat%2Ccfloat">api: proc b2MakeBox(halfWidth: cfloat; halfHeight: cfloat): b2Polygon</a></li>
           </ul></dd>
 <dt><a name="b2MakeOffsetBox" href="#b2MakeOffsetBox"><span>b2MakeOffsetBox:</span></a></dt><dd><ul class="simple">
 <li><a class="reference external"
-          data-doc-search-tag="api: proc b2MakeOffsetBox(hx: cfloat; hy: cfloat; center: b2Vec2; angle: cfloat): b2Polygon" href="box2d/api.html#b2MakeOffsetBox%2Ccfloat%2Ccfloat%2Cb2Vec2%2Ccfloat">api: proc b2MakeOffsetBox(hx: cfloat; hy: cfloat; center: b2Vec2; angle: cfloat): b2Polygon</a></li>
+          data-doc-search-tag="api: proc b2MakeOffsetBox(halfWidth: cfloat; halfHeight: cfloat; center: b2Vec2;
+                rotation: b2Rot): b2Polygon" href="box2d/api.html#b2MakeOffsetBox%2Ccfloat%2Ccfloat%2Cb2Vec2%2Cb2Rot">api: proc b2MakeOffsetBox(halfWidth: cfloat; halfHeight: cfloat; center: b2Vec2;
+                rotation: b2Rot): b2Polygon</a></li>
           </ul></dd>
 <dt><a name="b2MakeOffsetPolygon" href="#b2MakeOffsetPolygon"><span>b2MakeOffsetPolygon:</span></a></dt><dd><ul class="simple">
 <li><a class="reference external"
-          data-doc-search-tag="api: proc b2MakeOffsetPolygon(hull: ptr b2Hull; radius: cfloat; transform: b2Transform): b2Polygon" href="box2d/api.html#b2MakeOffsetPolygon%2Cptr.b2Hull%2Ccfloat%2Cb2Transform">api: proc b2MakeOffsetPolygon(hull: ptr b2Hull; radius: cfloat; transform: b2Transform): b2Polygon</a></li>
+          data-doc-search-tag="api: proc b2MakeOffsetPolygon(hull: ptr b2Hull; position: b2Vec2; rotation: b2Rot): b2Polygon" href="box2d/api.html#b2MakeOffsetPolygon%2Cptr.b2Hull%2Cb2Vec2%2Cb2Rot">api: proc b2MakeOffsetPolygon(hull: ptr b2Hull; position: b2Vec2; rotation: b2Rot): b2Polygon</a></li>
+          </ul></dd>
+<dt><a name="b2MakeOffsetProxy" href="#b2MakeOffsetProxy"><span>b2MakeOffsetProxy:</span></a></dt><dd><ul class="simple">
+<li><a class="reference external"
+          data-doc-search-tag="api: proc b2MakeOffsetProxy(points: ptr b2Vec2; count: cint; radius: cfloat;
+                  position: b2Vec2; rotation: b2Rot): b2ShapeProxy" href="box2d/api.html#b2MakeOffsetProxy%2Cptr.b2Vec2%2Ccint%2Ccfloat%2Cb2Vec2%2Cb2Rot">api: proc b2MakeOffsetProxy(points: ptr b2Vec2; count: cint; radius: cfloat;
+                  position: b2Vec2; rotation: b2Rot): b2ShapeProxy</a></li>
+          </ul></dd>
+<dt><a name="b2MakeOffsetRoundedBox" href="#b2MakeOffsetRoundedBox"><span>b2MakeOffsetRoundedBox:</span></a></dt><dd><ul class="simple">
+<li><a class="reference external"
+          data-doc-search-tag="api: proc b2MakeOffsetRoundedBox(halfWidth: cfloat; halfHeight: cfloat; center: b2Vec2;
+                       rotation: b2Rot; radius: cfloat): b2Polygon" href="box2d/api.html#b2MakeOffsetRoundedBox%2Ccfloat%2Ccfloat%2Cb2Vec2%2Cb2Rot%2Ccfloat">api: proc b2MakeOffsetRoundedBox(halfWidth: cfloat; halfHeight: cfloat; center: b2Vec2;
+                       rotation: b2Rot; radius: cfloat): b2Polygon</a></li>
+          </ul></dd>
+<dt><a name="b2MakeOffsetRoundedPolygon" href="#b2MakeOffsetRoundedPolygon"><span>b2MakeOffsetRoundedPolygon:</span></a></dt><dd><ul class="simple">
+<li><a class="reference external"
+          data-doc-search-tag="api: proc b2MakeOffsetRoundedPolygon(hull: ptr b2Hull; position: b2Vec2; rotation: b2Rot;
+                           radius: cfloat): b2Polygon" href="box2d/api.html#b2MakeOffsetRoundedPolygon%2Cptr.b2Hull%2Cb2Vec2%2Cb2Rot%2Ccfloat">api: proc b2MakeOffsetRoundedPolygon(hull: ptr b2Hull; position: b2Vec2; rotation: b2Rot;
+                           radius: cfloat): b2Polygon</a></li>
           </ul></dd>
 <dt><a name="b2MakePolygon" href="#b2MakePolygon"><span>b2MakePolygon:</span></a></dt><dd><ul class="simple">
 <li><a class="reference external"
@@ -1122,7 +1232,7 @@
           </ul></dd>
 <dt><a name="b2MakeProxy" href="#b2MakeProxy"><span>b2MakeProxy:</span></a></dt><dd><ul class="simple">
 <li><a class="reference external"
-          data-doc-search-tag="api: proc b2MakeProxy(vertices: ptr b2Vec2; count: int32; radius: cfloat): b2DistanceProxy" href="box2d/api.html#b2MakeProxy%2Cptr.b2Vec2%2Cint32%2Ccfloat">api: proc b2MakeProxy(vertices: ptr b2Vec2; count: int32; radius: cfloat): b2DistanceProxy</a></li>
+          data-doc-search-tag="api: proc b2MakeProxy(points: ptr b2Vec2; count: cint; radius: cfloat): b2ShapeProxy" href="box2d/api.html#b2MakeProxy%2Cptr.b2Vec2%2Ccint%2Ccfloat">api: proc b2MakeProxy(points: ptr b2Vec2; count: cint; radius: cfloat): b2ShapeProxy</a></li>
           </ul></dd>
 <dt><a name="b2MakeRot" href="#b2MakeRot"><span>b2MakeRot:</span></a></dt><dd><ul class="simple">
 <li><a class="reference external"
@@ -1130,11 +1240,11 @@
           </ul></dd>
 <dt><a name="b2MakeRoundedBox" href="#b2MakeRoundedBox"><span>b2MakeRoundedBox:</span></a></dt><dd><ul class="simple">
 <li><a class="reference external"
-          data-doc-search-tag="api: proc b2MakeRoundedBox(hx: cfloat; hy: cfloat; radius: cfloat): b2Polygon" href="box2d/api.html#b2MakeRoundedBox%2Ccfloat%2Ccfloat%2Ccfloat">api: proc b2MakeRoundedBox(hx: cfloat; hy: cfloat; radius: cfloat): b2Polygon</a></li>
+          data-doc-search-tag="api: proc b2MakeRoundedBox(halfWidth: cfloat; halfHeight: cfloat; radius: cfloat): b2Polygon" href="box2d/api.html#b2MakeRoundedBox%2Ccfloat%2Ccfloat%2Ccfloat">api: proc b2MakeRoundedBox(halfWidth: cfloat; halfHeight: cfloat; radius: cfloat): b2Polygon</a></li>
           </ul></dd>
 <dt><a name="b2MakeSquare" href="#b2MakeSquare"><span>b2MakeSquare:</span></a></dt><dd><ul class="simple">
 <li><a class="reference external"
-          data-doc-search-tag="api: proc b2MakeSquare(h: cfloat): b2Polygon" href="box2d/api.html#b2MakeSquare%2Ccfloat">api: proc b2MakeSquare(h: cfloat): b2Polygon</a></li>
+          data-doc-search-tag="api: proc b2MakeSquare(halfWidth: cfloat): b2Polygon" href="box2d/api.html#b2MakeSquare%2Ccfloat">api: proc b2MakeSquare(halfWidth: cfloat): b2Polygon</a></li>
           </ul></dd>
 <dt><a name="b2Manifold" href="#b2Manifold"><span>b2Manifold:</span></a></dt><dd><ul class="simple">
 <li><a class="reference external"
@@ -1160,29 +1270,25 @@
 <li><a class="reference external"
           data-doc-search-tag="api: template b2Max(a: b2Vec2; b: b2Vec2): b2Vec2" href="box2d/api.html#b2Max.t%2Cb2Vec2%2Cb2Vec2">api: template b2Max(a: b2Vec2; b: b2Vec2): b2Vec2</a></li>
           </ul></dd>
-<dt><a name="b2_maxPolygonVertices" href="#b2_maxPolygonVertices"><span>b2_maxPolygonVertices:</span></a></dt><dd><ul class="simple">
+<dt><a name="B2_MAX_POLYGON_VERTICES" href="#B2_MAX_POLYGON_VERTICES"><span>B2_MAX_POLYGON_VERTICES:</span></a></dt><dd><ul class="simple">
 <li><a class="reference external"
-          data-doc-search-tag="api: const b2_maxPolygonVertices" href="box2d/api.html#b2_maxPolygonVertices">api: const b2_maxPolygonVertices</a></li>
+          data-doc-search-tag="api: const B2_MAX_POLYGON_VERTICES" href="box2d/api.html#B2_MAX_POLYGON_VERTICES">api: const B2_MAX_POLYGON_VERTICES</a></li>
           </ul></dd>
 <dt><a name="b2Min" href="#b2Min"><span>b2Min:</span></a></dt><dd><ul class="simple">
 <li><a class="reference external"
           data-doc-search-tag="api: template b2Min(a: b2Vec2; b: b2Vec2): b2Vec2" href="box2d/api.html#b2Min.t%2Cb2Vec2%2Cb2Vec2">api: template b2Min(a: b2Vec2; b: b2Vec2): b2Vec2</a></li>
           </ul></dd>
+<dt><a name="b2MotionLocks" href="#b2MotionLocks"><span>b2MotionLocks:</span></a></dt><dd><ul class="simple">
+<li><a class="reference external"
+          data-doc-search-tag="api: object b2MotionLocks" href="box2d/api.html#b2MotionLocks">api: object b2MotionLocks</a></li>
+          </ul></dd>
 <dt><a name="b2MotorJointDef" href="#b2MotorJointDef"><span>b2MotorJointDef:</span></a></dt><dd><ul class="simple">
 <li><a class="reference external"
           data-doc-search-tag="api: object b2MotorJointDef" href="box2d/api.html#b2MotorJointDef">api: object b2MotorJointDef</a></li>
           </ul></dd>
-<dt><a name="b2MotorJoint_GetAngularOffset" href="#b2MotorJoint_GetAngularOffset"><span>b2MotorJoint_GetAngularOffset:</span></a></dt><dd><ul class="simple">
-<li><a class="reference external"
-          data-doc-search-tag="api: proc b2MotorJoint_GetAngularOffset(jointId: b2JointId): cfloat" href="box2d/api.html#b2MotorJoint_GetAngularOffset%2Cb2JointId">api: proc b2MotorJoint_GetAngularOffset(jointId: b2JointId): cfloat</a></li>
-          </ul></dd>
 <dt><a name="b2MotorJoint_GetCorrectionFactor" href="#b2MotorJoint_GetCorrectionFactor"><span>b2MotorJoint_GetCorrectionFactor:</span></a></dt><dd><ul class="simple">
 <li><a class="reference external"
           data-doc-search-tag="api: proc b2MotorJoint_GetCorrectionFactor(jointId: b2JointId): cfloat" href="box2d/api.html#b2MotorJoint_GetCorrectionFactor%2Cb2JointId">api: proc b2MotorJoint_GetCorrectionFactor(jointId: b2JointId): cfloat</a></li>
-          </ul></dd>
-<dt><a name="b2MotorJoint_GetLinearOffset" href="#b2MotorJoint_GetLinearOffset"><span>b2MotorJoint_GetLinearOffset:</span></a></dt><dd><ul class="simple">
-<li><a class="reference external"
-          data-doc-search-tag="api: proc b2MotorJoint_GetLinearOffset(jointId: b2JointId): b2Vec2" href="box2d/api.html#b2MotorJoint_GetLinearOffset%2Cb2JointId">api: proc b2MotorJoint_GetLinearOffset(jointId: b2JointId): b2Vec2</a></li>
           </ul></dd>
 <dt><a name="b2MotorJoint_GetMaxForce" href="#b2MotorJoint_GetMaxForce"><span>b2MotorJoint_GetMaxForce:</span></a></dt><dd><ul class="simple">
 <li><a class="reference external"
@@ -1192,17 +1298,9 @@
 <li><a class="reference external"
           data-doc-search-tag="api: proc b2MotorJoint_GetMaxTorque(jointId: b2JointId): cfloat" href="box2d/api.html#b2MotorJoint_GetMaxTorque%2Cb2JointId">api: proc b2MotorJoint_GetMaxTorque(jointId: b2JointId): cfloat</a></li>
           </ul></dd>
-<dt><a name="b2MotorJoint_SetAngularOffset" href="#b2MotorJoint_SetAngularOffset"><span>b2MotorJoint_SetAngularOffset:</span></a></dt><dd><ul class="simple">
-<li><a class="reference external"
-          data-doc-search-tag="api: proc b2MotorJoint_SetAngularOffset(jointId: b2JointId; angularOffset: cfloat): void" href="box2d/api.html#b2MotorJoint_SetAngularOffset%2Cb2JointId%2Ccfloat">api: proc b2MotorJoint_SetAngularOffset(jointId: b2JointId; angularOffset: cfloat): void</a></li>
-          </ul></dd>
 <dt><a name="b2MotorJoint_SetCorrectionFactor" href="#b2MotorJoint_SetCorrectionFactor"><span>b2MotorJoint_SetCorrectionFactor:</span></a></dt><dd><ul class="simple">
 <li><a class="reference external"
           data-doc-search-tag="api: proc b2MotorJoint_SetCorrectionFactor(jointId: b2JointId; correctionFactor: cfloat): void" href="box2d/api.html#b2MotorJoint_SetCorrectionFactor%2Cb2JointId%2Ccfloat">api: proc b2MotorJoint_SetCorrectionFactor(jointId: b2JointId; correctionFactor: cfloat): void</a></li>
-          </ul></dd>
-<dt><a name="b2MotorJoint_SetLinearOffset" href="#b2MotorJoint_SetLinearOffset"><span>b2MotorJoint_SetLinearOffset:</span></a></dt><dd><ul class="simple">
-<li><a class="reference external"
-          data-doc-search-tag="api: proc b2MotorJoint_SetLinearOffset(jointId: b2JointId; linearOffset: b2Vec2): void" href="box2d/api.html#b2MotorJoint_SetLinearOffset%2Cb2JointId%2Cb2Vec2">api: proc b2MotorJoint_SetLinearOffset(jointId: b2JointId; linearOffset: b2Vec2): void</a></li>
           </ul></dd>
 <dt><a name="b2MotorJoint_SetMaxForce" href="#b2MotorJoint_SetMaxForce"><span>b2MotorJoint_SetMaxForce:</span></a></dt><dd><ul class="simple">
 <li><a class="reference external"
@@ -1228,10 +1326,6 @@
 <li><a class="reference external"
           data-doc-search-tag="api: proc b2MouseJoint_GetSpringHertz(jointId: b2JointId): cfloat" href="box2d/api.html#b2MouseJoint_GetSpringHertz%2Cb2JointId">api: proc b2MouseJoint_GetSpringHertz(jointId: b2JointId): cfloat</a></li>
           </ul></dd>
-<dt><a name="b2MouseJoint_GetTarget" href="#b2MouseJoint_GetTarget"><span>b2MouseJoint_GetTarget:</span></a></dt><dd><ul class="simple">
-<li><a class="reference external"
-          data-doc-search-tag="api: proc b2MouseJoint_GetTarget(jointId: b2JointId): b2Vec2" href="box2d/api.html#b2MouseJoint_GetTarget%2Cb2JointId">api: proc b2MouseJoint_GetTarget(jointId: b2JointId): b2Vec2</a></li>
-          </ul></dd>
 <dt><a name="b2MouseJoint_SetMaxForce" href="#b2MouseJoint_SetMaxForce"><span>b2MouseJoint_SetMaxForce:</span></a></dt><dd><ul class="simple">
 <li><a class="reference external"
           data-doc-search-tag="api: proc b2MouseJoint_SetMaxForce(jointId: b2JointId; maxForce: cfloat): void" href="box2d/api.html#b2MouseJoint_SetMaxForce%2Cb2JointId%2Ccfloat">api: proc b2MouseJoint_SetMaxForce(jointId: b2JointId; maxForce: cfloat): void</a></li>
@@ -1243,10 +1337,6 @@
 <dt><a name="b2MouseJoint_SetSpringHertz" href="#b2MouseJoint_SetSpringHertz"><span>b2MouseJoint_SetSpringHertz:</span></a></dt><dd><ul class="simple">
 <li><a class="reference external"
           data-doc-search-tag="api: proc b2MouseJoint_SetSpringHertz(jointId: b2JointId; hertz: cfloat): void" href="box2d/api.html#b2MouseJoint_SetSpringHertz%2Cb2JointId%2Ccfloat">api: proc b2MouseJoint_SetSpringHertz(jointId: b2JointId; hertz: cfloat): void</a></li>
-          </ul></dd>
-<dt><a name="b2MouseJoint_SetTarget" href="#b2MouseJoint_SetTarget"><span>b2MouseJoint_SetTarget:</span></a></dt><dd><ul class="simple">
-<li><a class="reference external"
-          data-doc-search-tag="api: proc b2MouseJoint_SetTarget(jointId: b2JointId; target: b2Vec2): void" href="box2d/api.html#b2MouseJoint_SetTarget%2Cb2JointId%2Cb2Vec2">api: proc b2MouseJoint_SetTarget(jointId: b2JointId; target: b2Vec2): void</a></li>
           </ul></dd>
 <dt><a name="b2Mul" href="#b2Mul"><span>b2Mul:</span></a></dt><dd><ul class="simple">
 <li><a class="reference external"
@@ -1284,14 +1374,6 @@
 <li><a class="reference external"
           data-doc-search-tag="api: proc b2NLerp(q1: b2Rot; q2: b2Rot; t: cfloat): b2Rot" href="box2d/api.html#b2NLerp%2Cb2Rot%2Cb2Rot%2Ccfloat">api: proc b2NLerp(q1: b2Rot; q2: b2Rot; t: cfloat): b2Rot</a></li>
           </ul></dd>
-<dt><a name="b2Normalize" href="#b2Normalize"><span>b2Normalize:</span></a></dt><dd><ul class="simple">
-<li><a class="reference external"
-          data-doc-search-tag="api: proc b2Normalize(v: b2Vec2): b2Vec2" href="box2d/api.html#b2Normalize%2Cb2Vec2">api: proc b2Normalize(v: b2Vec2): b2Vec2</a></li>
-          </ul></dd>
-<dt><a name="b2NormalizeChecked" href="#b2NormalizeChecked"><span>b2NormalizeChecked:</span></a></dt><dd><ul class="simple">
-<li><a class="reference external"
-          data-doc-search-tag="api: proc b2NormalizeChecked(v: b2Vec2): b2Vec2" href="box2d/api.html#b2NormalizeChecked%2Cb2Vec2">api: proc b2NormalizeChecked(v: b2Vec2): b2Vec2</a></li>
-          </ul></dd>
 <dt><a name="b2NormalizeRot" href="#b2NormalizeRot"><span>b2NormalizeRot:</span></a></dt><dd><ul class="simple">
 <li><a class="reference external"
           data-doc-search-tag="api: proc b2NormalizeRot(q: b2Rot): b2Rot" href="box2d/api.html#b2NormalizeRot%2Cb2Rot">api: proc b2NormalizeRot(q: b2Rot): b2Rot</a></li>
@@ -1303,6 +1385,10 @@
 <dt><a name="b2_nullChainId" href="#b2_nullChainId"><span>b2_nullChainId:</span></a></dt><dd><ul class="simple">
 <li><a class="reference external"
           data-doc-search-tag="api: const b2_nullChainId" href="box2d/api.html#b2_nullChainId">api: const b2_nullChainId</a></li>
+          </ul></dd>
+<dt><a name="b2_nullContactId" href="#b2_nullContactId"><span>b2_nullContactId:</span></a></dt><dd><ul class="simple">
+<li><a class="reference external"
+          data-doc-search-tag="api: const b2_nullContactId" href="box2d/api.html#b2_nullContactId">api: const b2_nullContactId</a></li>
           </ul></dd>
 <dt><a name="b2_nullJointId" href="#b2_nullJointId"><span>b2_nullJointId:</span></a></dt><dd><ul class="simple">
 <li><a class="reference external"
@@ -1324,21 +1410,37 @@
 <li><a class="reference external"
           data-doc-search-tag="api: proc b2Perimeter(a: b2AABB): cfloat" href="box2d/api.html#b2Perimeter%2Cb2AABB">api: proc b2Perimeter(a: b2AABB): cfloat</a></li>
           </ul></dd>
-<dt><a name="b2_pi" href="#b2_pi"><span>b2_pi:</span></a></dt><dd><ul class="simple">
+<dt><a name="B2_PI" href="#B2_PI"><span>B2_PI:</span></a></dt><dd><ul class="simple">
 <li><a class="reference external"
-          data-doc-search-tag="api: const b2_pi" href="box2d/api.html#b2_pi">api: const b2_pi</a></li>
+          data-doc-search-tag="api: const B2_PI" href="box2d/api.html#B2_PI">api: const B2_PI</a></li>
+          </ul></dd>
+<dt><a name="b2Plane" href="#b2Plane"><span>b2Plane:</span></a></dt><dd><ul class="simple">
+<li><a class="reference external"
+          data-doc-search-tag="api: object b2Plane" href="box2d/api.html#b2Plane">api: object b2Plane</a></li>
+          </ul></dd>
+<dt><a name="b2PlaneResult" href="#b2PlaneResult"><span>b2PlaneResult:</span></a></dt><dd><ul class="simple">
+<li><a class="reference external"
+          data-doc-search-tag="api: object b2PlaneResult" href="box2d/api.html#b2PlaneResult">api: object b2PlaneResult</a></li>
+          </ul></dd>
+<dt><a name="b2PlaneResultFcn" href="#b2PlaneResultFcn"><span>b2PlaneResultFcn:</span></a></dt><dd><ul class="simple">
+<li><a class="reference external"
+          data-doc-search-tag="api: type b2PlaneResultFcn" href="box2d/api.html#b2PlaneResultFcn">api: type b2PlaneResultFcn</a></li>
+          </ul></dd>
+<dt><a name="b2PlaneSolverResult" href="#b2PlaneSolverResult"><span>b2PlaneSolverResult:</span></a></dt><dd><ul class="simple">
+<li><a class="reference external"
+          data-doc-search-tag="api: object b2PlaneSolverResult" href="box2d/api.html#b2PlaneSolverResult">api: object b2PlaneSolverResult</a></li>
           </ul></dd>
 <dt><a name="b2PointInCapsule" href="#b2PointInCapsule"><span>b2PointInCapsule:</span></a></dt><dd><ul class="simple">
 <li><a class="reference external"
-          data-doc-search-tag="api: proc b2PointInCapsule(point: b2Vec2; shape: ptr b2Capsule): bool" href="box2d/api.html#b2PointInCapsule%2Cb2Vec2%2Cptr.b2Capsule">api: proc b2PointInCapsule(point: b2Vec2; shape: ptr b2Capsule): bool</a></li>
+          data-doc-search-tag="api: proc b2PointInCapsule(shape: ptr b2Capsule; point: b2Vec2): bool" href="box2d/api.html#b2PointInCapsule%2Cptr.b2Capsule%2Cb2Vec2">api: proc b2PointInCapsule(shape: ptr b2Capsule; point: b2Vec2): bool</a></li>
           </ul></dd>
 <dt><a name="b2PointInCircle" href="#b2PointInCircle"><span>b2PointInCircle:</span></a></dt><dd><ul class="simple">
 <li><a class="reference external"
-          data-doc-search-tag="api: proc b2PointInCircle(point: b2Vec2; shape: ptr b2Circle): bool" href="box2d/api.html#b2PointInCircle%2Cb2Vec2%2Cptr.b2Circle">api: proc b2PointInCircle(point: b2Vec2; shape: ptr b2Circle): bool</a></li>
+          data-doc-search-tag="api: proc b2PointInCircle(shape: ptr b2Circle; point: b2Vec2): bool" href="box2d/api.html#b2PointInCircle%2Cptr.b2Circle%2Cb2Vec2">api: proc b2PointInCircle(shape: ptr b2Circle; point: b2Vec2): bool</a></li>
           </ul></dd>
 <dt><a name="b2PointInPolygon" href="#b2PointInPolygon"><span>b2PointInPolygon:</span></a></dt><dd><ul class="simple">
 <li><a class="reference external"
-          data-doc-search-tag="api: proc b2PointInPolygon(point: b2Vec2; shape: ptr b2Polygon): bool" href="box2d/api.html#b2PointInPolygon%2Cb2Vec2%2Cptr.b2Polygon">api: proc b2PointInPolygon(point: b2Vec2; shape: ptr b2Polygon): bool</a></li>
+          data-doc-search-tag="api: proc b2PointInPolygon(shape: ptr b2Polygon; point: b2Vec2): bool" href="box2d/api.html#b2PointInPolygon%2Cptr.b2Polygon%2Cb2Vec2">api: proc b2PointInPolygon(shape: ptr b2Polygon; point: b2Vec2): bool</a></li>
           </ul></dd>
 <dt><a name="b2Polygon" href="#b2Polygon"><span>b2Polygon:</span></a></dt><dd><ul class="simple">
 <li><a class="reference external"
@@ -1380,6 +1482,10 @@
 <li><a class="reference external"
           data-doc-search-tag="api: proc b2PrismaticJoint_GetMotorSpeed(jointId: b2JointId): cfloat" href="box2d/api.html#b2PrismaticJoint_GetMotorSpeed%2Cb2JointId">api: proc b2PrismaticJoint_GetMotorSpeed(jointId: b2JointId): cfloat</a></li>
           </ul></dd>
+<dt><a name="b2PrismaticJoint_GetSpeed" href="#b2PrismaticJoint_GetSpeed"><span>b2PrismaticJoint_GetSpeed:</span></a></dt><dd><ul class="simple">
+<li><a class="reference external"
+          data-doc-search-tag="api: proc b2PrismaticJoint_GetSpeed(jointId: b2JointId): cfloat" href="box2d/api.html#b2PrismaticJoint_GetSpeed%2Cb2JointId">api: proc b2PrismaticJoint_GetSpeed(jointId: b2JointId): cfloat</a></li>
+          </ul></dd>
 <dt><a name="b2PrismaticJoint_GetSpringDampingRatio" href="#b2PrismaticJoint_GetSpringDampingRatio"><span>b2PrismaticJoint_GetSpringDampingRatio:</span></a></dt><dd><ul class="simple">
 <li><a class="reference external"
           data-doc-search-tag="api: proc b2PrismaticJoint_GetSpringDampingRatio(jointId: b2JointId): cfloat" href="box2d/api.html#b2PrismaticJoint_GetSpringDampingRatio%2Cb2JointId">api: proc b2PrismaticJoint_GetSpringDampingRatio(jointId: b2JointId): cfloat</a></li>
@@ -1387,6 +1493,14 @@
 <dt><a name="b2PrismaticJoint_GetSpringHertz" href="#b2PrismaticJoint_GetSpringHertz"><span>b2PrismaticJoint_GetSpringHertz:</span></a></dt><dd><ul class="simple">
 <li><a class="reference external"
           data-doc-search-tag="api: proc b2PrismaticJoint_GetSpringHertz(jointId: b2JointId): cfloat" href="box2d/api.html#b2PrismaticJoint_GetSpringHertz%2Cb2JointId">api: proc b2PrismaticJoint_GetSpringHertz(jointId: b2JointId): cfloat</a></li>
+          </ul></dd>
+<dt><a name="b2PrismaticJoint_GetTargetTranslation" href="#b2PrismaticJoint_GetTargetTranslation"><span>b2PrismaticJoint_GetTargetTranslation:</span></a></dt><dd><ul class="simple">
+<li><a class="reference external"
+          data-doc-search-tag="api: proc b2PrismaticJoint_GetTargetTranslation(jointId: b2JointId): cfloat" href="box2d/api.html#b2PrismaticJoint_GetTargetTranslation%2Cb2JointId">api: proc b2PrismaticJoint_GetTargetTranslation(jointId: b2JointId): cfloat</a></li>
+          </ul></dd>
+<dt><a name="b2PrismaticJoint_GetTranslation" href="#b2PrismaticJoint_GetTranslation"><span>b2PrismaticJoint_GetTranslation:</span></a></dt><dd><ul class="simple">
+<li><a class="reference external"
+          data-doc-search-tag="api: proc b2PrismaticJoint_GetTranslation(jointId: b2JointId): cfloat" href="box2d/api.html#b2PrismaticJoint_GetTranslation%2Cb2JointId">api: proc b2PrismaticJoint_GetTranslation(jointId: b2JointId): cfloat</a></li>
           </ul></dd>
 <dt><a name="b2PrismaticJoint_GetUpperLimit" href="#b2PrismaticJoint_GetUpperLimit"><span>b2PrismaticJoint_GetUpperLimit:</span></a></dt><dd><ul class="simple">
 <li><a class="reference external"
@@ -1424,6 +1538,10 @@
 <li><a class="reference external"
           data-doc-search-tag="api: proc b2PrismaticJoint_SetSpringHertz(jointId: b2JointId; hertz: cfloat): void" href="box2d/api.html#b2PrismaticJoint_SetSpringHertz%2Cb2JointId%2Ccfloat">api: proc b2PrismaticJoint_SetSpringHertz(jointId: b2JointId; hertz: cfloat): void</a></li>
           </ul></dd>
+<dt><a name="b2PrismaticJoint_SetTargetTranslation" href="#b2PrismaticJoint_SetTargetTranslation"><span>b2PrismaticJoint_SetTargetTranslation:</span></a></dt><dd><ul class="simple">
+<li><a class="reference external"
+          data-doc-search-tag="api: proc b2PrismaticJoint_SetTargetTranslation(jointId: b2JointId; translation: cfloat): void" href="box2d/api.html#b2PrismaticJoint_SetTargetTranslation%2Cb2JointId%2Ccfloat">api: proc b2PrismaticJoint_SetTargetTranslation(jointId: b2JointId; translation: cfloat): void</a></li>
+          </ul></dd>
 <dt><a name="b2Profile" href="#b2Profile"><span>b2Profile:</span></a></dt><dd><ul class="simple">
 <li><a class="reference external"
           data-doc-search-tag="api: object b2Profile" href="box2d/api.html#b2Profile">api: object b2Profile</a></li>
@@ -1434,11 +1552,11 @@
           </ul></dd>
 <dt><a name="b2RayCastCapsule" href="#b2RayCastCapsule"><span>b2RayCastCapsule:</span></a></dt><dd><ul class="simple">
 <li><a class="reference external"
-          data-doc-search-tag="api: proc b2RayCastCapsule(input: ptr b2RayCastInput; shape: ptr b2Capsule): b2CastOutput" href="box2d/api.html#b2RayCastCapsule%2Cptr.b2RayCastInput%2Cptr.b2Capsule">api: proc b2RayCastCapsule(input: ptr b2RayCastInput; shape: ptr b2Capsule): b2CastOutput</a></li>
+          data-doc-search-tag="api: proc b2RayCastCapsule(shape: ptr b2Capsule; input: ptr b2RayCastInput): b2CastOutput" href="box2d/api.html#b2RayCastCapsule%2Cptr.b2Capsule%2Cptr.b2RayCastInput">api: proc b2RayCastCapsule(shape: ptr b2Capsule; input: ptr b2RayCastInput): b2CastOutput</a></li>
           </ul></dd>
 <dt><a name="b2RayCastCircle" href="#b2RayCastCircle"><span>b2RayCastCircle:</span></a></dt><dd><ul class="simple">
 <li><a class="reference external"
-          data-doc-search-tag="api: proc b2RayCastCircle(input: ptr b2RayCastInput; shape: ptr b2Circle): b2CastOutput" href="box2d/api.html#b2RayCastCircle%2Cptr.b2RayCastInput%2Cptr.b2Circle">api: proc b2RayCastCircle(input: ptr b2RayCastInput; shape: ptr b2Circle): b2CastOutput</a></li>
+          data-doc-search-tag="api: proc b2RayCastCircle(shape: ptr b2Circle; input: ptr b2RayCastInput): b2CastOutput" href="box2d/api.html#b2RayCastCircle%2Cptr.b2Circle%2Cptr.b2RayCastInput">api: proc b2RayCastCircle(shape: ptr b2Circle; input: ptr b2RayCastInput): b2CastOutput</a></li>
           </ul></dd>
 <dt><a name="b2RayCastInput" href="#b2RayCastInput"><span>b2RayCastInput:</span></a></dt><dd><ul class="simple">
 <li><a class="reference external"
@@ -1446,11 +1564,11 @@
           </ul></dd>
 <dt><a name="b2RayCastPolygon" href="#b2RayCastPolygon"><span>b2RayCastPolygon:</span></a></dt><dd><ul class="simple">
 <li><a class="reference external"
-          data-doc-search-tag="api: proc b2RayCastPolygon(input: ptr b2RayCastInput; shape: ptr b2Polygon): b2CastOutput" href="box2d/api.html#b2RayCastPolygon%2Cptr.b2RayCastInput%2Cptr.b2Polygon">api: proc b2RayCastPolygon(input: ptr b2RayCastInput; shape: ptr b2Polygon): b2CastOutput</a></li>
+          data-doc-search-tag="api: proc b2RayCastPolygon(shape: ptr b2Polygon; input: ptr b2RayCastInput): b2CastOutput" href="box2d/api.html#b2RayCastPolygon%2Cptr.b2Polygon%2Cptr.b2RayCastInput">api: proc b2RayCastPolygon(shape: ptr b2Polygon; input: ptr b2RayCastInput): b2CastOutput</a></li>
           </ul></dd>
 <dt><a name="b2RayCastSegment" href="#b2RayCastSegment"><span>b2RayCastSegment:</span></a></dt><dd><ul class="simple">
 <li><a class="reference external"
-          data-doc-search-tag="api: proc b2RayCastSegment(input: ptr b2RayCastInput; shape: ptr b2Segment; oneSided: bool): b2CastOutput" href="box2d/api.html#b2RayCastSegment%2Cptr.b2RayCastInput%2Cptr.b2Segment%2Cbool">api: proc b2RayCastSegment(input: ptr b2RayCastInput; shape: ptr b2Segment; oneSided: bool): b2CastOutput</a></li>
+          data-doc-search-tag="api: proc b2RayCastSegment(shape: ptr b2Segment; input: ptr b2RayCastInput; oneSided: bool): b2CastOutput" href="box2d/api.html#b2RayCastSegment%2Cptr.b2Segment%2Cptr.b2RayCastInput%2Cbool">api: proc b2RayCastSegment(shape: ptr b2Segment; input: ptr b2RayCastInput; oneSided: bool): b2CastOutput</a></li>
           </ul></dd>
 <dt><a name="b2RayResult" href="#b2RayResult"><span>b2RayResult:</span></a></dt><dd><ul class="simple">
 <li><a class="reference external"
@@ -1459,6 +1577,10 @@
 <dt><a name="b2RelativeAngle" href="#b2RelativeAngle"><span>b2RelativeAngle:</span></a></dt><dd><ul class="simple">
 <li><a class="reference external"
           data-doc-search-tag="api: proc b2RelativeAngle(a: b2Rot; b: b2Rot): cfloat" href="box2d/api.html#b2RelativeAngle%2Cb2Rot%2Cb2Rot">api: proc b2RelativeAngle(a: b2Rot; b: b2Rot): cfloat</a></li>
+          </ul></dd>
+<dt><a name="b2RestitutionCallback" href="#b2RestitutionCallback"><span>b2RestitutionCallback:</span></a></dt><dd><ul class="simple">
+<li><a class="reference external"
+          data-doc-search-tag="api: type b2RestitutionCallback" href="box2d/api.html#b2RestitutionCallback">api: type b2RestitutionCallback</a></li>
           </ul></dd>
 <dt><a name="b2RevoluteJointDef" href="#b2RevoluteJointDef"><span>b2RevoluteJointDef:</span></a></dt><dd><ul class="simple">
 <li><a class="reference external"
@@ -1504,6 +1626,10 @@
 <li><a class="reference external"
           data-doc-search-tag="api: proc b2RevoluteJoint_GetSpringHertz(jointId: b2JointId): cfloat" href="box2d/api.html#b2RevoluteJoint_GetSpringHertz%2Cb2JointId">api: proc b2RevoluteJoint_GetSpringHertz(jointId: b2JointId): cfloat</a></li>
           </ul></dd>
+<dt><a name="b2RevoluteJoint_GetTargetAngle" href="#b2RevoluteJoint_GetTargetAngle"><span>b2RevoluteJoint_GetTargetAngle:</span></a></dt><dd><ul class="simple">
+<li><a class="reference external"
+          data-doc-search-tag="api: proc b2RevoluteJoint_GetTargetAngle(jointId: b2JointId): cfloat" href="box2d/api.html#b2RevoluteJoint_GetTargetAngle%2Cb2JointId">api: proc b2RevoluteJoint_GetTargetAngle(jointId: b2JointId): cfloat</a></li>
+          </ul></dd>
 <dt><a name="b2RevoluteJoint_GetUpperLimit" href="#b2RevoluteJoint_GetUpperLimit"><span>b2RevoluteJoint_GetUpperLimit:</span></a></dt><dd><ul class="simple">
 <li><a class="reference external"
           data-doc-search-tag="api: proc b2RevoluteJoint_GetUpperLimit(jointId: b2JointId): cfloat" href="box2d/api.html#b2RevoluteJoint_GetUpperLimit%2Cb2JointId">api: proc b2RevoluteJoint_GetUpperLimit(jointId: b2JointId): cfloat</a></li>
@@ -1515,6 +1641,10 @@
 <dt><a name="b2RevoluteJoint_IsMotorEnabled" href="#b2RevoluteJoint_IsMotorEnabled"><span>b2RevoluteJoint_IsMotorEnabled:</span></a></dt><dd><ul class="simple">
 <li><a class="reference external"
           data-doc-search-tag="api: proc b2RevoluteJoint_IsMotorEnabled(jointId: b2JointId): bool" href="box2d/api.html#b2RevoluteJoint_IsMotorEnabled%2Cb2JointId">api: proc b2RevoluteJoint_IsMotorEnabled(jointId: b2JointId): bool</a></li>
+          </ul></dd>
+<dt><a name="b2RevoluteJoint_IsSpringEnabled" href="#b2RevoluteJoint_IsSpringEnabled"><span>b2RevoluteJoint_IsSpringEnabled:</span></a></dt><dd><ul class="simple">
+<li><a class="reference external"
+          data-doc-search-tag="api: proc b2RevoluteJoint_IsSpringEnabled(jointId: b2JointId): bool" href="box2d/api.html#b2RevoluteJoint_IsSpringEnabled%2Cb2JointId">api: proc b2RevoluteJoint_IsSpringEnabled(jointId: b2JointId): bool</a></li>
           </ul></dd>
 <dt><a name="b2RevoluteJoint_SetLimits" href="#b2RevoluteJoint_SetLimits"><span>b2RevoluteJoint_SetLimits:</span></a></dt><dd><ul class="simple">
 <li><a class="reference external"
@@ -1535,6 +1665,10 @@
 <dt><a name="b2RevoluteJoint_SetSpringHertz" href="#b2RevoluteJoint_SetSpringHertz"><span>b2RevoluteJoint_SetSpringHertz:</span></a></dt><dd><ul class="simple">
 <li><a class="reference external"
           data-doc-search-tag="api: proc b2RevoluteJoint_SetSpringHertz(jointId: b2JointId; hertz: cfloat): void" href="box2d/api.html#b2RevoluteJoint_SetSpringHertz%2Cb2JointId%2Ccfloat">api: proc b2RevoluteJoint_SetSpringHertz(jointId: b2JointId; hertz: cfloat): void</a></li>
+          </ul></dd>
+<dt><a name="b2RevoluteJoint_SetTargetAngle" href="#b2RevoluteJoint_SetTargetAngle"><span>b2RevoluteJoint_SetTargetAngle:</span></a></dt><dd><ul class="simple">
+<li><a class="reference external"
+          data-doc-search-tag="api: proc b2RevoluteJoint_SetTargetAngle(jointId: b2JointId; angle: cfloat): void" href="box2d/api.html#b2RevoluteJoint_SetTargetAngle%2Cb2JointId%2Ccfloat">api: proc b2RevoluteJoint_SetTargetAngle(jointId: b2JointId; angle: cfloat): void</a></li>
           </ul></dd>
 <dt><a name="b2RightPerp" href="#b2RightPerp"><span>b2RightPerp:</span></a></dt><dd><ul class="simple">
 <li><a class="reference external"
@@ -1563,10 +1697,6 @@
 <dt><a name="b2Rot_identity" href="#b2Rot_identity"><span>b2Rot_identity:</span></a></dt><dd><ul class="simple">
 <li><a class="reference external"
           data-doc-search-tag="api: const b2Rot_identity" href="box2d/api.html#b2Rot_identity">api: const b2Rot_identity</a></li>
-          </ul></dd>
-<dt><a name="b2Rot_IsValid" href="#b2Rot_IsValid"><span>b2Rot_IsValid:</span></a></dt><dd><ul class="simple">
-<li><a class="reference external"
-          data-doc-search-tag="api: proc b2Rot_IsValid(q: b2Rot): bool" href="box2d/api.html#b2Rot_IsValid%2Cb2Rot">api: proc b2Rot_IsValid(q: b2Rot): bool</a></li>
           </ul></dd>
 <dt><a name="b2RoundUpPowerOf2" href="#b2RoundUpPowerOf2"><span>b2RoundUpPowerOf2:</span></a></dt><dd><ul class="simple">
 <li><a class="reference external"
@@ -1630,11 +1760,11 @@
           </ul></dd>
 <dt><a name="b2ShapeCastCapsule" href="#b2ShapeCastCapsule"><span>b2ShapeCastCapsule:</span></a></dt><dd><ul class="simple">
 <li><a class="reference external"
-          data-doc-search-tag="api: proc b2ShapeCastCapsule(input: ptr b2ShapeCastInput; shape: ptr b2Capsule): b2CastOutput" href="box2d/api.html#b2ShapeCastCapsule%2Cptr.b2ShapeCastInput%2Cptr.b2Capsule">api: proc b2ShapeCastCapsule(input: ptr b2ShapeCastInput; shape: ptr b2Capsule): b2CastOutput</a></li>
+          data-doc-search-tag="api: proc b2ShapeCastCapsule(shape: ptr b2Capsule; input: ptr b2ShapeCastInput): b2CastOutput" href="box2d/api.html#b2ShapeCastCapsule%2Cptr.b2Capsule%2Cptr.b2ShapeCastInput">api: proc b2ShapeCastCapsule(shape: ptr b2Capsule; input: ptr b2ShapeCastInput): b2CastOutput</a></li>
           </ul></dd>
 <dt><a name="b2ShapeCastCircle" href="#b2ShapeCastCircle"><span>b2ShapeCastCircle:</span></a></dt><dd><ul class="simple">
 <li><a class="reference external"
-          data-doc-search-tag="api: proc b2ShapeCastCircle(input: ptr b2ShapeCastInput; shape: ptr b2Circle): b2CastOutput" href="box2d/api.html#b2ShapeCastCircle%2Cptr.b2ShapeCastInput%2Cptr.b2Circle">api: proc b2ShapeCastCircle(input: ptr b2ShapeCastInput; shape: ptr b2Circle): b2CastOutput</a></li>
+          data-doc-search-tag="api: proc b2ShapeCastCircle(shape: ptr b2Circle; input: ptr b2ShapeCastInput): b2CastOutput" href="box2d/api.html#b2ShapeCastCircle%2Cptr.b2Circle%2Cptr.b2ShapeCastInput">api: proc b2ShapeCastCircle(shape: ptr b2Circle; input: ptr b2ShapeCastInput): b2CastOutput</a></li>
           </ul></dd>
 <dt><a name="b2ShapeCastInput" href="#b2ShapeCastInput"><span>b2ShapeCastInput:</span></a></dt><dd><ul class="simple">
 <li><a class="reference external"
@@ -1646,11 +1776,15 @@
           </ul></dd>
 <dt><a name="b2ShapeCastPolygon" href="#b2ShapeCastPolygon"><span>b2ShapeCastPolygon:</span></a></dt><dd><ul class="simple">
 <li><a class="reference external"
-          data-doc-search-tag="api: proc b2ShapeCastPolygon(input: ptr b2ShapeCastInput; shape: ptr b2Polygon): b2CastOutput" href="box2d/api.html#b2ShapeCastPolygon%2Cptr.b2ShapeCastInput%2Cptr.b2Polygon">api: proc b2ShapeCastPolygon(input: ptr b2ShapeCastInput; shape: ptr b2Polygon): b2CastOutput</a></li>
+          data-doc-search-tag="api: proc b2ShapeCastPolygon(shape: ptr b2Polygon; input: ptr b2ShapeCastInput): b2CastOutput" href="box2d/api.html#b2ShapeCastPolygon%2Cptr.b2Polygon%2Cptr.b2ShapeCastInput">api: proc b2ShapeCastPolygon(shape: ptr b2Polygon; input: ptr b2ShapeCastInput): b2CastOutput</a></li>
           </ul></dd>
 <dt><a name="b2ShapeCastSegment" href="#b2ShapeCastSegment"><span>b2ShapeCastSegment:</span></a></dt><dd><ul class="simple">
 <li><a class="reference external"
-          data-doc-search-tag="api: proc b2ShapeCastSegment(input: ptr b2ShapeCastInput; shape: ptr b2Segment): b2CastOutput" href="box2d/api.html#b2ShapeCastSegment%2Cptr.b2ShapeCastInput%2Cptr.b2Segment">api: proc b2ShapeCastSegment(input: ptr b2ShapeCastInput; shape: ptr b2Segment): b2CastOutput</a></li>
+          data-doc-search-tag="api: proc b2ShapeCastSegment(shape: ptr b2Segment; input: ptr b2ShapeCastInput): b2CastOutput" href="box2d/api.html#b2ShapeCastSegment%2Cptr.b2Segment%2Cptr.b2ShapeCastInput">api: proc b2ShapeCastSegment(shape: ptr b2Segment; input: ptr b2ShapeCastInput): b2CastOutput</a></li>
+          </ul></dd>
+<dt><a name="b2Shape_ComputeMassData" href="#b2Shape_ComputeMassData"><span>b2Shape_ComputeMassData:</span></a></dt><dd><ul class="simple">
+<li><a class="reference external"
+          data-doc-search-tag="api: proc b2Shape_ComputeMassData(shapeId: b2ShapeId): b2MassData" href="box2d/api.html#b2Shape_ComputeMassData%2Cb2ShapeId">api: proc b2Shape_ComputeMassData(shapeId: b2ShapeId): b2MassData</a></li>
           </ul></dd>
 <dt><a name="b2ShapeDef" href="#b2ShapeDef"><span>b2ShapeDef:</span></a></dt><dd><ul class="simple">
 <li><a class="reference external"
@@ -1658,8 +1792,8 @@
           </ul></dd>
 <dt><a name="b2ShapeDistance" href="#b2ShapeDistance"><span>b2ShapeDistance:</span></a></dt><dd><ul class="simple">
 <li><a class="reference external"
-          data-doc-search-tag="api: proc b2ShapeDistance(cache: ptr b2DistanceCache; input: ptr b2DistanceInput;
-                simplexes: ptr b2Simplex; simplexCapacity: cint): b2DistanceOutput" href="box2d/api.html#b2ShapeDistance%2Cptr.b2DistanceCache%2Cptr.b2DistanceInput%2Cptr.b2Simplex%2Ccint">api: proc b2ShapeDistance(cache: ptr b2DistanceCache; input: ptr b2DistanceInput;
+          data-doc-search-tag="api: proc b2ShapeDistance(input: ptr b2DistanceInput; cache: ptr b2SimplexCache;
+                simplexes: ptr b2Simplex; simplexCapacity: cint): b2DistanceOutput" href="box2d/api.html#b2ShapeDistance%2Cptr.b2DistanceInput%2Cptr.b2SimplexCache%2Cptr.b2Simplex%2Ccint">api: proc b2ShapeDistance(input: ptr b2DistanceInput; cache: ptr b2SimplexCache;
                 simplexes: ptr b2Simplex; simplexCapacity: cint): b2DistanceOutput</a></li>
           </ul></dd>
 <dt><a name="b2Shape_EnableContactEvents" href="#b2Shape_EnableContactEvents"><span>b2Shape_EnableContactEvents:</span></a></dt><dd><ul class="simple">
@@ -1689,6 +1823,10 @@
 <dt><a name="b2Shape_GetCapsule" href="#b2Shape_GetCapsule"><span>b2Shape_GetCapsule:</span></a></dt><dd><ul class="simple">
 <li><a class="reference external"
           data-doc-search-tag="api: proc b2Shape_GetCapsule(shapeId: b2ShapeId): b2Capsule" href="box2d/api.html#b2Shape_GetCapsule%2Cb2ShapeId">api: proc b2Shape_GetCapsule(shapeId: b2ShapeId): b2Capsule</a></li>
+          </ul></dd>
+<dt><a name="b2Shape_GetChainSegment" href="#b2Shape_GetChainSegment"><span>b2Shape_GetChainSegment:</span></a></dt><dd><ul class="simple">
+<li><a class="reference external"
+          data-doc-search-tag="api: proc b2Shape_GetChainSegment(shapeId: b2ShapeId): b2ChainSegment" href="box2d/api.html#b2Shape_GetChainSegment%2Cb2ShapeId">api: proc b2Shape_GetChainSegment(shapeId: b2ShapeId): b2ChainSegment</a></li>
           </ul></dd>
 <dt><a name="b2Shape_GetCircle" href="#b2Shape_GetCircle"><span>b2Shape_GetCircle:</span></a></dt><dd><ul class="simple">
 <li><a class="reference external"
@@ -1720,6 +1858,10 @@
 <li><a class="reference external"
           data-doc-search-tag="api: proc b2Shape_GetFriction(shapeId: b2ShapeId): cfloat" href="box2d/api.html#b2Shape_GetFriction%2Cb2ShapeId">api: proc b2Shape_GetFriction(shapeId: b2ShapeId): cfloat</a></li>
           </ul></dd>
+<dt><a name="b2Shape_GetMaterial" href="#b2Shape_GetMaterial"><span>b2Shape_GetMaterial:</span></a></dt><dd><ul class="simple">
+<li><a class="reference external"
+          data-doc-search-tag="api: proc b2Shape_GetMaterial(shapeId: b2ShapeId): cint" href="box2d/api.html#b2Shape_GetMaterial%2Cb2ShapeId">api: proc b2Shape_GetMaterial(shapeId: b2ShapeId): cint</a></li>
+          </ul></dd>
 <dt><a name="b2Shape_GetParentChain" href="#b2Shape_GetParentChain"><span>b2Shape_GetParentChain:</span></a></dt><dd><ul class="simple">
 <li><a class="reference external"
           data-doc-search-tag="api: proc b2Shape_GetParentChain(shapeId: b2ShapeId): b2ChainId" href="box2d/api.html#b2Shape_GetParentChain%2Cb2ShapeId">api: proc b2Shape_GetParentChain(shapeId: b2ShapeId): b2ChainId</a></li>
@@ -1736,9 +1878,19 @@
 <li><a class="reference external"
           data-doc-search-tag="api: proc b2Shape_GetSegment(shapeId: b2ShapeId): b2Segment" href="box2d/api.html#b2Shape_GetSegment%2Cb2ShapeId">api: proc b2Shape_GetSegment(shapeId: b2ShapeId): b2Segment</a></li>
           </ul></dd>
-<dt><a name="b2Shape_GetSmoothSegment" href="#b2Shape_GetSmoothSegment"><span>b2Shape_GetSmoothSegment:</span></a></dt><dd><ul class="simple">
+<dt><a name="b2Shape_GetSensorCapacity" href="#b2Shape_GetSensorCapacity"><span>b2Shape_GetSensorCapacity:</span></a></dt><dd><ul class="simple">
 <li><a class="reference external"
-          data-doc-search-tag="api: proc b2Shape_GetSmoothSegment(shapeId: b2ShapeId): b2SmoothSegment" href="box2d/api.html#b2Shape_GetSmoothSegment%2Cb2ShapeId">api: proc b2Shape_GetSmoothSegment(shapeId: b2ShapeId): b2SmoothSegment</a></li>
+          data-doc-search-tag="api: proc b2Shape_GetSensorCapacity(shapeId: b2ShapeId): cint" href="box2d/api.html#b2Shape_GetSensorCapacity%2Cb2ShapeId">api: proc b2Shape_GetSensorCapacity(shapeId: b2ShapeId): cint</a></li>
+          </ul></dd>
+<dt><a name="b2Shape_GetSensorData" href="#b2Shape_GetSensorData"><span>b2Shape_GetSensorData:</span></a></dt><dd><ul class="simple">
+<li><a class="reference external"
+          data-doc-search-tag="api: proc b2Shape_GetSensorData(shapeId: b2ShapeId; visitorIds: ptr b2ShapeId;
+                      capacity: cint): cint" href="box2d/api.html#b2Shape_GetSensorData%2Cb2ShapeId%2Cptr.b2ShapeId%2Ccint">api: proc b2Shape_GetSensorData(shapeId: b2ShapeId; visitorIds: ptr b2ShapeId;
+                      capacity: cint): cint</a></li>
+          </ul></dd>
+<dt><a name="b2Shape_GetSurfaceMaterial" href="#b2Shape_GetSurfaceMaterial"><span>b2Shape_GetSurfaceMaterial:</span></a></dt><dd><ul class="simple">
+<li><a class="reference external"
+          data-doc-search-tag="api: proc b2Shape_GetSurfaceMaterial(shapeId: b2ShapeId): b2SurfaceMaterial" href="box2d/api.html#b2Shape_GetSurfaceMaterial%2Cb2ShapeId">api: proc b2Shape_GetSurfaceMaterial(shapeId: b2ShapeId): b2SurfaceMaterial</a></li>
           </ul></dd>
 <dt><a name="b2Shape_GetType" href="#b2Shape_GetType"><span>b2Shape_GetType:</span></a></dt><dd><ul class="simple">
 <li><a class="reference external"
@@ -1747,6 +1899,10 @@
 <dt><a name="b2Shape_GetUserData" href="#b2Shape_GetUserData"><span>b2Shape_GetUserData:</span></a></dt><dd><ul class="simple">
 <li><a class="reference external"
           data-doc-search-tag="api: proc b2Shape_GetUserData(shapeId: b2ShapeId): pointer" href="box2d/api.html#b2Shape_GetUserData%2Cb2ShapeId">api: proc b2Shape_GetUserData(shapeId: b2ShapeId): pointer</a></li>
+          </ul></dd>
+<dt><a name="b2Shape_GetWorld" href="#b2Shape_GetWorld"><span>b2Shape_GetWorld:</span></a></dt><dd><ul class="simple">
+<li><a class="reference external"
+          data-doc-search-tag="api: proc b2Shape_GetWorld(shapeId: b2ShapeId): b2WorldId" href="box2d/api.html#b2Shape_GetWorld%2Cb2ShapeId">api: proc b2Shape_GetWorld(shapeId: b2ShapeId): b2WorldId</a></li>
           </ul></dd>
 <dt><a name="b2ShapeId" href="#b2ShapeId"><span>b2ShapeId:</span></a></dt><dd><ul class="simple">
 <li><a class="reference external"
@@ -1764,9 +1920,13 @@
 <li><a class="reference external"
           data-doc-search-tag="api: proc b2ShapePairKey(k1: uint64; k2: uint64): uint64" href="box2d/api.html#b2ShapePairKey%2Cuint64%2Cuint64">api: proc b2ShapePairKey(k1: uint64; k2: uint64): uint64</a></li>
           </ul></dd>
+<dt><a name="b2ShapeProxy" href="#b2ShapeProxy"><span>b2ShapeProxy:</span></a></dt><dd><ul class="simple">
+<li><a class="reference external"
+          data-doc-search-tag="api: object b2ShapeProxy" href="box2d/api.html#b2ShapeProxy">api: object b2ShapeProxy</a></li>
+          </ul></dd>
 <dt><a name="b2Shape_RayCast" href="#b2Shape_RayCast"><span>b2Shape_RayCast:</span></a></dt><dd><ul class="simple">
 <li><a class="reference external"
-          data-doc-search-tag="api: proc b2Shape_RayCast(shapeId: b2ShapeId; origin: b2Vec2; translation: b2Vec2): b2CastOutput" href="box2d/api.html#b2Shape_RayCast%2Cb2ShapeId%2Cb2Vec2%2Cb2Vec2">api: proc b2Shape_RayCast(shapeId: b2ShapeId; origin: b2Vec2; translation: b2Vec2): b2CastOutput</a></li>
+          data-doc-search-tag="api: proc b2Shape_RayCast(shapeId: b2ShapeId; input: ptr b2RayCastInput): b2CastOutput" href="box2d/api.html#b2Shape_RayCast%2Cb2ShapeId%2Cptr.b2RayCastInput">api: proc b2Shape_RayCast(shapeId: b2ShapeId; input: ptr b2RayCastInput): b2CastOutput</a></li>
           </ul></dd>
 <dt><a name="b2Shape_SetCapsule" href="#b2Shape_SetCapsule"><span>b2Shape_SetCapsule:</span></a></dt><dd><ul class="simple">
 <li><a class="reference external"
@@ -1778,7 +1938,7 @@
           </ul></dd>
 <dt><a name="b2Shape_SetDensity" href="#b2Shape_SetDensity"><span>b2Shape_SetDensity:</span></a></dt><dd><ul class="simple">
 <li><a class="reference external"
-          data-doc-search-tag="api: proc b2Shape_SetDensity(shapeId: b2ShapeId; density: cfloat): void" href="box2d/api.html#b2Shape_SetDensity%2Cb2ShapeId%2Ccfloat">api: proc b2Shape_SetDensity(shapeId: b2ShapeId; density: cfloat): void</a></li>
+          data-doc-search-tag="api: proc b2Shape_SetDensity(shapeId: b2ShapeId; density: cfloat; updateBodyMass: bool): void" href="box2d/api.html#b2Shape_SetDensity%2Cb2ShapeId%2Ccfloat%2Cbool">api: proc b2Shape_SetDensity(shapeId: b2ShapeId; density: cfloat; updateBodyMass: bool): void</a></li>
           </ul></dd>
 <dt><a name="b2Shape_SetFilter" href="#b2Shape_SetFilter"><span>b2Shape_SetFilter:</span></a></dt><dd><ul class="simple">
 <li><a class="reference external"
@@ -1787,6 +1947,10 @@
 <dt><a name="b2Shape_SetFriction" href="#b2Shape_SetFriction"><span>b2Shape_SetFriction:</span></a></dt><dd><ul class="simple">
 <li><a class="reference external"
           data-doc-search-tag="api: proc b2Shape_SetFriction(shapeId: b2ShapeId; friction: cfloat): void" href="box2d/api.html#b2Shape_SetFriction%2Cb2ShapeId%2Ccfloat">api: proc b2Shape_SetFriction(shapeId: b2ShapeId; friction: cfloat): void</a></li>
+          </ul></dd>
+<dt><a name="b2Shape_SetMaterial" href="#b2Shape_SetMaterial"><span>b2Shape_SetMaterial:</span></a></dt><dd><ul class="simple">
+<li><a class="reference external"
+          data-doc-search-tag="api: proc b2Shape_SetMaterial(shapeId: b2ShapeId; material: cint): void" href="box2d/api.html#b2Shape_SetMaterial%2Cb2ShapeId%2Ccint">api: proc b2Shape_SetMaterial(shapeId: b2ShapeId; material: cint): void</a></li>
           </ul></dd>
 <dt><a name="b2Shape_SetPolygon" href="#b2Shape_SetPolygon"><span>b2Shape_SetPolygon:</span></a></dt><dd><ul class="simple">
 <li><a class="reference external"
@@ -1799,6 +1963,12 @@
 <dt><a name="b2Shape_SetSegment" href="#b2Shape_SetSegment"><span>b2Shape_SetSegment:</span></a></dt><dd><ul class="simple">
 <li><a class="reference external"
           data-doc-search-tag="api: proc b2Shape_SetSegment(shapeId: b2ShapeId; segment: ptr b2Segment): void" href="box2d/api.html#b2Shape_SetSegment%2Cb2ShapeId%2Cptr.b2Segment">api: proc b2Shape_SetSegment(shapeId: b2ShapeId; segment: ptr b2Segment): void</a></li>
+          </ul></dd>
+<dt><a name="b2Shape_SetSurfaceMaterial" href="#b2Shape_SetSurfaceMaterial"><span>b2Shape_SetSurfaceMaterial:</span></a></dt><dd><ul class="simple">
+<li><a class="reference external"
+          data-doc-search-tag="api: proc b2Shape_SetSurfaceMaterial(shapeId: b2ShapeId;
+                           surfaceMaterial: b2SurfaceMaterial): void" href="box2d/api.html#b2Shape_SetSurfaceMaterial%2Cb2ShapeId%2Cb2SurfaceMaterial">api: proc b2Shape_SetSurfaceMaterial(shapeId: b2ShapeId;
+                           surfaceMaterial: b2SurfaceMaterial): void</a></li>
           </ul></dd>
 <dt><a name="b2Shape_SetUserData" href="#b2Shape_SetUserData"><span>b2Shape_SetUserData:</span></a></dt><dd><ul class="simple">
 <li><a class="reference external"
@@ -1816,25 +1986,29 @@
 <li><a class="reference external"
           data-doc-search-tag="api: object b2Simplex" href="box2d/api.html#b2Simplex">api: object b2Simplex</a></li>
           </ul></dd>
+<dt><a name="b2SimplexCache" href="#b2SimplexCache"><span>b2SimplexCache:</span></a></dt><dd><ul class="simple">
+<li><a class="reference external"
+          data-doc-search-tag="api: object b2SimplexCache" href="box2d/api.html#b2SimplexCache">api: object b2SimplexCache</a></li>
+          </ul></dd>
 <dt><a name="b2SimplexVertex" href="#b2SimplexVertex"><span>b2SimplexVertex:</span></a></dt><dd><ul class="simple">
 <li><a class="reference external"
           data-doc-search-tag="api: object b2SimplexVertex" href="box2d/api.html#b2SimplexVertex">api: object b2SimplexVertex</a></li>
-          </ul></dd>
-<dt><a name="b2SleepMilliseconds" href="#b2SleepMilliseconds"><span>b2SleepMilliseconds:</span></a></dt><dd><ul class="simple">
-<li><a class="reference external"
-          data-doc-search-tag="api: proc b2SleepMilliseconds(milliseconds: cint): void" href="box2d/api.html#b2SleepMilliseconds%2Ccint">api: proc b2SleepMilliseconds(milliseconds: cint): void</a></li>
-          </ul></dd>
-<dt><a name="b2SmoothSegment" href="#b2SmoothSegment"><span>b2SmoothSegment:</span></a></dt><dd><ul class="simple">
-<li><a class="reference external"
-          data-doc-search-tag="api: object b2SmoothSegment" href="box2d/api.html#b2SmoothSegment">api: object b2SmoothSegment</a></li>
           </ul></dd>
 <dt><a name="b2Solve22" href="#b2Solve22"><span>b2Solve22:</span></a></dt><dd><ul class="simple">
 <li><a class="reference external"
           data-doc-search-tag="api: proc b2Solve22(A: b2Mat22; b: b2Vec2): b2Vec2" href="box2d/api.html#b2Solve22%2Cb2Mat22%2Cb2Vec2">api: proc b2Solve22(A: b2Mat22; b: b2Vec2): b2Vec2</a></li>
           </ul></dd>
+<dt><a name="b2SolvePlanes" href="#b2SolvePlanes"><span>b2SolvePlanes:</span></a></dt><dd><ul class="simple">
+<li><a class="reference external"
+          data-doc-search-tag="api: proc b2SolvePlanes(targetDelta: b2Vec2; planes: ptr b2CollisionPlane; count: cint): b2PlaneSolverResult" href="box2d/api.html#b2SolvePlanes%2Cb2Vec2%2Cptr.b2CollisionPlane%2Ccint">api: proc b2SolvePlanes(targetDelta: b2Vec2; planes: ptr b2CollisionPlane; count: cint): b2PlaneSolverResult</a></li>
+          </ul></dd>
 <dt><a name="b2Sub" href="#b2Sub"><span>b2Sub:</span></a></dt><dd><ul class="simple">
 <li><a class="reference external"
           data-doc-search-tag="api: template b2Sub(a: b2Vec2; b: b2Vec2): b2Vec2" href="box2d/api.html#b2Sub.t%2Cb2Vec2%2Cb2Vec2">api: template b2Sub(a: b2Vec2; b: b2Vec2): b2Vec2</a></li>
+          </ul></dd>
+<dt><a name="b2SurfaceMaterial" href="#b2SurfaceMaterial"><span>b2SurfaceMaterial:</span></a></dt><dd><ul class="simple">
+<li><a class="reference external"
+          data-doc-search-tag="api: object b2SurfaceMaterial" href="box2d/api.html#b2SurfaceMaterial">api: object b2SurfaceMaterial</a></li>
           </ul></dd>
 <dt><a name="b2Sweep" href="#b2Sweep"><span>b2Sweep:</span></a></dt><dd><ul class="simple">
 <li><a class="reference external"
@@ -1847,10 +2021,6 @@
 <dt><a name="b2TimeOfImpact" href="#b2TimeOfImpact"><span>b2TimeOfImpact:</span></a></dt><dd><ul class="simple">
 <li><a class="reference external"
           data-doc-search-tag="api: proc b2TimeOfImpact(input: ptr b2TOIInput): b2TOIOutput" href="box2d/api.html#b2TimeOfImpact%2Cptr.b2TOIInput">api: proc b2TimeOfImpact(input: ptr b2TOIInput): b2TOIOutput</a></li>
-          </ul></dd>
-<dt><a name="b2Timer" href="#b2Timer"><span>b2Timer:</span></a></dt><dd><ul class="simple">
-<li><a class="reference external"
-          data-doc-search-tag="api: object b2Timer" href="box2d/api.html#b2Timer">api: object b2Timer</a></li>
           </ul></dd>
 <dt><a name="b2TOIInput" href="#b2TOIInput"><span>b2TOIInput:</span></a></dt><dd><ul class="simple">
 <li><a class="reference external"
@@ -1880,14 +2050,6 @@
 <li><a class="reference external"
           data-doc-search-tag="api: proc b2TransformPolygon(transform: b2Transform; polygon: ptr b2Polygon): b2Polygon" href="box2d/api.html#b2TransformPolygon%2Cb2Transform%2Cptr.b2Polygon">api: proc b2TransformPolygon(transform: b2Transform; polygon: ptr b2Polygon): b2Polygon</a></li>
           </ul></dd>
-<dt><a name="b2TreeNode" href="#b2TreeNode"><span>b2TreeNode:</span></a></dt><dd><ul class="simple">
-<li><a class="reference external"
-          data-doc-search-tag="api: object b2TreeNode" href="box2d/api.html#b2TreeNode">api: object b2TreeNode</a></li>
-          </ul></dd>
-<dt><a name="b2TreeNode_anon0_t" href="#b2TreeNode_anon0_t"><span>b2TreeNode_anon0_t:</span></a></dt><dd><ul class="simple">
-<li><a class="reference external"
-          data-doc-search-tag="api: object b2TreeNode_anon0_t" href="box2d/api.html#b2TreeNode_anon0_t">api: object b2TreeNode_anon0_t</a></li>
-          </ul></dd>
 <dt><a name="b2TreeQueryCallbackFcn" href="#b2TreeQueryCallbackFcn"><span>b2TreeQueryCallbackFcn:</span></a></dt><dd><ul class="simple">
 <li><a class="reference external"
           data-doc-search-tag="api: type b2TreeQueryCallbackFcn" href="box2d/api.html#b2TreeQueryCallbackFcn">api: type b2TreeQueryCallbackFcn</a></li>
@@ -1900,6 +2062,10 @@
 <li><a class="reference external"
           data-doc-search-tag="api: type b2TreeShapeCastCallbackFcn" href="box2d/api.html#b2TreeShapeCastCallbackFcn">api: type b2TreeShapeCastCallbackFcn</a></li>
           </ul></dd>
+<dt><a name="b2TreeStats" href="#b2TreeStats"><span>b2TreeStats:</span></a></dt><dd><ul class="simple">
+<li><a class="reference external"
+          data-doc-search-tag="api: object b2TreeStats" href="box2d/api.html#b2TreeStats">api: object b2TreeStats</a></li>
+          </ul></dd>
 <dt><a name="b2UnwindAngle" href="#b2UnwindAngle"><span>b2UnwindAngle:</span></a></dt><dd><ul class="simple">
 <li><a class="reference external"
           data-doc-search-tag="api: proc b2UnwindAngle(angle: cfloat): cfloat" href="box2d/api.html#b2UnwindAngle%2Ccfloat">api: proc b2UnwindAngle(angle: cfloat): cfloat</a></li>
@@ -1911,10 +2077,6 @@
 <dt><a name="b2Vec2" href="#b2Vec2"><span>b2Vec2:</span></a></dt><dd><ul class="simple">
 <li><a class="reference external"
           data-doc-search-tag="api: object b2Vec2" href="box2d/api.html#b2Vec2">api: object b2Vec2</a></li>
-          </ul></dd>
-<dt><a name="b2Vec2_IsValid" href="#b2Vec2_IsValid"><span>b2Vec2_IsValid:</span></a></dt><dd><ul class="simple">
-<li><a class="reference external"
-          data-doc-search-tag="api: proc b2Vec2_IsValid(v: b2Vec2): bool" href="box2d/api.html#b2Vec2_IsValid%2Cb2Vec2">api: proc b2Vec2_IsValid(v: b2Vec2): bool</a></li>
           </ul></dd>
 <dt><a name="b2Vec2_zero" href="#b2Vec2_zero"><span>b2Vec2_zero:</span></a></dt><dd><ul class="simple">
 <li><a class="reference external"
@@ -2036,45 +2198,39 @@
 <li><a class="reference external"
           data-doc-search-tag="api: proc b2WheelJoint_SetSpringHertz(jointId: b2JointId; hertz: cfloat): void" href="box2d/api.html#b2WheelJoint_SetSpringHertz%2Cb2JointId%2Ccfloat">api: proc b2WheelJoint_SetSpringHertz(jointId: b2JointId; hertz: cfloat): void</a></li>
           </ul></dd>
-<dt><a name="b2World_CastCapsule" href="#b2World_CastCapsule"><span>b2World_CastCapsule:</span></a></dt><dd><ul class="simple">
+<dt><a name="b2World_CastMover" href="#b2World_CastMover"><span>b2World_CastMover:</span></a></dt><dd><ul class="simple">
 <li><a class="reference external"
-          data-doc-search-tag="api: proc b2World_CastCapsule(worldId: b2WorldId; capsule: ptr b2Capsule;
-                    originTransform: b2Transform; translation: b2Vec2;
-                    filter: b2QueryFilter; fcn: b2CastResultFcn;
-                    context: pointer): void" href="box2d/api.html#b2World_CastCapsule%2Cb2WorldId%2Cptr.b2Capsule%2Cb2Transform%2Cb2Vec2%2Cb2QueryFilter%2Cb2CastResultFcn%2Cpointer">api: proc b2World_CastCapsule(worldId: b2WorldId; capsule: ptr b2Capsule;
-                    originTransform: b2Transform; translation: b2Vec2;
-                    filter: b2QueryFilter; fcn: b2CastResultFcn;
-                    context: pointer): void</a></li>
-          </ul></dd>
-<dt><a name="b2World_CastCircle" href="#b2World_CastCircle"><span>b2World_CastCircle:</span></a></dt><dd><ul class="simple">
-<li><a class="reference external"
-          data-doc-search-tag="api: proc b2World_CastCircle(worldId: b2WorldId; circle: ptr b2Circle;
-                   originTransform: b2Transform; translation: b2Vec2;
-                   filter: b2QueryFilter; fcn: b2CastResultFcn; context: pointer): void" href="box2d/api.html#b2World_CastCircle%2Cb2WorldId%2Cptr.b2Circle%2Cb2Transform%2Cb2Vec2%2Cb2QueryFilter%2Cb2CastResultFcn%2Cpointer">api: proc b2World_CastCircle(worldId: b2WorldId; circle: ptr b2Circle;
-                   originTransform: b2Transform; translation: b2Vec2;
-                   filter: b2QueryFilter; fcn: b2CastResultFcn; context: pointer): void</a></li>
-          </ul></dd>
-<dt><a name="b2World_CastPolygon" href="#b2World_CastPolygon"><span>b2World_CastPolygon:</span></a></dt><dd><ul class="simple">
-<li><a class="reference external"
-          data-doc-search-tag="api: proc b2World_CastPolygon(worldId: b2WorldId; polygon: ptr b2Polygon;
-                    originTransform: b2Transform; translation: b2Vec2;
-                    filter: b2QueryFilter; fcn: b2CastResultFcn;
-                    context: pointer): void" href="box2d/api.html#b2World_CastPolygon%2Cb2WorldId%2Cptr.b2Polygon%2Cb2Transform%2Cb2Vec2%2Cb2QueryFilter%2Cb2CastResultFcn%2Cpointer">api: proc b2World_CastPolygon(worldId: b2WorldId; polygon: ptr b2Polygon;
-                    originTransform: b2Transform; translation: b2Vec2;
-                    filter: b2QueryFilter; fcn: b2CastResultFcn;
-                    context: pointer): void</a></li>
+          data-doc-search-tag="api: proc b2World_CastMover(worldId: b2WorldId; mover: ptr b2Capsule; translation: b2Vec2;
+                  filter: b2QueryFilter): cfloat" href="box2d/api.html#b2World_CastMover%2Cb2WorldId%2Cptr.b2Capsule%2Cb2Vec2%2Cb2QueryFilter">api: proc b2World_CastMover(worldId: b2WorldId; mover: ptr b2Capsule; translation: b2Vec2;
+                  filter: b2QueryFilter): cfloat</a></li>
           </ul></dd>
 <dt><a name="b2World_CastRay" href="#b2World_CastRay"><span>b2World_CastRay:</span></a></dt><dd><ul class="simple">
 <li><a class="reference external"
           data-doc-search-tag="api: proc b2World_CastRay(worldId: b2WorldId; origin: b2Vec2; translation: b2Vec2;
-                filter: b2QueryFilter; fcn: b2CastResultFcn; context: pointer): void" href="box2d/api.html#b2World_CastRay%2Cb2WorldId%2Cb2Vec2%2Cb2Vec2%2Cb2QueryFilter%2Cb2CastResultFcn%2Cpointer">api: proc b2World_CastRay(worldId: b2WorldId; origin: b2Vec2; translation: b2Vec2;
-                filter: b2QueryFilter; fcn: b2CastResultFcn; context: pointer): void</a></li>
+                filter: b2QueryFilter; fcn: b2CastResultFcn; context: pointer): b2TreeStats" href="box2d/api.html#b2World_CastRay%2Cb2WorldId%2Cb2Vec2%2Cb2Vec2%2Cb2QueryFilter%2Cb2CastResultFcn%2Cpointer">api: proc b2World_CastRay(worldId: b2WorldId; origin: b2Vec2; translation: b2Vec2;
+                filter: b2QueryFilter; fcn: b2CastResultFcn; context: pointer): b2TreeStats</a></li>
           </ul></dd>
 <dt><a name="b2World_CastRayClosest" href="#b2World_CastRayClosest"><span>b2World_CastRayClosest:</span></a></dt><dd><ul class="simple">
 <li><a class="reference external"
           data-doc-search-tag="api: proc b2World_CastRayClosest(worldId: b2WorldId; origin: b2Vec2; translation: b2Vec2;
                        filter: b2QueryFilter): b2RayResult" href="box2d/api.html#b2World_CastRayClosest%2Cb2WorldId%2Cb2Vec2%2Cb2Vec2%2Cb2QueryFilter">api: proc b2World_CastRayClosest(worldId: b2WorldId; origin: b2Vec2; translation: b2Vec2;
                        filter: b2QueryFilter): b2RayResult</a></li>
+          </ul></dd>
+<dt><a name="b2World_CastShape" href="#b2World_CastShape"><span>b2World_CastShape:</span></a></dt><dd><ul class="simple">
+<li><a class="reference external"
+          data-doc-search-tag="api: proc b2World_CastShape(worldId: b2WorldId; proxy: ptr b2ShapeProxy;
+                  translation: b2Vec2; filter: b2QueryFilter;
+                  fcn: b2CastResultFcn; context: pointer): b2TreeStats" href="box2d/api.html#b2World_CastShape%2Cb2WorldId%2Cptr.b2ShapeProxy%2Cb2Vec2%2Cb2QueryFilter%2Cb2CastResultFcn%2Cpointer">api: proc b2World_CastShape(worldId: b2WorldId; proxy: ptr b2ShapeProxy;
+                  translation: b2Vec2; filter: b2QueryFilter;
+                  fcn: b2CastResultFcn; context: pointer): b2TreeStats</a></li>
+          </ul></dd>
+<dt><a name="b2World_CollideMover" href="#b2World_CollideMover"><span>b2World_CollideMover:</span></a></dt><dd><ul class="simple">
+<li><a class="reference external"
+          data-doc-search-tag="api: proc b2World_CollideMover(worldId: b2WorldId; mover: ptr b2Capsule;
+                     filter: b2QueryFilter; fcn: b2PlaneResultFcn;
+                     context: pointer): void" href="box2d/api.html#b2World_CollideMover%2Cb2WorldId%2Cptr.b2Capsule%2Cb2QueryFilter%2Cb2PlaneResultFcn%2Cpointer">api: proc b2World_CollideMover(worldId: b2WorldId; mover: ptr b2Capsule;
+                     filter: b2QueryFilter; fcn: b2PlaneResultFcn;
+                     context: pointer): void</a></li>
           </ul></dd>
 <dt><a name="b2WorldDef" href="#b2WorldDef"><span>b2WorldDef:</span></a></dt><dd><ul class="simple">
 <li><a class="reference external"
@@ -2096,15 +2252,21 @@
 <li><a class="reference external"
           data-doc-search-tag="api: proc b2World_EnableSleeping(worldId: b2WorldId; flag: bool): void" href="box2d/api.html#b2World_EnableSleeping%2Cb2WorldId%2Cbool">api: proc b2World_EnableSleeping(worldId: b2WorldId; flag: bool): void</a></li>
           </ul></dd>
+<dt><a name="b2World_EnableSpeculative" href="#b2World_EnableSpeculative"><span>b2World_EnableSpeculative:</span></a></dt><dd><ul class="simple">
+<li><a class="reference external"
+          data-doc-search-tag="api: proc b2World_EnableSpeculative(worldId: b2WorldId; flag: bool): void" href="box2d/api.html#b2World_EnableSpeculative%2Cb2WorldId%2Cbool">api: proc b2World_EnableSpeculative(worldId: b2WorldId; flag: bool): void</a></li>
+          </ul></dd>
 <dt><a name="b2World_EnableWarmStarting" href="#b2World_EnableWarmStarting"><span>b2World_EnableWarmStarting:</span></a></dt><dd><ul class="simple">
 <li><a class="reference external"
           data-doc-search-tag="api: proc b2World_EnableWarmStarting(worldId: b2WorldId; flag: bool): void" href="box2d/api.html#b2World_EnableWarmStarting%2Cb2WorldId%2Cbool">api: proc b2World_EnableWarmStarting(worldId: b2WorldId; flag: bool): void</a></li>
           </ul></dd>
 <dt><a name="b2World_Explode" href="#b2World_Explode"><span>b2World_Explode:</span></a></dt><dd><ul class="simple">
 <li><a class="reference external"
-          data-doc-search-tag="api: proc b2World_Explode(worldId: b2WorldId; position: b2Vec2; radius: cfloat;
-                impulse: cfloat): void" href="box2d/api.html#b2World_Explode%2Cb2WorldId%2Cb2Vec2%2Ccfloat%2Ccfloat">api: proc b2World_Explode(worldId: b2WorldId; position: b2Vec2; radius: cfloat;
-                impulse: cfloat): void</a></li>
+          data-doc-search-tag="api: proc b2World_Explode(worldId: b2WorldId; explosionDef: ptr b2ExplosionDef): void" href="box2d/api.html#b2World_Explode%2Cb2WorldId%2Cptr.b2ExplosionDef">api: proc b2World_Explode(worldId: b2WorldId; explosionDef: ptr b2ExplosionDef): void</a></li>
+          </ul></dd>
+<dt><a name="b2World_GetAwakeBodyCount" href="#b2World_GetAwakeBodyCount"><span>b2World_GetAwakeBodyCount:</span></a></dt><dd><ul class="simple">
+<li><a class="reference external"
+          data-doc-search-tag="api: proc b2World_GetAwakeBodyCount(worldId: b2WorldId): cint" href="box2d/api.html#b2World_GetAwakeBodyCount%2Cb2WorldId">api: proc b2World_GetAwakeBodyCount(worldId: b2WorldId): cint</a></li>
           </ul></dd>
 <dt><a name="b2World_GetBodyEvents" href="#b2World_GetBodyEvents"><span>b2World_GetBodyEvents:</span></a></dt><dd><ul class="simple">
 <li><a class="reference external"
@@ -2122,63 +2284,87 @@
 <li><a class="reference external"
           data-doc-search-tag="api: proc b2World_GetGravity(worldId: b2WorldId): b2Vec2" href="box2d/api.html#b2World_GetGravity%2Cb2WorldId">api: proc b2World_GetGravity(worldId: b2WorldId): b2Vec2</a></li>
           </ul></dd>
+<dt><a name="b2World_GetHitEventThreshold" href="#b2World_GetHitEventThreshold"><span>b2World_GetHitEventThreshold:</span></a></dt><dd><ul class="simple">
+<li><a class="reference external"
+          data-doc-search-tag="api: proc b2World_GetHitEventThreshold(worldId: b2WorldId): cfloat" href="box2d/api.html#b2World_GetHitEventThreshold%2Cb2WorldId">api: proc b2World_GetHitEventThreshold(worldId: b2WorldId): cfloat</a></li>
+          </ul></dd>
+<dt><a name="b2World_GetJointEvents" href="#b2World_GetJointEvents"><span>b2World_GetJointEvents:</span></a></dt><dd><ul class="simple">
+<li><a class="reference external"
+          data-doc-search-tag="api: proc b2World_GetJointEvents(worldId: b2WorldId): b2JointEvents" href="box2d/api.html#b2World_GetJointEvents%2Cb2WorldId">api: proc b2World_GetJointEvents(worldId: b2WorldId): b2JointEvents</a></li>
+          </ul></dd>
+<dt><a name="b2World_GetMaximumLinearSpeed" href="#b2World_GetMaximumLinearSpeed"><span>b2World_GetMaximumLinearSpeed:</span></a></dt><dd><ul class="simple">
+<li><a class="reference external"
+          data-doc-search-tag="api: proc b2World_GetMaximumLinearSpeed(worldId: b2WorldId): cfloat" href="box2d/api.html#b2World_GetMaximumLinearSpeed%2Cb2WorldId">api: proc b2World_GetMaximumLinearSpeed(worldId: b2WorldId): cfloat</a></li>
+          </ul></dd>
 <dt><a name="b2World_GetProfile" href="#b2World_GetProfile"><span>b2World_GetProfile:</span></a></dt><dd><ul class="simple">
 <li><a class="reference external"
           data-doc-search-tag="api: proc b2World_GetProfile(worldId: b2WorldId): b2Profile" href="box2d/api.html#b2World_GetProfile%2Cb2WorldId">api: proc b2World_GetProfile(worldId: b2WorldId): b2Profile</a></li>
+          </ul></dd>
+<dt><a name="b2World_GetRestitutionThreshold" href="#b2World_GetRestitutionThreshold"><span>b2World_GetRestitutionThreshold:</span></a></dt><dd><ul class="simple">
+<li><a class="reference external"
+          data-doc-search-tag="api: proc b2World_GetRestitutionThreshold(worldId: b2WorldId): cfloat" href="box2d/api.html#b2World_GetRestitutionThreshold%2Cb2WorldId">api: proc b2World_GetRestitutionThreshold(worldId: b2WorldId): cfloat</a></li>
           </ul></dd>
 <dt><a name="b2World_GetSensorEvents" href="#b2World_GetSensorEvents"><span>b2World_GetSensorEvents:</span></a></dt><dd><ul class="simple">
 <li><a class="reference external"
           data-doc-search-tag="api: proc b2World_GetSensorEvents(worldId: b2WorldId): b2SensorEvents" href="box2d/api.html#b2World_GetSensorEvents%2Cb2WorldId">api: proc b2World_GetSensorEvents(worldId: b2WorldId): b2SensorEvents</a></li>
           </ul></dd>
+<dt><a name="b2World_GetUserData" href="#b2World_GetUserData"><span>b2World_GetUserData:</span></a></dt><dd><ul class="simple">
+<li><a class="reference external"
+          data-doc-search-tag="api: proc b2World_GetUserData(worldId: b2WorldId): pointer" href="box2d/api.html#b2World_GetUserData%2Cb2WorldId">api: proc b2World_GetUserData(worldId: b2WorldId): pointer</a></li>
+          </ul></dd>
 <dt><a name="b2WorldId" href="#b2WorldId"><span>b2WorldId:</span></a></dt><dd><ul class="simple">
 <li><a class="reference external"
           data-doc-search-tag="api: object b2WorldId" href="box2d/api.html#b2WorldId">api: object b2WorldId</a></li>
+          </ul></dd>
+<dt><a name="b2World_IsContinuousEnabled" href="#b2World_IsContinuousEnabled"><span>b2World_IsContinuousEnabled:</span></a></dt><dd><ul class="simple">
+<li><a class="reference external"
+          data-doc-search-tag="api: proc b2World_IsContinuousEnabled(worldId: b2WorldId): bool" href="box2d/api.html#b2World_IsContinuousEnabled%2Cb2WorldId">api: proc b2World_IsContinuousEnabled(worldId: b2WorldId): bool</a></li>
+          </ul></dd>
+<dt><a name="b2World_IsSleepingEnabled" href="#b2World_IsSleepingEnabled"><span>b2World_IsSleepingEnabled:</span></a></dt><dd><ul class="simple">
+<li><a class="reference external"
+          data-doc-search-tag="api: proc b2World_IsSleepingEnabled(worldId: b2WorldId): bool" href="box2d/api.html#b2World_IsSleepingEnabled%2Cb2WorldId">api: proc b2World_IsSleepingEnabled(worldId: b2WorldId): bool</a></li>
           </ul></dd>
 <dt><a name="b2World_IsValid" href="#b2World_IsValid"><span>b2World_IsValid:</span></a></dt><dd><ul class="simple">
 <li><a class="reference external"
           data-doc-search-tag="api: proc b2World_IsValid(id: b2WorldId): bool" href="box2d/api.html#b2World_IsValid%2Cb2WorldId">api: proc b2World_IsValid(id: b2WorldId): bool</a></li>
           </ul></dd>
+<dt><a name="b2World_IsWarmStartingEnabled" href="#b2World_IsWarmStartingEnabled"><span>b2World_IsWarmStartingEnabled:</span></a></dt><dd><ul class="simple">
+<li><a class="reference external"
+          data-doc-search-tag="api: proc b2World_IsWarmStartingEnabled(worldId: b2WorldId): bool" href="box2d/api.html#b2World_IsWarmStartingEnabled%2Cb2WorldId">api: proc b2World_IsWarmStartingEnabled(worldId: b2WorldId): bool</a></li>
+          </ul></dd>
 <dt><a name="b2World_OverlapAABB" href="#b2World_OverlapAABB"><span>b2World_OverlapAABB:</span></a></dt><dd><ul class="simple">
 <li><a class="reference external"
           data-doc-search-tag="api: proc b2World_OverlapAABB(worldId: b2WorldId; aabb: b2AABB; filter: b2QueryFilter;
-                    fcn: b2OverlapResultFcn; context: pointer): void" href="box2d/api.html#b2World_OverlapAABB%2Cb2WorldId%2Cb2AABB%2Cb2QueryFilter%2Cb2OverlapResultFcn%2Cpointer">api: proc b2World_OverlapAABB(worldId: b2WorldId; aabb: b2AABB; filter: b2QueryFilter;
-                    fcn: b2OverlapResultFcn; context: pointer): void</a></li>
+                    fcn: b2OverlapResultFcn; context: pointer): b2TreeStats" href="box2d/api.html#b2World_OverlapAABB%2Cb2WorldId%2Cb2AABB%2Cb2QueryFilter%2Cb2OverlapResultFcn%2Cpointer">api: proc b2World_OverlapAABB(worldId: b2WorldId; aabb: b2AABB; filter: b2QueryFilter;
+                    fcn: b2OverlapResultFcn; context: pointer): b2TreeStats</a></li>
           </ul></dd>
-<dt><a name="b2World_OverlapCapsule" href="#b2World_OverlapCapsule"><span>b2World_OverlapCapsule:</span></a></dt><dd><ul class="simple">
+<dt><a name="b2World_OverlapShape" href="#b2World_OverlapShape"><span>b2World_OverlapShape:</span></a></dt><dd><ul class="simple">
 <li><a class="reference external"
-          data-doc-search-tag="api: proc b2World_OverlapCapsule(worldId: b2WorldId; capsule: ptr b2Capsule;
-                       transform: b2Transform; filter: b2QueryFilter;
-                       fcn: b2OverlapResultFcn; context: pointer): void" href="box2d/api.html#b2World_OverlapCapsule%2Cb2WorldId%2Cptr.b2Capsule%2Cb2Transform%2Cb2QueryFilter%2Cb2OverlapResultFcn%2Cpointer">api: proc b2World_OverlapCapsule(worldId: b2WorldId; capsule: ptr b2Capsule;
-                       transform: b2Transform; filter: b2QueryFilter;
-                       fcn: b2OverlapResultFcn; context: pointer): void</a></li>
+          data-doc-search-tag="api: proc b2World_OverlapShape(worldId: b2WorldId; proxy: ptr b2ShapeProxy;
+                     filter: b2QueryFilter; fcn: b2OverlapResultFcn;
+                     context: pointer): b2TreeStats" href="box2d/api.html#b2World_OverlapShape%2Cb2WorldId%2Cptr.b2ShapeProxy%2Cb2QueryFilter%2Cb2OverlapResultFcn%2Cpointer">api: proc b2World_OverlapShape(worldId: b2WorldId; proxy: ptr b2ShapeProxy;
+                     filter: b2QueryFilter; fcn: b2OverlapResultFcn;
+                     context: pointer): b2TreeStats</a></li>
           </ul></dd>
-<dt><a name="b2World_OverlapCircle" href="#b2World_OverlapCircle"><span>b2World_OverlapCircle:</span></a></dt><dd><ul class="simple">
+<dt><a name="b2World_RebuildStaticTree" href="#b2World_RebuildStaticTree"><span>b2World_RebuildStaticTree:</span></a></dt><dd><ul class="simple">
 <li><a class="reference external"
-          data-doc-search-tag="api: proc b2World_OverlapCircle(worldId: b2WorldId; circle: ptr b2Circle;
-                      transform: b2Transform; filter: b2QueryFilter;
-                      fcn: b2OverlapResultFcn; context: pointer): void" href="box2d/api.html#b2World_OverlapCircle%2Cb2WorldId%2Cptr.b2Circle%2Cb2Transform%2Cb2QueryFilter%2Cb2OverlapResultFcn%2Cpointer">api: proc b2World_OverlapCircle(worldId: b2WorldId; circle: ptr b2Circle;
-                      transform: b2Transform; filter: b2QueryFilter;
-                      fcn: b2OverlapResultFcn; context: pointer): void</a></li>
-          </ul></dd>
-<dt><a name="b2World_OverlapPolygon" href="#b2World_OverlapPolygon"><span>b2World_OverlapPolygon:</span></a></dt><dd><ul class="simple">
-<li><a class="reference external"
-          data-doc-search-tag="api: proc b2World_OverlapPolygon(worldId: b2WorldId; polygon: ptr b2Polygon;
-                       transform: b2Transform; filter: b2QueryFilter;
-                       fcn: b2OverlapResultFcn; context: pointer): void" href="box2d/api.html#b2World_OverlapPolygon%2Cb2WorldId%2Cptr.b2Polygon%2Cb2Transform%2Cb2QueryFilter%2Cb2OverlapResultFcn%2Cpointer">api: proc b2World_OverlapPolygon(worldId: b2WorldId; polygon: ptr b2Polygon;
-                       transform: b2Transform; filter: b2QueryFilter;
-                       fcn: b2OverlapResultFcn; context: pointer): void</a></li>
+          data-doc-search-tag="api: proc b2World_RebuildStaticTree(worldId: b2WorldId): void" href="box2d/api.html#b2World_RebuildStaticTree%2Cb2WorldId">api: proc b2World_RebuildStaticTree(worldId: b2WorldId): void</a></li>
           </ul></dd>
 <dt><a name="b2World_SetContactTuning" href="#b2World_SetContactTuning"><span>b2World_SetContactTuning:</span></a></dt><dd><ul class="simple">
 <li><a class="reference external"
           data-doc-search-tag="api: proc b2World_SetContactTuning(worldId: b2WorldId; hertz: cfloat;
-                         dampingRatio: cfloat; pushVelocity: cfloat): void" href="box2d/api.html#b2World_SetContactTuning%2Cb2WorldId%2Ccfloat%2Ccfloat%2Ccfloat">api: proc b2World_SetContactTuning(worldId: b2WorldId; hertz: cfloat;
-                         dampingRatio: cfloat; pushVelocity: cfloat): void</a></li>
+                         dampingRatio: cfloat; pushSpeed: cfloat): void" href="box2d/api.html#b2World_SetContactTuning%2Cb2WorldId%2Ccfloat%2Ccfloat%2Ccfloat">api: proc b2World_SetContactTuning(worldId: b2WorldId; hertz: cfloat;
+                         dampingRatio: cfloat; pushSpeed: cfloat): void</a></li>
           </ul></dd>
 <dt><a name="b2World_SetCustomFilterCallback" href="#b2World_SetCustomFilterCallback"><span>b2World_SetCustomFilterCallback:</span></a></dt><dd><ul class="simple">
 <li><a class="reference external"
           data-doc-search-tag="api: proc b2World_SetCustomFilterCallback(worldId: b2WorldId; fcn: b2CustomFilterFcn;
                                 context: pointer): void" href="box2d/api.html#b2World_SetCustomFilterCallback%2Cb2WorldId%2Cb2CustomFilterFcn%2Cpointer">api: proc b2World_SetCustomFilterCallback(worldId: b2WorldId; fcn: b2CustomFilterFcn;
                                 context: pointer): void</a></li>
+          </ul></dd>
+<dt><a name="b2World_SetFrictionCallback" href="#b2World_SetFrictionCallback"><span>b2World_SetFrictionCallback:</span></a></dt><dd><ul class="simple">
+<li><a class="reference external"
+          data-doc-search-tag="api: proc b2World_SetFrictionCallback(worldId: b2WorldId; callback: b2FrictionCallback): void" href="box2d/api.html#b2World_SetFrictionCallback%2Cb2WorldId%2Cb2FrictionCallback">api: proc b2World_SetFrictionCallback(worldId: b2WorldId; callback: b2FrictionCallback): void</a></li>
           </ul></dd>
 <dt><a name="b2World_SetGravity" href="#b2World_SetGravity"><span>b2World_SetGravity:</span></a></dt><dd><ul class="simple">
 <li><a class="reference external"
@@ -2188,15 +2374,29 @@
 <li><a class="reference external"
           data-doc-search-tag="api: proc b2World_SetHitEventThreshold(worldId: b2WorldId; value: cfloat): void" href="box2d/api.html#b2World_SetHitEventThreshold%2Cb2WorldId%2Ccfloat">api: proc b2World_SetHitEventThreshold(worldId: b2WorldId; value: cfloat): void</a></li>
           </ul></dd>
+<dt><a name="b2World_SetMaximumLinearSpeed" href="#b2World_SetMaximumLinearSpeed"><span>b2World_SetMaximumLinearSpeed:</span></a></dt><dd><ul class="simple">
+<li><a class="reference external"
+          data-doc-search-tag="api: proc b2World_SetMaximumLinearSpeed(worldId: b2WorldId; maximumLinearSpeed: cfloat): void" href="box2d/api.html#b2World_SetMaximumLinearSpeed%2Cb2WorldId%2Ccfloat">api: proc b2World_SetMaximumLinearSpeed(worldId: b2WorldId; maximumLinearSpeed: cfloat): void</a></li>
+          </ul></dd>
 <dt><a name="b2World_SetPreSolveCallback" href="#b2World_SetPreSolveCallback"><span>b2World_SetPreSolveCallback:</span></a></dt><dd><ul class="simple">
 <li><a class="reference external"
           data-doc-search-tag="api: proc b2World_SetPreSolveCallback(worldId: b2WorldId; fcn: b2PreSolveFcn;
                             context: pointer): void" href="box2d/api.html#b2World_SetPreSolveCallback%2Cb2WorldId%2Cb2PreSolveFcn%2Cpointer">api: proc b2World_SetPreSolveCallback(worldId: b2WorldId; fcn: b2PreSolveFcn;
                             context: pointer): void</a></li>
           </ul></dd>
+<dt><a name="b2World_SetRestitutionCallback" href="#b2World_SetRestitutionCallback"><span>b2World_SetRestitutionCallback:</span></a></dt><dd><ul class="simple">
+<li><a class="reference external"
+          data-doc-search-tag="api: proc b2World_SetRestitutionCallback(worldId: b2WorldId;
+                               callback: b2RestitutionCallback): void" href="box2d/api.html#b2World_SetRestitutionCallback%2Cb2WorldId%2Cb2RestitutionCallback">api: proc b2World_SetRestitutionCallback(worldId: b2WorldId;
+                               callback: b2RestitutionCallback): void</a></li>
+          </ul></dd>
 <dt><a name="b2World_SetRestitutionThreshold" href="#b2World_SetRestitutionThreshold"><span>b2World_SetRestitutionThreshold:</span></a></dt><dd><ul class="simple">
 <li><a class="reference external"
           data-doc-search-tag="api: proc b2World_SetRestitutionThreshold(worldId: b2WorldId; value: cfloat): void" href="box2d/api.html#b2World_SetRestitutionThreshold%2Cb2WorldId%2Ccfloat">api: proc b2World_SetRestitutionThreshold(worldId: b2WorldId; value: cfloat): void</a></li>
+          </ul></dd>
+<dt><a name="b2World_SetUserData" href="#b2World_SetUserData"><span>b2World_SetUserData:</span></a></dt><dd><ul class="simple">
+<li><a class="reference external"
+          data-doc-search-tag="api: proc b2World_SetUserData(worldId: b2WorldId; userData: pointer): void" href="box2d/api.html#b2World_SetUserData%2Cb2WorldId%2Cpointer">api: proc b2World_SetUserData(worldId: b2WorldId; userData: pointer): void</a></li>
           </ul></dd>
 <dt><a name="b2World_Step" href="#b2World_Step"><span>b2World_Step:</span></a></dt><dd><ul class="simple">
 <li><a class="reference external"
@@ -2210,7 +2410,7 @@
         <div class="twelve-columns footer">
             <span class="nim-sprite"></span>
             <br>
-            <small style="color: var(--hint);">Made with Nim. Generated: 2024-10-25 01:03:42 UTC</small>
+            <small style="color: var(--hint);">Made with Nim. Generated: 2025-07-11 03:03:00 UTC</small>
         </div>
         </div>
     </div>
