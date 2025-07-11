@@ -31,7 +31,7 @@ test "hello_world":
 
   var shapeDef = b2DefaultShapeDef()
   shapeDef.density = 1.0f
-  shapeDef.friction = 0.3f
+  shapeDef.material.friction = 0.3f
 
   discard b2CreatePolygonShape(bodyId, shapeDef.addr, dynamicBox.addr)
 

@@ -27,9 +27,9 @@ const n = 4
 test "shape_mass_test":
     var md = b2ComputeCircleMass(circle.addr, 1.0f)
 
-    check (md.mass - b2_pi).abs <= FLT_EPSILON
+    check (md.mass - B2_PI).abs <= FLT_EPSILON
     check (md.center.x == 1.0f) and (md.center.y == 0.0f)
-    check (md.rotationalInertia - 1.5f * b2_pi).abs <= FLT_EPSILON
+    check (md.rotationalInertia - 0.5f * B2_PI).abs <= FLT_EPSILON
 
     let radius = capsule.radius
     let length = b2Distance(capsule.center1, capsule.center2)
@@ -40,15 +40,15 @@ test "shape_mass_test":
     let mdr = b2ComputePolygonMass(r.addr, 1.0f)
 
     var points: array[2*n, b2Vec2]
-    let d: float32 = b2_pi / (n.float32 - 1.0f)
-    var angle = -0.5f * b2_pi
+    let d: float32 = B2_PI / (n.float32 - 1.0f)
+    var angle = -0.5f * B2_PI
 
     for i in 0..<n:
         points[i].x = 1.0f + radius * cos(angle)
         points[i].y = radius * sin(angle)
         angle += d
     
-    angle = 0.5f * b2_pi
+    angle = 0.5f * B2_PI
 
     for i in 0..<(2*n):
         points[i].x = -1.0f + radius * cos(angle)
@@ -93,14 +93,14 @@ test "point_in_shape_test":
     let p1 = b2Vec2(x: 0.5f, y: 0.5f)
     let p2 = b2Vec2(x: 4.0f, y: -4.0f)
 
-    var hit = b2PointInCircle(p1, circle.addr)
+    var hit = b2PointInCircle(circle.addr, p1)
     check hit
-    hit = b2PointInCircle(p2, circle.addr)
+    hit = b2PointInCircle(circle.addr, p2)
     check not hit
 
-    hit = b2PointInPolygon(p1, box.addr)
+    hit = b2PointInPolygon(box.addr, p1)
     check hit
-    hit = b2PointInPolygon(p2, box.addr)
+    hit = b2PointInPolygon(box.addr, p2)
     check not hit
 
 
@@ -111,19 +111,19 @@ test "ray_cast_shape_test":
         maxFraction: 1.0f
     )
 
-    var output = b2RayCastCircle(input.addr, circle.addr)
+    var output = b2RayCastCircle(circle.addr, input.addr)
     check output.hit
     check (output.normal.x + 1.0f).abs <= FLT_EPSILON
     check output.normal.y.abs <= FLT_EPSILON
     check (output.fraction - 0.5f).abs <= FLT_EPSILON
 
-    output = b2RayCastPolygon(input.addr, box.addr)
+    output = b2RayCastPolygon(box.addr, input.addr)
     check output.hit
     check (output.normal.x + 1.0f).abs <= FLT_EPSILON
     check output.normal.y.abs <= FLT_EPSILON
     check (output.fraction - 3.0f / 8.0f).abs <= FLT_EPSILON
 
-    output = b2RayCastSegment(input.addr, segment.addr, true)
+    output = b2RayCastSegment(segment.addr, input.addr, true)
     check output.hit
     check (output.normal.x + 1.0f).abs <= FLT_EPSILON
     check output.normal.y.abs <= FLT_EPSILON

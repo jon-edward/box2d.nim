@@ -11,10 +11,10 @@ test "aabb_test":
         upperBound: b2Vec2(x: -2.0f, y: -2.0f)
     )
 
-    check not b2AABB_IsValid(a)
+    check not b2IsValidAABB(a)
 
     a.upperBound = b2Vec2(x: 1.0f, y: 1.0f)
-    check b2AABB_IsValid(a)
+    check b2IsValidAABB(a)
 
     let b = b2AABB(
         lowerBound: b2Vec2(x: 2.0f, y: 2.0f),

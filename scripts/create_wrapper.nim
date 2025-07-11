@@ -24,12 +24,8 @@ import paths, process
 const outputPath = libraryRoot / "wrapper.nim"
 
 
-const futharkCompilerArg {.define: "futharkCompilerArg".} = getClangIncludePath()
-
-
 # Box2D API
 importc:
-    compilerArg futharkCompilerArg
     path box2dRoot / "include" / "box2d"
     outputPath outputPath
     renameCallback wrapperRenameCallback

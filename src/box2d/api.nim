@@ -248,10 +248,10 @@ when not defined(b2RelativeAngle):
 # Translated from box2d/include/box2d/math_functions.h
 when not defined(b2UnwindAngle):
     proc b2UnwindAngle*(angle: cfloat): cfloat {.inline.} = 
-        if angle < -b2_pi:
-            angle + 2.0f * b2_pi
-        elif angle > b2_pi:
-            angle - 2.0f * b2_pi
+        if angle < -B2_PI:
+            angle + 2.0f * B2_PI
+        elif angle > B2_PI:
+            angle - 2.0f * B2_PI
         else:
             angle
 

@@ -1,7 +1,8 @@
 # box2d.nim
+
 Nim bindings for Erin Catto's [Box2D](https://github.com/erincatto/box2d) physics engine.
 
-## Installation 
+## Installation
 
 ```
 nimble install box2d
@@ -9,31 +10,31 @@ nimble install box2d
 
 ## Documentation
 
-See library documentation [here](https://jon-edward.github.io/box2d.nim/). Also, 
-because the library's naming is largely consistent with that of Box2D, you can use the 
+See library documentation [here](https://jon-edward.github.io/box2d.nim/). Also,
+because the library's naming is largely consistent with that of Box2D, you can use the
 [Box2D documentation](https://box2d.org/documentation/) directly.
 
 The only exception to the naming consistency is `b2BodyDef.type` being translated to `b2BodyDef.bodyType`
 because of the reserved `type` keyword in Nim.
 
-## Testing 
+## Testing
 
-There are most of Box2D's unit tests translated to Nim in the 
-[tests](https://github.com/jon-edward/box2d.nim/tree/main/tests) directory. In addition, there are larger examples 
-using [naylib](https://github.com/planetis-m/naylib) for rendering in the [examples](https://github.com/jon-edward/box2d.nim/tree/main/examples) 
+There are most of Box2D's unit tests translated to Nim in the
+[tests](https://github.com/jon-edward/box2d.nim/tree/main/tests) directory. In addition, there are larger examples
+using [naylib](https://github.com/planetis-m/naylib) for rendering in the [examples](https://github.com/jon-edward/box2d.nim/tree/main/examples)
 directory.
 
 Building and testing is done for `ubuntu-latest`, `windows-latest`, and `macos-latest` GitHub runners per release.
 
 ## Simple example
 
-Box2D passes the user IDs for creating, manipulating, and reading world members such as shapes and bodies. The properties 
+Box2D passes the user IDs for creating, manipulating, and reading world members such as shapes and bodies. The properties
 of these members are stored in various -`Def` types, such as [`b2BodyDef`](https://jon-edward.github.io/box2d.nim/box2d/wrapper.html#b2BodyDef).
 
-Making a dynamic body with a box shape is as simple as defining a world with a given gravity vector, creating a dynamic body in that world, 
-attaching it to a shape, and stepping the simulation forward. 
+Making a dynamic body with a box shape is as simple as defining a world with a given gravity vector, creating a dynamic body in that world,
+attaching it to a shape, and stepping the simulation forward.
 
-Notice that -`Def` types are used only for passing to `b2Create`- functions, 
+Notice that -`Def` types are used only for passing to `b2Create`- functions,
 and opaque -`Id` objects (`worldId`, `bodyId`) are retained.
 
 ```nim
@@ -64,9 +65,9 @@ let dynamicBox = b2MakeSquare(1.0f)
 # Create shape definition
 var shapeDef = b2DefaultShapeDef()
 shapeDef.density = 1.0f
-shapeDef.friction = 0.3f
+shapeDef.material.friction = 0.3f
 
-# Add polygon to simulation using body, shape definition, and box 
+# Add polygon to simulation using body, shape definition, and box
 discard b2CreatePolygonShape(bodyId, shapeDef.addr, dynamicBox.addr)
 
 # shapeDef and dynamicBox no longer needed

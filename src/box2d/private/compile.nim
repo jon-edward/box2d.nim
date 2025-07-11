@@ -16,6 +16,11 @@ const box2dRoot = currentSourcePath.parentDir / "box2d"
 when defined(emscripten):
   {.passC: "-D NDEBUG"}
 
+when defined(vcc): #for MSVC
+  {.passC: "/std:c17".}
+else:
+  {.passC: "-std=c17".}
+
 
 macro compileCFiles(sourceDir: static[string]): untyped = 
   ## List {.compile: "<C>".} for every C source file in sourceDir. 

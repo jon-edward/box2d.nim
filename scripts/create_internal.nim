@@ -8,12 +8,8 @@ import paths, process
 const outputPath = libraryRoot / "private" / "internal.nim"
 
 
-const futharkCompilerArg {.define: "futharkCompilerArg".} = getClangIncludePath()
-
-
 # Included in tests
 importc:
-    compilerArg futharkCompilerArg
     path box2dRoot / "src"
     sysPath box2dRoot / "jsmn"
     sysPath box2dRoot / "include"

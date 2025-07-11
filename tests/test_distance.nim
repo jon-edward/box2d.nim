@@ -42,9 +42,9 @@ test "shape_distance_test":
     input.transformB = b2Transform_identity
     input.useRadii = false
 
-    let cache = b2_emptyDistanceCache 
+    let cache = b2_emptySimplexCache 
 
-    let output = b2ShapeDistance(cache.addr, input.addr, nil, 0)
+    let output = b2ShapeDistance(input.addr, cache.addr, nil, 0)
 
     check (output.distance - 1.0f).abs < FLT_EPSILON
 
@@ -107,9 +107,9 @@ test "time_of_impact_test":
         q1: b2Rot_identity,
         q2: b2Rot_identity
     )
-    input.tMax = 1.0f
+    input.maxFraction = 1.0f
 
     let output = b2TimeOfImpact(input.addr)
 
     check output.state == b2_toiStateHit
-    check (output.t - 0.5f).abs < 0.005f
+    check (output.fraction - 0.5f).abs < 0.005f
