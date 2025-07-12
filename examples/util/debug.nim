@@ -88,7 +88,7 @@ proc drawSolidCapsule(p1: b2Vec2, p2: b2Vec2, radius: cfloat, color: b2HexColor,
     drawRectangle(rect, Vector2(x: 0.0f, y: 0.0f), angle, color.toRaylib)
 
 
-proc drawString(p: b2Vec2, s: cstring, context: pointer): void {.cdecl.} = 
+proc drawString(p: b2Vec2, s: cstring, _: b2HexColor, context: pointer): void {.cdecl.} = 
     drawText($s, p.x.toRaylib.int32, p.y.toRaylib.int32, 12, Red)
 
 
@@ -96,15 +96,15 @@ proc drawString(p: b2Vec2, s: cstring, context: pointer): void {.cdecl.} =
 proc defaultDebugDraw*(): b2DebugDraw = 
     var debugDraw: b2DebugDraw
 
-    debugDraw.DrawCircle = drawCircle
-    debugDraw.DrawPoint = drawPoint
-    debugDraw.DrawPolygon = drawPolygon
-    debugDraw.DrawSegment = drawSegment
-    debugDraw.DrawSolidCapsule = drawSolidCapsule
-    debugDraw.DrawSolidCircle = drawSolidCircle
-    debugDraw.DrawSolidPolygon = drawSolidPolygon
-    debugDraw.DrawTransform = drawTransform
-    debugDraw.DrawString = drawString
+    debugDraw.DrawCircleFcn = drawCircle
+    debugDraw.DrawPointFcn = drawPoint
+    debugDraw.DrawPolygonFcn = drawPolygon
+    debugDraw.DrawSegmentFcn = drawSegment
+    debugDraw.DrawSolidCapsuleFcn = drawSolidCapsule
+    debugDraw.DrawSolidCircleFcn = drawSolidCircle
+    debugDraw.DrawSolidPolygonFcn = drawSolidPolygon
+    debugDraw.DrawTransformFcn = drawTransform
+    debugDraw.DrawStringFcn = drawString
 
     debugDraw
 
@@ -116,15 +116,15 @@ proc noopDebugDraw*(): b2DebugDraw =
     var debugDraw: b2DebugDraw
 
     {.push cdecl.}
-    debugDraw.DrawCircle = proc (center: b2Vec2, radius: cfloat, color: b2HexColor, context: pointer) = discard
-    debugDraw.DrawPoint = proc (p: b2Vec2, size: cfloat, color: b2HexColor, context: pointer) = discard
-    debugDraw.DrawPolygon = proc (vertices: ptr b2Vec2, vertexCount: cint, color: b2HexColor, context: pointer) = discard
-    debugDraw.DrawSegment = proc (p1: b2Vec2, p2: b2Vec2, color: b2HexColor, context: pointer) = discard
-    debugDraw.DrawSolidCapsule = proc (p1: b2Vec2, p2: b2Vec2, radius: cfloat, color: b2HexColor, context: pointer) = discard
-    debugDraw.DrawSolidCircle = proc (transform: b2Transform, radius: cfloat, color: b2HexColor, context: pointer) = discard
-    debugDraw.DrawSolidPolygon = proc (transform: b2Transform, vertices: ptr b2Vec2, vertexCount: cint, radius: cfloat, color: b2HexColor, context: pointer) = discard
-    debugDraw.DrawTransform = proc (transform: b2Transform, context: pointer) = discard
-    debugDraw.DrawString = proc (p: b2Vec2, s: cstring, context: pointer) = discard
+    debugDraw.DrawCircleFcn = proc (center: b2Vec2, radius: cfloat, color: b2HexColor, context: pointer) = discard
+    debugDraw.DrawPointFcn = proc (p: b2Vec2, size: cfloat, color: b2HexColor, context: pointer) = discard
+    debugDraw.DrawPolygonFcn = proc (vertices: ptr b2Vec2, vertexCount: cint, color: b2HexColor, context: pointer) = discard
+    debugDraw.DrawSegmentFcn = proc (p1: b2Vec2, p2: b2Vec2, color: b2HexColor, context: pointer) = discard
+    debugDraw.DrawSolidCapsuleFcn = proc (p1: b2Vec2, p2: b2Vec2, radius: cfloat, color: b2HexColor, context: pointer) = discard
+    debugDraw.DrawSolidCircleFcn = proc (transform: b2Transform, radius: cfloat, color: b2HexColor, context: pointer) = discard
+    debugDraw.DrawSolidPolygonFcn = proc (transform: b2Transform, vertices: ptr b2Vec2, vertexCount: cint, radius: cfloat, color: b2HexColor, context: pointer) = discard
+    debugDraw.DrawTransformFcn = proc (transform: b2Transform, context: pointer) = discard
+    debugDraw.DrawStringFcn = proc (p: b2Vec2, s: cstring, color: b2HexColor, context: pointer) = discard
     {.pop.}
 
     debugDraw

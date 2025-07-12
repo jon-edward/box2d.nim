@@ -31,94 +31,101 @@
 
 # TODO: Move documentation over from Box2D doxygen documentation.
 
-type b2TOIState* {.size: sizeof(cint).} = enum
-    b2_toiStateUnknown = 0, b2_toiStateFailed = 1, b2_toiStateOverlapped = 2,
-    b2_toiStateHit = 3, b2_toiStateSeparated = 4
-type b2BodyType* {.size: sizeof(cint).} = enum
-    b2_staticBody = 0, b2_kinematicBody = 1, b2_dynamicBody = 2,
-    b2_bodyTypeCount = 3
-type b2ShapeType* {.size: sizeof(cint).} = enum
-    b2_circleShape = 0, b2_capsuleShape = 1, b2_segmentShape = 2,
-    b2_polygonShape = 3, b2_chainSegmentShape = 4, b2_shapeTypeCount = 5
-type b2JointType* {.size: sizeof(cint).} = enum
-    b2_distanceJoint = 0, b2_filterJoint = 1, b2_motorJoint = 2,
-    b2_mouseJoint = 3, b2_prismaticJoint = 4, b2_revoluteJoint = 5,
-    b2_weldJoint = 6, b2_wheelJoint = 7
-type b2HexColor* {.size: sizeof(cint).} = enum
-    b2_colorBlack = 0, b2_colorNavy = 128, b2_colorDarkBlue = 139,
-    b2_colorMediumBlue = 205, b2_colorBlue = 255, b2_colorDarkGreen = 25600,
-    b2_colorGreen = 32768, b2_colorTeal = 32896, b2_colorDarkCyan = 35723,
-    b2_colorDeepSkyBlue = 49151, b2_colorDarkTurquoise = 52945,
-    b2_colorMediumSpringGreen = 64154, b2_colorLime = 65280,
-    b2_colorSpringGreen = 65407, b2_colorAqua = 65535,
-    b2_colorMidnightBlue = 1644912, b2_colorDodgerBlue = 2003199,
-    b2_colorLightSeaGreen = 2142890, b2_colorForestGreen = 2263842,
-    b2_colorSeaGreen = 3050327, b2_colorDarkSlateGray = 3100495,
-    b2_colorBox2DBlue = 3190463, b2_colorLimeGreen = 3329330,
-    b2_colorMediumSeaGreen = 3978097, b2_colorTurquoise = 4251856,
-    b2_colorRoyalBlue = 4286945, b2_colorSteelBlue = 4620980,
-    b2_colorDarkSlateBlue = 4734347, b2_colorMediumTurquoise = 4772300,
-    b2_colorIndigo = 4915330, b2_colorDarkOliveGreen = 5597999,
-    b2_colorCadetBlue = 6266528, b2_colorCornflowerBlue = 6591981,
-    b2_colorRebeccaPurple = 6697881, b2_colorMediumAquaMarine = 6737322,
-    b2_colorDimGray = 6908265, b2_colorSlateBlue = 6970061,
-    b2_colorOliveDrab = 7048739, b2_colorSlateGray = 7372944,
-    b2_colorLightSlateGray = 7833753, b2_colorMediumSlateBlue = 8087790,
-    b2_colorLawnGreen = 8190976, b2_colorChartreuse = 8388352,
-    b2_colorAquamarine = 8388564, b2_colorMaroon = 8388608,
-    b2_colorPurple = 8388736, b2_colorOlive = 8421376, b2_colorGray = 8421504,
-    b2_colorSkyBlue = 8900331, b2_colorLightSkyBlue = 8900346,
-    b2_colorBlueViolet = 9055202, b2_colorDarkRed = 9109504,
-    b2_colorDarkMagenta = 9109643, b2_colorSaddleBrown = 9127187,
-    b2_colorBox2DGreen = 9226532, b2_colorDarkSeaGreen = 9419919,
-    b2_colorLightGreen = 9498256, b2_colorMediumPurple = 9662683,
-    b2_colorDarkViolet = 9699539, b2_colorPaleGreen = 10025880,
-    b2_colorDarkOrchid = 10040012, b2_colorYellowGreen = 10145074,
-    b2_colorSienna = 10506797, b2_colorBrown = 10824234,
-    b2_colorDarkGray = 11119017, b2_colorLightBlue = 11393254,
-    b2_colorGreenYellow = 11403055, b2_colorPaleTurquoise = 11529966,
-    b2_colorLightSteelBlue = 11584734, b2_colorPowderBlue = 11591910,
-    b2_colorFireBrick = 11674146, b2_colorDarkGoldenRod = 12092939,
-    b2_colorMediumOrchid = 12211667, b2_colorRosyBrown = 12357519,
-    b2_colorDarkKhaki = 12433259, b2_colorSilver = 12632256,
-    b2_colorMediumVioletRed = 13047173, b2_colorIndianRed = 13458524,
-    b2_colorPeru = 13468991, b2_colorChocolate = 13789470,
-    b2_colorTan = 13808780, b2_colorLightGray = 13882323,
-    b2_colorThistle = 14204888, b2_colorOrchid = 14315734,
-    b2_colorGoldenRod = 14329120, b2_colorPaleVioletRed = 14381203,
-    b2_colorCrimson = 14423100, b2_colorBox2DRed = 14430514,
-    b2_colorGainsboro = 14474460, b2_colorPlum = 14524637,
-    b2_colorBurlywood = 14596231, b2_colorLightCyan = 14745599,
-    b2_colorLavender = 15132410, b2_colorDarkSalmon = 15308410,
-    b2_colorViolet = 15631086, b2_colorPaleGoldenRod = 15657130,
-    b2_colorLightCoral = 15761536, b2_colorKhaki = 15787660,
-    b2_colorAliceBlue = 15792383, b2_colorHoneyDew = 15794160,
-    b2_colorAzure = 15794175, b2_colorSandyBrown = 16032864,
-    b2_colorWheat = 16113331, b2_colorBeige = 16119260,
-    b2_colorWhiteSmoke = 16119285, b2_colorMintCream = 16121850,
-    b2_colorGhostWhite = 16316671, b2_colorSalmon = 16416882,
-    b2_colorAntiqueWhite = 16444375, b2_colorLinen = 16445670,
-    b2_colorLightGoldenRodYellow = 16448210, b2_colorOldLace = 16643558,
-    b2_colorRed = 16711680, b2_colorFuchsia = 16711935,
-    b2_colorDeepPink = 16716947, b2_colorOrangeRed = 16729344,
-    b2_colorTomato = 16737095, b2_colorHotPink = 16738740,
-    b2_colorCoral = 16744272, b2_colorDarkOrange = 16747520,
-    b2_colorLightSalmon = 16752762, b2_colorOrange = 16753920,
-    b2_colorLightPink = 16758465, b2_colorPink = 16761035,
-    b2_colorGold = 16766720, b2_colorPeachPuff = 16767673,
-    b2_colorNavajoWhite = 16768685, b2_colorMoccasin = 16770229,
-    b2_colorBisque = 16770244, b2_colorMistyRose = 16770273,
-    b2_colorBlanchedAlmond = 16772045, b2_colorBox2DYellow = 16772748,
-    b2_colorPapayaWhip = 16773077, b2_colorLavenderBlush = 16773365,
-    b2_colorSeaShell = 16774638, b2_colorCornsilk = 16775388,
-    b2_colorLemonChiffon = 16775885, b2_colorFloralWhite = 16775920,
-    b2_colorSnow = 16775930, b2_colorYellow = 16776960,
-    b2_colorLightYellow = 16777184, b2_colorIvory = 16777200,
-    b2_colorWhite = 16777215
+type
+    b2TOIState* {.size: sizeof(cint).} = enum
+        b2_toiStateUnknown = 0, b2_toiStateFailed = 1, b2_toiStateOverlapped = 2,
+        b2_toiStateHit = 3, b2_toiStateSeparated = 4
+type
+    b2BodyType* {.size: sizeof(cint).} = enum
+        b2_staticBody = 0, b2_kinematicBody = 1, b2_dynamicBody = 2,
+        b2_bodyTypeCount = 3
+type
+    b2ShapeType* {.size: sizeof(cint).} = enum
+        b2_circleShape = 0, b2_capsuleShape = 1, b2_segmentShape = 2,
+        b2_polygonShape = 3, b2_chainSegmentShape = 4, b2_shapeTypeCount = 5
+type
+    b2JointType* {.size: sizeof(cint).} = enum
+        b2_distanceJoint = 0, b2_filterJoint = 1, b2_motorJoint = 2,
+        b2_mouseJoint = 3, b2_prismaticJoint = 4, b2_revoluteJoint = 5,
+        b2_weldJoint = 6, b2_wheelJoint = 7
+type
+    b2HexColor* {.size: sizeof(cint).} = enum
+        b2_colorBlack = 0, b2_colorNavy = 128, b2_colorDarkBlue = 139,
+        b2_colorMediumBlue = 205, b2_colorBlue = 255, b2_colorDarkGreen = 25600,
+        b2_colorGreen = 32768, b2_colorTeal = 32896, b2_colorDarkCyan = 35723,
+        b2_colorDeepSkyBlue = 49151, b2_colorDarkTurquoise = 52945,
+        b2_colorMediumSpringGreen = 64154, b2_colorLime = 65280,
+        b2_colorSpringGreen = 65407, b2_colorAqua = 65535,
+        b2_colorMidnightBlue = 1644912, b2_colorDodgerBlue = 2003199,
+        b2_colorLightSeaGreen = 2142890, b2_colorForestGreen = 2263842,
+        b2_colorSeaGreen = 3050327, b2_colorDarkSlateGray = 3100495,
+        b2_colorBox2DBlue = 3190463, b2_colorLimeGreen = 3329330,
+        b2_colorMediumSeaGreen = 3978097, b2_colorTurquoise = 4251856,
+        b2_colorRoyalBlue = 4286945, b2_colorSteelBlue = 4620980,
+        b2_colorDarkSlateBlue = 4734347, b2_colorMediumTurquoise = 4772300,
+        b2_colorIndigo = 4915330, b2_colorDarkOliveGreen = 5597999,
+        b2_colorCadetBlue = 6266528, b2_colorCornflowerBlue = 6591981,
+        b2_colorRebeccaPurple = 6697881, b2_colorMediumAquaMarine = 6737322,
+        b2_colorDimGray = 6908265, b2_colorSlateBlue = 6970061,
+        b2_colorOliveDrab = 7048739, b2_colorSlateGray = 7372944,
+        b2_colorLightSlateGray = 7833753, b2_colorMediumSlateBlue = 8087790,
+        b2_colorLawnGreen = 8190976, b2_colorChartreuse = 8388352,
+        b2_colorAquamarine = 8388564, b2_colorMaroon = 8388608,
+        b2_colorPurple = 8388736, b2_colorOlive = 8421376, b2_colorGray = 8421504,
+        b2_colorSkyBlue = 8900331, b2_colorLightSkyBlue = 8900346,
+        b2_colorBlueViolet = 9055202, b2_colorDarkRed = 9109504,
+        b2_colorDarkMagenta = 9109643, b2_colorSaddleBrown = 9127187,
+        b2_colorBox2DGreen = 9226532, b2_colorDarkSeaGreen = 9419919,
+        b2_colorLightGreen = 9498256, b2_colorMediumPurple = 9662683,
+        b2_colorDarkViolet = 9699539, b2_colorPaleGreen = 10025880,
+        b2_colorDarkOrchid = 10040012, b2_colorYellowGreen = 10145074,
+        b2_colorSienna = 10506797, b2_colorBrown = 10824234,
+        b2_colorDarkGray = 11119017, b2_colorLightBlue = 11393254,
+        b2_colorGreenYellow = 11403055, b2_colorPaleTurquoise = 11529966,
+        b2_colorLightSteelBlue = 11584734, b2_colorPowderBlue = 11591910,
+        b2_colorFireBrick = 11674146, b2_colorDarkGoldenRod = 12092939,
+        b2_colorMediumOrchid = 12211667, b2_colorRosyBrown = 12357519,
+        b2_colorDarkKhaki = 12433259, b2_colorSilver = 12632256,
+        b2_colorMediumVioletRed = 13047173, b2_colorIndianRed = 13458524,
+        b2_colorPeru = 13468991, b2_colorChocolate = 13789470,
+        b2_colorTan = 13808780, b2_colorLightGray = 13882323,
+        b2_colorThistle = 14204888, b2_colorOrchid = 14315734,
+        b2_colorGoldenRod = 14329120, b2_colorPaleVioletRed = 14381203,
+        b2_colorCrimson = 14423100, b2_colorBox2DRed = 14430514,
+        b2_colorGainsboro = 14474460, b2_colorPlum = 14524637,
+        b2_colorBurlywood = 14596231, b2_colorLightCyan = 14745599,
+        b2_colorLavender = 15132410, b2_colorDarkSalmon = 15308410,
+        b2_colorViolet = 15631086, b2_colorPaleGoldenRod = 15657130,
+        b2_colorLightCoral = 15761536, b2_colorKhaki = 15787660,
+        b2_colorAliceBlue = 15792383, b2_colorHoneyDew = 15794160,
+        b2_colorAzure = 15794175, b2_colorSandyBrown = 16032864,
+        b2_colorWheat = 16113331, b2_colorBeige = 16119260,
+        b2_colorWhiteSmoke = 16119285, b2_colorMintCream = 16121850,
+        b2_colorGhostWhite = 16316671, b2_colorSalmon = 16416882,
+        b2_colorAntiqueWhite = 16444375, b2_colorLinen = 16445670,
+        b2_colorLightGoldenRodYellow = 16448210, b2_colorOldLace = 16643558,
+        b2_colorRed = 16711680, b2_colorFuchsia = 16711935,
+        b2_colorDeepPink = 16716947, b2_colorOrangeRed = 16729344,
+        b2_colorTomato = 16737095, b2_colorHotPink = 16738740,
+        b2_colorCoral = 16744272, b2_colorDarkOrange = 16747520,
+        b2_colorLightSalmon = 16752762, b2_colorOrange = 16753920,
+        b2_colorLightPink = 16758465, b2_colorPink = 16761035,
+        b2_colorGold = 16766720, b2_colorPeachPuff = 16767673,
+        b2_colorNavajoWhite = 16768685, b2_colorMoccasin = 16770229,
+        b2_colorBisque = 16770244, b2_colorMistyRose = 16770273,
+        b2_colorBlanchedAlmond = 16772045, b2_colorBox2DYellow = 16772748,
+        b2_colorPapayaWhip = 16773077, b2_colorLavenderBlush = 16773365,
+        b2_colorSeaShell = 16774638, b2_colorCornsilk = 16775388,
+        b2_colorLemonChiffon = 16775885, b2_colorFloralWhite = 16775920,
+        b2_colorSnow = 16775930, b2_colorYellow = 16776960,
+        b2_colorLightYellow = 16777184, b2_colorIvory = 16777200,
+        b2_colorWhite = 16777215
 const
   b2_colorCyan* = b2HexColor.b2_colorAqua
 const
   b2_colorMagenta* = b2HexColor.b2_colorFuchsia
+type b2TreeNode* = object
+
 type
   b2AllocFcn* = proc (a0: cuint; a1: cint): pointer {.cdecl.}
   b2FreeFcn* = proc (a0: pointer): void {.cdecl.}
@@ -252,8 +259,6 @@ type
     maxFraction*: cfloat
   b2TOIOutput* {.pure, inheritable, bycopy.} = object
     state*: b2TOIState
-    point*: b2Vec2
-    normal*: b2Vec2
     fraction*: cfloat
   b2ManifoldPoint* {.pure, inheritable, bycopy.} = object
     point*: b2Vec2
@@ -271,6 +276,18 @@ type
     rollingImpulse*: cfloat
     points*: array[2'i64, b2ManifoldPoint]
     pointCount*: cint
+  b2DynamicTree* {.pure, inheritable, bycopy.} = object
+    nodes*: ptr b2TreeNode
+    root*: cint
+    nodeCount*: cint
+    nodeCapacity*: cint
+    freeList*: cint
+    proxyCount*: cint
+    leafIndices*: ptr cint
+    leafBoxes*: ptr b2AABB
+    leafCenters*: ptr b2Vec2
+    binIndices*: ptr cint
+    rebuildCapacity*: cint
   b2TreeStats* {.pure, inheritable, bycopy.} = object
     nodeVisits*: cint
     leafVisits*: cint
@@ -311,11 +328,6 @@ type
     index1*: int32
     world0*: uint16
     generation*: uint16
-  b2ContactId* {.pure, inheritable, bycopy.} = object
-    index1*: int32
-    world0*: uint16
-    padding*: int16
-    generation*: uint32
   b2TaskCallback* = proc (a0: cint; a1: cint; a2: uint32; a3: pointer): void {.
       cdecl.}
   b2EnqueueTaskCallback* = proc (a0: b2TaskCallback; a1: cint; a2: cint;
@@ -339,7 +351,7 @@ type
     hitEventThreshold*: cfloat
     contactHertz*: cfloat
     contactDampingRatio*: cfloat
-    contactSpeed*: cfloat
+    maxContactPushSpeed*: cfloat
     maximumLinearSpeed*: cfloat
     frictionCallback*: b2FrictionCallback
     restitutionCallback*: b2RestitutionCallback
@@ -351,10 +363,6 @@ type
     userTaskContext*: pointer
     userData*: pointer
     internalValue*: cint
-  b2MotionLocks* {.pure, inheritable, bycopy.} = object
-    linearX*: bool
-    linearY*: bool
-    angularZ*: bool
   b2BodyDef* {.pure, inheritable, bycopy.} = object
     bodyType*: b2BodyType
     position*: b2Vec2
@@ -367,9 +375,9 @@ type
     sleepThreshold*: cfloat
     name*: cstring
     userData*: pointer
-    motionLocks*: b2MotionLocks
     enableSleep*: bool
     isAwake*: bool
+    fixedRotation*: bool
     isBullet*: bool
     isEnabled*: bool
     allowFastRotation*: bool
@@ -429,8 +437,6 @@ type
     storeImpulses*: cfloat
     splitIslands*: cfloat
     transforms*: cfloat
-    sensorHits*: cfloat
-    jointEvents*: cfloat
     hitEvents*: cfloat
     refit*: cfloat
     bullets*: cfloat
@@ -448,20 +454,11 @@ type
     byteCount*: cint
     taskCount*: cint
     colorCounts*: array[12'i64, cint]
-  b2JointDef* {.pure, inheritable, bycopy.} = object
-    userData*: pointer
+  b2DistanceJointDef* {.pure, inheritable, bycopy.} = object
     bodyIdA*: b2BodyId
     bodyIdB*: b2BodyId
-    localFrameA*: b2Transform
-    localFrameB*: b2Transform
-    forceThreshold*: cfloat
-    torqueThreshold*: cfloat
-    constraintHertz*: cfloat
-    constraintDampingRatio*: cfloat
-    drawScale*: cfloat
-    collideConnected*: bool
-  b2DistanceJointDef* {.pure, inheritable, bycopy.} = object
-    base*: b2JointDef
+    localAnchorA*: b2Vec2
+    localAnchorB*: b2Vec2
     length*: cfloat
     enableSpring*: bool
     hertz*: cfloat
@@ -472,37 +469,61 @@ type
     enableMotor*: bool
     maxMotorForce*: cfloat
     motorSpeed*: cfloat
+    collideConnected*: bool
+    userData*: pointer
     internalValue*: cint
   b2MotorJointDef* {.pure, inheritable, bycopy.} = object
-    base*: b2JointDef
+    bodyIdA*: b2BodyId
+    bodyIdB*: b2BodyId
+    linearOffset*: b2Vec2
+    angularOffset*: cfloat
     maxForce*: cfloat
     maxTorque*: cfloat
     correctionFactor*: cfloat
+    collideConnected*: bool
+    userData*: pointer
     internalValue*: cint
   b2MouseJointDef* {.pure, inheritable, bycopy.} = object
-    base*: b2JointDef
+    bodyIdA*: b2BodyId
+    bodyIdB*: b2BodyId
+    target*: b2Vec2
     hertz*: cfloat
     dampingRatio*: cfloat
     maxForce*: cfloat
+    collideConnected*: bool
+    userData*: pointer
     internalValue*: cint
   b2FilterJointDef* {.pure, inheritable, bycopy.} = object
-    base*: b2JointDef
+    bodyIdA*: b2BodyId
+    bodyIdB*: b2BodyId
+    userData*: pointer
     internalValue*: cint
   b2PrismaticJointDef* {.pure, inheritable, bycopy.} = object
-    base*: b2JointDef
+    bodyIdA*: b2BodyId
+    bodyIdB*: b2BodyId
+    localAnchorA*: b2Vec2
+    localAnchorB*: b2Vec2
+    localAxisA*: b2Vec2
+    referenceAngle*: cfloat
+    targetTranslation*: cfloat
     enableSpring*: bool
     hertz*: cfloat
     dampingRatio*: cfloat
-    targetTranslation*: cfloat
     enableLimit*: bool
     lowerTranslation*: cfloat
     upperTranslation*: cfloat
     enableMotor*: bool
     maxMotorForce*: cfloat
     motorSpeed*: cfloat
+    collideConnected*: bool
+    userData*: pointer
     internalValue*: cint
   b2RevoluteJointDef* {.pure, inheritable, bycopy.} = object
-    base*: b2JointDef
+    bodyIdA*: b2BodyId
+    bodyIdB*: b2BodyId
+    localAnchorA*: b2Vec2
+    localAnchorB*: b2Vec2
+    referenceAngle*: cfloat
     targetAngle*: cfloat
     enableSpring*: bool
     hertz*: cfloat
@@ -513,16 +534,29 @@ type
     enableMotor*: bool
     maxMotorTorque*: cfloat
     motorSpeed*: cfloat
+    drawSize*: cfloat
+    collideConnected*: bool
+    userData*: pointer
     internalValue*: cint
   b2WeldJointDef* {.pure, inheritable, bycopy.} = object
-    base*: b2JointDef
+    bodyIdA*: b2BodyId
+    bodyIdB*: b2BodyId
+    localAnchorA*: b2Vec2
+    localAnchorB*: b2Vec2
+    referenceAngle*: cfloat
     linearHertz*: cfloat
     angularHertz*: cfloat
     linearDampingRatio*: cfloat
     angularDampingRatio*: cfloat
+    collideConnected*: bool
+    userData*: pointer
     internalValue*: cint
   b2WheelJointDef* {.pure, inheritable, bycopy.} = object
-    base*: b2JointDef
+    bodyIdA*: b2BodyId
+    bodyIdB*: b2BodyId
+    localAnchorA*: b2Vec2
+    localAnchorB*: b2Vec2
+    localAxisA*: b2Vec2
     enableSpring*: bool
     hertz*: cfloat
     dampingRatio*: cfloat
@@ -532,6 +566,8 @@ type
     enableMotor*: bool
     maxMotorTorque*: cfloat
     motorSpeed*: cfloat
+    collideConnected*: bool
+    userData*: pointer
     internalValue*: cint
   b2ExplosionDef* {.pure, inheritable, bycopy.} = object
     maskBits*: uint64
@@ -553,11 +589,10 @@ type
   b2ContactBeginTouchEvent* {.pure, inheritable, bycopy.} = object
     shapeIdA*: b2ShapeId
     shapeIdB*: b2ShapeId
-    contactId*: b2ContactId
+    manifold*: b2Manifold
   b2ContactEndTouchEvent* {.pure, inheritable, bycopy.} = object
     shapeIdA*: b2ShapeId
     shapeIdB*: b2ShapeId
-    contactId*: b2ContactId
   b2ContactHitEvent* {.pure, inheritable, bycopy.} = object
     shapeIdA*: b2ShapeId
     shapeIdB*: b2ShapeId
@@ -572,28 +607,21 @@ type
     endCount*: cint
     hitCount*: cint
   b2BodyMoveEvent* {.pure, inheritable, bycopy.} = object
-    userData*: pointer
     transform*: b2Transform
     bodyId*: b2BodyId
+    userData*: pointer
     fellAsleep*: bool
   b2BodyEvents* {.pure, inheritable, bycopy.} = object
     moveEvents*: ptr b2BodyMoveEvent
     moveCount*: cint
-  b2JointEvent* {.pure, inheritable, bycopy.} = object
-    jointId*: b2JointId
-    userData*: pointer
-  b2JointEvents* {.pure, inheritable, bycopy.} = object
-    jointEvents*: ptr b2JointEvent
-    count*: cint
   b2ContactData* {.pure, inheritable, bycopy.} = object
-    contactId*: b2ContactId
     shapeIdA*: b2ShapeId
     shapeIdB*: b2ShapeId
     manifold*: b2Manifold
   b2CustomFilterFcn* = proc (a0: b2ShapeId; a1: b2ShapeId; a2: pointer): bool {.
       cdecl.}
-  b2PreSolveFcn* = proc (a0: b2ShapeId; a1: b2ShapeId; a2: b2Vec2; a3: b2Vec2;
-                         a4: pointer): bool {.cdecl.}
+  b2PreSolveFcn* = proc (a0: b2ShapeId; a1: b2ShapeId; a2: ptr b2Manifold;
+                         a3: pointer): bool {.cdecl.}
   b2OverlapResultFcn* = proc (a0: b2ShapeId; a1: pointer): bool {.cdecl.}
   b2CastResultFcn* = proc (a0: b2ShapeId; a1: b2Vec2; a2: b2Vec2; a3: cfloat;
                            a4: pointer): cfloat {.cdecl.}
@@ -634,11 +662,10 @@ type
     drawFrictionImpulses*: bool
     drawIslands*: bool
     context*: pointer
-
+const B2_HASH_INIT* = 5381
 const B2_PI* = 3.14159265359
 const B2_MAX_POLYGON_VERTICES* = 8
 const B2_DEFAULT_CATEGORY_BITS* = 1
-
 proc b2SetAllocator*(allocFcn: b2AllocFcn; freeFcn: b2FreeFcn): void {.cdecl,
     importc: "b2SetAllocator".}
 proc b2GetByteCount*(): cint {.cdecl, importc: "b2GetByteCount".}
@@ -659,8 +686,6 @@ proc b2Hash*(hash: uint32; data: ptr uint8; count: cint): uint32 {.cdecl,
 proc b2IsValidFloat*(a: cfloat): bool {.cdecl, importc: "b2IsValidFloat".}
 proc b2IsValidVec2*(v: b2Vec2): bool {.cdecl, importc: "b2IsValidVec2".}
 proc b2IsValidRotation*(q: b2Rot): bool {.cdecl, importc: "b2IsValidRotation".}
-proc b2IsValidTransform*(t: b2Transform): bool {.cdecl,
-    importc: "b2IsValidTransform".}
 proc b2IsValidAABB*(aabb: b2AABB): bool {.cdecl, importc: "b2IsValidAABB".}
 proc b2IsValidPlane*(a: b2Plane): bool {.cdecl, importc: "b2IsValidPlane".}
 proc b2Atan2*(y: cfloat; x: cfloat): cfloat {.cdecl, importc: "b2Atan2".}
@@ -709,28 +734,28 @@ proc b2ComputePolygonAABB*(shape: ptr b2Polygon; transform: b2Transform): b2AABB
     cdecl, importc: "b2ComputePolygonAABB".}
 proc b2ComputeSegmentAABB*(shape: ptr b2Segment; transform: b2Transform): b2AABB {.
     cdecl, importc: "b2ComputeSegmentAABB".}
-proc b2PointInCircle*(shape: ptr b2Circle; point: b2Vec2): bool {.cdecl,
+proc b2PointInCircle*(point: b2Vec2; shape: ptr b2Circle): bool {.cdecl,
     importc: "b2PointInCircle".}
-proc b2PointInCapsule*(shape: ptr b2Capsule; point: b2Vec2): bool {.cdecl,
+proc b2PointInCapsule*(point: b2Vec2; shape: ptr b2Capsule): bool {.cdecl,
     importc: "b2PointInCapsule".}
-proc b2PointInPolygon*(shape: ptr b2Polygon; point: b2Vec2): bool {.cdecl,
+proc b2PointInPolygon*(point: b2Vec2; shape: ptr b2Polygon): bool {.cdecl,
     importc: "b2PointInPolygon".}
-proc b2RayCastCircle*(shape: ptr b2Circle; input: ptr b2RayCastInput): b2CastOutput {.
+proc b2RayCastCircle*(input: ptr b2RayCastInput; shape: ptr b2Circle): b2CastOutput {.
     cdecl, importc: "b2RayCastCircle".}
-proc b2RayCastCapsule*(shape: ptr b2Capsule; input: ptr b2RayCastInput): b2CastOutput {.
+proc b2RayCastCapsule*(input: ptr b2RayCastInput; shape: ptr b2Capsule): b2CastOutput {.
     cdecl, importc: "b2RayCastCapsule".}
-proc b2RayCastSegment*(shape: ptr b2Segment; input: ptr b2RayCastInput;
+proc b2RayCastSegment*(input: ptr b2RayCastInput; shape: ptr b2Segment;
                        oneSided: bool): b2CastOutput {.cdecl,
     importc: "b2RayCastSegment".}
-proc b2RayCastPolygon*(shape: ptr b2Polygon; input: ptr b2RayCastInput): b2CastOutput {.
+proc b2RayCastPolygon*(input: ptr b2RayCastInput; shape: ptr b2Polygon): b2CastOutput {.
     cdecl, importc: "b2RayCastPolygon".}
-proc b2ShapeCastCircle*(shape: ptr b2Circle; input: ptr b2ShapeCastInput): b2CastOutput {.
+proc b2ShapeCastCircle*(input: ptr b2ShapeCastInput; shape: ptr b2Circle): b2CastOutput {.
     cdecl, importc: "b2ShapeCastCircle".}
-proc b2ShapeCastCapsule*(shape: ptr b2Capsule; input: ptr b2ShapeCastInput): b2CastOutput {.
+proc b2ShapeCastCapsule*(input: ptr b2ShapeCastInput; shape: ptr b2Capsule): b2CastOutput {.
     cdecl, importc: "b2ShapeCastCapsule".}
-proc b2ShapeCastSegment*(shape: ptr b2Segment; input: ptr b2ShapeCastInput): b2CastOutput {.
+proc b2ShapeCastSegment*(input: ptr b2ShapeCastInput; shape: ptr b2Segment): b2CastOutput {.
     cdecl, importc: "b2ShapeCastSegment".}
-proc b2ShapeCastPolygon*(shape: ptr b2Polygon; input: ptr b2ShapeCastInput): b2CastOutput {.
+proc b2ShapeCastPolygon*(input: ptr b2ShapeCastInput; shape: ptr b2Polygon): b2CastOutput {.
     cdecl, importc: "b2ShapeCastPolygon".}
 proc b2ComputeHull*(points: ptr b2Vec2; count: cint): b2Hull {.cdecl,
     importc: "b2ComputeHull".}
@@ -793,6 +818,59 @@ proc b2CollideChainSegmentAndPolygon*(segmentA: ptr b2ChainSegment;
                                       xfB: b2Transform;
                                       cache: ptr b2SimplexCache): b2Manifold {.
     cdecl, importc: "b2CollideChainSegmentAndPolygon".}
+proc b2DynamicTree_Create*(): b2DynamicTree {.cdecl,
+    importc: "b2DynamicTree_Create".}
+proc b2DynamicTree_Destroy*(tree: ptr b2DynamicTree): void {.cdecl,
+    importc: "b2DynamicTree_Destroy".}
+proc b2DynamicTree_CreateProxy*(tree: ptr b2DynamicTree; aabb: b2AABB;
+                                categoryBits: uint64; userData: uint64): cint {.
+    cdecl, importc: "b2DynamicTree_CreateProxy".}
+proc b2DynamicTree_DestroyProxy*(tree: ptr b2DynamicTree; proxyId: cint): void {.
+    cdecl, importc: "b2DynamicTree_DestroyProxy".}
+proc b2DynamicTree_MoveProxy*(tree: ptr b2DynamicTree; proxyId: cint;
+                              aabb: b2AABB): void {.cdecl,
+    importc: "b2DynamicTree_MoveProxy".}
+proc b2DynamicTree_EnlargeProxy*(tree: ptr b2DynamicTree; proxyId: cint;
+                                 aabb: b2AABB): void {.cdecl,
+    importc: "b2DynamicTree_EnlargeProxy".}
+proc b2DynamicTree_SetCategoryBits*(tree: ptr b2DynamicTree; proxyId: cint;
+                                    categoryBits: uint64): void {.cdecl,
+    importc: "b2DynamicTree_SetCategoryBits".}
+proc b2DynamicTree_GetCategoryBits*(tree: ptr b2DynamicTree; proxyId: cint): uint64 {.
+    cdecl, importc: "b2DynamicTree_GetCategoryBits".}
+proc b2DynamicTree_Query*(tree: ptr b2DynamicTree; aabb: b2AABB;
+                          maskBits: uint64; callback: b2TreeQueryCallbackFcn;
+                          context: pointer): b2TreeStats {.cdecl,
+    importc: "b2DynamicTree_Query".}
+proc b2DynamicTree_RayCast*(tree: ptr b2DynamicTree; input: ptr b2RayCastInput;
+                            maskBits: uint64;
+                            callback: b2TreeRayCastCallbackFcn; context: pointer): b2TreeStats {.
+    cdecl, importc: "b2DynamicTree_RayCast".}
+proc b2DynamicTree_ShapeCast*(tree: ptr b2DynamicTree;
+                              input: ptr b2ShapeCastInput; maskBits: uint64;
+                              callback: b2TreeShapeCastCallbackFcn;
+                              context: pointer): b2TreeStats {.cdecl,
+    importc: "b2DynamicTree_ShapeCast".}
+proc b2DynamicTree_GetHeight*(tree: ptr b2DynamicTree): cint {.cdecl,
+    importc: "b2DynamicTree_GetHeight".}
+proc b2DynamicTree_GetAreaRatio*(tree: ptr b2DynamicTree): cfloat {.cdecl,
+    importc: "b2DynamicTree_GetAreaRatio".}
+proc b2DynamicTree_GetRootBounds*(tree: ptr b2DynamicTree): b2AABB {.cdecl,
+    importc: "b2DynamicTree_GetRootBounds".}
+proc b2DynamicTree_GetProxyCount*(tree: ptr b2DynamicTree): cint {.cdecl,
+    importc: "b2DynamicTree_GetProxyCount".}
+proc b2DynamicTree_Rebuild*(tree: ptr b2DynamicTree; fullBuild: bool): cint {.
+    cdecl, importc: "b2DynamicTree_Rebuild".}
+proc b2DynamicTree_GetByteCount*(tree: ptr b2DynamicTree): cint {.cdecl,
+    importc: "b2DynamicTree_GetByteCount".}
+proc b2DynamicTree_GetUserData*(tree: ptr b2DynamicTree; proxyId: cint): uint64 {.
+    cdecl, importc: "b2DynamicTree_GetUserData".}
+proc b2DynamicTree_GetAABB*(tree: ptr b2DynamicTree; proxyId: cint): b2AABB {.
+    cdecl, importc: "b2DynamicTree_GetAABB".}
+proc b2DynamicTree_Validate*(tree: ptr b2DynamicTree): void {.cdecl,
+    importc: "b2DynamicTree_Validate".}
+proc b2DynamicTree_ValidateNoEnlarged*(tree: ptr b2DynamicTree): void {.cdecl,
+    importc: "b2DynamicTree_ValidateNoEnlarged".}
 proc b2SolvePlanes*(targetDelta: b2Vec2; planes: ptr b2CollisionPlane;
                     count: cint): b2PlaneSolverResult {.cdecl,
     importc: "b2SolvePlanes".}
@@ -841,8 +919,6 @@ proc b2World_GetSensorEvents*(worldId: b2WorldId): b2SensorEvents {.cdecl,
     importc: "b2World_GetSensorEvents".}
 proc b2World_GetContactEvents*(worldId: b2WorldId): b2ContactEvents {.cdecl,
     importc: "b2World_GetContactEvents".}
-proc b2World_GetJointEvents*(worldId: b2WorldId): b2JointEvents {.cdecl,
-    importc: "b2World_GetJointEvents".}
 proc b2World_OverlapAABB*(worldId: b2WorldId; aabb: b2AABB;
                           filter: b2QueryFilter; fcn: b2OverlapResultFcn;
                           context: pointer): b2TreeStats {.cdecl,
@@ -1033,10 +1109,10 @@ proc b2Body_IsEnabled*(bodyId: b2BodyId): bool {.cdecl,
     importc: "b2Body_IsEnabled".}
 proc b2Body_Disable*(bodyId: b2BodyId): void {.cdecl, importc: "b2Body_Disable".}
 proc b2Body_Enable*(bodyId: b2BodyId): void {.cdecl, importc: "b2Body_Enable".}
-proc b2Body_SetMotionLocks*(bodyId: b2BodyId; locks: b2MotionLocks): void {.
-    cdecl, importc: "b2Body_SetMotionLocks".}
-proc b2Body_GetMotionLocks*(bodyId: b2BodyId): b2MotionLocks {.cdecl,
-    importc: "b2Body_GetMotionLocks".}
+proc b2Body_SetFixedRotation*(bodyId: b2BodyId; flag: bool): void {.cdecl,
+    importc: "b2Body_SetFixedRotation".}
+proc b2Body_IsFixedRotation*(bodyId: b2BodyId): bool {.cdecl,
+    importc: "b2Body_IsFixedRotation".}
 proc b2Body_SetBullet*(bodyId: b2BodyId; flag: bool): void {.cdecl,
     importc: "b2Body_SetBullet".}
 proc b2Body_IsBullet*(bodyId: b2BodyId): bool {.cdecl,
@@ -1164,13 +1240,13 @@ proc b2Shape_GetContactData*(shapeId: b2ShapeId; contactData: ptr b2ContactData;
     importc: "b2Shape_GetContactData".}
 proc b2Shape_GetSensorCapacity*(shapeId: b2ShapeId): cint {.cdecl,
     importc: "b2Shape_GetSensorCapacity".}
-proc b2Shape_GetSensorData*(shapeId: b2ShapeId; visitorIds: ptr b2ShapeId;
-                            capacity: cint): cint {.cdecl,
-    importc: "b2Shape_GetSensorData".}
+proc b2Shape_GetSensorOverlaps*(shapeId: b2ShapeId; overlaps: ptr b2ShapeId;
+                                capacity: cint): cint {.cdecl,
+    importc: "b2Shape_GetSensorOverlaps".}
 proc b2Shape_GetAABB*(shapeId: b2ShapeId): b2AABB {.cdecl,
     importc: "b2Shape_GetAABB".}
-proc b2Shape_ComputeMassData*(shapeId: b2ShapeId): b2MassData {.cdecl,
-    importc: "b2Shape_ComputeMassData".}
+proc b2Shape_GetMassData*(shapeId: b2ShapeId): b2MassData {.cdecl,
+    importc: "b2Shape_GetMassData".}
 proc b2Shape_GetClosestPoint*(shapeId: b2ShapeId; target: b2Vec2): b2Vec2 {.
     cdecl, importc: "b2Shape_GetClosestPoint".}
 proc b2CreateChain*(bodyId: b2BodyId; def: ptr b2ChainDef): b2ChainId {.cdecl,
@@ -1208,14 +1284,22 @@ proc b2Joint_GetBodyB*(jointId: b2JointId): b2BodyId {.cdecl,
     importc: "b2Joint_GetBodyB".}
 proc b2Joint_GetWorld*(jointId: b2JointId): b2WorldId {.cdecl,
     importc: "b2Joint_GetWorld".}
-proc b2Joint_SetLocalFrameA*(jointId: b2JointId; localFrame: b2Transform): void {.
-    cdecl, importc: "b2Joint_SetLocalFrameA".}
-proc b2Joint_GetLocalFrameA*(jointId: b2JointId): b2Transform {.cdecl,
-    importc: "b2Joint_GetLocalFrameA".}
-proc b2Joint_SetLocalFrameB*(jointId: b2JointId; localFrame: b2Transform): void {.
-    cdecl, importc: "b2Joint_SetLocalFrameB".}
-proc b2Joint_GetLocalFrameB*(jointId: b2JointId): b2Transform {.cdecl,
-    importc: "b2Joint_GetLocalFrameB".}
+proc b2Joint_SetLocalAnchorA*(jointId: b2JointId; localAnchor: b2Vec2): void {.
+    cdecl, importc: "b2Joint_SetLocalAnchorA".}
+proc b2Joint_GetLocalAnchorA*(jointId: b2JointId): b2Vec2 {.cdecl,
+    importc: "b2Joint_GetLocalAnchorA".}
+proc b2Joint_SetLocalAnchorB*(jointId: b2JointId; localAnchor: b2Vec2): void {.
+    cdecl, importc: "b2Joint_SetLocalAnchorB".}
+proc b2Joint_GetLocalAnchorB*(jointId: b2JointId): b2Vec2 {.cdecl,
+    importc: "b2Joint_GetLocalAnchorB".}
+proc b2Joint_GetReferenceAngle*(jointId: b2JointId): cfloat {.cdecl,
+    importc: "b2Joint_GetReferenceAngle".}
+proc b2Joint_SetReferenceAngle*(jointId: b2JointId; angleInRadians: cfloat): void {.
+    cdecl, importc: "b2Joint_SetReferenceAngle".}
+proc b2Joint_SetLocalAxisA*(jointId: b2JointId; localAxis: b2Vec2): void {.
+    cdecl, importc: "b2Joint_SetLocalAxisA".}
+proc b2Joint_GetLocalAxisA*(jointId: b2JointId): b2Vec2 {.cdecl,
+    importc: "b2Joint_GetLocalAxisA".}
 proc b2Joint_SetCollideConnected*(jointId: b2JointId; shouldCollide: bool): void {.
     cdecl, importc: "b2Joint_SetCollideConnected".}
 proc b2Joint_GetCollideConnected*(jointId: b2JointId): bool {.cdecl,
@@ -1234,20 +1318,12 @@ proc b2Joint_GetLinearSeparation*(jointId: b2JointId): cfloat {.cdecl,
     importc: "b2Joint_GetLinearSeparation".}
 proc b2Joint_GetAngularSeparation*(jointId: b2JointId): cfloat {.cdecl,
     importc: "b2Joint_GetAngularSeparation".}
-proc b2Joint_SetConstraintTuning*(jointId: b2JointId; hertz: cfloat;
-                                  dampingRatio: cfloat): void {.cdecl,
-    importc: "b2Joint_SetConstraintTuning".}
 proc b2Joint_GetConstraintTuning*(jointId: b2JointId; hertz: ptr cfloat;
                                   dampingRatio: ptr cfloat): void {.cdecl,
     importc: "b2Joint_GetConstraintTuning".}
-proc b2Joint_SetForceThreshold*(jointId: b2JointId; threshold: cfloat): void {.
-    cdecl, importc: "b2Joint_SetForceThreshold".}
-proc b2Joint_GetForceThreshold*(jointId: b2JointId): cfloat {.cdecl,
-    importc: "b2Joint_GetForceThreshold".}
-proc b2Joint_SetTorqueThreshold*(jointId: b2JointId; threshold: cfloat): void {.
-    cdecl, importc: "b2Joint_SetTorqueThreshold".}
-proc b2Joint_GetTorqueThreshold*(jointId: b2JointId): cfloat {.cdecl,
-    importc: "b2Joint_GetTorqueThreshold".}
+proc b2Joint_SetConstraintTuning*(jointId: b2JointId; hertz: cfloat;
+                                  dampingRatio: cfloat): void {.cdecl,
+    importc: "b2Joint_SetConstraintTuning".}
 proc b2CreateDistanceJoint*(worldId: b2WorldId; def: ptr b2DistanceJointDef): b2JointId {.
     cdecl, importc: "b2CreateDistanceJoint".}
 proc b2DistanceJoint_SetLength*(jointId: b2JointId; length: cfloat): void {.
@@ -1295,6 +1371,14 @@ proc b2DistanceJoint_GetMotorForce*(jointId: b2JointId): cfloat {.cdecl,
     importc: "b2DistanceJoint_GetMotorForce".}
 proc b2CreateMotorJoint*(worldId: b2WorldId; def: ptr b2MotorJointDef): b2JointId {.
     cdecl, importc: "b2CreateMotorJoint".}
+proc b2MotorJoint_SetLinearOffset*(jointId: b2JointId; linearOffset: b2Vec2): void {.
+    cdecl, importc: "b2MotorJoint_SetLinearOffset".}
+proc b2MotorJoint_GetLinearOffset*(jointId: b2JointId): b2Vec2 {.cdecl,
+    importc: "b2MotorJoint_GetLinearOffset".}
+proc b2MotorJoint_SetAngularOffset*(jointId: b2JointId; angularOffset: cfloat): void {.
+    cdecl, importc: "b2MotorJoint_SetAngularOffset".}
+proc b2MotorJoint_GetAngularOffset*(jointId: b2JointId): cfloat {.cdecl,
+    importc: "b2MotorJoint_GetAngularOffset".}
 proc b2MotorJoint_SetMaxForce*(jointId: b2JointId; maxForce: cfloat): void {.
     cdecl, importc: "b2MotorJoint_SetMaxForce".}
 proc b2MotorJoint_GetMaxForce*(jointId: b2JointId): cfloat {.cdecl,
@@ -1310,6 +1394,10 @@ proc b2MotorJoint_GetCorrectionFactor*(jointId: b2JointId): cfloat {.cdecl,
     importc: "b2MotorJoint_GetCorrectionFactor".}
 proc b2CreateMouseJoint*(worldId: b2WorldId; def: ptr b2MouseJointDef): b2JointId {.
     cdecl, importc: "b2CreateMouseJoint".}
+proc b2MouseJoint_SetTarget*(jointId: b2JointId; target: b2Vec2): void {.cdecl,
+    importc: "b2MouseJoint_SetTarget".}
+proc b2MouseJoint_GetTarget*(jointId: b2JointId): b2Vec2 {.cdecl,
+    importc: "b2MouseJoint_GetTarget".}
 proc b2MouseJoint_SetSpringHertz*(jointId: b2JointId; hertz: cfloat): void {.
     cdecl, importc: "b2MouseJoint_SetSpringHertz".}
 proc b2MouseJoint_GetSpringHertz*(jointId: b2JointId): cfloat {.cdecl,
@@ -1474,10 +1562,6 @@ proc b2WheelJoint_GetMaxMotorTorque*(jointId: b2JointId): cfloat {.cdecl,
     importc: "b2WheelJoint_GetMaxMotorTorque".}
 proc b2WheelJoint_GetMotorTorque*(jointId: b2JointId): cfloat {.cdecl,
     importc: "b2WheelJoint_GetMotorTorque".}
-proc b2Contact_IsValid*(id: b2ContactId): bool {.cdecl,
-    importc: "b2Contact_IsValid".}
-proc b2Contact_GetData*(contactId: b2ContactId): b2ContactData {.cdecl,
-    importc: "b2Contact_GetData".}
 
 const b2Vec2_zero*: b2Vec2 = b2Vec2(x: 0.0f, y :0.0f)
 const b2Rot_identity*: b2Rot = b2Rot(c: 1.0f, s: 0.0f)
@@ -1489,4 +1573,3 @@ const b2_nullBodyId*: b2BodyId = b2BodyId(index1: 0, world0: 0, generation: 0)
 const b2_nullShapeId*: b2ShapeId = b2ShapeId(index1: 0, world0: 0, generation: 0)
 const b2_nullJointId*: b2JointId = b2JointId(index1: 0, world0: 0, generation: 0)
 const b2_nullChainId*: b2ChainId = b2ChainId(index1: 0, world0: 0, generation: 0)
-const b2_nullContactId*: b2ContactId = b2ContactId(index1: 0, world0: 0, generation: 0)

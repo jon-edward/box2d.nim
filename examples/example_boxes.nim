@@ -25,8 +25,8 @@ const restitution = 0.1f
 
 var physicsShapeDef = b2DefaultShapeDef()
 physicsShapeDef.density = density
-physicsShapeDef.friction = friction
-physicsShapeDef.restitution = restitution
+physicsShapeDef.material.friction = friction
+physicsShapeDef.material.restitution = restitution
 
 
 ## Initialize physics with a gravity vector

@@ -21,8 +21,8 @@ proc makeBounds*(worldId: b2WorldId, density: float32, friction: float32, restit
 
     var shapeDef = b2DefaultShapeDef()
     shapeDef.density = density
-    shapeDef.friction = friction
-    shapeDef.restitution = restitution
+    shapeDef.material.friction = friction
+    shapeDef.material.restitution = restitution
 
     currentWidth = getScreenWidth().float32.toB2
     currentHeight = getScreenHeight().float32.toB2

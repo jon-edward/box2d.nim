@@ -9,11 +9,11 @@ const b2Rot_identity*: b2Rot = b2Rot(c: 1.0f, s: 0.0f)
 const b2Transform_identity*: b2Transform = b2Transform(p: b2Vec2_zero, q: b2Rot_identity)
 const b2Mat22_zero*: b2Mat22 = b2Mat22(cx: b2Vec2_zero, cy: b2Vec2_zero)
 
-const b2_nullWorldId*: b2WorldId = b2WorldId(index1: 0, revision: 0)
-const b2_nullBodyId*: b2BodyId = b2BodyId(index1: 0, world0: 0, revision: 0)
-const b2_nullShapeId*: b2ShapeId = b2ShapeId(index1: 0, world0: 0, revision: 0)
-const b2_nullJointId*: b2JointId = b2JointId(index1: 0, world0: 0, revision: 0)
-const b2_nullChainId*: b2ChainId = b2ChainId(index1: 0, world0: 0, revision: 0)
+const b2_nullWorldId*: b2WorldId = b2WorldId(index1: 0, generation: 0)
+const b2_nullBodyId*: b2BodyId = b2BodyId(index1: 0, world0: 0, generation: 0)
+const b2_nullShapeId*: b2ShapeId = b2ShapeId(index1: 0, world0: 0, generation: 0)
+const b2_nullJointId*: b2JointId = b2JointId(index1: 0, world0: 0, generation: 0)
+const b2_nullChainId*: b2ChainId = b2ChainId(index1: 0, world0: 0, generation: 0)
 """
 
 import os, macros
